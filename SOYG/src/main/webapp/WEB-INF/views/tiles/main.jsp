@@ -450,7 +450,7 @@
 						<h3>Enjoy a great students community</h3>
 						<p>Ius cu tamquam persequeris, eu veniam apeirian platonem
 							qui, id aliquip voluptatibus pri. Ei mea primis ornatus
-							disputationi. Menandri erroribus cu per, duo solet congue ut.</p>
+							disputationi. Menandri erroribus cu per, duo solet congue ut..</p>
 						<a href="#0" class="btn_1 rounded">Read more</a>
 					</div>
 				</div>
