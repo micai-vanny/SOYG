@@ -764,7 +764,7 @@ ul#top_menu li a.btn_1:hover {
 
 #hero_in {
   width: 100%;
-  height: 450px;
+  height: 600px;
   position: relative;
   overflow: hidden;
   text-align: center;
@@ -4335,7 +4335,7 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
 }
 #confirm p {
   font-size: 16px !important;
-  font-size: 16px !important/16pxrem;
+  font-size: 16px !important; /* 16pxrem */
   margin-bottom: 0;
 }
 
@@ -5031,7 +5031,7 @@ ul.list_3 li:before {
   }
   .fc-header-center .fc-header-title h2 {
     font-size: 16px !important;
-    font-size: 16px !important/16pxrem;
+    font-size: 16px !important; /* /16pxrem; */
   }
 }
 /*============================================================================================*/
