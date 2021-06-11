@@ -9,6 +9,15 @@ public class MemberVO {
 	private String gender;
 	private String phone;
 	private String birth;
+	private String name;
+	
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	public String getUserId() {
 		return userId;
 	}

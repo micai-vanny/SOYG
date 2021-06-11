@@ -6,7 +6,7 @@
 	</div>
 	<!-- /Preload -->
 	<div id="logo">
-		<a href="index.html"><img src="resources/udema_v_1.9/html_menu_1/img/logo.png" width="149"
+		<a href="home.do"><img src="resources/udema_v_1.9/html_menu_1/img/logo.png" width="149"
 			height="42" alt=""></a>
 	</div>
 	<ul id="top_menu">
@@ -26,6 +26,8 @@
 	<nav id="menu" class="main-menu">
 		<ul>
 			<li><span><a href="#0">처음으로</a></span>
+			<li><span><a href="admin.do">관리자페이지</a></span></li>
+			<li><span><a href="home.do">Home</a></span>
 				<ul>
 					<li><a href="index.html">Home version 1</a></li>
 					<li><a href="index-2.html">Home version 2</a></li>
@@ -52,7 +54,7 @@
 				<ul>
 					<li><a href="#0">Menu 2</a></li>
 					<li><a href="about.html">About</a></li>
-					<li><a href="blog.html">Blog</a></li>
+					<li><a href="studySelect.do">Blog</a></li>
 					<li><a href="login.html">Login</a></li>
 					<li><a href="register.html">Register</a></li>
 					<li><a href="contacts.html">Contacts</a></li>
@@ -70,7 +72,7 @@
 					<li><a href="pricing-tables.html">Responsive pricing
 							tables</a></li>
 					<li><a href="coming_soon/index.html">Coming soon</a></li>
-					<li><a href="icon-pack-1.html">Icon pack 1</a></li>
+					<li><a href="userControlPage.do">관리자 테스트</a></li>
 					<li><a href="icon-pack-2.html">Icon pack 2</a></li>
 					<li><a href="icon-pack-3.html">Icon pack 3</a></li>
 					<li><a href="icon-pack-4.html">Icon pack 4</a></li>
