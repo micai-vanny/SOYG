@@ -6,7 +6,7 @@
 	</div>
 	<!-- /Preload -->
 	<div id="logo">
-		<a href="index.html"><img src="resources/udema_v_1.9/html_menu_1/img/logo.png" width="149"
+		<a href="home.do"><img src="resources/udema_v_1.9/html_menu_1/img/logo.png" width="149"
 			height="42" alt=""></a>
 	</div>
 	<ul id="top_menu">
@@ -26,7 +26,7 @@
 	<nav id="menu" class="main-menu">
 		<ul>
 			<li><span><a href="admin.do">관리자페이지</a></span></li>
-			<li><span><a href="#0">Home</a></span>
+			<li><span><a href="home.do">Home</a></span>
 				<ul>
 					<li><a href="index.html">Home version 1</a></li>
 					<li><a href="index-2.html">Home version 2</a></li>

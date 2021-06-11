@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
+<style>
+.wrap{
 
-<body>
-<div align="center">
+margin-top: 200px;
+}
+</style>
+<div class="wrap" align="center">
 <table style="width: 50%; height: 280px; text-align: center;">
 	<tr style="background-color: #ccbbcc; " >
 		<td>모임관리</td>
@@ -21,5 +23,3 @@
 	</tr>
 </table>
 </div>
-</body>
-</html>

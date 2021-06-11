@@ -1,4 +1,4 @@
-package co.mini.soyg.clas.serviceImpl;
+package co.mini.soyg.admin.serviceImpl;
 
 import java.util.List;
 
@@ -6,23 +6,22 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import co.mini.soyg.clas.service.ClassService;
-import co.mini.soyg.clas.vo.ClassVO;
+import co.mini.soyg.admin.service.ClassService;
+import co.mini.soyg.admin.vo.ClassVO;
 
-@Repository("classDao")
+@Repository
 public class ClassServiceImpl implements ClassService {
 	@Autowired
 	private SqlSession sqlSession;
 	
 	@Override
 	public List<ClassVO> classSelectList() {
-		return sqlSession.selectList("classListSelect");
+		return sqlSession.selectList("adminClassListSelect");
 	}
 
 	@Override
 	public ClassVO classSelect(ClassVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return sqlSession.selectOne("adminClassSelect", vo);
 	}
 
 	@Override

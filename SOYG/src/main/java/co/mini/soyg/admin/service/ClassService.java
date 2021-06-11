@@ -1,8 +1,8 @@
-package co.mini.soyg.clas.service;
+package co.mini.soyg.admin.service;
 
 import java.util.List;
 
-import co.mini.soyg.clas.vo.ClassVO;
+import co.mini.soyg.admin.vo.ClassVO;
 
 public interface ClassService {
 
