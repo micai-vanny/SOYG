@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import co.mini.soyg.study.service.StudyService;
 import co.mini.soyg.study.vo.StudyVO;
 
-@Repository()
+@Repository
 public class StudyServiceImpl implements StudyService {
 	@Autowired
 	private SqlSession sqlSession;
