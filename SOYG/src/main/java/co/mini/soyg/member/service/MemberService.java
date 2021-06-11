@@ -7,9 +7,10 @@ import co.mini.soyg.member.vo.MemberVO;
 public interface MemberService {
 
 	List<MemberVO>  selectMemberList();
-	MemberVO selectMember(String id);
+	MemberVO selectMember( MemberVO vo);
 	public int insertMember(MemberVO vo);
 	public int updateMember(MemberVO vo);
 	public int deleteMember(MemberVO vo);
+	public boolean idCheck(MemberVO vo);
 	
 }
