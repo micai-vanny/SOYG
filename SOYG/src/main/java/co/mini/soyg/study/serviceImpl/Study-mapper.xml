@@ -2,7 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.mini.soyg.study.serviceImpl.Study-mapper">
 
-	<!-- 중복확인 -->
 	<select id="studySelectList" resultType="co.mini.soyg.study.vo.StudyVO">
 		SELECT * FROM class
 	</select>
