@@ -1,3 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="co.mini.soyg.main.service.main-mapper"></mapper>
+<mapper namespace="co.mini.soyg.main.service.main-mapper">
+
+<!-- 지역별 스터디 아이콘 누를 시 처리 -->
+<select id="regionList" parameterType="co.mini.soyg.main.vo.MainVO" resultType="co.mini.soyg.main.vo.MainVO">
+	select * from class where loc_code = #{loc_code}
+</select>
+
+</mapper>

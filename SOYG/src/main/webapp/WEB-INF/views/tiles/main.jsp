@@ -259,7 +259,7 @@
 		</div>
 		<div class="row">
 			<div class="col-lg-4 col-md-6 wow" data-wow-offset="150">
-				<a href="regionsg.do" class="grid_item">
+				<a href="regionList.do?loc_code=${'02' }" class="grid_item">
 					<figure class="block-reveal">
 						<div class="block-horizzontal"></div>
 						<img src="https://imagescdn.gettyimagesbank.com/500/201812/jv11321427.jpg"
@@ -273,7 +273,7 @@
 			</div>
 			<!-- /grid_item -->
 			<div class="col-lg-4 col-md-6 wow" data-wow-offset="150">
-				<a href="regiongw.do" class="grid_item">
+				<a href="regionList.do?loc_code=${'033' }" class="grid_item">
 					<figure class="block-reveal">
 						<div class="block-horizzontal"></div>
 						<img src="https://imagescdn.gettyimagesbank.com/500/201812/jv11323418.jpg"
@@ -287,7 +287,7 @@
 			</div>
 			<!-- /grid_item -->
 			<div class="col-lg-4 col-md-6 wow" data-wow-offset="150">
-				<a href="regiondj.do" class="grid_item">
+				<a href="regionList.do?loc_code=${'042' }" class="grid_item">
 					<figure class="block-reveal">
 						<div class="block-horizzontal"></div>
 						<img src="https://imagescdn.gettyimagesbank.com/500/201812/jv11314777.jpg"
@@ -301,7 +301,7 @@
 			</div>
 			<!-- /grid_item -->
 			<div class="col-lg-4 col-md-6 wow" data-wow-offset="150">
-				<a href="regioncn.do" class="grid_item">
+				<a href="regionList.do?loc_code=${'041' }" class="grid_item">
 					<figure class="block-reveal">
 						<div class="block-horizzontal"></div>
 						<img src="http://via.placeholder.com/800x533/ccc/fff/course_4.jpg"
@@ -315,7 +315,7 @@
 			</div>
 			<!-- /grid_item -->
 			<div class="col-lg-4 col-md-6 wow" data-wow-offset="150">
-				<a href="regiondg.do" class="grid_item">
+				<a href="regionList.do?loc_code=${'053' }" class="grid_item">
 					<figure class="block-reveal">
 						<div class="block-horizzontal"></div>
 						<img src="http://via.placeholder.com/800x533/ccc/fff/course_5.jpg"
@@ -329,7 +329,7 @@
 			</div>
 			<!-- /grid_item -->
 			<div class="col-lg-4 col-md-6 wow" data-wow-offset="150">
-				<a href="regionbs.do" class="grid_item">
+				<a href="regionList.do?loc_code=${'051' }" class="grid_item">
 					<figure class="block-reveal">
 						<div class="block-horizzontal"></div>
 						<img src="http://via.placeholder.com/800x533/ccc/fff/course_6.jpg"
@@ -342,7 +342,7 @@
 				</a>
 			</div>
 			<div class="col-lg-4 col-md-6 wow" data-wow-offset="150">
-				<a href="regionjb.do" class="grid_item">
+				<a href="regionList.do?loc_code=${'063' }" class="grid_item">
 					<figure class="block-reveal">
 						<div class="block-horizzontal"></div>
 						<img src="http://via.placeholder.com/800x533/ccc/fff/course_6.jpg"
@@ -355,7 +355,7 @@
 				</a>
 			</div>
 			<div class="col-lg-4 col-md-6 wow" data-wow-offset="150">
-				<a href="regiongj.do" class="grid_item">
+				<a href="regionList.do?loc_code=${'062' }" class="grid_item">
 					<figure class="block-reveal">
 						<div class="block-horizzontal"></div>
 						<img src="http://via.placeholder.com/800x533/ccc/fff/course_6.jpg"
@@ -368,7 +368,7 @@
 				</a>
 			</div>
 			<div class="col-lg-4 col-md-6 wow" data-wow-offset="150">
-				<a href="regionjj.do" class="grid_item">
+				<a href="regionList.do?loc_code=${'064' }" class="grid_item">
 					<figure class="block-reveal">
 						<div class="block-horizzontal"></div>
 						<img src="http://via.placeholder.com/800x533/ccc/fff/course_6.jpg"
