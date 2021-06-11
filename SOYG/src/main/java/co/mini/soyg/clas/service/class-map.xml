@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.mini.soyg.clas.service.class-map">
+	<select id="classListSelect"
+		resultType="co.mini.soyg.clas.vo.ClassVO">
+		select * from class
+	</select>
+	<select id="classSelect"
+		parameterType="co.mini.soyg.clas.vo.ClassVO"
+		resultType="co.mini.soyg.clas.vo.ClassVO">
+		select * from class where \ = #{\}
+	</select>
+	<insert id="classInsert"
+		parameterType="co.mini.soyg.clas.vo.ClassVO">
+		insert into class
+		values(#{\},#{\},#{\},#{\})
+	</insert>
+</mapper>
