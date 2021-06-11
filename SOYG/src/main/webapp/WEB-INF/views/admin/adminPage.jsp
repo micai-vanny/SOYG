@@ -2,10 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>관리자페이지</title>
-</head>
+
 <body>
 <div align="center">
 <table style="width: 50%; height: 280px; text-align: center;">

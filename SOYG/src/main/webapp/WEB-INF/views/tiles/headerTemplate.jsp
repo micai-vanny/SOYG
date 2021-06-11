@@ -25,6 +25,7 @@
 	</a>
 	<nav id="menu" class="main-menu">
 		<ul>
+			<li><span><a href="admin.do">관리자페이지</a></span></li>
 			<li><span><a href="#0">Home</a></span>
 				<ul>
 					<li><a href="index.html">Home version 1</a></li>
