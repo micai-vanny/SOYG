@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.mini.soyg.admin.service.admin-map">
+
+
+	<select id="adminClassListSelect"
+		resultType="co.mini.soyg.admin.vo.ClassVO">
+		select * from class order by 1
+	</select>
+
+	<select id="adminClassSelect"
+		parameterType="co.mini.soyg.admin.vo.ClassVO"
+		resultType="co.mini.soyg.admin.vo.ClassVO">
+		select * from class where class_code = #{class_code}
+	</select>
+
+	<insert id="adminClassInsert"
+		parameterType="co.mini.soyg.admin.vo.ClassVO">
+		insert into class
+		values(#{class_code},#{localCode},#{className},#{startDate},#{classImage},#{classInfo},#{classActive},#{classStartchk},,#{classPersonnel},,#{fieldCode})
+	</insert>
+	
+	<delete id="adminClassDelete"
+		parameterType="co.mini.soyg.admin.vo.ClassVO">
+		delete class where class_code= #{class_code};
+	</delete>
+
+</mapper>
