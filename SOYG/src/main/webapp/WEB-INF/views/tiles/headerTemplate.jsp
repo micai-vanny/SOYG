@@ -48,7 +48,7 @@
 					<li><a href="admission.html">Admission wizard</a></li>
 					<li><a href="teacher-detail.html">Teacher detail</a></li>
 				</ul></li>
-			<li><span><a href="#0">카테고리</a></span>
+			<li><span><a href="#0">Pages</a></span>
 				<ul>
 					<li><a href="#0">Menu 2</a></li>
 					<li><a href="about.html">About</a></li>

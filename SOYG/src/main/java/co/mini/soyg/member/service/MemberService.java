@@ -1,8 +1,8 @@
-package co.mini.member.service;
+package co.mini.soyg.member.service;
 
 import java.util.List;
 
-import co.mini.member.vo.MemberVO;
+import co.mini.soyg.member.vo.MemberVO;
 
 public interface MemberService {
 

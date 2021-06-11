@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.mini.member.serviceImpl.MemberMapper">
 
-<insert id="insertMember" parameterType="co.mini.member.vo.MemberVO">
+<insert id="insertMember" parameterType="co.mini.soyg.member.vo.MemberVO">
 	INSERT INTO member VALUES(#{userId},#{password},#{address},#{email},#{gender},#{phone},#{birth})
 </insert>
 

@@ -1,4 +1,4 @@
-package co.mini.member.vo;
+package co.mini.soyg.member.vo;
 
 public class MemberVO {
 	
