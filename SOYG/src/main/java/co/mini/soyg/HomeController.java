@@ -9,7 +9,7 @@ public class HomeController {
 	
 	@RequestMapping("/home.do")
 	public String home(Model model) {
-		return "tiles/main";
+		return "class/classSelect";
 	}
 	
 }
