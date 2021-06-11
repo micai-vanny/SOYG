@@ -1,38 +1,66 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<style>
-.container2 {
-	display: flex;
-	height: 100%;
-    width: 1200px;
-    padding-top: 5em;
-    margin: 0 auto;
-}
-.container2_inner {
-	justify-content: center;
-}
-.image-set {
-	width: 100%;
-	height: 100%;
-}
-</style>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> %>
 
+<link rel="stylesheet" href="resources/css/classSelectCss.css" />
+
+<script>
+	$(function() {
+		// 	이미지 클릭시 해당 이미지 모달
+		$(".imgC").click(function() {
+			$(".modal").show();
+			// 해당 이미지 가겨오기
+			var imgSrc = $(this).children("img").attr("src");
+			var imgAlt = $(this).children("img").attr("alt");
+			$(".modalBox img").attr("src", imgSrc);
+			$(".modalBox img").attr("alt", imgAlt);
+
+			// 해당 이미지 텍스트 가져오기
+			var imgTit = $(this).children("p").text();
+			$(".modalBox p").text(imgTit);
+
+			// 해당 이미지에 alt값을 가져와 제목으로
+			//$(".modalBox p").text(imgAlt);
+		});
+
+		//.modal안에 button을 클릭하면 .modal닫기
+		$(".modal button").click(function() {
+			$(".modal").hide();
+		});
+
+		//.modal밖에 클릭시 닫힘
+		$(".modal").click(function(e) {
+			if (e.target.className != "modal") {
+				return false;
+			} else {
+				$(".modal").hide();
+			}
+		});
+	});
+</script>
 
 <main>
 	<section id="hero_in" class="courses">
 		<div class="wrapper">
 			<div class="container2">
-				<div style="width: 48.8%; height: 100%;">
-					<img class="image-set" src="https://cdn.class101.net/images/a29bfb36-5e03-4de9-b5ec-0bb32a974863" >
+				<div style="width: 48.8%; height: 100%;" class="imgC">
+					<img class="image-set"
+						src="https://cdn.class101.net/images/a29bfb36-5e03-4de9-b5ec-0bb32a974863">
 				</div>
-				<div style="width: 48.8%; height: 50%; margin-left: 10px;">
-					<img class="image-set" src="https://cdn.class101.net/images/a29bfb36-5e03-4de9-b5ec-0bb32a974863" >
-				</div>
-				<div style="width: 24.4%; height: 50%; margin-left: 10px;">
-					<img class="image-set" src="https://cdn.class101.net/images/a29bfb36-5e03-4de9-b5ec-0bb32a974863" >
-				</div>
-				<div style="width: 24.4%; height: 50%; margin-left: 10px;">
-					<img class="image-set" src="https://cdn.class101.net/images/a29bfb36-5e03-4de9-b5ec-0bb32a974863" >
+				<div style="width: 48.8%; height: 50%;" class="imgC">
+					<div style="height: 100%; margin: 0 0 10px 10px;">
+						<img class="image-set"
+							src="https://cdn.class101.net/images/a29bfb36-5e03-4de9-b5ec-0bb32a974863">
+					</div>
+					<div class="container2_inner imgC">
+						<img class="image-set"
+							src="https://cdn.class101.net/images/a29bfb36-5e03-4de9-b5ec-0bb32a974863">
+					</div>
+					<div class="container2_inner imgC">
+						<img class="image-set"
+							src="https://cdn.class101.net/images/a29bfb36-5e03-4de9-b5ec-0bb32a974863">
+					</div>
 				</div>
 			</div>
 		</div>
@@ -413,27 +441,45 @@
 
 				<aside class="col-lg-4" id="sidebar">
 					<div class="box_detail">
-						<figure>
-							<a href="https://www.youtube.com/watch?v=LDgd_gUcqCw"
-								class="video"><i class="arrow_triangle-right"></i><img
-								src="http://via.placeholder.com/800x533/ccc/fff/course_1.jpg"
-								alt="" class="img-fluid"><span>View course preview</span></a>
-						</figure>
-						<div class="price">
-							$29<span class="original_price"><em>$49</em>60% discount
-								price</span>
+						<div class="iYUinv">중분류 내용~</div>
+						<div class="jhzFzM">
+							<c:forEach items="${study }" var="study">
+							</c:forEach>
 						</div>
-						<a href="#0" class="btn_1 full-width">Purchase</a> <a href="#0"
-							class="btn_1 full-width outline"><i class="icon_heart"></i>
-							Add to wishlist</a>
+						<div class="cJDaSl">
+							<div class="ePrSEx">바로수강가능</div>
+						</div>
+						<div class="price">
+							<fmt:formatNumber type="currency" value="30000" />
+							<br /> <span class="original_price"> <em> <fmt:formatNumber
+										type="currency" value="75000" />
+							</em> 60% 할인가격
+							</span>
+						</div>
+						<a href="#0" class="btn_1 full-width">구매하기</a> <a href="#0"
+							class="btn_1 full-width outline"> <i class="icon_heart"></i>
+							위시리스트에 넣기
+						</a>
 						<div id="list_feat">
 							<h3>What's includes</h3>
 							<ul>
-								<li><i class="icon_mobile"></i>Mobile support</li>
-								<li><i class="icon_archive_alt"></i>Lesson archive</li>
-								<li><i class="icon_mobile"></i>Mobile support</li>
-								<li><i class="icon_chat_alt"></i>Tutor chat</li>
-								<li><i class="icon_document_alt"></i>Course certificate</li>
+								<li><svg xmlns="http://www.w3.org/2000/svg" width="18"
+										height="18" fill="#1a1a1a" viewBox="0 0 24 24">
+										<path d="M15.5 12L10 9v6l5.5-3z"></path>
+										<path fill-rule="evenodd"
+											d="M3 3a2 2 0 00-2 2v14a2 2 0 002 2h18a2 2 0 002-2V5a2 2 0 00-2-2H3zm0 16h18V5H3v14z"></path></svg>
+									콘텐츠이용권</li>
+								<li><svg xmlns="http://www.w3.org/2000/svg" width="18"
+										height="18" fill="none" viewBox="0 0 24 24">
+										<path fill-rule="evenodd"
+											d="M21 6h-3.337c.216-.455.337-.963.337-1.5A3.5 3.5 0 0014.5 1 3.49 3.49 0 0012 2.051 3.49 3.49 0 009.5 1 3.5 3.5 0 006 4.5c0 .537.121 1.045.337 1.5H3a1 1 0 00-1 1v4a1 1 0 001 1v8a1 1 0 001 1h16a1 1 0 001-1v-8a1 1 0 001-1V7a1 1 0 00-1-1zM4 8v2h7V8H4zm9 0v2h7V8h-7zm-2 4H5v7h6v-7zm2 7v-7h6v7h-6zm2-13.085a1.5 1.5 0 01-.5.085H13V4.5c0-.175.03-.344.085-.5A1.5 1.5 0 1115 5.915zM11 4.5V6H9.5a1.5 1.5 0 111.415-2c.055.156.085.325.085.5z"
+											fill="#1a1a1a"></path></svg> 준비물키트</li>
+								<li><svg xmlns="http://www.w3.org/2000/svg" width="18"
+										height="18" fill="none" viewBox="0 0 24 24">
+										<path fill-rule="evenodd"
+											d="M8.443 12.832A5.99 5.99 0 016 8a6 6 0 1112 0 5.99 5.99 0 01-2.443 4.832A8 8 0 0120 20v1h-2v-1a6 6 0 10-12 0v1H4v-1a8 8 0 014.443-7.168zM16 8a4 4 0 11-8 0 4 4 0 118 0z"
+											fill="#1a1a1a"></path></svg>초보자들도 쉽게</li>
+								<li><i class="icon_chat_alt"></i>커뮤니티 활성화</li>
 							</ul>
 						</div>
 					</div>
@@ -444,5 +490,13 @@
 		<!-- /container -->
 	</div>
 	<!-- /bg_color_1 -->
+	<!-- 팝업 될 곳 -->
+	<div class="modal">
+		<button>&times;</button>
+		<div class="modalBox">
+			<img src="" alt="">
+			<p></p>
+		</div>
+	</div>
 </main>
 <!--/main-->

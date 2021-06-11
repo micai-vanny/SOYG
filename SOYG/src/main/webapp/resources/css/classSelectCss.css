@@ -1,0 +1,112 @@
+@charset "UTF-8";
+
+.container2 {
+	display: flex;
+	height: 100%;
+	width: 1200px;
+	padding-top: 5em;
+	margin: 0 auto;
+	flex-wrap: wrap;
+}
+
+.container2_inner {
+	width: 48%;
+	height: 96.1%;
+	margin-left: 5px;
+	display: inline-block;
+}
+
+.image-set {
+	width: 100%;
+	height: 100%;
+}
+
+.iYUinv {
+	font-size: 14px;
+	font-weight: 500;
+	color: rgb(26, 26, 26);
+	line-height: 20px;
+	letter-spacing: -0.15px;
+	margin: 0px;
+}
+
+.jhzFzM {
+	font-size: 20px;
+	font-weight: bold;
+	color: rgb(26, 26, 26);
+	line-height: 28px;
+	margin: 0px;
+}
+
+.cJDaSl {
+	min-width: 24px;
+	height: 24px;
+	border-radius: 3px;
+	padding-left: 6px;
+	padding-right: 6px;
+	background-color: rgb(180, 180, 180);
+	flex: 0 0 auto;
+	display: inline-flex;
+	-webkit-box-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	align-items: center;
+	box-sizing: border-box;
+}
+
+.ePrSEx {
+	font-size: 11px;
+	color: rgb(255, 255, 255);
+	line-height: 16px;
+	letter-spacing: normal;
+	margin: 0px;
+	font-weight: 600;
+	display: inline-flex;
+	-webkit-box-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	align-items: center;
+}
+
+.modal {
+	display: none;
+	z-index: 500;
+	width: 100%;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.3);
+}
+
+.modal button {
+	position: absolute;
+	top: 3rem;
+	right: 3rem;
+	background: transparent;
+	border: 0;
+	color: #ffffff;
+	font-size: 3rem;
+}
+
+.modalBox {
+	position: relative;
+	top: 20%;
+	left: 50%;
+	transform: translate(-50%, -20%);
+	background-color: #ffffff;
+	width: 40%;
+	height: 40%;
+	text-align: center;
+}
+
+.modalBox img {
+	width: 100%;
+}
+
+.modalBox p {
+	color: #ffffff;
+	background-color: #000;
+	font-size: 2rem;
+	padding: .2rem;
+}

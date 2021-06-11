@@ -38,21 +38,23 @@
 <!-- YOUR CUSTOM CSS -->
 <link href="resources/udema_v_1.9/html_menu_1/css/custom.css"
 	rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 </head>
 <body>
 	<div id="page">
 		<tiles:insertAttribute name="header" />
-		
+
 		<%-- <tiles:insertAttribute name="menu" /> --%>
-		
+
 		<tiles:insertAttribute name="body" />
-		
+
 		<tiles:insertAttribute name="foot" />
 	</div>
-	
+
 	<script src="resources/udema_v_1.9/html_menu_1/js/jquery-3.5.1.min.js"></script>
-    <script src="resources/udema_v_1.9/html_menu_1/js/common_scripts.js"></script>
-    <script src="resources/udema_v_1.9/html_menu_1/js/main.js"></script>
+	<script src="resources/udema_v_1.9/html_menu_1/js/common_scripts.js"></script>
+	<script src="resources/udema_v_1.9/html_menu_1/js/main.js"></script>
 	<script src="resources/udema_v_1.9/html_menu_1/assets/validate.js"></script>
 </body>
 </html>
