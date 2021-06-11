@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import co.mini.soyg.study.service.StudyService;
 import co.mini.soyg.study.vo.StudyVO;
-import co.mini.soyg.study.vo.TestVO;
 
 @Repository()
 public class StudyServiceImpl implements StudyService {
@@ -16,12 +15,11 @@ public class StudyServiceImpl implements StudyService {
 	private SqlSession sqlSession;
 
 	@Override
-	public List<TestVO> StudySelectList() {
-		List<TestVO> list = sqlSession.selectList("studySelectList");
+	public List<StudyVO> StudySelectList() {
+		List<StudyVO> list = sqlSession.selectList("studySelectList");
 
-		for (TestVO vo : list) {
-			System.out.println(vo.getName());
-			System.out.println(vo);
+		for (StudyVO vo : list) {
+			System.out.println(vo.getClassName());
 		}
 
 		return sqlSession.selectList("studySelectList");

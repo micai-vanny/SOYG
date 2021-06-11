@@ -3,11 +3,10 @@ package co.mini.soyg.study.service;
 import java.util.List;
 
 import co.mini.soyg.study.vo.StudyVO;
-import co.mini.soyg.study.vo.TestVO;
 
 public interface StudyService {
 		// 전체리스트
-		List<TestVO> StudySelectList();
+		List<StudyVO> StudySelectList();
 
 		// 클래스 하나
 		StudyVO studySelect(StudyVO vo);
