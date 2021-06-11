@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import co.mini.soyg.study.service.StudyService;
+import co.mini.soyg.study.serviceImpl.StudyServiceImpl;
 import co.mini.soyg.study.vo.StudyVO;
 
 @Controller
@@ -17,8 +18,13 @@ public class StudyController {
 
 	@RequestMapping("/studySelect.do")
 	public String study(Model model) {
+		StudyService service = new StudyServiceImpl();
+	
+		List<StudyVO> list = service.StudySelectList();
 		
-		model.addAttribute("study", dao.StudySelectList());
+		for (StudyVO vo : list) {
+			System.out.println(vo.getClassName());
+		}
 
 		return "class/classSelect";
 	}
