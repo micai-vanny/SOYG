@@ -70,7 +70,7 @@
 					<li><a href="pricing-tables.html">Responsive pricing
 							tables</a></li>
 					<li><a href="coming_soon/index.html">Coming soon</a></li>
-					<li><a href="icon-pack-1.html">Icon pack 1</a></li>
+					<li><a href="userControlPage.do">관리자 테스트</a></li>
 					<li><a href="icon-pack-2.html">Icon pack 2</a></li>
 					<li><a href="icon-pack-3.html">Icon pack 3</a></li>
 					<li><a href="icon-pack-4.html">Icon pack 4</a></li>

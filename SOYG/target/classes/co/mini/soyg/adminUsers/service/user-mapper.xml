@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="admin.member.service.member-mapping">
+<mapper namespace="co.mini.soyg.adminUsers.service.user-mapper">
 
-	<!-- 관리자 회원 관련 기능 -->
+	<!-- 
+		관리자 회원 관련 기능
+		
+		일반 멤버와 차별화를 두기 위해 User로 임의 설정.
+		쿼리는 DB명 그대로 member
+	-->
 
 	<!-- 회원 전체 조회 -->
-	<select id="memberList" resultType="admin.member.vo.MemberVO">
+	<select id="userList" resultType="co.mini.soyg.adminUsers.vo.UserVO">
 		select * from member
 	</select>
 
@@ -13,18 +18,18 @@
 	<!-- 회원 전체 조회3 : 탈되 회원만 조회 -->
 
 	<!-- 회원 하나 조회 -->
-	<select id="memberSelect" parameterType="admin.member.vo.MemberVO" resultType="admin.member.vo.MemberVO">
+	<select id="userSelect" parameterType="co.mini.soyg.adminUsers.vo.UserVO" resultType="co.mini.soyg.adminUsers.vo.UserVO">
 		select * from member where id = #{userID}
 	</select>
 
 	<!-- 회원 등록 -->
-	<insert id = "memberInsert" parameterType="admin.member.vo.MemberVO">
+	<insert id = "userInsert" parameterType="co.mini.soyg.adminUsers.vo.UserVO">
 		insert into member values 
 		(#{userID}, #{password}, #{address}, #{email}, #{gender}, #{phone}, #{birth} )
 	</insert>
 
 	<!-- 회원 수정 -->
-	<update id="memberUpdate" parameterType="admin.member.vo.MemberVO">
+	<update id="userUpdate" parameterType="co.mini.soyg.adminUsers.vo.UserVO">
 		update member 
 		set password = #{password}, address = #{address}, 
 						email = #{email}, gender = #{gender}, 
@@ -33,7 +38,7 @@
 	</update>
 
 	<!-- 회원 삭제 -->
-	<update id="memberDelete" parameterType="admin.member.vo.MemberVO">
+	<update id="userDelete" parameterType="co.mini.soyg.adminUsers.vo.UserVO">
 		update member 
 		set password = #{password}, 
 						address = #{address, jdbcType=VARCHAR}, 
@@ -41,4 +46,5 @@
 						phone = #{phone, jdbcType=VARCHAR}, birth = #{birth, jdbcType=VARCHAR} 
 		where userID = #{userID}  
 	</update>
+	
 </mapper>

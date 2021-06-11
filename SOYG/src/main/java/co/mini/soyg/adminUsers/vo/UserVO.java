@@ -1,7 +1,9 @@
-package admin.member.vo;
+package co.mini.soyg.adminUsers.vo;
 
-public class MemberVO {
+public class UserVO {
 
+	// DB Member
+	
 	private String userID;
 	private String password;
 	private String address;
@@ -58,7 +60,7 @@ public class MemberVO {
 	
 	@Override
 	public String toString() {
-		return "MemberVO [userID=" + userID + ", password=" + password + ", address=" + address + ", email=" + email
+		return "UserVO [userID=" + userID + ", password=" + password + ", address=" + address + ", email=" + email
 				+ ", gender=" + gender + ", phone=" + phone + ", birth=" + birth + "]";
 	}
 	
