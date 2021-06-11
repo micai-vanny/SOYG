@@ -25,7 +25,7 @@
 	</a>
 	<nav id="menu" class="main-menu">
 		<ul>
-			<li><span><a href="#0">Home</a></span>
+			<li><span><a href="#0">처음으로</a></span>
 				<ul>
 					<li><a href="index.html">Home version 1</a></li>
 					<li><a href="index-2.html">Home version 2</a></li>
@@ -75,7 +75,7 @@
 					<li><a href="icon-pack-3.html">Icon pack 3</a></li>
 					<li><a href="icon-pack-4.html">Icon pack 4</a></li>
 				</ul></li>
-			<li><span><a href="#0">Buy template</a></span></li>
+			<li><span><a href="memberJoin.do">회원가입</a></span></li>
 		</ul>
 	</nav>
 	<!-- Search Menu -->
