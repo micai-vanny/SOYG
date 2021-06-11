@@ -25,14 +25,14 @@
 		<div class="container">
 			<ul>
 				<li><i class="pe-7s-study"></i>
-					<h4>+200 courses</h4>
-					<span>Explore a variety of fresh topics</span></li>
+					<h4>Various of Study</h4>
+					<span>지역별/분야별로 찾는 다양함!</span></li>
 				<li><i class="pe-7s-cup"></i>
-					<h4>Expert teachers</h4>
-					<span>Find the right instructor for you</span></li>
+					<h4>Achieving Study's goals</h4>
+					<span>공통의 목표를 가진 사람들과 함께!</span></li>
 				<li><i class="pe-7s-target"></i>
-					<h4>Focus on target</h4>
-					<span>Increase your personal expertise</span></li>
+					<h4>The joy of being together</h4>
+					<span>함께 해나가는 즐거움!</span></li>
 			</ul>
 		</div>
 	</div>
@@ -41,8 +41,8 @@
 	<div class="container-fluid margin_120_0">
 		<div class="main_title_2">
 			<span><em></em></span>
-			<h2>Udema Popular Courses</h2>
-			<p>Cum doctus civibus efficiantur in imperdiet deterruisset.</p>
+			<h2>Groups by region currently</h2>
+			<p>내가 있는 곳에서 진행되는 스터디들을 만나보세요.</p>
 		</div>
 		<div id="reccomended" class="owl-carousel owl-theme">
 			<div class="item">
@@ -239,7 +239,7 @@
 		<div class="container">
 			<p class="btn_home_align">
 				<a href="courses-grid.html" class="btn_1 rounded">View all
-					courses</a>
+					Groups</a>
 			</p>
 		</div>
 		<!-- /container -->
@@ -250,8 +250,8 @@
 	<div class="container margin_30_95">
 		<div class="main_title_2">
 			<span><em></em></span>
-			<h2>Udema Categories Courses</h2>
-			<p>Cum doctus civibus efficiantur in imperdiet deterruisset.</p>
+			<h2>Groups by region</h2>
+			<p>다양한 지역별 스터디 그룹을 만나보세요.</p>
 		</div>
 		<div class="row">
 			<div class="col-lg-4 col-md-6 wow" data-wow-offset="150">
@@ -262,7 +262,7 @@
 							class="img-fluid" alt="">
 						<div class="info">
 							<small><i class="ti-layers"></i>15 Programmes</small>
-							<h3>Arts and Humanities</h3>
+							<h3>서울/경기</h3>
 						</div>
 					</figure>
 				</a>
@@ -276,7 +276,7 @@
 							class="img-fluid" alt="">
 						<div class="info">
 							<small><i class="ti-layers"></i>23 Programmes</small>
-							<h3>Engineering</h3>
+							<h3>강원</h3>
 						</div>
 					</figure>
 				</a>
@@ -290,7 +290,7 @@
 							class="img-fluid" alt="">
 						<div class="info">
 							<small><i class="ti-layers"></i>23 Programmes</small>
-							<h3>Architecture</h3>
+							<h3>대전/충북</h3>
 						</div>
 					</figure>
 				</a>
@@ -304,7 +304,7 @@
 							class="img-fluid" alt="">
 						<div class="info">
 							<small><i class="ti-layers"></i>23 Programmes</small>
-							<h3>Science and Biology</h3>
+							<h3>충남</h3>
 						</div>
 					</figure>
 				</a>
@@ -318,7 +318,7 @@
 							class="img-fluid" alt="">
 						<div class="info">
 							<small><i class="ti-layers"></i>23 Programmes</small>
-							<h3>Law and Criminology</h3>
+							<h3>대구/경북</h3>
 						</div>
 					</figure>
 				</a>
@@ -332,7 +332,46 @@
 							class="img-fluid" alt="">
 						<div class="info">
 							<small><i class="ti-layers"></i>23 Programmes</small>
-							<h3>Medical</h3>
+							<h3>부산/경남</h3>
+						</div>
+					</figure>
+				</a>
+			</div>
+			<div class="col-lg-4 col-md-6 wow" data-wow-offset="150">
+				<a href="#0" class="grid_item">
+					<figure class="block-reveal">
+						<div class="block-horizzontal"></div>
+						<img src="http://via.placeholder.com/800x533/ccc/fff/course_6.jpg"
+							class="img-fluid" alt="">
+						<div class="info">
+							<small><i class="ti-layers"></i>23 Programmes</small>
+							<h3>전북</h3>
+						</div>
+					</figure>
+				</a>
+			</div>
+			<div class="col-lg-4 col-md-6 wow" data-wow-offset="150">
+				<a href="#0" class="grid_item">
+					<figure class="block-reveal">
+						<div class="block-horizzontal"></div>
+						<img src="http://via.placeholder.com/800x533/ccc/fff/course_6.jpg"
+							class="img-fluid" alt="">
+						<div class="info">
+							<small><i class="ti-layers"></i>23 Programmes</small>
+							<h3>광주/전남</h3>
+						</div>
+					</figure>
+				</a>
+			</div>
+			<div class="col-lg-4 col-md-6 wow" data-wow-offset="150">
+				<a href="#0" class="grid_item">
+					<figure class="block-reveal">
+						<div class="block-horizzontal"></div>
+						<img src="http://via.placeholder.com/800x533/ccc/fff/course_6.jpg"
+							class="img-fluid" alt="">
+						<div class="info">
+							<small><i class="ti-layers"></i>23 Programmes</small>
+							<h3>제주</h3>
 						</div>
 					</figure>
 				</a>
@@ -347,8 +386,8 @@
 		<div class="container margin_120_95">
 			<div class="main_title_2">
 				<span><em></em></span>
-				<h2>News and Events</h2>
-				<p>Cum doctus civibus efficiantur in imperdiet deterruisset.</p>
+				<h2>Groups by various fields</h2>
+				<p>다양한 분야별 스터디 그룹을 만나보세요.</p>
 			</div>
 			<div class="row">
 				<div class="col-lg-6">
@@ -361,13 +400,8 @@
 								<strong>28</strong>Dec
 							</figcaption>
 						</figure>
-						<ul>
-							<li>Mark Twain</li>
-							<li>20.11.2017</li>
-						</ul>
-						<h4>Pri oportere scribentur eu</h4>
-						<p>Cu eum alia elit, usu in eius appareat, deleniti sapientem
-							honestatis eos ex. In ius esse ullum vidisse....</p>
+						<h4>Language</h4>
+						<p>글로벌 시대! 영어, 일본어, 중국어, 스페인어 등<br>다양한 언어를 함께 공부해보세요.</p>
 					</a>
 				</div>
 				<!-- /box_news -->
@@ -381,13 +415,8 @@
 								<strong>28</strong>Dec
 							</figcaption>
 						</figure>
-						<ul>
-							<li>Jhon Doe</li>
-							<li>20.11.2017</li>
-						</ul>
-						<h4>Duo eius postea suscipit ad</h4>
-						<p>Cu eum alia elit, usu in eius appareat, deleniti sapientem
-							honestatis eos ex. In ius esse ullum vidisse....</p>
+						<h4>License</h4>
+						<p>도전하고 싶은 다양한 자격증,<br>취업에 꼭 필요한 자격증을 함께 공부해보세요.</p>
 					</a>
 				</div>
 				<!-- /box_news -->
@@ -401,13 +430,8 @@
 								<strong>28</strong>Dec
 							</figcaption>
 						</figure>
-						<ul>
-							<li>Luca Robinson</li>
-							<li>20.11.2017</li>
-						</ul>
-						<h4>Elitr mandamus cu has</h4>
-						<p>Cu eum alia elit, usu in eius appareat, deleniti sapientem
-							honestatis eos ex. In ius esse ullum vidisse....</p>
+						<h4>Employment preparation</h4>
+						<p>청년실업 40만 시대. 힘든 취업의 문 함께 열어보세요.</p>
 					</a>
 				</div>
 				<!-- /box_news -->
@@ -421,42 +445,35 @@
 								<strong>28</strong>Dec
 							</figcaption>
 						</figure>
-						<ul>
-							<li>Paula Rodrigez</li>
-							<li>20.11.2017</li>
-						</ul>
-						<h4>Id est adhuc ignota delenit</h4>
-						<p>Cu eum alia elit, usu in eius appareat, deleniti sapientem
-							honestatis eos ex. In ius esse ullum vidisse....</p>
+						<h4>Hobby</h4>
+						<p>새롭게 배워보고 싶은 취미가 있나요?<br>일상의 소소한 도전을 함께 해보세요.</p>
+					</a>
+				</div>
+				<!-- /box_news -->
+				<div class="col-lg-6">
+					<a class="box_news" href="#0">
+						<figure>
+							<img
+								src="http://via.placeholder.com/500x333/ccc/fff/news_home_4.jpg"
+								alt="">
+							<figcaption>
+								<strong>28</strong>Dec
+							</figcaption>
+						</figure>
+						<h4>E.T.C</h4>
+						<p>색다른 지식을 나누고 발전하고 싶은 사람들이 모여있어요.<br>
+							함께 도전해보세요!</p>
 					</a>
 				</div>
 				<!-- /box_news -->
 			</div>
 			<!-- /row -->
 			<p class="btn_home_align">
-				<a href="blog.html" class="btn_1 rounded">View all news</a>
+				<a href="blog.html" class="btn_1 rounded">View all Groups</a>
 			</p>
 		</div>
 		<!-- /container -->
 	</div>
 	<!-- /bg_color_1 -->
-
-	<div class="call_section">
-		<div class="container clearfix">
-			<div class="col-lg-5 col-md-6 float-right wow" data-wow-offset="250">
-				<div class="block-reveal">
-					<div class="block-vertical"></div>
-					<div class="box_1">
-						<h3>Enjoy a great students community</h3>
-						<p>Ius cu tamquam persequeris, eu veniam apeirian platonem
-							qui, id aliquip voluptatibus pri. Ei mea primis ornatus
-							disputationi. Menandri erroribus cu per, duo solet congue ut..</p>
-						<a href="#0" class="btn_1 rounded">Read more</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!--/call_section-->
 </main>
 <!-- /main -->
