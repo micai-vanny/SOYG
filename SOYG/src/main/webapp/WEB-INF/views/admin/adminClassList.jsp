@@ -43,7 +43,7 @@ function select(class_code){
                   <th>분야분류 코드</th>
                   <th>스터디명</th>
                   <th>활성/비활성 여부</th>
-                  <th>시작여부dd</th>
+                  <th>시작여부</th>
                 </tr>
               </thead>
               <tfoot>
