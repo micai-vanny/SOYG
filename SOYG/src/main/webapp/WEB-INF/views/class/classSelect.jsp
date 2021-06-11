@@ -1,399 +1,448 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<div class="theia-exception">
-	<main>
-		<section id="hero_in" class="courses">
-			<div class="wrapper">
-				<div class="container">
-					<h1 class="fadeInUp">
-						<span></span>Online course detail
-					</h1>
+<style>
+.container2 {
+	display: flex;
+	height: 100%;
+    width: 1200px;
+    padding-top: 5em;
+    margin: 0 auto;
+}
+.container2_inner {
+	justify-content: center;
+}
+.image-set {
+	width: 100%;
+	height: 100%;
+}
+</style>
+
+
+<main>
+	<section id="hero_in" class="courses">
+		<div class="wrapper">
+			<div class="container2">
+				<div style="width: 48.8%; height: 100%;">
+					<img class="image-set" src="https://cdn.class101.net/images/a29bfb36-5e03-4de9-b5ec-0bb32a974863" >
+				</div>
+				<div style="width: 48.8%; height: 50%; margin-left: 10px;">
+					<img class="image-set" src="https://cdn.class101.net/images/a29bfb36-5e03-4de9-b5ec-0bb32a974863" >
+				</div>
+				<div style="width: 24.4%; height: 50%; margin-left: 10px;">
+					<img class="image-set" src="https://cdn.class101.net/images/a29bfb36-5e03-4de9-b5ec-0bb32a974863" >
+				</div>
+				<div style="width: 24.4%; height: 50%; margin-left: 10px;">
+					<img class="image-set" src="https://cdn.class101.net/images/a29bfb36-5e03-4de9-b5ec-0bb32a974863" >
 				</div>
 			</div>
-		</section>
-		<!--/hero_in-->
+		</div>
+	</section>
+	<!--/hero_in-->
 
-		<div class="bg_color_1">
-			<nav class="secondary_nav sticky_horizontal">
-				<div class="container">
-					<ul class="clearfix">
-						<li><a href="#description" class="active">Description</a></li>
-						<li><a href="#lessons">Programme</a></li>
-						<li><a href="#teachers">Teachers</a></li>
-					</ul>
-				</div>
-			</nav>
-			<div class="container margin_60_35">
-				<div class="row">
-					<div class="col-lg-8">
-						<section id="description">
-							<div class="box_highlight">
-								<ul class="additional_info">
-									<li><i class="pe-7s-timer"></i>Course Duration<strong>3
-											Years</strong></li>
-									<li><i class="pe-7s-date"></i>Course Start<strong>10
-											Sept. 2017</strong></li>
-									<li><i class="pe-7s-wallet"></i>Course Fee<strong>2900
-											USD</strong></li>
+	<div class="bg_color_1">
+		<nav class="secondary_nav sticky_horizontal">
+			<div class="container">
+				<ul class="clearfix">
+					<li><a href="#description" class="active">Description</a></li>
+					<li><a href="#lessons">Lessons</a></li>
+					<li><a href="#reviews">Reviews</a></li>
+				</ul>
+			</div>
+		</nav>
+		<div class="container margin_60_35">
+			<div class="row">
+				<div class="col-lg-8">
+
+					<section id="description">
+						<h2>Description</h2>
+						<p>Per consequat adolescens ex, cu nibh commune temporibus
+							vim, ad sumo viris eloquentiam sed. Mea appareat omittantur
+							eloquentiam ad, nam ei quas oportere democritum. Prima causae
+							admodum id est, ei timeam inimicus sed. Sit an meis aliquam,
+							cetero inermis vel ut. An sit illum euismod facilisis, tamquam
+							vulputate pertinacia eum at.</p>
+						<h5>What will you learn</h5>
+						<ul class="list_ok">
+							<li>
+								<h6>Suas summo id sed erat erant oporteat</h6>
+								<p>Ut unum diceret eos, mel cu velit principes, ut quo inani
+									dolorem mediocritatem. Mea in justo posidonium necessitatibus.</p>
+							</li>
+							<li>
+								<h6>Illud singulis indoctum ad sed</h6>
+								<p>Ut unum diceret eos, mel cu velit principes, ut quo inani
+									dolorem mediocritatem. Mea in justo posidonium necessitatibus.</p>
+							</li>
+							<li>
+								<h6>Alterum bonorum mentitum an mel</h6>
+								<p>Ut unum diceret eos, mel cu velit principes, ut quo inani
+									dolorem mediocritatem. Mea in justo posidonium necessitatibus.</p>
+							</li>
+						</ul>
+						<hr>
+						<p>Mea appareat omittantur eloquentiam ad, nam ei quas
+							oportere democritum. Prima causae admodum id est, ei timeam
+							inimicus sed. Sit an meis aliquam, cetero inermis vel ut. An sit
+							illum euismod facilisis, tamquam vulputate pertinacia eum at.</p>
+						<div class="row">
+							<div class="col-lg-6">
+								<ul class="bullets">
+									<li>Dolorem mediocritatem</li>
+									<li>Mea appareat</li>
+									<li>Prima causae</li>
+									<li>Singulis indoctum</li>
 								</ul>
 							</div>
-							<!-- /box_highlight -->
-							<h2>Description</h2>
-							<p>
-								Per consequat adolescens ex, cu nibh commune temporibus vim, ad
-								sumo viris <strong>eloquentiam sed</strong>. Mea appareat
-								omittantur eloquentiam ad, nam ei quas oportere democritum.
-								Prima causae admodum id est, ei timeam inimicus sed. Sit an meis
-								aliquam, cetero inermis vel ut. An sit illum euismod facilisis,
-								tamquam <strong>vulputate</strong> pertinacia eum at.
-							</p>
-							<p>Mea appareat omittantur eloquentiam ad, nam ei quas
-								oportere democritum. Prima causae admodum id est, ei timeam
-								inimicus sed. Sit an meis aliquam, cetero inermis vel ut. An sit
-								illum euismod facilisis, tamquam vulputate pertinacia eum at.</p>
-							<div class="row">
-								<div class="col-lg-6">
-									<ul class="bullets">
-										<li>Dolorem mediocritatem</li>
-										<li>Mea appareat</li>
-										<li>Prima causae</li>
-										<li>Singulis indoctum</li>
-									</ul>
-								</div>
-								<div class="col-lg-6">
-									<ul class="bullets">
-										<li>Timeam inimicus</li>
-										<li>Oportere democritum</li>
-										<li>Cetero inermis</li>
-										<li>Pertinacia eum</li>
-									</ul>
-								</div>
+							<div class="col-lg-6">
+								<ul class="bullets">
+									<li>Timeam inimicus</li>
+									<li>Oportere democritum</li>
+									<li>Cetero inermis</li>
+									<li>Pertinacia eum</li>
+								</ul>
 							</div>
-							<!-- /row -->
-						</section>
-						<!-- /section -->
-
-						<section id="lessons">
-							<div class="intro_title">
-								<h2>Programme</h2>
-							</div>
-							<div id="accordion_lessons" role="tablist" class="add_bottom_45">
-								<div class="card">
-									<div class="card-header" role="tab" id="headingOne">
-										<h5 class="mb-0">
-											<a data-toggle="collapse" href="#collapseOne"
-												aria-expanded="true" aria-controls="collapseOne"><i
-												class="indicator ti-minus"></i> Year 1</a>
-										</h5>
-									</div>
-
-									<div id="collapseOne" class="collapse show" role="tabpanel"
-										aria-labelledby="headingOne">
-										<div class="card-body">
-											<p>
-												Lorem ipsum dolor sit amet, pro ea <strong>mediocrem
-													sapientem</strong>. Et his copiosae vivendum, corpora contentiones
-												vel ei. Ne etiam graecis vis. Nec omnis alienum no, in quas
-												corpora inimicus his, nec pertinacia disputando voluptatibus
-												ei. In eam suas perpetua accusamus. Ad sit virtute
-												rationibus efficiantur, sed hinc explicari ea.
-											</p>
-											<h6>Semester 1</h6>
-											<div class="list_lessons_2">
-												<ul>
-													<li>Health Science<span><a href="#0"><i
-																class="icon_download"></i> PDF</a></span></li>
-													<li>Health and Social Care<span><a href="#0"><i
-																class="icon_download"></i> PDF</a></span></li>
-													<li>History<span><a href="#0"><i
-																class="icon_download"></i> PDF</a></span></li>
-													<li>Healthcare Science<span><a href="#0"><i
-																class="icon_download"></i> PDF</a></span></li>
-													<li>Audiology<span><a href="#0"><i
-																class="icon_download"></i> PDF</a></span></li>
-												</ul>
-											</div>
-											<h6>Semester 2</h6>
-											<div class="list_lessons_2">
-												<ul>
-													<li>Health Science<span><a href="#0"><i
-																class="icon_download"></i> PDF</a></span></li>
-													<li>Health and Social Care<span><a href="#0"><i
-																class="icon_download"></i> PDF</a></span></li>
-													<li>History<span><a href="#0"><i
-																class="icon_download"></i> PDF</a></span></li>
-													<li>Healthcare Science<span><a href="#0"><i
-																class="icon_download"></i> PDF</a></span></li>
-													<li>Audiology<span><a href="#0"><i
-																class="icon_download"></i> PDF</a></span></li>
-												</ul>
-											</div>
-										</div>
-									</div>
-								</div>
-								<!-- /card -->
-								<div class="card">
-									<div class="card-header" role="tab" id="headingTwo">
-										<h5 class="mb-0">
-											<a class="collapsed" data-toggle="collapse"
-												href="#collapseTwo" aria-expanded="false"
-												aria-controls="collapseTwo"> <i
-												class="indicator ti-plus"></i>Year 2
-											</a>
-										</h5>
-									</div>
-									<div id="collapseTwo" class="collapse" role="tabpanel"
-										aria-labelledby="headingTwo">
-										<div class="card-body">
-											<p>
-												Lorem ipsum dolor sit amet, pro ea <strong>mediocrem
-													sapientem</strong>. Et his copiosae vivendum, corpora contentiones
-												vel ei. Ne etiam graecis vis. Nec omnis alienum no, in quas
-												corpora inimicus his, nec pertinacia disputando voluptatibus
-												ei. In eam suas perpetua accusamus. Ad sit virtute
-												rationibus efficiantur, sed hinc explicari ea.
-											</p>
-											<h6>Semester 1</h6>
-											<div class="list_lessons_2">
-												<ul>
-													<li>Health Science<span><a href="#0"><i
-																class="icon_download"></i> PDF</a></span></li>
-													<li>Health and Social Care<span><a href="#0"><i
-																class="icon_download"></i> PDF</a></span></li>
-													<li>History<span><a href="#0"><i
-																class="icon_download"></i> PDF</a></span></li>
-													<li>Healthcare Science<span><a href="#0"><i
-																class="icon_download"></i> PDF</a></span></li>
-													<li>Audiology<span><a href="#0"><i
-																class="icon_download"></i> PDF</a></span></li>
-												</ul>
-											</div>
-											<h6>Semester 2</h6>
-											<div class="list_lessons_2">
-												<ul>
-													<li>Health Science<span><a href="#0"><i
-																class="icon_download"></i> PDF</a></span></li>
-													<li>Health and Social Care<span><a href="#0"><i
-																class="icon_download"></i> PDF</a></span></li>
-													<li>History<span><a href="#0"><i
-																class="icon_download"></i> PDF</a></span></li>
-													<li>Healthcare Science<span><a href="#0"><i
-																class="icon_download"></i> PDF</a></span></li>
-													<li>Audiology<span><a href="#0"><i
-																class="icon_download"></i> PDF</a></span></li>
-												</ul>
-											</div>
-										</div>
-									</div>
-								</div>
-								<!-- /card -->
-								<div class="card">
-									<div class="card-header" role="tab" id="headingThree">
-										<h5 class="mb-0">
-											<a class="collapsed" data-toggle="collapse"
-												href="#collapseThree" aria-expanded="false"
-												aria-controls="collapseThree"> <i
-												class="indicator ti-plus"></i>Year 3
-											</a>
-										</h5>
-									</div>
-									<div id="collapseThree" class="collapse" role="tabpanel"
-										aria-labelledby="headingThree">
-										<div class="card-body">
-											<p>
-												Lorem ipsum dolor sit amet, pro ea <strong>mediocrem
-													sapientem</strong>. Et his copiosae vivendum, corpora contentiones
-												vel ei. Ne etiam graecis vis. Nec omnis alienum no, in quas
-												corpora inimicus his, nec pertinacia disputando voluptatibus
-												ei. In eam suas perpetua accusamus. Ad sit virtute
-												rationibus efficiantur, sed hinc explicari ea.
-											</p>
-											<h6>Semester 1</h6>
-											<div class="list_lessons_2">
-												<ul>
-													<li>Health Science<span><a href="#0"><i
-																class="icon_download"></i> PDF</a></span></li>
-													<li>Health and Social Care<span><a href="#0"><i
-																class="icon_download"></i> PDF</a></span></li>
-													<li>History<span><a href="#0"><i
-																class="icon_download"></i> PDF</a></span></li>
-													<li>Healthcare Science<span><a href="#0"><i
-																class="icon_download"></i> PDF</a></span></li>
-													<li>Audiology<span><a href="#0"><i
-																class="icon_download"></i> PDF</a></span></li>
-												</ul>
-											</div>
-											<h6>Semester 2</h6>
-											<div class="list_lessons_2">
-												<ul>
-													<li>Health Science<span><a href="#0"><i
-																class="icon_download"></i> PDF</a></span></li>
-													<li>Health and Social Care<span><a href="#0"><i
-																class="icon_download"></i> PDF</a></span></li>
-													<li>History<span><a href="#0"><i
-																class="icon_download"></i> PDF</a></span></li>
-													<li>Healthcare Science<span><a href="#0"><i
-																class="icon_download"></i> PDF</a></span></li>
-													<li>Audiology<span><a href="#0"><i
-																class="icon_download"></i> PDF</a></span></li>
-												</ul>
-											</div>
-										</div>
-									</div>
-								</div>
-								<!-- /card -->
-							</div>
-							<!-- /accordion -->
-						</section>
-						<!-- /section -->
-						<section id="teachers">
-							<div class="intro_title">
-								<h2>Teachers</h2>
-							</div>
-							<p>Zril causae ancillae sit ea. Dicam veritus mediocritatem
-								sea ex, nec id agam eius. Te pri facete latine salutandi,
-								scripta mediocrem et sed, cum ne mundi vulputate. Ne his sint
-								graeco detraxit, posse exerci volutpat has in.</p>
-							<div class="row add_top_20 add_bottom_30">
-								<div class="col-lg-6">
-									<ul class="list_teachers">
-										<li><a href="teacher-detail.html">
-												<figure>
-													<img
-														src="http://via.placeholder.com/150x150/ccc/fff/teacher_1_thumb.jpg"
-														alt="">
-												</figure>
-												<h5>Tomas Hegel</h5>
-												<p>Mathematics</p> <i class="pe-7s-angle-right-circle"></i>
-										</a></li>
-										<li><a href="teacher-detail.html">
-												<figure>
-													<img
-														src="http://via.placeholder.com/150x150/ccc/fff/teacher_2_thumb.jpg"
-														alt="">
-												</figure>
-												<h5>Tomas Hegel</h5>
-												<p>Mathematics</p> <i class="pe-7s-angle-right-circle"></i>
-										</a></li>
-										<li><a href="teacher-detail.html">
-												<figure>
-													<img
-														src="http://via.placeholder.com/150x150/ccc/fff/teacher_3_thumb.jpg"
-														alt="">
-												</figure>
-												<h5>Tomas Hegel</h5>
-												<p>Mathematics</p> <i class="pe-7s-angle-right-circle"></i>
-										</a></li>
-									</ul>
-								</div>
-								<div class="col-lg-6">
-									<ul class="list_teachers">
-										<li><a href="teacher-detail.html">
-												<figure>
-													<img
-														src="http://via.placeholder.com/150x150/ccc/fff/teacher_4_thumb.jpg"
-														alt="">
-												</figure>
-												<h5>Tomas Hegel</h5>
-												<p>Mathematics</p> <i class="pe-7s-angle-right-circle"></i>
-										</a></li>
-										<li><a href="teacher-detail.html">
-												<figure>
-													<img
-														src="http://via.placeholder.com/150x150/ccc/fff/teacher_5_thumb.jpg"
-														alt="">
-												</figure>
-												<h5>Tomas Hegel</h5>
-												<p>Mathematics</p> <i class="pe-7s-angle-right-circle"></i>
-										</a></li>
-										<li><a href="teacher-detail.html">
-												<figure>
-													<img
-														src="http://via.placeholder.com/150x150/ccc/fff/teacher_6_thumb.jpg"
-														alt="">
-												</figure>
-												<h5>Tomas Hegel</h5>
-												<p>Mathematics</p> <i class="pe-7s-angle-right-circle"></i>
-										</a></li>
-									</ul>
-								</div>
-							</div>
-							<!-- /row -->
-						</section>
-						<!-- /section -->
-					</div>
-					<!-- /col -->
-
-					<aside class="col-lg-4" id="sidebar">
-						<div class="box_detail">
-							<h4>Enquire now</h4>
-							<p class="nopadding">Ex quem dicta delicata usu, zril vocibus
-								maiestatis in qui.</p>
-							<div id="message-contact"></div>
-							<form method="post" action="assets/contact.php" id="contactform"
-								autocomplete="off">
-								<div class="row">
-									<div class="col-xl-6 col-lg-12 col-sm-6">
-										<span class="input"> <input class="input_field"
-											type="text" id="name_contact" name="name_contact"> <label
-											class="input_label"> <span
-												class="input__label-content">Your Name</span>
-										</label>
-										</span>
-									</div>
-									<div class="col-xl-6 col-lg-12 col-sm-6">
-										<span class="input"> <input class="input_field"
-											type="text" id="lastname_contact" name="lastname_contact">
-											<label class="input_label"> <span
-												class="input__label-content">Last name</span>
-										</label>
-										</span>
-									</div>
-								</div>
-								<!-- /row -->
-								<div class="row">
-									<div class="col-xl-6 col-lg-12 col-sm-6">
-										<span class="input"> <input class="input_field"
-											type="email" id="email_contact" name="email_contact">
-											<label class="input_label"> <span
-												class="input__label-content">Your email</span>
-										</label>
-										</span>
-									</div>
-									<div class="col-xl-6 col-lg-12 col-sm-6">
-										<span class="input"> <input class="input_field"
-											type="text" id="phone_contact" name="phone_contact">
-											<label class="input_label"> <span
-												class="input__label-content">Your telephone</span>
-										</label>
-										</span>
-									</div>
-								</div>
-								<!-- /row -->
-								<span class="input"> <textarea class="input_field"
-										id="message_contact" name="message_contact"
-										style="height: 120px;"></textarea> <label class="input_label">
-										<span class="input__label-content">Your message</span>
-								</label>
-								</span> <span class="input"> <input class="input_field"
-									type="text" id="verify_contact" name="verify_contact">
-									<label class="input_label"> <span
-										class="input__label-content">Are you human? 3 + 1 =</span>
-								</label>
-								</span>
-								<hr>
-								<div style="position: relative;">
-									<input type="submit" value="Enquire Now"
-										class="btn_1 full-width" id="submit-contact">
-								</div>
-							</form>
 						</div>
-					</aside>
+						<!-- /row -->
+					</section>
+					<!-- /section -->
+
+					<section id="lessons">
+						<div class="intro_title">
+							<h2>Lessons</h2>
+							<ul>
+								<li>18 lessons</li>
+								<li>01:02:10</li>
+							</ul>
+						</div>
+						<div id="accordion_lessons" role="tablist" class="add_bottom_45">
+							<div class="card">
+								<div class="card-header" role="tab" id="headingOne">
+									<h5 class="mb-0">
+										<a data-toggle="collapse" href="#collapseOne"
+											aria-expanded="true" aria-controls="collapseOne"><i
+											class="indicator ti-minus"></i> Introdocution</a>
+									</h5>
+								</div>
+
+								<div id="collapseOne" class="collapse show" role="tabpanel"
+									aria-labelledby="headingOne" data-parent="#accordion_lessons">
+									<div class="card-body">
+										<div class="list_lessons">
+											<ul>
+												<li><a
+													href="https://www.youtube.com/watch?v=LDgd_gUcqCw"
+													class="video">Health Science</a><span>00:59</span></li>
+												<li><a
+													href="https://www.youtube.com/watch?v=LDgd_gUcqCw"
+													class="video">Health and Social Care</a><span>00:59</span></li>
+												<li><a href="#0" class="txt_doc">Audiology</a><span>00:59</span></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- /card -->
+							<div class="card">
+								<div class="card-header" role="tab" id="headingTwo">
+									<h5 class="mb-0">
+										<a class="collapsed" data-toggle="collapse"
+											href="#collapseTwo" aria-expanded="false"
+											aria-controls="collapseTwo"> <i class="indicator ti-plus"></i>Generative
+											Modeling Review
+										</a>
+									</h5>
+								</div>
+								<div id="collapseTwo" class="collapse" role="tabpanel"
+									aria-labelledby="headingTwo" data-parent="#accordion_lessons">
+									<div class="card-body">
+										<div class="list_lessons">
+											<ul>
+												<li><a
+													href="https://www.youtube.com/watch?v=LDgd_gUcqCw"
+													class="video">Health Science</a><span>00:59</span></li>
+												<li><a
+													href="https://www.youtube.com/watch?v=LDgd_gUcqCw"
+													class="video">Health and Social Care</a><span>00:59</span></li>
+												<li><a
+													href="https://www.youtube.com/watch?v=LDgd_gUcqCw"
+													class="video">History</a><span>00:59</span></li>
+												<li><a
+													href="https://www.youtube.com/watch?v=LDgd_gUcqCw"
+													class="video">Healthcare Science</a><span>00:59</span></li>
+												<li><a href="#0" class="txt_doc">Audiology</a><span>00:59</span></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- /card -->
+							<div class="card">
+								<div class="card-header" role="tab" id="headingThree">
+									<h5 class="mb-0">
+										<a class="collapsed" data-toggle="collapse"
+											href="#collapseThree" aria-expanded="false"
+											aria-controls="collapseThree"> <i
+											class="indicator ti-plus"></i>Variational Autoencoders
+										</a>
+									</h5>
+								</div>
+								<div id="collapseThree" class="collapse" role="tabpanel"
+									aria-labelledby="headingThree" data-parent="#accordion_lessons">
+									<div class="card-body">
+										<div class="list_lessons">
+											<ul>
+												<li><a
+													href="https://www.youtube.com/watch?v=LDgd_gUcqCw"
+													class="video">Health Science</a><span>00:59</span></li>
+												<li><a
+													href="https://www.youtube.com/watch?v=LDgd_gUcqCw"
+													class="video">Health and Social Care</a><span>00:59</span></li>
+												<li><a
+													href="https://www.youtube.com/watch?v=LDgd_gUcqCw"
+													class="video">History</a><span>00:59</span></li>
+												<li><a
+													href="https://www.youtube.com/watch?v=LDgd_gUcqCw"
+													class="video">Healthcare Science</a><span>00:59</span></li>
+												<li><a href="#0" class="txt_doc">Audiology</a><span>00:59</span></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- /card -->
+
+							<div class="card">
+								<div class="card-header" role="tab" id="headingFourth">
+									<h5 class="mb-0">
+										<a class="collapsed" data-toggle="collapse"
+											href="#collapseFourth" aria-expanded="false"
+											aria-controls="collapseFourth"> <i
+											class="indicator ti-plus"></i>Gaussian Mixture Model Review
+										</a>
+									</h5>
+								</div>
+								<div id="collapseFourth" class="collapse" role="tabpanel"
+									aria-labelledby="headingFourth"
+									data-parent="#accordion_lessons">
+									<div class="card-body">
+										<div class="list_lessons">
+											<ul>
+												<li><a
+													href="https://www.youtube.com/watch?v=LDgd_gUcqCw"
+													class="video">Health Science</a><span>00:59</span></li>
+												<li><a
+													href="https://www.youtube.com/watch?v=LDgd_gUcqCw"
+													class="video">Health and Social Care</a><span>00:59</span></li>
+												<li><a
+													href="https://www.youtube.com/watch?v=LDgd_gUcqCw"
+													class="video">History</a><span>00:59</span></li>
+												<li><a
+													href="https://www.youtube.com/watch?v=LDgd_gUcqCw"
+													class="video">Healthcare Science</a><span>00:59</span></li>
+												<li><a href="#0" class="txt_doc">Audiology</a><span>00:59</span></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- /card -->
+						</div>
+						<!-- /accordion -->
+					</section>
+					<!-- /section -->
+
+					<section id="reviews">
+						<h2>Reviews</h2>
+						<div class="reviews-container">
+							<div class="row">
+								<div class="col-lg-3">
+									<div id="review_summary">
+										<strong>4.7</strong>
+										<div class="rating">
+											<i class="icon_star voted"></i><i class="icon_star voted"></i><i
+												class="icon_star voted"></i><i class="icon_star voted"></i><i
+												class="icon_star"></i>
+										</div>
+										<small>Based on 4 reviews</small>
+									</div>
+								</div>
+								<div class="col-lg-9">
+									<div class="row">
+										<div class="col-lg-10 col-9">
+											<div class="progress">
+												<div class="progress-bar" role="progressbar"
+													style="width: 90%" aria-valuenow="90" aria-valuemin="0"
+													aria-valuemax="100"></div>
+											</div>
+										</div>
+										<div class="col-lg-2 col-3">
+											<small><strong>5 stars</strong></small>
+										</div>
+									</div>
+									<!-- /row -->
+									<div class="row">
+										<div class="col-lg-10 col-9">
+											<div class="progress">
+												<div class="progress-bar" role="progressbar"
+													style="width: 95%" aria-valuenow="95" aria-valuemin="0"
+													aria-valuemax="100"></div>
+											</div>
+										</div>
+										<div class="col-lg-2 col-3">
+											<small><strong>4 stars</strong></small>
+										</div>
+									</div>
+									<!-- /row -->
+									<div class="row">
+										<div class="col-lg-10 col-9">
+											<div class="progress">
+												<div class="progress-bar" role="progressbar"
+													style="width: 60%" aria-valuenow="60" aria-valuemin="0"
+													aria-valuemax="100"></div>
+											</div>
+										</div>
+										<div class="col-lg-2 col-3">
+											<small><strong>3 stars</strong></small>
+										</div>
+									</div>
+									<!-- /row -->
+									<div class="row">
+										<div class="col-lg-10 col-9">
+											<div class="progress">
+												<div class="progress-bar" role="progressbar"
+													style="width: 20%" aria-valuenow="20" aria-valuemin="0"
+													aria-valuemax="100"></div>
+											</div>
+										</div>
+										<div class="col-lg-2 col-3">
+											<small><strong>2 stars</strong></small>
+										</div>
+									</div>
+									<!-- /row -->
+									<div class="row">
+										<div class="col-lg-10 col-9">
+											<div class="progress">
+												<div class="progress-bar" role="progressbar"
+													style="width: 0" aria-valuenow="0" aria-valuemin="0"
+													aria-valuemax="100"></div>
+											</div>
+										</div>
+										<div class="col-lg-2 col-3">
+											<small><strong>1 stars</strong></small>
+										</div>
+									</div>
+									<!-- /row -->
+								</div>
+							</div>
+							<!-- /row -->
+						</div>
+
+						<hr>
+
+						<div class="reviews-container">
+
+							<div class="review-box clearfix">
+								<figure class="rev-thumb">
+									<img
+										src="http://via.placeholder.com/150x150/ccc/fff/avatar1.jpg"
+										alt="">
+								</figure>
+								<div class="rev-content">
+									<div class="rating">
+										<i class="icon_star voted"></i><i class="icon_star voted"></i><i
+											class="icon_star voted"></i><i class="icon_star voted"></i><i
+											class="icon_star"></i>
+									</div>
+									<div class="rev-info">Admin – April 03, 2016:</div>
+									<div class="rev-text">
+										<p>Sed eget turpis a pede tempor malesuada. Vivamus quis
+											mi at leo pulvinar hendrerit. Cum sociis natoque penatibus et
+											magnis dis</p>
+									</div>
+								</div>
+							</div>
+							<!-- /review-box -->
+							<div class="review-box clearfix">
+								<figure class="rev-thumb">
+									<img
+										src="http://via.placeholder.com/150x150/ccc/fff/avatar2.jpg"
+										alt="">
+								</figure>
+								<div class="rev-content">
+									<div class="rating">
+										<i class="icon-star voted"></i><i class="icon_star voted"></i><i
+											class="icon_star voted"></i><i class="icon_star voted"></i><i
+											class="icon_star"></i>
+									</div>
+									<div class="rev-info">Ahsan – April 01, 2016:</div>
+									<div class="rev-text">
+										<p>Sed eget turpis a pede tempor malesuada. Vivamus quis
+											mi at leo pulvinar hendrerit. Cum sociis natoque penatibus et
+											magnis dis</p>
+									</div>
+								</div>
+							</div>
+							<!-- /review-box -->
+							<div class="review-box clearfix">
+								<figure class="rev-thumb">
+									<img
+										src="http://via.placeholder.com/150x150/ccc/fff/avatar3.jpg"
+										alt="">
+								</figure>
+								<div class="rev-content">
+									<div class="rating">
+										<i class="icon-star voted"></i><i class="icon_star voted"></i><i
+											class="icon_star voted"></i><i class="icon_star voted"></i><i
+											class="icon_star"></i>
+									</div>
+									<div class="rev-info">Sara – March 31, 2016:</div>
+									<div class="rev-text">
+										<p>Sed eget turpis a pede tempor malesuada. Vivamus quis
+											mi at leo pulvinar hendrerit. Cum sociis natoque penatibus et
+											magnis dis</p>
+									</div>
+								</div>
+							</div>
+							<!-- /review-box -->
+						</div>
+						<!-- /review-container -->
+					</section>
+					<!-- /section -->
 				</div>
-				<!-- /row -->
+				<!-- /col -->
+
+				<aside class="col-lg-4" id="sidebar">
+					<div class="box_detail">
+						<figure>
+							<a href="https://www.youtube.com/watch?v=LDgd_gUcqCw"
+								class="video"><i class="arrow_triangle-right"></i><img
+								src="http://via.placeholder.com/800x533/ccc/fff/course_1.jpg"
+								alt="" class="img-fluid"><span>View course preview</span></a>
+						</figure>
+						<div class="price">
+							$29<span class="original_price"><em>$49</em>60% discount
+								price</span>
+						</div>
+						<a href="#0" class="btn_1 full-width">Purchase</a> <a href="#0"
+							class="btn_1 full-width outline"><i class="icon_heart"></i>
+							Add to wishlist</a>
+						<div id="list_feat">
+							<h3>What's includes</h3>
+							<ul>
+								<li><i class="icon_mobile"></i>Mobile support</li>
+								<li><i class="icon_archive_alt"></i>Lesson archive</li>
+								<li><i class="icon_mobile"></i>Mobile support</li>
+								<li><i class="icon_chat_alt"></i>Tutor chat</li>
+								<li><i class="icon_document_alt"></i>Course certificate</li>
+							</ul>
+						</div>
+					</div>
+				</aside>
 			</div>
-			<!-- /container -->
+			<!-- /row -->
 		</div>
-		<!-- /bg_color_1 -->
-	</main>
-	<!--/main-->
+		<!-- /container -->
+	</div>
+	<!-- /bg_color_1 -->
+</main>
+<!--/main-->
