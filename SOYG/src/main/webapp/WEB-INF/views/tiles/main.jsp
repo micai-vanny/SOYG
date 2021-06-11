@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
 <main>
 	<section class="hero_single version_2">
 		<div class="wrapper">
@@ -38,6 +39,7 @@
 	</div>
 	<!-- /features -->
 
+	<!-- 로그인/비로그인 시 노출되는 스터디그룹 div 시작 : 로그인 구현 되면 세션 정보 받아서 C:if -->
 	<div class="container-fluid margin_120_0">
 		<div class="main_title_2">
 			<span><em></em></span>
@@ -206,7 +208,7 @@
 			<div class="item">
 				<div class="box_grid">
 					<figure>
-						<a href="#0" class="wish_bt"></a>
+						<a href="" class="wish_bt"></a>
 						<a href="course-detail.html"><img
 							src="http://via.placeholder.com/800x533/ccc/fff/course__list_6.jpg"
 							class="img-fluid" alt=""></a>
@@ -246,7 +248,9 @@
 		<hr>
 	</div>
 	<!-- /container -->
-
+	<!-- 로그인/비로그인 별 노출 div 끝 -->
+	
+	<!-- 지역별 스터디 그룹 DIV -->
 	<div class="container margin_30_95">
 		<div class="main_title_2">
 			<span><em></em></span>
@@ -255,10 +259,10 @@
 		</div>
 		<div class="row">
 			<div class="col-lg-4 col-md-6 wow" data-wow-offset="150">
-				<a href="#0" class="grid_item">
+				<a href="regionsg.do" class="grid_item">
 					<figure class="block-reveal">
 						<div class="block-horizzontal"></div>
-						<img src="http://via.placeholder.com/800x533/ccc/fff/course_1.jpg"
+						<img src="https://imagescdn.gettyimagesbank.com/500/201812/jv11321427.jpg"
 							class="img-fluid" alt="">
 						<div class="info">
 							<small><i class="ti-layers"></i>15 Programmes</small>
@@ -269,10 +273,10 @@
 			</div>
 			<!-- /grid_item -->
 			<div class="col-lg-4 col-md-6 wow" data-wow-offset="150">
-				<a href="#0" class="grid_item">
+				<a href="regiongw.do" class="grid_item">
 					<figure class="block-reveal">
 						<div class="block-horizzontal"></div>
-						<img src="http://via.placeholder.com/800x533/ccc/fff/course_2.jpg"
+						<img src="https://imagescdn.gettyimagesbank.com/500/201812/jv11323418.jpg"
 							class="img-fluid" alt="">
 						<div class="info">
 							<small><i class="ti-layers"></i>23 Programmes</small>
@@ -283,10 +287,10 @@
 			</div>
 			<!-- /grid_item -->
 			<div class="col-lg-4 col-md-6 wow" data-wow-offset="150">
-				<a href="#0" class="grid_item">
+				<a href="regiondj.do" class="grid_item">
 					<figure class="block-reveal">
 						<div class="block-horizzontal"></div>
-						<img src="http://via.placeholder.com/800x533/ccc/fff/course_3.jpg"
+						<img src="https://imagescdn.gettyimagesbank.com/500/201812/jv11314777.jpg"
 							class="img-fluid" alt="">
 						<div class="info">
 							<small><i class="ti-layers"></i>23 Programmes</small>
@@ -297,7 +301,7 @@
 			</div>
 			<!-- /grid_item -->
 			<div class="col-lg-4 col-md-6 wow" data-wow-offset="150">
-				<a href="#0" class="grid_item">
+				<a href="regioncn.do" class="grid_item">
 					<figure class="block-reveal">
 						<div class="block-horizzontal"></div>
 						<img src="http://via.placeholder.com/800x533/ccc/fff/course_4.jpg"
@@ -311,7 +315,7 @@
 			</div>
 			<!-- /grid_item -->
 			<div class="col-lg-4 col-md-6 wow" data-wow-offset="150">
-				<a href="#0" class="grid_item">
+				<a href="regiondg.do" class="grid_item">
 					<figure class="block-reveal">
 						<div class="block-horizzontal"></div>
 						<img src="http://via.placeholder.com/800x533/ccc/fff/course_5.jpg"
@@ -325,7 +329,7 @@
 			</div>
 			<!-- /grid_item -->
 			<div class="col-lg-4 col-md-6 wow" data-wow-offset="150">
-				<a href="#0" class="grid_item">
+				<a href="regionbs.do" class="grid_item">
 					<figure class="block-reveal">
 						<div class="block-horizzontal"></div>
 						<img src="http://via.placeholder.com/800x533/ccc/fff/course_6.jpg"
@@ -338,7 +342,7 @@
 				</a>
 			</div>
 			<div class="col-lg-4 col-md-6 wow" data-wow-offset="150">
-				<a href="#0" class="grid_item">
+				<a href="regionjb.do" class="grid_item">
 					<figure class="block-reveal">
 						<div class="block-horizzontal"></div>
 						<img src="http://via.placeholder.com/800x533/ccc/fff/course_6.jpg"
@@ -351,7 +355,7 @@
 				</a>
 			</div>
 			<div class="col-lg-4 col-md-6 wow" data-wow-offset="150">
-				<a href="#0" class="grid_item">
+				<a href="regiongj.do" class="grid_item">
 					<figure class="block-reveal">
 						<div class="block-horizzontal"></div>
 						<img src="http://via.placeholder.com/800x533/ccc/fff/course_6.jpg"
@@ -364,7 +368,7 @@
 				</a>
 			</div>
 			<div class="col-lg-4 col-md-6 wow" data-wow-offset="150">
-				<a href="#0" class="grid_item">
+				<a href="regionjj.do" class="grid_item">
 					<figure class="block-reveal">
 						<div class="block-horizzontal"></div>
 						<img src="http://via.placeholder.com/800x533/ccc/fff/course_6.jpg"
@@ -382,6 +386,7 @@
 	</div>
 	<!-- /container -->
 
+	<!-- 분야별 스터디 그룹 Div -->
 	<div class="bg_color_1">
 		<div class="container margin_120_95">
 			<div class="main_title_2">
