@@ -23,28 +23,33 @@ public class StudyServiceImpl extends DAO implements StudyService {
 	private PreparedStatement psmt;
 	private ResultSet rs;
 
+//	@Override
+//	public List<StudyVO> StudySelectList() {
+//		List<StudyVO> list = new ArrayList<>();
+//		String sql = "SELECT * FROM class";
+//
+//		try {
+//			psmt = conn.prepareStatement(sql);
+//			rs = psmt.executeQuery();
+//			
+//			while(rs.next()) {
+//				StudyVO vo = new StudyVO();
+//				
+//				vo.setClassName(rs.getString("class_name"));
+//				
+//				list.add(vo);
+//			}
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		} finally {
+//			close();
+//		}
+//		return list;
+//	}
+	
 	@Override
 	public List<StudyVO> StudySelectList() {
-		List<StudyVO> list = new ArrayList<>();
-		String sql = "SELECT * FROM class";
-
-		try {
-			psmt = conn.prepareStatement(sql);
-			rs = psmt.executeQuery();
-			
-			while(rs.next()) {
-				StudyVO vo = new StudyVO();
-				
-				vo.setClassName(rs.getString("class_name"));
-				
-				list.add(vo);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close();
-		}
-		return list;
+		return sqlSession.selectList("studySelectList");
 	}
 
 	@Override

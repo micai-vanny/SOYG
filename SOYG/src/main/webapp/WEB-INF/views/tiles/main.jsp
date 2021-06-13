@@ -1,18 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<head>
+<meta charset="UTF-8">
+<title>:::SOYG:::열린 스터디 커뮤니티</title>
+</head>
 <main>
 	<section class="hero_single version_2">
 		<div class="wrapper">
 			<div class="container">
-				<h3>What would you learn?</h3>
-				<p>Increase your expertise in business, technology and personal
-					development</p>
+				<h3>찾고싶은 스터디가 있나요?</h3>
+				<p>같은 목표가 있는 사람과 함께할 수 있는 스터디 그룹을 검색해보세요!</p>
 				<form>
 					<div id="custom-search-input">
 						<div class="input-group">
 							<input type="text" class=" search-query"
-								placeholder="Ex. Architecture, Specialization..."> <input
+								placeholder="ex) 외국어, 자격증, 대구, 서울..."> <input
 								type="submit" class="btn_search" value="Search">
 						</div>
 					</div>
@@ -25,13 +28,13 @@
 	<div class="features clearfix">
 		<div class="container">
 			<ul>
-				<li><i class="pe-7s-study"></i>
+				<li><i class="pe-7s-global"></i>
 					<h4>Various of Study</h4>
 					<span>지역별/분야별로 찾는 다양함!</span></li>
-				<li><i class="pe-7s-cup"></i>
+				<li><i class="pe-7s-users"></i>
 					<h4>Achieving Study's goals</h4>
 					<span>공통의 목표를 가진 사람들과 함께!</span></li>
-				<li><i class="pe-7s-target"></i>
+				<li><i class="pe-7s-smile"></i>
 					<h4>The joy of being together</h4>
 					<span>함께 해나가는 즐거움!</span></li>
 			</ul>
@@ -262,10 +265,10 @@
 				<a href="regionList.do?loc_code=${'02' }" class="grid_item">
 					<figure class="block-reveal">
 						<div class="block-horizzontal"></div>
-						<img src="https://imagescdn.gettyimagesbank.com/500/201812/jv11321427.jpg"
+						<img src="https://imagescdn.gettyimagesbank.com/500/201904/jv11349677.jpg"
 							class="img-fluid" alt="">
 						<div class="info">
-							<small><i class="ti-layers"></i>15 Programmes</small>
+							<small><i class="ti-layers"></i>More Study Groups</small>
 							<h3>서울/경기</h3>
 						</div>
 					</figure>
@@ -276,10 +279,10 @@
 				<a href="regionList.do?loc_code=${'033' }" class="grid_item">
 					<figure class="block-reveal">
 						<div class="block-horizzontal"></div>
-						<img src="https://imagescdn.gettyimagesbank.com/500/201812/jv11323418.jpg"
+						<img src="https://imagescdn.gettyimagesbank.com/500/202006/jv12022954.jpg"
 							class="img-fluid" alt="">
 						<div class="info">
-							<small><i class="ti-layers"></i>23 Programmes</small>
+							<small><i class="ti-layers"></i>More Study Groups</small>
 							<h3>강원</h3>
 						</div>
 					</figure>
@@ -290,10 +293,10 @@
 				<a href="regionList.do?loc_code=${'042' }" class="grid_item">
 					<figure class="block-reveal">
 						<div class="block-horizzontal"></div>
-						<img src="https://imagescdn.gettyimagesbank.com/500/201812/jv11314777.jpg"
+						<img src="https://imagescdn.gettyimagesbank.com/500/202006/jv12022968.jpg"
 							class="img-fluid" alt="">
 						<div class="info">
-							<small><i class="ti-layers"></i>23 Programmes</small>
+							<small><i class="ti-layers"></i>More Study Groups</small>
 							<h3>대전/충북</h3>
 						</div>
 					</figure>
@@ -304,10 +307,10 @@
 				<a href="regionList.do?loc_code=${'041' }" class="grid_item">
 					<figure class="block-reveal">
 						<div class="block-horizzontal"></div>
-						<img src="http://via.placeholder.com/800x533/ccc/fff/course_4.jpg"
+						<img src="https://imagescdn.gettyimagesbank.com/500/201804/jv11119403.jpg"
 							class="img-fluid" alt="">
 						<div class="info">
-							<small><i class="ti-layers"></i>23 Programmes</small>
+							<small><i class="ti-layers"></i>More Study Groups</small>
 							<h3>충남</h3>
 						</div>
 					</figure>
@@ -318,10 +321,10 @@
 				<a href="regionList.do?loc_code=${'053' }" class="grid_item">
 					<figure class="block-reveal">
 						<div class="block-horizzontal"></div>
-						<img src="http://via.placeholder.com/800x533/ccc/fff/course_5.jpg"
+						<img src="https://imagescdn.gettyimagesbank.com/500/202006/jv12022963.jpg"
 							class="img-fluid" alt="">
 						<div class="info">
-							<small><i class="ti-layers"></i>23 Programmes</small>
+							<small><i class="ti-layers"></i>More Study Groups</small>
 							<h3>대구/경북</h3>
 						</div>
 					</figure>
@@ -332,10 +335,10 @@
 				<a href="regionList.do?loc_code=${'051' }" class="grid_item">
 					<figure class="block-reveal">
 						<div class="block-horizzontal"></div>
-						<img src="http://via.placeholder.com/800x533/ccc/fff/course_6.jpg"
+						<img src="https://imagescdn.gettyimagesbank.com/500/202006/jv12022957.jpg"
 							class="img-fluid" alt="">
 						<div class="info">
-							<small><i class="ti-layers"></i>23 Programmes</small>
+							<small><i class="ti-layers"></i>More Study Groups</small>
 							<h3>부산/경남</h3>
 						</div>
 					</figure>
@@ -345,10 +348,10 @@
 				<a href="regionList.do?loc_code=${'063' }" class="grid_item">
 					<figure class="block-reveal">
 						<div class="block-horizzontal"></div>
-						<img src="http://via.placeholder.com/800x533/ccc/fff/course_6.jpg"
+						<img src="https://imagescdn.gettyimagesbank.com/500/201804/jv11119402.jpg"
 							class="img-fluid" alt="">
 						<div class="info">
-							<small><i class="ti-layers"></i>23 Programmes</small>
+							<small><i class="ti-layers"></i>More Study Groups</small>
 							<h3>전북</h3>
 						</div>
 					</figure>
@@ -358,10 +361,10 @@
 				<a href="regionList.do?loc_code=${'062' }" class="grid_item">
 					<figure class="block-reveal">
 						<div class="block-horizzontal"></div>
-						<img src="http://via.placeholder.com/800x533/ccc/fff/course_6.jpg"
+						<img src="https://imagescdn.gettyimagesbank.com/500/201804/jv11119401.jpg"
 							class="img-fluid" alt="">
 						<div class="info">
-							<small><i class="ti-layers"></i>23 Programmes</small>
+							<small><i class="ti-layers"></i>More Study Groups</small>
 							<h3>광주/전남</h3>
 						</div>
 					</figure>
@@ -371,10 +374,10 @@
 				<a href="regionList.do?loc_code=${'064' }" class="grid_item">
 					<figure class="block-reveal">
 						<div class="block-horizzontal"></div>
-						<img src="http://via.placeholder.com/800x533/ccc/fff/course_6.jpg"
+						<img src="https://imagescdn.gettyimagesbank.com/500/202006/jv12022959.jpg"
 							class="img-fluid" alt="">
 						<div class="info">
-							<small><i class="ti-layers"></i>23 Programmes</small>
+							<small><i class="ti-layers"></i>More Study Groups</small>
 							<h3>제주</h3>
 						</div>
 					</figure>
@@ -399,7 +402,7 @@
 					<a class="box_news" href="#0">
 						<figure>
 							<img
-								src="http://via.placeholder.com/500x333/ccc/fff/news_home_1.jpg"
+								src="http://www.campl.co.kr/photo/2020-12/121601.jpg"
 								alt="">
 							<figcaption>
 								<strong>28</strong>Dec
@@ -414,7 +417,7 @@
 					<a class="box_news" href="#0">
 						<figure>
 							<img
-								src="http://via.placeholder.com/500x333/ccc/fff/news_home_2.jpg"
+								src="https://imagescdn.gettyimagesbank.com/500/21/126/272/0/1316040297.jpg"
 								alt="">
 							<figcaption>
 								<strong>28</strong>Dec
@@ -429,7 +432,7 @@
 					<a class="box_news" href="#0">
 						<figure>
 							<img
-								src="http://via.placeholder.com/500x333/ccc/fff/news_home_3.jpg"
+								src="https://imagescdn.gettyimagesbank.com/500/201803/jv11117284.jpg"
 								alt="">
 							<figcaption>
 								<strong>28</strong>Dec
@@ -444,7 +447,7 @@
 					<a class="box_news" href="#0">
 						<figure>
 							<img
-								src="http://via.placeholder.com/500x333/ccc/fff/news_home_4.jpg"
+								src="https://imagescdn.gettyimagesbank.com/500/20/375/826/0/1267464979.jpg"
 								alt="">
 							<figcaption>
 								<strong>28</strong>Dec
@@ -459,7 +462,7 @@
 					<a class="box_news" href="#0">
 						<figure>
 							<img
-								src="http://via.placeholder.com/500x333/ccc/fff/news_home_4.jpg"
+								src="https://imagescdn.gettyimagesbank.com/500/201801/a11108859.jpg"
 								alt="">
 							<figcaption>
 								<strong>28</strong>Dec

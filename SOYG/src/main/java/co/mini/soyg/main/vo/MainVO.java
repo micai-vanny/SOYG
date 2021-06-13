@@ -13,6 +13,8 @@ public class MainVO {
 	private String class_startchk;
 	private int class_personnel;
 	private String field_code;
+	private String weekdays_chk;
+	private String class_time;
 	
 	public int getClass_code() {
 		return class_code;
@@ -73,5 +75,17 @@ public class MainVO {
 	}
 	public void setField_code(String field_code) {
 		this.field_code = field_code;
+	}
+	public String getWeekdays_chk() {
+		return weekdays_chk;
+	}
+	public void setWeekdays_chk(String weekdays_chk) {
+		this.weekdays_chk = weekdays_chk;
+	}
+	public String getClass_time() {
+		return class_time;
+	}
+	public void setClass_time(String class_time) {
+		this.class_time = class_time;
 	}
 }
