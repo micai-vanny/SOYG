@@ -14,15 +14,23 @@
 		select * from class where class_code = #{class_code}
 	</select>
 
-	<insert id="adminClassInsert"
-		parameterType="co.mini.soyg.admin.vo.ClassVO">
-		insert into class
-		values(#{class_code},#{localCode},#{className},#{startDate},#{classImage},#{classInfo},#{classActive},#{classStartchk},,#{classPersonnel},,#{fieldCode})
-	</insert>
+	<update id="adminClassUpdate" parameterType="co.mini.soyg.admin.vo.ClassVO">
+		update class 
+		set class_name = #{class_name},
+			start_date = #{start_date},
+			class_image = #{class_image},
+			class_info = #{class_info},
+			class_active = #{class_active},
+			class_startchk = #{class_startchk},
+			class_personnel = #{class_personnel},
+			loc_code = #{loc_code},
+			field_code = #{field_code}
+		where class_code = #{class_code}
+	</update>
 	
 	<delete id="adminClassDelete"
 		parameterType="co.mini.soyg.admin.vo.ClassVO">
-		delete class where class_code= #{class_code};
+		delete from class where class_code= #{class_code};
 	</delete>
 
 </mapper>

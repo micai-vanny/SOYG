@@ -31,13 +31,15 @@
 	rel="stylesheet">
 <link href="resources/udema_v_1.9/html_menu_1/css/vendors.css"
 	rel="stylesheet">
-<link
-	href="resources/udema_v_1.9/html_menu_1/css/icon_fonts/css/all_icons.min.css"
+<link href="resources/udema_v_1.9/html_menu_1/css/icon_fonts/css/all_icons.min.css"
 	rel="stylesheet">
 
+<!-- admin CSS -->
+<link href="resources/udema_v_1.9/admin_section/css/admin.css" rel="stylesheet">
+	
 <!-- YOUR CUSTOM CSS -->
-<link href="resources/udema_v_1.9/html_menu_1/css/custom.css"
-	rel="stylesheet">
+<link href="resources/udema_v_1.9/html_menu_1/css/custom.css" rel="stylesheet">
+<link href="resources/udema_v_1.9/admin_section/css/custom.css" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 </head>
@@ -56,5 +58,8 @@
 	<script src="resources/udema_v_1.9/html_menu_1/js/common_scripts.js"></script>
 	<script src="resources/udema_v_1.9/html_menu_1/js/main.js"></script>
 	<script src="resources/udema_v_1.9/html_menu_1/assets/validate.js"></script>
+	
+	<script src="resources/udema_v_1.9/admin_section/js/admin-datatables.js"></script>
+	<script src="resources/udema_v_1.9/admin_section/js/admin.js"></script>
 </body>
 </html>

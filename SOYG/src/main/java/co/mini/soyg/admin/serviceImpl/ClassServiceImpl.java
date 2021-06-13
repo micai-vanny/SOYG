@@ -14,14 +14,15 @@ public class ClassServiceImpl implements ClassService {
 	@Autowired
 	private SqlSession sqlSession;
 	
+	//class전체리스트
 	@Override
 	public List<ClassVO> classSelectList() {
 		return sqlSession.selectList("adminClassListSelect");
 	}
-
+	//class한건선택
 	@Override
-	public ClassVO classSelect(ClassVO vo) {
-		return sqlSession.selectOne("adminClassSelect", vo);
+	public ClassVO classSelect(int class_code) {
+		return sqlSession.selectOne("adminClassSelect", class_code);
 	}
 
 	@Override
@@ -29,17 +30,15 @@ public class ClassServiceImpl implements ClassService {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
+	//class삭제
 	@Override
-	public int classDelete(ClassVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int classDelete(int class_code) {
+		return sqlSession.delete("adminClassDelete", class_code);
 	}
-
+	//class 수정
 	@Override
 	public int classUpdate(ClassVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.update("adminClassUpdate", vo);
 	}
 
 }
