@@ -8,14 +8,21 @@
 </head>
 <body>
 
-	<!-- 뼈대 -->
+	<!--
+		뼈대.
+		
+		폐기 고려.
+		
+		전체 조회 상태에서 회원 정보 옆에 기능 버튼을 출력해 클릭시 이벤트를 발생시키는 쪽이 훨씬 낫지 않을까.
+	-->
 
 	<div class="" align="center">
 
 		<h1>회원 관리 페이지</h1>
 
-		<div>
 		<br><br><br>
+		
+		<div>
 			<button onclick = "location.href = 'userList.do'">회원 전체 조회</button>
 		</div>
 		<div>

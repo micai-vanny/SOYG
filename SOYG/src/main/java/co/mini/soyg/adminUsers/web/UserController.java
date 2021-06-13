@@ -39,14 +39,14 @@ public class UserController {
 		return "adminUserControl/userSelect";
 	}
 	
-	// 회원 등록 페이지
+	// 회원 등록 페이지 ~> 불필요 ~> 처분 예정
 	@RequestMapping("/userInsertPage.do")
 	public String userInsertPage() {
 		
 		return "adminUserControl/userInsertPage";
 	}
 	
-	// 회원 등록
+	// 회원 등록 ~> 불필요 ~> 처분 예정
 	@RequestMapping("/userInsert.do")
 	public String userInsert(UserVO vo, Model model) {
 		
