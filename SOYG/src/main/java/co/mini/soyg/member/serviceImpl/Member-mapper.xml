@@ -11,6 +11,9 @@
 	INSERT INTO member VALUES(#{userId},#{password},#{address},#{email},#{gender},#{phone},#{birth},#{name})
 </insert>
 
+<select id="memberList" resultType="co.mini.soyg.member.vo.MemberVO">
+	SELECT * FROM member
+</select>
 
 </mapper>
 

@@ -36,14 +36,14 @@ public class MemberController {
 		String adr4 = request.getParameter("extraAddress");
 		
 		String address = " ( " + adr1 + " ) " + adr2 + adr3 + adr4;
-		System.out.println(address);
+		System.out.println(address + vo.getUserId() + vo.getPassword() + vo.getName() + vo.getEmail());
 		
 		vo.setAddress(address);
 		
 		dao.insertMember(vo);
 		
 		
-		return "home.do";
+		return "redirect:home.do";
 	}
 	//회원가입 ID중복체크
 	@RequestMapping("/UserIdCheck.do")

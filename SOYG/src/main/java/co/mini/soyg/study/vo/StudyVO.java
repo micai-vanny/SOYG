@@ -1,95 +1,106 @@
 package co.mini.soyg.study.vo;
 
+import java.util.Date;
+
 public class StudyVO {
-	private int classCode;
-	private String locCode;
-	private String className;
-	private String startDate; // to_char해서 가져올것
-	private String classImage;
-	private String classInfo;
-	private char classActive;
-	private char classStartChk;
-	private int personnel;
-	private String fieldCode;
- 
-	public int getClassCode() {
-		return classCode;
+	private int class_Code;
+	private String loc_Code;
+	private String class_Name;
+	private Date start_Date; // to_char해서 가져올것
+	private String class_Image;
+	private String class_Info;
+	private char class_Active;
+	private char class_StartChk;
+	private int class_Personnel;
+	private String field_Code;
+	private String field_Name;
+
+	public int getClass_Code() {
+		return class_Code;
 	}
 
-	public void setClassCode(int classCode) {
-		this.classCode = classCode;
+	public void setClass_Code(int class_Code) {
+		this.class_Code = class_Code;
 	}
 
-	public String getLocCode() {
-		return locCode;
+	public String getLoc_Code() {
+		return loc_Code;
 	}
 
-	public void setLocCode(String locCode) {
-		this.locCode = locCode;
+	public void setLoc_Code(String loc_Code) {
+		this.loc_Code = loc_Code;
 	}
 
-	public String getClassName() {
-		return className;
+	public String getClass_Name() {
+		return class_Name;
 	}
 
-	public void setClassName(String className) {
-		this.className = className;
+	public void setClass_Name(String class_Name) {
+		this.class_Name = class_Name;
 	}
 
-	public String getStartDate() {
-		return startDate;
+	public Date getStart_Date() {
+		return start_Date;
 	}
 
-	public void setStartDate(String startDate) {
-		this.startDate = startDate;
+	public void setStart_Date(Date start_Date) {
+		this.start_Date = start_Date;
 	}
 
-	public String getClassImage() {
-		return classImage;
+	public String getClass_Image() {
+		return class_Image;
 	}
 
-	public void setClassImage(String classImage) {
-		this.classImage = classImage;
+	public void setClass_Image(String class_Image) {
+		this.class_Image = class_Image;
 	}
 
-	public String getClassInfo() {
-		return classInfo;
+	public String getClass_Info() {
+		return class_Info;
 	}
 
-	public void setClassInfo(String classInfo) {
-		this.classInfo = classInfo;
+	public void setClass_Info(String class_Info) {
+		this.class_Info = class_Info;
 	}
 
-	public char getClassActive() {
-		return classActive;
+	public char getClass_Active() {
+		return class_Active;
 	}
 
-	public void setClassActive(char classActive) {
-		this.classActive = classActive;
+	public void setClass_Active(char class_Active) {
+		this.class_Active = class_Active;
 	}
 
-	public char getClassStartChk() {
-		return classStartChk;
+	public char getClass_StartChk() {
+		return class_StartChk;
 	}
 
-	public void setClassStartChk(char classStartChk) {
-		this.classStartChk = classStartChk;
+	public void setClass_StartChk(char class_StartChk) {
+		this.class_StartChk = class_StartChk;
 	}
 
-	public int getPersonnel() {
-		return personnel;
+	public int getClass_Personnel() {
+		return class_Personnel;
 	}
 
-	public void setPersonnel(int personnel) {
-		this.personnel = personnel;
+	public void setClass_Personnel(int class_Personnel) {
+		this.class_Personnel = class_Personnel;
 	}
 
-	public String getFieldCode() {
-		return fieldCode;
+	public String getField_Code() {
+		return field_Code;
 	}
 
-	public void setFieldCode(String fieldCode) {
-		this.fieldCode = fieldCode;
+	public void setField_Code(String field_Code) {
+		this.field_Code = field_Code;
+	}
+
+	public String getField_Name() {
+		return field_Name;
+	}
+
+	public void setField_Name(String field_Name) {
+		this.field_Name = field_Name;
 	}
 
 }

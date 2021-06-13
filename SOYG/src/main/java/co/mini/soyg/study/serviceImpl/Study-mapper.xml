@@ -2,12 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.mini.soyg.study.serviceImpl.Study-mapper">
 
-	<select id="studySelectList" resultType="co.mini.soyg.study.vo.StudyVO">
+	<select id="studyList" resultType="co.mini.soyg.study.vo.StudyVO">
 		SELECT * FROM class
 	</select>
 
-	<select id="studySelect" parameterType="Integer"
-		resultType="co.mini.soyg.study.vo.StudyVO">
-		select * from class where class_code = #{classCode}
+	<select id="studySelect" parameterType="int" resultType="co.mini.soyg.study.vo.StudyVO">
+		SELECT cl.*, ca.field_name FROM class cl, category ca WHERE cl.field_code = ca.field_code AND class_code = #{class_Code}
 	</select>
+	
 </mapper>

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <link rel="stylesheet" href="resources/css/classSelectCss.css" />
 
@@ -441,10 +441,9 @@
 
 				<aside class="col-lg-4" id="sidebar">
 					<div class="box_detail">
-						<div class="iYUinv">중분류 내용~</div>
+						<div class="iYUinv">${study.field_Name }</div>
 						<div class="jhzFzM">
-							<c:forEach items="${study }" var="study">
-							</c:forEach>
+							${study.class_Name }
 						</div>
 						<div class="cJDaSl">
 							<div class="ePrSEx">바로수강가능</div>
@@ -456,29 +455,30 @@
 							</em> 60% 할인가격
 							</span>
 						</div>
-						<a href="#0" class="btn_1 full-width">구매하기</a> <a href="#0"
+						<a href="studyVideo.do" class="btn_1 full-width">구매하기</a> <a href="#0"
 							class="btn_1 full-width outline"> <i class="icon_heart"></i>
 							위시리스트에 넣기
 						</a>
 						<div id="list_feat">
 							<h3>What's includes</h3>
 							<ul>
-								<li><svg xmlns="http://www.w3.org/2000/svg" width="18"
-										height="18" fill="#1a1a1a" viewBox="0 0 24 24">
+								<li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#1a1a1a" viewBox="0 0 24 24">
 										<path d="M15.5 12L10 9v6l5.5-3z"></path>
-										<path fill-rule="evenodd"
-											d="M3 3a2 2 0 00-2 2v14a2 2 0 002 2h18a2 2 0 002-2V5a2 2 0 00-2-2H3zm0 16h18V5H3v14z"></path></svg>
-									콘텐츠이용권</li>
-								<li><svg xmlns="http://www.w3.org/2000/svg" width="18"
-										height="18" fill="none" viewBox="0 0 24 24">
-										<path fill-rule="evenodd"
-											d="M21 6h-3.337c.216-.455.337-.963.337-1.5A3.5 3.5 0 0014.5 1 3.49 3.49 0 0012 2.051 3.49 3.49 0 009.5 1 3.5 3.5 0 006 4.5c0 .537.121 1.045.337 1.5H3a1 1 0 00-1 1v4a1 1 0 001 1v8a1 1 0 001 1h16a1 1 0 001-1v-8a1 1 0 001-1V7a1 1 0 00-1-1zM4 8v2h7V8H4zm9 0v2h7V8h-7zm-2 4H5v7h6v-7zm2 7v-7h6v7h-6zm2-13.085a1.5 1.5 0 01-.5.085H13V4.5c0-.175.03-.344.085-.5A1.5 1.5 0 1115 5.915zM11 4.5V6H9.5a1.5 1.5 0 111.415-2c.055.156.085.325.085.5z"
-											fill="#1a1a1a"></path></svg> 준비물키트</li>
-								<li><svg xmlns="http://www.w3.org/2000/svg" width="18"
-										height="18" fill="none" viewBox="0 0 24 24">
-										<path fill-rule="evenodd"
-											d="M8.443 12.832A5.99 5.99 0 016 8a6 6 0 1112 0 5.99 5.99 0 01-2.443 4.832A8 8 0 0120 20v1h-2v-1a6 6 0 10-12 0v1H4v-1a8 8 0 014.443-7.168zM16 8a4 4 0 11-8 0 4 4 0 118 0z"
-											fill="#1a1a1a"></path></svg>초보자들도 쉽게</li>
+										<path fill-rule="evenodd" d="M3 3a2 2 0 00-2 2v14a2 2 0 002 2h18a2 2 0 002-2V5a2 2 0 00-2-2H3zm0 16h18V5H3v14z"></path>
+									</svg>
+									콘텐츠이용권
+								</li>
+								<li>
+									<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24">
+										<path fill-rule="evenodd" d="M21 6h-3.337c.216-.455.337-.963.337-1.5A3.5 3.5 0 0014.5 1 3.49 3.49 0 0012 2.051 3.49 3.49 0 009.5 1 3.5 3.5 0 006 4.5c0 .537.121 1.045.337 1.5H3a1 1 0 00-1 1v4a1 1 0 001 1v8a1 1 0 001 1h16a1 1 0 001-1v-8a1 1 0 001-1V7a1 1 0 00-1-1zM4 8v2h7V8H4zm9 0v2h7V8h-7zm-2 4H5v7h6v-7zm2 7v-7h6v7h-6zm2-13.085a1.5 1.5 0 01-.5.085H13V4.5c0-.175.03-.344.085-.5A1.5 1.5 0 1115 5.915zM11 4.5V6H9.5a1.5 1.5 0 111.415-2c.055.156.085.325.085.5z" fill="#1a1a1a"></path>
+									</svg> 
+									준비물키트
+								</li>
+								<li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24">
+										<path fill-rule="evenodd" d="M8.443 12.832A5.99 5.99 0 016 8a6 6 0 1112 0 5.99 5.99 0 01-2.443 4.832A8 8 0 0120 20v1h-2v-1a6 6 0 10-12 0v1H4v-1a8 8 0 014.443-7.168zM16 8a4 4 0 11-8 0 4 4 0 118 0z" fill="#1a1a1a"></path>
+									</svg>
+									초보자들도 쉽게
+								</li>
 								<li><i class="icon_chat_alt"></i>커뮤니티 활성화</li>
 							</ul>
 						</div>

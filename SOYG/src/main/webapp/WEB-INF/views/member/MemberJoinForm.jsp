@@ -208,6 +208,14 @@
 				<input type="text" id="email" name="email">
 			</div>
 			<div>
+				<p>전화번호 :</p>
+				<input type="text" id="phone" name="phone">
+			</div>
+			<div>
+				<p>생일 :</p>
+				<input type="text" id="birth" name="birth">
+			</div>
+			<div>
 				<input type="radio" id="gender" name="gender" value="male">남자
 				<input type="radio" id="gender" name="gender" value="female">여자			</div>
 			<div>

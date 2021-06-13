@@ -40,7 +40,6 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public int insertMember(MemberVO vo) {
-		// TODO Auto-generated method stub
 		return Session.insert("insertMember", vo);
 	}
 
