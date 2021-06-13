@@ -26,7 +26,9 @@
 		text-align : center;
 		padding : 20px;
 	}
-	
+	.header { display : none; }
+	footer { display : none !important; }
+	.modal-backdrop { display: none; }
 </style>
 
 <script>
@@ -193,23 +195,23 @@
   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800" rel="stylesheet">
 	
   <!-- Bootstrap core CSS-->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/soyg/resources/udema_v_1.9/admin_section/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Main styles -->
-  <link href="css/admin.css" rel="stylesheet">
+  <link href="/soyg/resources/udema_v_1.9/admin_section/css/admin.css" rel="stylesheet">
   <!-- Icon fonts-->
-  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="/soyg/resources/udema_v_1.9/admin_section/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <!-- Plugin styles -->
-  <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
-  <link href="vendor/dropzone.css" rel="stylesheet">
+  <link href="/soyg/resources/udema_v_1.9/admin_section/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <link href="/soyg/resources/udema_v_1.9/admin_section/vendor/dropzone.css" rel="stylesheet">
   <!-- Your custom styles -->
-  <link href="css/custom.css" rel="stylesheet">
+  <link href="/soyg/resources/udema_v_1.9/admin_section/css/custom.css" rel="stylesheet">
 	
 </head>
 
 <body class="fixed-nav sticky-footer" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-default fixed-top" id="mainNav">
-    <a class="navbar-brand" href="index.html"><img src="img/logo.png" data-retina="true" alt="" width="163" height="36"></a>
+    <a class="navbar-brand" href="index.html"><img src="/soyg/resources/udema_v_1.9/admin_section/img/logo.png" data-retina="true" alt="" width="163" height="36"></a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -525,21 +527,21 @@
       </div>
     </div>
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/soyg/resources/udema_v_1.9/admin_section/vendor/jquery/jquery.min.js"></script>
+    <script src="/soyg/resources/udema_v_1.9/admin_section/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="/soyg/resources/udema_v_1.9/admin_section/vendor/jquery-easing/jquery.easing.min.js"></script>
     <!-- Page level plugin JavaScript-->
-    <script src="vendor/chart.js/Chart.min.js"></script>
-    <script src="vendor/datatables/jquery.dataTables.js"></script>
-    <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
-	<script src="vendor/jquery.selectbox-0.2.js"></script>
-	<script src="vendor/retina-replace.min.js"></script>
-	<script src="vendor/jquery.magnific-popup.min.js"></script>
+    <script src="/soyg/resources/udema_v_1.9/admin_section/vendor/chart.js/Chart.min.js"></script>
+    <script src="/soyg/resources/udema_v_1.9/admin_section/vendor/datatables/jquery.dataTables.js"></script>
+    <script src="/soyg/resources/udema_v_1.9/admin_section/vendor/datatables/dataTables.bootstrap4.js"></script>
+	<script src="/soyg/resources/udema_v_1.9/admin_section/vendor/jquery.selectbox-0.2.js"></script>
+	<script src="/soyg/resources/udema_v_1.9/admin_section/vendor/retina-replace.min.js"></script>
+	<script src="/soyg/resources/udema_v_1.9/admin_section/vendor/jquery.magnific-popup.min.js"></script>
     <!-- Custom scripts for all pages-->
-    <script src="js/admin.js"></script>
+    <script src="/soyg/resources/udema_v_1.9/admin_section/js/admin.js"></script>
 	<!-- Custom scripts for this page-->
-	<script src="vendor/dropzone.min.js"></script>
+	<script src="/soyg/resources/udema_v_1.9/admin_section/vendor/dropzone.min.js"></script>
 	
 </body>
 </html>

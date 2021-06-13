@@ -14,7 +14,8 @@ pom.properties
 .settings/
 .loadpath
 .recommenders
-/workspace/
+workspace/*
+target/*
 
 # External tool builders
 .externalToolBuilders/
