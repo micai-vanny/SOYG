@@ -4,7 +4,6 @@
 
 <style>
 	.user_list {
-	    padding-top: 100px;
 	    display: flex;
 	    flex-direction: column;
 	    align-content: center;
@@ -40,37 +39,28 @@
 		
 		console.log('인덱스 : ' + index);
 		
-		let password = document.getElementById('userPassword' + index).value;
-		console.log(password);
+		let user = document.getElementById('userID' + index).value;
+		console.log('보낼 아이디 : ' + user);
 
-		let pass = $('#userPassword' + index).val();
-		console.log(pass);
-		
-		let data = { 'password' : $('#userPassword' + index).val() };
-		console.log(data);
-		
-		/* $.ajax({
+		$.ajax({
 			url : 'userDelete.do',
-			data : password,
+			data : { 'userID' : user },
 			dataType : 'json',
 			type : 'post',
 			success : function(resp){
 				
-				if(resp != 0){
-					
 				alert('삭제');
 				location.reload();
-				}
 			},
 			error : function(err){
 				
 				console.log(err);
 			}
-		}); */
+		});
 	}
 </script>
 
-	<div class = user_list>
+	<div class = "user_list">
 		<div>
 			<h1>회원 목록</h1>
 		</div>
@@ -96,11 +86,11 @@
 				<tbody>
 				<c:forEach var="user" items="${users}" varStatus = "status">
 					<tr>
-						<td><a href = "userUpdatePage.do">${user.userID }</a></td>
 						<td>
-							${user.password }
-							<input type = "hidden" id = "userPassword${status.index }" value = "${user.password }">
+							<a href = "userUpdatePage.do">${user.userID }</a>
+							<input type = "hidden" id = "userID${status.index }" value = "${user.userID }">
 						</td>
+						<td>${user.password }</td>
 						<td>${user.address }</td>
 						<td>${user.email }</td>
 						<td>${user.gender }</td>

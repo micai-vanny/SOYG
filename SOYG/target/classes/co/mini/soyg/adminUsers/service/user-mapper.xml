@@ -39,12 +39,13 @@
 
 	<!-- 회원 삭제 -->
 	<update id="userDelete" parameterType="co.mini.soyg.adminUsers.vo.UserVO">
-		update member 
+		<!-- update member 
 		set password = #{password}, 
 						address = #{address, jdbcType=VARCHAR}, 
 						email = #{email, jdbcType=VARCHAR}, gender = #{gender, jdbcType=VARCHAR}, 
 						phone = #{phone, jdbcType=VARCHAR}, birth = #{birth, jdbcType=VARCHAR} 
-		where userID = #{userID}  
+		where userID = #{userID} -->
+		delete from member where userID = #{userID}  
 	</update>
 	
 </mapper>

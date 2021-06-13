@@ -1,5 +1,7 @@
 package co.mini.soyg.adminUsers.web;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -38,34 +40,34 @@ public class UserController {
 		
 		return "adminUserControl/userSelect";
 	}
-	
-	// 회원 등록 페이지 ~> 불필요 ~> 처분 예정
-	@RequestMapping("/userInsertPage.do")
-	public String userInsertPage() {
-		
-		return "adminUserControl/userInsertPage";
-	}
-	
-	// 회원 등록 ~> 불필요 ~> 처분 예정
-	@RequestMapping("/userInsert.do")
-	public String userInsert(UserVO vo, Model model) {
-		
-		int result = 0;
-		String path;
-		
-		if (result != 0) {
-			
-			System.out.println("유저 정보 등록 : " + result + "건 완료.");
-			path = "adminUserControl/userInsert";
-		} else {
-			
-			System.out.println("등록 안 됨.");
-			path = "#";
-		}
-		
-		return path;
-	}
-	
+//	
+//	// 회원 등록 페이지 ~> 불필요 ~> 처분 예정
+//	@RequestMapping("/userInsertPage.do")
+//	public String userInsertPage() {
+//		
+//		return "adminUserControl/userInsertPage";
+//	}
+//	
+//	// 회원 등록 ~> 불필요 ~> 처분 예정
+//	@RequestMapping("/userInsert.do")
+//	public String userInsert(UserVO vo, Model model) {
+//		
+//		int result = 0;
+//		String path;
+//		
+//		if (result != 0) {
+//			
+//			System.out.println("유저 정보 등록 : " + result + "건 완료.");
+//			path = "adminUserControl/userInsert";
+//		} else {
+//			
+//			System.out.println("등록 안 됨.");
+//			path = "#";
+//		}
+//		
+//		return path;
+//	}
+//	
 	
 	// 회원 수정 페이지
 	@RequestMapping("/userUpdatePage.do")
@@ -103,21 +105,22 @@ public class UserController {
 	
 	// 회원 탈퇴
 	@RequestMapping("/userDelete.do")
-	public String userDelete(UserVO vo, Model model) {
+	public String userDelete(HttpServletRequest req, UserVO vo, Model model) {
 		
 		int result = 0;
-		String path;
+		String user = req.getParameter("userID");
+		
+		vo.setUserID(user);
+		result = dao.userDelete(vo);
 		
 		if (result != 0) {
 			
 			System.out.println("유저 삭제 : " + result + "건 완료.");
-			path = "adminUserControl/userDelete";
 		} else {
 			
 			System.out.println("삭제 안 됨.");
-			path = "#";
 		}
 		
-		return path;
+		return "adminUserControl/userList";
 	}
 }
