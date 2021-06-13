@@ -45,7 +45,8 @@ public class AdminController {
 	//관리자-리스트 삭제
 	@RequestMapping("/adminClassDelete.do")
 	public String classDelete(Model model, int class_code) {
-		dao.classDelete(class_code);
+		model.addAttribute("classes", dao.classDelete(class_code));
+		//dao.classDelete(class_code);
 		return "admin/adminClassList";
 	}
 }

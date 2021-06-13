@@ -14,20 +14,21 @@
 		select * from class where class_code = #{class_code}
 	</select>
 
-	<update id="adminClassUpdate" parameterType="co.mini.soyg.admin.vo.ClassVO">
-		update class 
+	<update id="adminClassUpdate"
+		parameterType="co.mini.soyg.admin.vo.ClassVO">
+		update class
 		set class_name = #{class_name},
-			start_date = #{start_date},
-			class_image = #{class_image},
-			class_info = #{class_info},
-			class_active = #{class_active},
-			class_startchk = #{class_startchk},
-			class_personnel = #{class_personnel},
-			loc_code = #{loc_code},
-			field_code = #{field_code}
+		start_date = #{start_date},
+		class_image = #{class_image},
+		class_info = #{class_info},
+		class_active = #{class_active},
+		class_startchk = #{class_startchk},
+		class_personnel = #{class_personnel},
+		loc_code = #{loc_code},
+		field_code = #{field_code}
 		where class_code = #{class_code}
 	</update>
-	
+
 	<delete id="adminClassDelete"
 		parameterType="co.mini.soyg.admin.vo.ClassVO">
 		delete from class where class_code= #{class_code};

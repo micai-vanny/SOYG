@@ -43,52 +43,57 @@ function select(class_code){
 						</div>
 						<div class="card-body">
 							<div class="table-responsive">
-							<div id="dataTable_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
-							<div class="row">
-							<div class="col-sm-12 col-md-6">
-								<div id="dataTable_filter" class="dataTables_filter">
-									<label>
-										Search:
-										<input type="search" class="form-fontrol form-control-sm" placeholder aria-controls="dataTable">
-									</label>								
-								</div>
-							</div>
-								<table class="table table-bordered" id="dataTable" width="100%" role="grid" aria-describedby="dataTable_info"
-									cellspacing="0">
-									<thead>
-										<tr>
-											<th>스터디 코드</th>
-											<th>지역 코드</th>
-											<th>분야분류 코드</th>
-											<th>스터디명</th>
-											<th>활성/비활성 여부</th>
-											<th>시작여부</th>
-										</tr>
-									</thead>
-									<tfoot>
-										<c:forEach var="clas" items="${classes }">
-											<tr onclick="select(${clas.class_code })">
-												<th>${clas.class_code }</th>
-												<th>${clas.loc_code }</th>
-												<th>${clas.field_code }</th>
-												<th>${clas.class_name }</th>
-												<th>${clas.class_active }</th>
-												<th>${clas.class_startchk }</th>
-											</tr>
-										</c:forEach>
-									</tfoot>
-									<tbody>
+								<div id="dataTable_wrapper"
+									class="dataTables_wrapper container-fluid dt-bootstrap4">
+									<div class="row">
+										<div class="col-sm-12 col-md-6">
+											<div id="dataTable_filter" class="dataTables_filter">
+												<label> Search: <input type="search"
+													class="form-fontrol form-control-sm" placeholder
+													aria-controls="dataTable">
+												</label>
+											</div>
+										</div>
+										<table class="table table-bordered" id="dataTable"
+											width="100%" role="grid" aria-describedby="dataTable_info"
+											cellspacing="0">
+											<thead>
+												<tr>
+													<th>스터디 코드</th>
+													<th>지역 코드</th>
+													<th>분야분류 코드</th>
+													<th>스터디명</th>
+													<th>활성/비활성 여부</th>
+													<th>시작여부</th>
+												</tr>
+											</thead>
+											<tfoot>
+												<c:forEach var="clas" items="${classes }">
+													<tr onclick="select(${clas.class_code })">
+														<th>${clas.class_code }</th>
+														<th>${clas.loc_code }</th>
+														<th>${clas.field_code }</th>
+														<th>${clas.class_name }</th>
+														<th>${clas.class_active }</th>
+														<th>${clas.class_startchk }</th>
+													</tr>
+												</c:forEach>
+											</tfoot>
+											<tbody>
 
-									</tbody>
-								</table>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<!-- /tables-->
 							</div>
-							</div>
-					<!-- /tables-->
+							<!-- /container-fluid-->
+						</div>
+						<!-- /container-wrapper-->
+						<a href="#">홈 가기</a>
+					</div>
 				</div>
-				<!-- /container-fluid-->
 			</div>
-			<!-- /container-wrapper-->
-			 <a href="#">홈 가기</a> 
 		</div>
 	</div>
 	<!-- Bootstrap core JavaScript-->

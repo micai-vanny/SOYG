@@ -13,29 +13,26 @@ import co.mini.soyg.admin.vo.ClassVO;
 public class ClassServiceImpl implements ClassService {
 	@Autowired
 	private SqlSession sqlSession;
-	
-	//class전체리스트
+
+	// class전체리스트
 	@Override
 	public List<ClassVO> classSelectList() {
 		return sqlSession.selectList("adminClassListSelect");
 	}
-	//class한건선택
+
+	// class한건선택
 	@Override
 	public ClassVO classSelect(int class_code) {
 		return sqlSession.selectOne("adminClassSelect", class_code);
 	}
 
-	@Override
-	public int classInsert(ClassVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	//class삭제
+	// class삭제
 	@Override
 	public int classDelete(int class_code) {
 		return sqlSession.delete("adminClassDelete", class_code);
 	}
-	//class 수정
+
+	// class 수정
 	@Override
 	public int classUpdate(ClassVO vo) {
 		return sqlSession.update("adminClassUpdate", vo);
