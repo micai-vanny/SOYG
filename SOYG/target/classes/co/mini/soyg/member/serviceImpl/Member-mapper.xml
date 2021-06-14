@@ -6,14 +6,17 @@
 <select id="idCheck" parameterType="co.mini.soyg.member.vo.MemberVO" resultType="String">
 	SELECT USERID from member where USERID = #{userId}
 </select>
-
+<!-- 회원가입 -->
 <insert id="insertMember" parameterType="co.mini.soyg.member.vo.MemberVO">
 	INSERT INTO member VALUES(#{userId},#{password},#{address},#{email},#{gender},#{phone},#{birth},#{name})
 </insert>
-
+<!-- 맴버리스트..? -->
 <select id="memberList" resultType="co.mini.soyg.member.vo.MemberVO">
 	SELECT * FROM member
 </select>
-
+<!-- 회원중복 테스트 -->
+<select id="loginCheck" parameterType="co.mini.soyg.member.vo.MemberVO" resultType="co.mini.soyg.member.vo.MemberVO">
+	SELECT * FROM member where userId = #{userId} and password = #{password}
+</select>
 </mapper>
 
