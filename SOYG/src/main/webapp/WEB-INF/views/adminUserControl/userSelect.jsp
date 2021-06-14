@@ -6,7 +6,8 @@
 <meta charset="UTF-8">
 <title>회원 하나 조회</title>
 
-<!-- 폐기 처분 예약 -->
+<!-- 폐기 고려 -->
+
 </head>
 
 <script>
