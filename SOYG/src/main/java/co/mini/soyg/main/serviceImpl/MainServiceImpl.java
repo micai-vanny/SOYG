@@ -12,7 +12,7 @@ import co.mini.soyg.main.vo.MainVO;
 @Repository
 public class MainServiceImpl implements MainService {
 	@Autowired
-	private SqlSession session;
+	private SqlSession sqlSession;
 
 	@Override
 	public List<MainVO> loginRegionGroupList() {
@@ -29,13 +29,37 @@ public class MainServiceImpl implements MainService {
 	@Override
 	public List<MainVO> regionList(MainVO vo){
 		// 지역별 스터디 클릭시 보여줄 스터디 그룹들
-		return session.selectList("regionList", vo);
+		return sqlSession.selectList("regionList", vo);
 	}
 
 	@Override
 	public List<MainVO> fieldsList(MainVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		// 분야별 스터디 카테고리 클릭 시 보여줄 스터디 그룹 리스트
+		return sqlSession.selectList("fieldsList", vo);
+	}
+
+	@Override
+	public List<MainVO> mainRegionList() {
+		// 메인 지역별 카테고리 리스트
+		return sqlSession.selectList("mainRegionList");
+	}
+
+	@Override
+	public List<MainVO> mainFieldsList() {
+		// 메인 분야별 카테고리 리스트
+		return sqlSession.selectList("mainFieldsList");
+	}
+
+	@Override
+	public List<MainVO> regselect() {
+		// 지역별 카테고리 리스트
+		return sqlSession.selectList("regSelect");
+	}
+
+	@Override
+	public List<MainVO> fieldsSelect() {
+		// 분야별 카테고리 리스트
+		return sqlSession.selectList("fieldsSelect");
 	}
 
 }

@@ -318,12 +318,13 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             <p>다양한 지역별 스터디 그룹을 만나보세요.</p>
         </div>
         <div class="row">
+        	<c:forEach items="${mainRegionList }" var="vo">
             <div class="col-lg-4 col-md-6 wow" data-wow-offset="150">
-                <a href="regionList.do?loc_code=${'02' }" class="grid_item">
+                <a href="regionList.do?loc_code=${vo.loc_code }" class="grid_item">
                     <figure class="block-reveal">
                         <div class="block-horizzontal"></div>
                         <img
-                            src="https://imagescdn.gettyimagesbank.com/500/201904/jv11349677.jpg"
+                            src="${pageContext.request.contextPath}/resources/mainImage/${vo.file_name }"
                             class="img-fluid"
                             alt=""
                         />
@@ -332,169 +333,12 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                                 ><i class="ti-layers"></i>More Study
                                 Groups</small
                             >
-                            <h3>서울/경기</h3>
+                            <h3>${vo.loc_name }</h3>
                         </div>
                     </figure>
                 </a>
             </div>
-            <!-- /grid_item -->
-            <div class="col-lg-4 col-md-6 wow" data-wow-offset="150">
-                <a href="regionList.do?loc_code=${'033' }" class="grid_item">
-                    <figure class="block-reveal">
-                        <div class="block-horizzontal"></div>
-                        <img
-                            src="https://imagescdn.gettyimagesbank.com/500/202006/jv12022954.jpg"
-                            class="img-fluid"
-                            alt=""
-                        />
-                        <div class="info">
-                            <small
-                                ><i class="ti-layers"></i>More Study
-                                Groups</small
-                            >
-                            <h3>강원</h3>
-                        </div>
-                    </figure>
-                </a>
-            </div>
-            <!-- /grid_item -->
-            <div class="col-lg-4 col-md-6 wow" data-wow-offset="150">
-                <a href="regionList.do?loc_code=${'042' }" class="grid_item">
-                    <figure class="block-reveal">
-                        <div class="block-horizzontal"></div>
-                        <img
-                            src="https://imagescdn.gettyimagesbank.com/500/202006/jv12022968.jpg"
-                            class="img-fluid"
-                            alt=""
-                        />
-                        <div class="info">
-                            <small
-                                ><i class="ti-layers"></i>More Study
-                                Groups</small
-                            >
-                            <h3>대전/충북</h3>
-                        </div>
-                    </figure>
-                </a>
-            </div>
-            <!-- /grid_item -->
-            <div class="col-lg-4 col-md-6 wow" data-wow-offset="150">
-                <a href="regionList.do?loc_code=${'041' }" class="grid_item">
-                    <figure class="block-reveal">
-                        <div class="block-horizzontal"></div>
-                        <img
-                            src="https://imagescdn.gettyimagesbank.com/500/201804/jv11119403.jpg"
-                            class="img-fluid"
-                            alt=""
-                        />
-                        <div class="info">
-                            <small
-                                ><i class="ti-layers"></i>More Study
-                                Groups</small
-                            >
-                            <h3>충남</h3>
-                        </div>
-                    </figure>
-                </a>
-            </div>
-            <!-- /grid_item -->
-            <div class="col-lg-4 col-md-6 wow" data-wow-offset="150">
-                <a href="regionList.do?loc_code=${'053' }" class="grid_item">
-                    <figure class="block-reveal">
-                        <div class="block-horizzontal"></div>
-                        <img
-                            src="https://imagescdn.gettyimagesbank.com/500/202006/jv12022963.jpg"
-                            class="img-fluid"
-                            alt=""
-                        />
-                        <div class="info">
-                            <small
-                                ><i class="ti-layers"></i>More Study
-                                Groups</small
-                            >
-                            <h3>대구/경북</h3>
-                        </div>
-                    </figure>
-                </a>
-            </div>
-            <!-- /grid_item -->
-            <div class="col-lg-4 col-md-6 wow" data-wow-offset="150">
-                <a href="regionList.do?loc_code=${'051' }" class="grid_item">
-                    <figure class="block-reveal">
-                        <div class="block-horizzontal"></div>
-                        <img
-                            src="https://imagescdn.gettyimagesbank.com/500/202006/jv12022957.jpg"
-                            class="img-fluid"
-                            alt=""
-                        />
-                        <div class="info">
-                            <small
-                                ><i class="ti-layers"></i>More Study
-                                Groups</small
-                            >
-                            <h3>부산/경남</h3>
-                        </div>
-                    </figure>
-                </a>
-            </div>
-            <div class="col-lg-4 col-md-6 wow" data-wow-offset="150">
-                <a href="regionList.do?loc_code=${'063' }" class="grid_item">
-                    <figure class="block-reveal">
-                        <div class="block-horizzontal"></div>
-                        <img
-                            src="https://imagescdn.gettyimagesbank.com/500/201804/jv11119402.jpg"
-                            class="img-fluid"
-                            alt=""
-                        />
-                        <div class="info">
-                            <small
-                                ><i class="ti-layers"></i>More Study
-                                Groups</small
-                            >
-                            <h3>전북</h3>
-                        </div>
-                    </figure>
-                </a>
-            </div>
-            <div class="col-lg-4 col-md-6 wow" data-wow-offset="150">
-                <a href="regionList.do?loc_code=${'062' }" class="grid_item">
-                    <figure class="block-reveal">
-                        <div class="block-horizzontal"></div>
-                        <img
-                            src="https://imagescdn.gettyimagesbank.com/500/201804/jv11119401.jpg"
-                            class="img-fluid"
-                            alt=""
-                        />
-                        <div class="info">
-                            <small
-                                ><i class="ti-layers"></i>More Study
-                                Groups</small
-                            >
-                            <h3>광주/전남</h3>
-                        </div>
-                    </figure>
-                </a>
-            </div>
-            <div class="col-lg-4 col-md-6 wow" data-wow-offset="150">
-                <a href="regionList.do?loc_code=${'064' }" class="grid_item">
-                    <figure class="block-reveal">
-                        <div class="block-horizzontal"></div>
-                        <img
-                            src="https://imagescdn.gettyimagesbank.com/500/202006/jv12022959.jpg"
-                            class="img-fluid"
-                            alt=""
-                        />
-                        <div class="info">
-                            <small
-                                ><i class="ti-layers"></i>More Study
-                                Groups</small
-                            >
-                            <h3>제주</h3>
-                        </div>
-                    </figure>
-                </a>
-            </div>
-            <!-- /grid_item -->
+            </c:forEach>
         </div>
         <!-- /row -->
     </div>
@@ -509,90 +353,22 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                 <p>다양한 분야별 스터디 그룹을 만나보세요.</p>
             </div>
             <div class="row">
+            	<c:forEach items="${mainFieldsList }" var="fl">
                 <div class="col-lg-6">
-                    <a class="box_news" href="#0">
+                    <a class="box_news" href="fieldsList.do?field_code=${fl.field_code }">
                         <figure>
                             <img
-                                src="http://www.campl.co.kr/photo/2020-12/121601.jpg"
+                                src="${pageContext.request.contextPath}/resources/mainImage/${fl.file_name }"
                                 alt=""
                             />
-                            <figcaption><strong>28</strong>Dec</figcaption>
                         </figure>
-                        <h4>Language</h4>
+                        <h4>${fl.field_name }</h4>
                         <p>
-                            글로벌 시대! 영어, 일본어, 중국어, 스페인어 등<br />다양한
-                            언어를 함께 공부해보세요.
+                           ${fl.field_info }
                         </p>
                     </a>
                 </div>
-                <!-- /box_news -->
-                <div class="col-lg-6">
-                    <a class="box_news" href="#0">
-                        <figure>
-                            <img
-                                src="https://imagescdn.gettyimagesbank.com/500/21/126/272/0/1316040297.jpg"
-                                alt=""
-                            />
-                            <figcaption><strong>28</strong>Dec</figcaption>
-                        </figure>
-                        <h4>License</h4>
-                        <p>
-                            도전하고 싶은 다양한 자격증,<br />취업에 꼭 필요한
-                            자격증을 함께 공부해보세요.
-                        </p>
-                    </a>
-                </div>
-                <!-- /box_news -->
-                <div class="col-lg-6">
-                    <a class="box_news" href="#0">
-                        <figure>
-                            <img
-                                src="https://imagescdn.gettyimagesbank.com/500/201803/jv11117284.jpg"
-                                alt=""
-                            />
-                            <figcaption><strong>28</strong>Dec</figcaption>
-                        </figure>
-                        <h4>Employment preparation</h4>
-                        <p>
-                            청년실업 40만 시대. 힘든 취업의 문 함께 열어보세요.
-                        </p>
-                    </a>
-                </div>
-                <!-- /box_news -->
-                <div class="col-lg-6">
-                    <a class="box_news" href="#0">
-                        <figure>
-                            <img
-                                src="https://imagescdn.gettyimagesbank.com/500/20/375/826/0/1267464979.jpg"
-                                alt=""
-                            />
-                            <figcaption><strong>28</strong>Dec</figcaption>
-                        </figure>
-                        <h4>Hobby</h4>
-                        <p>
-                            새롭게 배워보고 싶은 취미가 있나요?<br />일상의
-                            소소한 도전을 함께 해보세요.
-                        </p>
-                    </a>
-                </div>
-                <!-- /box_news -->
-                <div class="col-lg-6">
-                    <a class="box_news" href="#0">
-                        <figure>
-                            <img
-                                src="https://imagescdn.gettyimagesbank.com/500/201801/a11108859.jpg"
-                                alt=""
-                            />
-                            <figcaption><strong>28</strong>Dec</figcaption>
-                        </figure>
-                        <h4>E.T.C</h4>
-                        <p>
-                            색다른 지식을 나누고 발전하고 싶은 사람들이
-                            모여있어요.<br />
-                            함께 도전해보세요!
-                        </p>
-                    </a>
-                </div>
+                </c:forEach>
                 <!-- /box_news -->
             </div>
             <!-- /row -->
