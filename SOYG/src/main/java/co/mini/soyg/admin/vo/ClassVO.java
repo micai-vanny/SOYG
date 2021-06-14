@@ -2,10 +2,13 @@ package co.mini.soyg.admin.vo;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class ClassVO {
 	private int class_code;
 	private String class_name;
 	private String loc_code;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")			
 	private Date start_date;
 	private String class_image;
 	private String class_info;
@@ -13,7 +16,21 @@ public class ClassVO {
 	private String class_startchk;
 	private int class_personnel;
 	private String field_code;
+	private String weekdays_chk;
+	private String class_time;
 	
+	public String getWeekdays_chk() {
+		return weekdays_chk;
+	}
+	public void setWeekdays_chk(String weekdays_chk) {
+		this.weekdays_chk = weekdays_chk;
+	}
+	public String getClass_time() {
+		return class_time;
+	}
+	public void setClass_time(String class_time) {
+		this.class_time = class_time;
+	}
 	public String getLoc_code() {
 		return loc_code;
 	}

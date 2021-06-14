@@ -4,5 +4,6 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
   
   <configuration>
-  
+           <!-- DB nullable 값 받아오기위해  -->
+           <settings> <setting name="jdbcTypeForNull" value="NULL" /> </settings>
   </configuration>

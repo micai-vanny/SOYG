@@ -12,6 +12,17 @@
 function select(class_code){
 	location.href = "adminClassSelect.do?class_code=" + class_code;
 	}
+
+window.onload = function(){
+	$("#keyword").keyup(function(){
+		var k = $(this).val();
+		$("#dataTable > tfoot > tr").hide();
+		var temp = $("#dataTable > tfoot > tr > td:nth-child(6n+4):contains('" + k + "')");
+		
+		$(temp).parent().show();
+	});
+};
+
 </script>
 
 <section id="hero_in" class="general">
@@ -31,12 +42,12 @@ function select(class_code){
 		<div>
 			<div class="content-wrapper">
 				<div class="container-fluid">
-					<!-- Breadcrumbs-->
+					<!-- 상단바-->
 					<ol class="breadcrumb">
 						<li class="breadcrumb-item"><a href="admin.do">관리자페이지</a></li>
 						<li class="breadcrumb-item active">스터디 리스트</li>
 					</ol>
-					<!-- Example DataTables Card-->
+					<!-- 테이블 데이터-->
 					<div class="card mb-3">
 						<div class="card-header">
 							<i class="fa fa-table"></i> 스터디 전체 조회
@@ -48,8 +59,8 @@ function select(class_code){
 									<div class="row">
 										<div class="col-sm-12 col-md-6">
 											<div id="dataTable_filter" class="dataTables_filter">
-												<label> Search: <input type="search"
-													class="form-fontrol form-control-sm" placeholder
+												<label> Search: <input type="search" id="keyword"
+													class="form-fontrol form-control-sm" placeholder="스터디명으로 검색"
 													aria-controls="dataTable">
 												</label>
 											</div>
@@ -70,31 +81,39 @@ function select(class_code){
 											<tfoot>
 												<c:forEach var="clas" items="${classes }">
 													<tr onclick="select(${clas.class_code })">
-														<th>${clas.class_code }</th>
-														<th>${clas.loc_code }</th>
-														<th>${clas.field_code }</th>
-														<th>${clas.class_name }</th>
-														<th>${clas.class_active }</th>
-														<th>${clas.class_startchk }</th>
+														<td>${clas.class_code }</td>
+														<td>${clas.loc_code }</td>
+														<td>${clas.field_code }</td>
+														<td>${clas.class_name }</td>
+														<td>${clas.class_active }</td>
+														<td>${clas.class_startchk }</td>
 													</tr>
 												</c:forEach>
 											</tfoot>
-											<tbody>
-
-											</tbody>
 										</table>
 									</div>
+									<!-- 페이징처리 -->
+									<jsp:include page="../common/paging.jsp" flush="true">
+										<jsp:param name="firstPageNo" value="${paging.firstPageNo}" />
+										<jsp:param name="prevPageNo" value="${paging.prevPageNo}" />
+										<jsp:param name="startPageNo" value="${paging.startPageNo}" />
+										<jsp:param name="pageNo" value="${paging.pageNo}" />
+										<jsp:param name="endPageNo" value="${paging.endPageNo}" />
+										<jsp:param name="nextPageNo" value="${paging.nextPageNo}" />
+										<jsp:param name="finalPageNo" value="${paging.finalPageNo}" />
+									</jsp:include>
 								</div>
-								<!-- /tables-->
 							</div>
-							<!-- /container-fluid-->
 						</div>
-						<!-- /container-wrapper-->
-						<a href="#">홈 가기</a>
+						<!-- /tables-->
 					</div>
+					<!-- /container-fluid-->
 				</div>
+				<!-- /container-wrapper-->
 			</div>
 		</div>
+	</div>
+	</div>
 	</div>
 	<!-- Bootstrap core JavaScript-->
 	<script src="vendor/jquery/jquery.min.js"></script>
