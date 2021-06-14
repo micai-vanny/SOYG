@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import co.mini.soyg.admin.service.ClassService;
 import co.mini.soyg.admin.vo.ClassVO;
@@ -12,6 +13,7 @@ import co.mini.soyg.admin.vo.ClassVO;
 public class AdminController {
 	@Autowired
 	private ClassService dao;
+	
 	//관리자페이지
 	@RequestMapping("/admin.do")
 	public String admin (Model model) {
@@ -38,15 +40,21 @@ public class AdminController {
 	
 	//관리자-리스트 수정
 	@RequestMapping("/adminClassUpdate.do")
-	public String classUpdate(Model model, ClassVO vo) {
-		model.addAttribute("classes", dao.classUpdate(vo));
+	public String classUpdate(Model model, ClassVO vo, @RequestParam("class_code") int class_code) {
+		System.out.println(vo.getClass_code());
+		 dao.classUpdate(vo);
+		 model.addAttribute("classes", dao.classSelect(class_code));
+		 
 		return"admin/adminClassSelect";
 	}
 	//관리자-리스트 삭제
 	@RequestMapping("/adminClassDelete.do")
 	public String classDelete(Model model, int class_code) {
+		System.out.println("삭제 클래스 코드:" + class_code);
 		model.addAttribute("classes", dao.classDelete(class_code));
 		//dao.classDelete(class_code);
 		return "admin/adminClassList";
 	}
+	
+	
 }

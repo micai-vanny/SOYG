@@ -28,13 +28,14 @@ public class ClassServiceImpl implements ClassService {
 
 	// class삭제
 	@Override
-	public int classDelete(int class_code) {
+	public int classDelete (int class_code) {
 		return sqlSession.delete("adminClassDelete", class_code);
 	}
 
 	// class 수정
 	@Override
 	public int classUpdate(ClassVO vo) {
+		
 		return sqlSession.update("adminClassUpdate", vo);
 	}
 
