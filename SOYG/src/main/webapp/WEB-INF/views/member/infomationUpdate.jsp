@@ -47,6 +47,10 @@ button:hover:before, button:hover:after {
 	width: 100%;
 	transition: 800ms ease all;
 }
+
+.modify-flex {
+	display: flex;
+}
 </style>
 <div class="width">
 	<div id="form_container" class="clearfix">
@@ -104,11 +108,15 @@ button:hover:before, button:hover:after {
 						<input type="text" class="form-control required"
 							value="${user.address }">
 					</div>
-					<div class="form-group" style="width: 80%">
-						<input type="text" style="float: left" name="postcode" id="postcode"
-							class="form-control required" placeholder="우편주소" readonly>
-						<input type="button"
-							onclick="execDaumPostcode()" value="주소찾기">
+					<div class="modify-flex">
+						<div class="form-group" style="width: 90%">
+							<input type="text" style="float: left" name="postcode"
+								id="postcode" class="form-control required" placeholder="우편주소"
+								readonly>
+						</div>
+						<div>
+							<input style="height: 35px;" type="button" onclick="execDaumPostcode()" value="주소찾기">
+						</div>
 					</div>
 					<div class="form-group">
 						<input type="text" name="roadAddress" id="roadAddress"
