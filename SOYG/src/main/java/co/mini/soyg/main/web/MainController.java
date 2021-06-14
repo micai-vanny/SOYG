@@ -21,8 +21,10 @@ public class MainController {
 		System.out.println(vo.getLoc_code());
 		// 리스트 정보
 		model.addAttribute("regionList", dao.regionList(vo));
-		// 카테고리 리스트
+		// 카테고리 리스트(pull-down menu)
 		model.addAttribute("regSelect", dao.regselect());
+		//간판에 지역 이름 달아주자
+		model.addAttribute("regionName", dao.regionName(vo));
 		return ("main/regionList");
 	}
 	
@@ -30,7 +32,12 @@ public class MainController {
 	public String regionGrid(MainVO vo, Model model) {
 		// 그리드 리스트
 		System.out.println(vo.getLoc_code());
+		// 리스트 정보
 		model.addAttribute("regionList", dao.regionList(vo));
+		// 카테고리 리스트(pull-down menu)
+		model.addAttribute("regSelect", dao.regselect());
+		//간판에 지역 이름 달아주자
+		model.addAttribute("regionName", dao.regionName(vo));
 		return ("main/regionGridList");
 	}
 	

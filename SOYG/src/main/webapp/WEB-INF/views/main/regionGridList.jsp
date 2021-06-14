@@ -5,7 +5,7 @@
 	<div class="wrapper">
 		<div class="container">
 			<h1 class="fadeInUp">
-				<span></span>지역별 스터디
+				<span></span>지역별 스터디 : ${regionName.loc_name }
 			</h1>
 		</div>
 	</div>
@@ -25,15 +25,15 @@
 			</li>
 			<li>
 				<div class="layout_view">
-					<a href="regList.do?loc_code=${vo.loc_code }&key=2" class="active"><i class="icon-th"></i></a>
-					<a href="regList.do?loc_code=${vo.loc_code }&key=1"><i class="icon-th-list"></i></a>
+					<a href="regionGrid.do?loc_code=${regionList[0].loc_code }" class="active"><i class="icon-th"></i></a>
+					<a href="regionList.do?loc_code=${regionList[0].loc_code }"><i class="icon-th-list"></i></a>
 				</div>
 			</li>
-			<li><select name="orderby" class="selectbox">
+			<li><select name="orderby" class="selectbox" onchange="if(this.value) location.href=(this.value);">
 					<option value="category">Category</option>
-					<option value="category 2">Literature</option>
-					<option value="category 3">Architecture</option>
-					<option value="category 4">Economy</option>
+					<c:forEach items="${regSelect }" var="rs">
+									<option value="regionGrid.do?loc_code=${rs.loc_code }">${rs.loc_name }</option>
+					</c:forEach>
 			</select></li>
 		</ul>
 	</div>
@@ -43,12 +43,13 @@
 
 <div class="container margin_60_35">
 	<div class="row">
+		<c:forEach items="${regionList }" var="vo">
 		<div class="col-xl-4 col-lg-6 col-md-6">
 			<div class="box_grid wow">
 				<figure class="block-reveal">
 					<div class="block-horizzontal"></div>
 					<a href="#0" class="wish_bt"></a>
-					<a href="course-detail.html"><img
+					<a href="studySelect.do?class_code=${vo.class_code }"><img
 						src="http://via.placeholder.com/800x533/ccc/fff/course__list_1.jpg"
 						class="img-fluid" alt=""></a>
 					<div class="price">$54</div>
@@ -57,10 +58,20 @@
 					</div>
 				</figure>
 				<div class="wrapper">
-					<small>Category</small>
-					<h3>Persius delenit has cu</h3>
-					<p>Id placerat tacimates definitionem sea, prima quidam vim no.
-						Duo nobis persecuti cu.</p>
+					<small>Study</small>
+					<h3>${vo.class_name }</h3>
+					<p>스터디 모집 정원 : ${vo.class_personnel }<br>
+								<c:choose>
+									<c:when test="${vo.class_startchk eq 'R' }">
+										스터디원 모집 중!
+									</c:when>
+									<c:when test="${vo.class_startchk eq 'O' }">
+										스터디 진행 중!
+									</c:when>
+									<c:otherwise>
+										모집이 마감된 스터디입니다.
+									</c:otherwise>
+								</c:choose></p>
 					<div class="rating">
 						<i class="icon_star voted"></i><i class="icon_star voted"></i><i
 							class="icon_star voted"></i><i class="icon_star"></i><i
@@ -68,12 +79,22 @@
 					</div>
 				</div>
 				<ul>
-					<li><i class="icon_clock_alt"></i> 1h 30min</li>
+					<li><i class="icon_clock_alt"></i>
+						<c:choose>
+							<c:when test="${vo.weekdays_chk eq 'W' }">
+									주중, ${vo.class_time }
+							</c:when>
+							<c:otherwise>
+									주말, ${vo.class_time }
+							</c:otherwise>						
+								</c:choose>
+					</li>
 					<li><i class="icon_like"></i> 890</li>
-					<li><a href="course-detail.html">Enroll now</a></li>
+					<li><a href="studySelect.do?class_code=${vo.class_code }">자세히</a></li>
 				</ul>
 			</div>
 		</div>
+		</c:forEach>
 		<!-- /box_grid -->
 	</div>
 	<!-- /row -->

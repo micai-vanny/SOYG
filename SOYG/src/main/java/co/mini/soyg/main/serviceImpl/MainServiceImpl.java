@@ -62,4 +62,10 @@ public class MainServiceImpl implements MainService {
 		return sqlSession.selectList("fieldsSelect");
 	}
 
+	@Override
+	public MainVO regionName(MainVO vo) {
+		// 지역별 리스트 간판에 지역 이름 뿌려줄 거임...
+		return sqlSession.selectOne("regionName", vo);
+	}
+
 }

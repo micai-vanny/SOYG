@@ -17,16 +17,8 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                 <form>
                     <div id="custom-search-input">
                         <div class="input-group">
-                            <input
-                                type="text"
-                                class="search-query"
-                                placeholder="ex) 외국어, 자격증, 대구, 서울..."
-                            />
-                            <input
-                                type="submit"
-                                class="btn_search"
-                                value="Search"
-                            />
+                            <input type="text" class="search-query" placeholder="ex) 외국어, 자격증, 대구, 서울..." />
+                            <input type="submit" class="btn_search" value="Search" />
                         </div>
                     </div>
                 </form>
@@ -297,14 +289,6 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             <!-- /item -->
         </div>
         <!-- /carousel -->
-        <div class="container">
-            <p class="btn_home_align">
-                <a href="courses-grid.html" class="btn_1 rounded"
-                    >View all Groups</a
-                >
-            </p>
-        </div>
-        <!-- /container -->
         <hr />
     </div>
     <!-- /container -->
@@ -357,10 +341,8 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                 <div class="col-lg-6">
                     <a class="box_news" href="fieldsList.do?field_code=${fl.field_code }">
                         <figure>
-                            <img
-                                src="${pageContext.request.contextPath}/resources/mainImage/${fl.file_name }"
-                                alt=""
-                            />
+                            <img src="${pageContext.request.contextPath}/resources/mainImage/${fl.file_name }"
+                                alt="" />
                         </figure>
                         <h4>${fl.field_name }</h4>
                         <p>
@@ -372,9 +354,6 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                 <!-- /box_news -->
             </div>
             <!-- /row -->
-            <p class="btn_home_align">
-                <a href="blog.html" class="btn_1 rounded">View all Groups</a>
-            </p>
         </div>
         <!-- /container -->
     </div>

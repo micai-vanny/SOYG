@@ -27,4 +27,7 @@ public interface MainService {
 	
 	//분야별 카테고리 리스트
 	List<MainVO> fieldsSelect();
+	
+	//지역별 카테고리 뷰 간판에 띄워줄 지역 이름
+	MainVO regionName(MainVO vo);
 }

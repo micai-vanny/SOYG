@@ -6,7 +6,7 @@
 		<section id="hero_in" class="courses">
 			<div class="wrapper">
 				<div class="container">
-					<h1 class="fadeInUp"><span></span>지역별 스터디</h1>
+					<h1 class="fadeInUp"><span></span>지역별 스터디 : ${regionName.loc_name }</h1>
 				</div>
 			</div>
 		</section>
@@ -26,8 +26,8 @@
 					</li>
 					<li>
 						<div class="layout_view">
-								<a href="regionGrid.do?loc_code=${vo.loc_code }"><i class="icon-th"></i></a>
-								<a href="regionList.do?loc_code=${vo.loc_code }" class="active"><i class="icon-th-list"></i></a>
+								<a href="regionGrid.do?loc_code=${regionList[0].loc_code }"><i class="icon-th"></i></a>
+								<a href="regionList.do?loc_code=${regionList[0].loc_code }" class="active"><i class="icon-th-list"></i></a>
 						</div>
 					</li>
 					<li><!-- 카테고리 pulldown menu 링크 -->
@@ -60,7 +60,7 @@
 							<a href="#0" class="wish_bt"></a>
 							<small>Study</small>
 							<h3>${vo.class_name }</h3>
-							<p>스터디 모집 정원 : ${vo.class_personnel }, ${vo.class_startchk }<br>
+							<p>스터디 모집 정원 : ${vo.class_personnel }<br>
 								<c:choose>
 									<c:when test="${vo.class_startchk eq 'R' }">
 										스터디원 모집 중!
@@ -87,14 +87,13 @@
 								</c:choose>
 							</li>
 							<li><i class="icon_like"></i> 890</li>
-							<li><location.href="studySelect.do?class_code=${vo.class_code }">자세히 보기</a></li>
+							<li><a href="studySelect.do?class_code=${vo.class_code }">자세히 보기</a></li>
 						</ul>
 					</div>
 				</div>
 			</div>
 		</c:forEach>
 			<!-- /box_list -->
-<!-- 			<p class="text-center add_top_60"><a href="#0" class="btn_1">Load more</a></p> -->
 		</div>
 		<!-- 스터디 리스트 끝 -->
 	</main>
