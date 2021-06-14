@@ -63,8 +63,8 @@
 	<script src="resources/udema_v_1.9/html_menu_1/js/main.js"></script>
 	<script src="resources/udema_v_1.9/html_menu_1/assets/validate.js"></script>
 
-	<script
-		src="resources/udema_v_1.9/admin_section/js/admin-datatables.js"></script>
+	<!-- <script
+		src="resources/udema_v_1.9/admin_section/js/admin-datatables.js"></script> -->
 	<script src="resources/udema_v_1.9/admin_section/js/admin.js"></script>
 </body>
 </html>

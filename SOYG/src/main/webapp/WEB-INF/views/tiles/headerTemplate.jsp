@@ -31,9 +31,9 @@ pageEncoding="UTF-8"%>
     </a>
     <nav id="menu" class="main-menu">
         <ul>
-            <li>
+            <!-- <li>
                 <span><a href="#0">처음으로</a></span>
-            </li>
+            </li> -->
             <li>
                 <span><a href="admin.do">관리자페이지</a></span>
             </li>
@@ -101,7 +101,7 @@ pageEncoding="UTF-8"%>
                         >
                     </li>
                     <li><a href="coming_soon/index.html">Coming soon</a></li>
-                    <li><a href="userControlPage.do">관리자 테스트</a></li>
+                    <li><a href="icon-pack-1.html">Icon pack1</a></li>
                     <li><a href="icon-pack-2.html">Icon pack 2</a></li>
                     <li><a href="icon-pack-3.html">Icon pack 3</a></li>
                     <li><a href="icon-pack-4.html">Icon pack 4</a></li>
