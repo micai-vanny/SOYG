@@ -61,9 +61,29 @@
 					<hr
 						style="border-bottom: 1px solid rgba(16, 22, 26, 0.15); box-sizing: content-box; height: 0px; overflow: visible; border-top: none; border-right: none; border-left: none; border-image: initial;" />
 				</div>
+				<!-- 반복문 foreach 시작 -->
 				<div>
-					<div>여기 댓글내용~~</div>
+					<div width="100%" class="dELPiW">
+						<div class="ktbFdU">
+							<div class="bRFhLZ">
+								<div class="hhRQON">
+									<div font-weight="600" color="#3a3a3a" class="crkaSe">
+										닉네임
+									</div>
+								</div>
+								<div class="btbfZZ dhxlc">댓글 단 시간</div>
+							</div>
+						</div>
+						<div class="fQcRNu">
+							<div class="fumiqu">
+								<div class="jpDNdc">
+									댓글내용
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
+				<!-- 반복문 끝 -->
 			</div>
 		</div>
 		<!-- 오른쪽 화면 -->
@@ -71,22 +91,22 @@
 			<div class="btIWEC">
 				<div class="hZPraK">오늘의 도전과제</div>
 			</div>
-			<div>
-				<div class="col-xl-3 col-md-6 mb-4">
-					<div class="card border-left-warning shadow h-100 py-2">
-						<div class="card-body">
-							<div class="row no-gutters align-items-center">
-								<div class="col mr-2">
-									<div
-										class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-										Pending Requests</div>
-									<div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-								</div>
+			<!-- foreach로 돌릴부분 -->
+			<div class="col-xl3 col-md6 mb4">
+				<div class="card border-left-warning shadow h-100 py-2">
+					<div class="card-body">
+						<div class="row no-gutters align-items-center">
+							<div class="col mr-2">
+								<div
+									class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+									도전과제 제목</div>
+								<div class="h5 mb-0 font-weight-bold text-gray-800">내용</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+			<!-- 여기까지 -->
 		</div>
 	</div>
 

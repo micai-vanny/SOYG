@@ -4,6 +4,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <link rel="stylesheet" href="resources/css/classSelectCss.css" />
+<link rel="stylesheet"
+	href="https://unpkg.com/swiper/swiper-bundle.min.css">
 
 <script>
 	$(function() {
@@ -45,11 +47,17 @@
 		<div class="wrapper">
 			<div class="container2">
 				<div style="width: 48.8%; height: 100%;" class="imgC">
+					<!-- 메인이미지 -->
 					<img class="image-set"
 						src="https://cdn.class101.net/images/a29bfb36-5e03-4de9-b5ec-0bb32a974863">
 				</div>
 				<div style="width: 48.8%; height: 50%;" class="imgC">
-					<div style="height: 100%; margin: 0 0 10px 10px;">
+					<!-- 부가 설명이미지 foreach 4개 -->
+					<div class="container2_inner imgC">
+						<img class="image-set"
+							src="https://cdn.class101.net/images/a29bfb36-5e03-4de9-b5ec-0bb32a974863">
+					</div>
+					<div class="container2_inner imgC">
 						<img class="image-set"
 							src="https://cdn.class101.net/images/a29bfb36-5e03-4de9-b5ec-0bb32a974863">
 					</div>
@@ -71,9 +79,9 @@
 		<nav class="secondary_nav sticky_horizontal">
 			<div class="container">
 				<ul class="clearfix">
-					<li><a href="#description" class="active">Description</a></li>
-					<li><a href="#lessons">Lessons</a></li>
-					<li><a href="#reviews">Reviews</a></li>
+					<li><a href="#description" class="active">학습할내용</a></li>
+					<li><a href="#lessons">과정</a></li>
+					<li><a href="#reviews">커뮤니티</a></li>
 				</ul>
 			</div>
 		</nav>
@@ -82,14 +90,9 @@
 				<div class="col-lg-8">
 
 					<section id="description">
-						<h2>Description</h2>
-						<p>Per consequat adolescens ex, cu nibh commune temporibus
-							vim, ad sumo viris eloquentiam sed. Mea appareat omittantur
-							eloquentiam ad, nam ei quas oportere democritum. Prima causae
-							admodum id est, ei timeam inimicus sed. Sit an meis aliquam,
-							cetero inermis vel ut. An sit illum euismod facilisis, tamquam
-							vulputate pertinacia eum at.</p>
-						<h5>What will you learn</h5>
+						<h2>이 학습의 의의</h2>
+						<p>${study.class_Info }</p>
+						<h5>배우게 될 것</h5>
 						<ul class="list_ok">
 							<li>
 								<h6>Suas summo id sed erat erant oporteat</h6>
@@ -136,7 +139,7 @@
 
 					<section id="lessons">
 						<div class="intro_title">
-							<h2>Lessons</h2>
+							<h2>과정</h2>
 							<ul>
 								<li>18 lessons</li>
 								<li>01:02:10</li>
@@ -280,7 +283,43 @@
 					<!-- /section -->
 
 					<section id="reviews">
-						<h2>Reviews</h2>
+						<h2 style="display: inline-block;">커뮤니티</h2>
+						<h6 style="display: inline-block;">ㅇ댓글갯수</h6>
+						<button class="btn btn-dark fDnpvW ckDfJz">글 쓰기</button>
+						<div class="kGkZYm">
+							<div
+								class="swiper-container sc-fvhGYg gLQA-Dh cAvXRp swiper-container-horizontal">
+								<h5>공지사항</h5>
+								<div class="swiper-wrapper">
+									<div class="swiper-slide dSmJXp" style="height: 180px;">
+										<div>
+											<div width="100%" class="dELPiW">
+												<div class="ktbFdU">
+													<div class="bRFhLZ">
+														<div class="hhRQON">
+															<div font-weight="600" color="#3a3a3a" class="crkaSe">
+																닉네임</div>
+														</div>
+														<div class="btbfZZ dhxlc">공지 날짜</div>
+													</div>
+												</div>
+												<div class="fQcRNu">
+													<div class="fumiqu">
+														<div class="jpDNdc">공지내용ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅋ</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="swiper-slide">Slide 2</div>
+									<div class="swiper-slide">Slide 3</div>
+								</div>
+								<div class="swiper-pagination"></div>
+								<div class="swiper-prev"></div>
+								<div class="swiper-next"></div>
+								<div class="swiper-scrollbar"></div>
+							</div>
+						</div>
 						<div class="reviews-container">
 							<div class="row">
 								<div class="col-lg-3">
@@ -291,7 +330,6 @@
 												class="icon_star voted"></i><i class="icon_star voted"></i><i
 												class="icon_star"></i>
 										</div>
-										<small>Based on 4 reviews</small>
 									</div>
 								</div>
 								<div class="col-lg-9">
@@ -368,7 +406,7 @@
 						<hr>
 
 						<div class="reviews-container">
-
+							<!-- /review-box -->
 							<div class="review-box clearfix">
 								<figure class="rev-thumb">
 									<img
@@ -381,53 +419,9 @@
 											class="icon_star voted"></i><i class="icon_star voted"></i><i
 											class="icon_star"></i>
 									</div>
-									<div class="rev-info">Admin – April 03, 2016:</div>
+									<div class="rev-info">닉네임 – 날짜</div>
 									<div class="rev-text">
-										<p>Sed eget turpis a pede tempor malesuada. Vivamus quis
-											mi at leo pulvinar hendrerit. Cum sociis natoque penatibus et
-											magnis dis</p>
-									</div>
-								</div>
-							</div>
-							<!-- /review-box -->
-							<div class="review-box clearfix">
-								<figure class="rev-thumb">
-									<img
-										src="http://via.placeholder.com/150x150/ccc/fff/avatar2.jpg"
-										alt="">
-								</figure>
-								<div class="rev-content">
-									<div class="rating">
-										<i class="icon-star voted"></i><i class="icon_star voted"></i><i
-											class="icon_star voted"></i><i class="icon_star voted"></i><i
-											class="icon_star"></i>
-									</div>
-									<div class="rev-info">Ahsan – April 01, 2016:</div>
-									<div class="rev-text">
-										<p>Sed eget turpis a pede tempor malesuada. Vivamus quis
-											mi at leo pulvinar hendrerit. Cum sociis natoque penatibus et
-											magnis dis</p>
-									</div>
-								</div>
-							</div>
-							<!-- /review-box -->
-							<div class="review-box clearfix">
-								<figure class="rev-thumb">
-									<img
-										src="http://via.placeholder.com/150x150/ccc/fff/avatar3.jpg"
-										alt="">
-								</figure>
-								<div class="rev-content">
-									<div class="rating">
-										<i class="icon-star voted"></i><i class="icon_star voted"></i><i
-											class="icon_star voted"></i><i class="icon_star voted"></i><i
-											class="icon_star"></i>
-									</div>
-									<div class="rev-info">Sara – March 31, 2016:</div>
-									<div class="rev-text">
-										<p>Sed eget turpis a pede tempor malesuada. Vivamus quis
-											mi at leo pulvinar hendrerit. Cum sociis natoque penatibus et
-											magnis dis</p>
+										<p>내용</p>
 									</div>
 								</div>
 							</div>
@@ -442,9 +436,7 @@
 				<aside class="col-lg-4" id="sidebar">
 					<div class="box_detail">
 						<div class="iYUinv">${study.field_Name }</div>
-						<div class="jhzFzM">
-							${study.class_Name }
-						</div>
+						<div class="jhzFzM">${study.class_Name }</div>
 						<div class="cJDaSl">
 							<div class="ePrSEx">바로수강가능</div>
 						</div>
@@ -455,30 +447,31 @@
 							</em> 60% 할인가격
 							</span>
 						</div>
-						<a href="studyVideo.do" class="btn_1 full-width">구매하기</a> <a href="#0"
-							class="btn_1 full-width outline"> <i class="icon_heart"></i>
-							위시리스트에 넣기
+						<a href="studyVideo.do" class="btn_1 full-width">구매하기</a> <a
+							href="#0" class="btn_1 full-width outline"> <i
+							class="icon_heart"></i> 위시리스트에 넣기
 						</a>
 						<div id="list_feat">
 							<h3>What's includes</h3>
 							<ul>
-								<li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#1a1a1a" viewBox="0 0 24 24">
+								<li><svg xmlns="http://www.w3.org/2000/svg" width="18"
+										height="18" fill="#1a1a1a" viewBox="0 0 24 24">
 										<path d="M15.5 12L10 9v6l5.5-3z"></path>
-										<path fill-rule="evenodd" d="M3 3a2 2 0 00-2 2v14a2 2 0 002 2h18a2 2 0 002-2V5a2 2 0 00-2-2H3zm0 16h18V5H3v14z"></path>
-									</svg>
-									콘텐츠이용권
-								</li>
-								<li>
-									<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24">
-										<path fill-rule="evenodd" d="M21 6h-3.337c.216-.455.337-.963.337-1.5A3.5 3.5 0 0014.5 1 3.49 3.49 0 0012 2.051 3.49 3.49 0 009.5 1 3.5 3.5 0 006 4.5c0 .537.121 1.045.337 1.5H3a1 1 0 00-1 1v4a1 1 0 001 1v8a1 1 0 001 1h16a1 1 0 001-1v-8a1 1 0 001-1V7a1 1 0 00-1-1zM4 8v2h7V8H4zm9 0v2h7V8h-7zm-2 4H5v7h6v-7zm2 7v-7h6v7h-6zm2-13.085a1.5 1.5 0 01-.5.085H13V4.5c0-.175.03-.344.085-.5A1.5 1.5 0 1115 5.915zM11 4.5V6H9.5a1.5 1.5 0 111.415-2c.055.156.085.325.085.5z" fill="#1a1a1a"></path>
-									</svg> 
-									준비물키트
-								</li>
-								<li><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24">
-										<path fill-rule="evenodd" d="M8.443 12.832A5.99 5.99 0 016 8a6 6 0 1112 0 5.99 5.99 0 01-2.443 4.832A8 8 0 0120 20v1h-2v-1a6 6 0 10-12 0v1H4v-1a8 8 0 014.443-7.168zM16 8a4 4 0 11-8 0 4 4 0 118 0z" fill="#1a1a1a"></path>
-									</svg>
-									초보자들도 쉽게
-								</li>
+										<path fill-rule="evenodd"
+											d="M3 3a2 2 0 00-2 2v14a2 2 0 002 2h18a2 2 0 002-2V5a2 2 0 00-2-2H3zm0 16h18V5H3v14z"></path>
+									</svg> 콘텐츠이용권</li>
+								<li><svg xmlns="http://www.w3.org/2000/svg" width="18"
+										height="18" fill="none" viewBox="0 0 24 24">
+										<path fill-rule="evenodd"
+											d="M21 6h-3.337c.216-.455.337-.963.337-1.5A3.5 3.5 0 0014.5 1 3.49 3.49 0 0012 2.051 3.49 3.49 0 009.5 1 3.5 3.5 0 006 4.5c0 .537.121 1.045.337 1.5H3a1 1 0 00-1 1v4a1 1 0 001 1v8a1 1 0 001 1h16a1 1 0 001-1v-8a1 1 0 001-1V7a1 1 0 00-1-1zM4 8v2h7V8H4zm9 0v2h7V8h-7zm-2 4H5v7h6v-7zm2 7v-7h6v7h-6zm2-13.085a1.5 1.5 0 01-.5.085H13V4.5c0-.175.03-.344.085-.5A1.5 1.5 0 1115 5.915zM11 4.5V6H9.5a1.5 1.5 0 111.415-2c.055.156.085.325.085.5z"
+											fill="#1a1a1a"></path>
+									</svg> 준비물키트</li>
+								<li><svg xmlns="http://www.w3.org/2000/svg" width="18"
+										height="18" fill="none" viewBox="0 0 24 24">
+										<path fill-rule="evenodd"
+											d="M8.443 12.832A5.99 5.99 0 016 8a6 6 0 1112 0 5.99 5.99 0 01-2.443 4.832A8 8 0 0120 20v1h-2v-1a6 6 0 10-12 0v1H4v-1a8 8 0 014.443-7.168zM16 8a4 4 0 11-8 0 4 4 0 118 0z"
+											fill="#1a1a1a"></path>
+									</svg> 초보자들도 쉽게</li>
 								<li><i class="icon_chat_alt"></i>커뮤니티 활성화</li>
 							</ul>
 						</div>
@@ -498,5 +491,19 @@
 			<p></p>
 		</div>
 	</div>
+
+	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+	<script>
+		const swiper = new Swiper('.swiper-container', {
+			loop : true,
+			pagination : {
+				el : '.swiper-pagination'
+			},
+			navigation : {
+				nextEl : '.swiper-next',
+				prevEl : '.swiper-prev'
+			}
+		})
+	</script>
 </main>
 <!--/main-->

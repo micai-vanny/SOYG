@@ -83,7 +83,7 @@ pageEncoding="UTF-8"%>
                     <li><a href="register.html">Register</a></li>
                     <li><a href="contacts.html">Contacts</a></li>
                     <li><a href="404.html">404 page</a></li>
-                    <li><a href="agenda-calendar.html">Agenda Calendar</a></li>
+                    <li><a href="calendar.do">Calendar</a></li>
                     <li><a href="faq.html">Faq</a></li>
                     <li><a href="help.html">Help</a></li>
                 </ul>

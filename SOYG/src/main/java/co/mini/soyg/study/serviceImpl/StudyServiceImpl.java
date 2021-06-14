@@ -23,7 +23,7 @@ public class StudyServiceImpl implements StudyService {
 	@Override
 	public StudyVO studySelect(StudyVO vo) {
 
-		return sqlSession.selectOne("studySelect", 13);
+		return sqlSession.selectOne("studySelect", 12);
 	}
 
 	@Override
