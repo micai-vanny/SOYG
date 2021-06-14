@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <style>
 .wrap {
 	margin-inline: 10%;
 }
-.course_list{
+
+.course_list {
 	strong: strong;
 }
 </style>
@@ -39,12 +41,14 @@ function select(class_code){
 				<li>
 					<figure>
 						<img src="img/course_1.jpg" alt="">
-					</figure>
+					<img src="<spring:url value='/resources/classImage/st43.png'/>">
+					<img src="<spring:url value='/resources/classImage/${classes.class_image }'/>">
+					</figure> 
 					<h4>${classes.class_name }
 						<i class="pending">${classes.class_startchk }</i>
 					</h4>
 					<ul class="course_list">
-						<li><h6>스터디코드</h6>: ${classes.class_code }</li>
+						<li><h6>스터디코드d</h6>: ${classes.class_code }</li>
 						<li><h6>스터디명</h6> ${classes.class_name }</li>
 						<li><h6>분야분류</h6> ${classes.field_code }</li>
 						<li><h6>지역코드</h6> ${classes.loc_code }</li>
@@ -60,7 +64,8 @@ function select(class_code){
 					<h6>스터디 설명</h6>
 					<p>${classes.class_info }</p>
 					<ul align="right" class="buttons">
-						<li><a onclick="select(${classes.class_code })" class="btn_1 gray approve"><i
+						<li><a onclick="select(${classes.class_code })"
+							class="btn_1 gray approve"><i
 								class="fa fa-fw fa-check-circle-o"></i> 수정</a></li>
 						<li><a href="#0" class="btn_1 gray delete"><i
 								class="fa fa-fw fa-times-circle-o"></i> 삭제</a></li>
