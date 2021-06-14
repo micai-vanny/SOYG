@@ -41,7 +41,7 @@
 					</a>
 				</div>
 				<div class="col-lg-4 col-md-6">
-					<a class="box_topic" href="userControlPage.do">
+					<a class="box_topic" href="userList.do">
 						<i class="pe-7s-study"></i>
 						<h3>회원관리</h3>
 						<p>회원 조회/수정/삭제</p>

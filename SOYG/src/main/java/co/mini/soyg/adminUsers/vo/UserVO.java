@@ -11,9 +11,16 @@ public class UserVO {
 	private String gender;
 	private String phone;
 	private String birth;
+	private String name;
 	
 	//////////////////////////////////////////////////
 	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	public String getUserID() {
 		return userID;
 	}
@@ -61,7 +68,7 @@ public class UserVO {
 	@Override
 	public String toString() {
 		return "UserVO [userID=" + userID + ", password=" + password + ", address=" + address + ", email=" + email
-				+ ", gender=" + gender + ", phone=" + phone + ", birth=" + birth + "]";
+				+ ", gender=" + gender + ", phone=" + phone + ", birth=" + birth + ", name=" + name + "]";
 	}
 	
 }

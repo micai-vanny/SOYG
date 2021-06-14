@@ -19,21 +19,15 @@
 
 	<!-- 회원 하나 조회 -->
 	<select id="userSelect" parameterType="co.mini.soyg.adminUsers.vo.UserVO" resultType="co.mini.soyg.adminUsers.vo.UserVO">
-		select * from member where id = #{userID}
+		select * from member where userID = #{userID}
 	</select>
-
-	<!-- 회원 등록 -->
-	<insert id = "userInsert" parameterType="co.mini.soyg.adminUsers.vo.UserVO">
-		insert into member values 
-		(#{userID}, #{password}, #{address}, #{email}, #{gender}, #{phone}, #{birth} )
-	</insert>
 
 	<!-- 회원 수정 -->
 	<update id="userUpdate" parameterType="co.mini.soyg.adminUsers.vo.UserVO">
 		update member 
 		set password = #{password}, address = #{address}, 
-						email = #{email}, gender = #{gender}, 
-						phone = #{phone}, birth = #{birth} 
+			email = #{email}, gender = #{gender}, 
+			phone = #{phone}, birth = #{birth}, name = #{name}
 		where userID = #{userID}  
 	</update>
 
