@@ -13,6 +13,19 @@ public class StudyController {
 	@Autowired
 	private StudyService dao;
 
+//	@RequestMapping("/studySelect.do")
+//	public String study(Model model) {
+//		StudyService service = new StudyServiceImpl();
+//	
+//		List<StudyVO> list = service.StudySelectList();
+//		
+//		for (StudyVO vo : list) {
+//			System.out.println(vo.getClassName());
+//		}
+//
+//		return "class/classSelect";
+//	}
+	
 	@RequestMapping("/studySelect.do")
 	public String studySelect(StudyVO vo, Model model) {
 		
