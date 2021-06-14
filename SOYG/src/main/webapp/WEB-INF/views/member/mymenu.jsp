@@ -3,7 +3,7 @@
 <section id="hero_in" class="general">
 			<div class="wrapper">
 				<div class="container">
-					<h1 class="fadeInUp"><span></span>Teacher detail</h1>
+					<h1 class="fadeInUp"><span></span>내 정보보기</h1>
 				</div>
 			</div>
 		</section>
@@ -13,17 +13,12 @@
 				<aside class="col-lg-3" id="sidebar">
 					<div class="profile">
 						<figure><img src="http://via.placeholder.com/150x150/ccc/fff/teacher_2_small.jpg" alt="Teacher" class="rounded-circle"></figure>
-						<ul class="social_teacher">
-							<li><a href="#"><i class="icon-facebook"></i></a></li>
-							<li><a href="#"><i class="icon-twitter"></i></a></li>
-							<li><a href="#"><i class="icon-linkedin"></i></a></li>
-							<li><a href="#"><i class="icon-email"></i></a></li>
-						</ul>
 						<ul>
-							<li>Name <span class="float-right">Silvia Doe</span> </li>
-							<li>Students <span class="float-right">42</span></li>
-							<li>Lessons <span class="float-right">12</span></li>
-							<li>Courses <span class="float-right">15</span></li>
+							<li>Name / BirthDay <span class="float-right">${user.name } ${user.birth }</span> </li>
+							<li>MYPHONE <span class="float-right">${user.phone }</span></li>
+							<li>My group <span class="float-right"> 내가 속한 그룹</span></li>
+							<li>Attention <span class="float-right"> 관심 </span></li>
+							<li style="text-align: center"><a href="infomationUpdatepage.do">정보수정하기</a></li> 
 						</ul>
 					</div>
 				</aside>

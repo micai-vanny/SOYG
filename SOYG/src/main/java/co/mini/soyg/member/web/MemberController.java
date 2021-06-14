@@ -72,6 +72,11 @@ public class MemberController {
 	public String mymenu(Model model) {
 		return "member/mymenu";
 	}
+	//내정보수정페이지 이동
+	@RequestMapping("/infomationUpdatepage.do")
+	public String infomationUpdatepage(Model model) {
+		return "member/infomationUpdate";
+	}
 
 	//회원 가입
 	@RequestMapping("/memberInsert.do")
