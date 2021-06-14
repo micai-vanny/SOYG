@@ -14,7 +14,11 @@ public class MemberServiceImpl implements MemberService {
 
 	@Autowired
 	   private SqlSession Session;
-	
+	//loginCheck
+	public MemberVO loginCheck(MemberVO vo) {
+		
+		return Session.selectOne("loginCheck", vo);
+	}
 	//Id 중복체크
 	@Override
 	public boolean idCheck(MemberVO vo) {

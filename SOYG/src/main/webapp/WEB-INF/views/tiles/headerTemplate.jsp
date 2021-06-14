@@ -1,5 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<style>
+.fs1 {
+	line-height: 1;
+	font-size:1.5rem;
+	position: relative;
+    top: 6px;
+}
+
+
+</style>
 <header class="header menu_2">
     <div id="preloader">
         <div data-loader="circle-side"></div>
@@ -15,12 +26,20 @@ pageEncoding="UTF-8"%>
         /></a>
     </div>
     <ul id="top_menu">
-        <li><a href="login.html" class="login">Login</a></li>
-        <li><a href="#0" class="search-overlay-menu-btn">Search</a></li>
-        <li class="hidden_tablet">
-            <a href="admission.html" class="btn_1 rounded">Admission</a>
-        </li>
-    </ul>
+		<c:choose>
+			<c:when test="${!empty id }">
+				<li><a class="fs1" href="logOut.do" data-icon="" ></a></li>
+				<li><a class="fs1" href="mymenu.do" data-icon=""></a></li>
+			</c:when>
+			<c:otherwise>
+				<li><a href="memberLoginpage.do" class="login">Login</a></li>
+				<li class="hidden_tablet"><a href="memberJoin.do"
+					class="btn_1 rounded">JOIN</a></li>
+			</c:otherwise>
+		</c:choose>
+		<li><a href="#0" class="search-overlay-menu-btn">Search</a></li>
+
+	</ul>
     <!-- /top_menu -->
     <a href="#menu" class="btn_mobile">
         <div class="hamburger hamburger--spin" id="hamburger">

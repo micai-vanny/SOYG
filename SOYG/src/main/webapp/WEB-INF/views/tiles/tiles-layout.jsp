@@ -76,6 +76,16 @@ uri="http://tiles.apache.org/tags-tiles"%>
       rel="stylesheet"
       media="print"
     />
+<!-- YOUR CUSTOM CSS -->
+<link href="resources/udema_v_1.9/html_menu_1/css/custom.css"
+	rel="stylesheet" />
+<link href="resources/udema_v_1.9/admin_section/css/custom.css"
+	rel="stylesheet" />
+
+</head>
+<body>
+	<div id="page">
+		<tiles:insertAttribute name="header" />
 
     <!-- YOUR CUSTOM CSS -->
     <link
