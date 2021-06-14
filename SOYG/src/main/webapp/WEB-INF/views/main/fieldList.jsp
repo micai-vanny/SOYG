@@ -26,7 +26,7 @@
 					</li>
 					<li>
 						<div class="layout_view">
-								<a href="#0"<i class="icon-th"></i></a>
+								<a href="#0"><i class="icon-th"></i></a>
 								<a href="#0" class="active"><i class="icon-th-list"></i></a>
 						</div>
 					</li>
