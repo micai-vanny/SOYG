@@ -50,7 +50,7 @@
 	rel="stylesheet" />
 <link href="resources/udema_v_1.9/admin_section/css/custom.css"
 	rel="stylesheet" />
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
 	<div id="page">

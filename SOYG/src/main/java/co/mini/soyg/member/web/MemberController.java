@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import co.mini.soyg.member.service.MemberService;
 import co.mini.soyg.member.serviceImpl.MemberServiceImpl;
@@ -77,6 +76,24 @@ public class MemberController {
 	public String infomationUpdatepage(Model model) {
 		return "member/infomationUpdate";
 	}
+	//내정보 주소 수정
+	@RequestMapping("/updateAddress.do")
+	public String updateAddress(HttpServletRequest request , MemberVO vo) {
+		
+		String adr1 = request.getParameter("postcode");
+		String adr2 = request.getParameter("roadAddress");
+		String adr3 = request.getParameter("detailAddress");
+		String adr4 = request.getParameter("extraAddress");
+		
+		String address = " ( " + adr1 + " ) " + adr2 + " " +adr3 + " " + adr4;
+		
+		vo.setAddress(address);
+		
+		dao.updateAddress(vo);
+		
+		return "redirect:infomationUpdatepage.do";
+		
+	}
 
 	//회원 가입
 	@RequestMapping("/memberInsert.do")
@@ -86,7 +103,7 @@ public class MemberController {
 		String adr3 = request.getParameter("detailAddress");
 		String adr4 = request.getParameter("extraAddress");
 		
-		String address = " ( " + adr1 + " ) " + adr2 + adr3 + adr4;
+		String address = " ( " + adr1 + " ) " + adr2 + " " +adr3 + " " + adr4;
 		
 		vo.setAddress(address);
 		

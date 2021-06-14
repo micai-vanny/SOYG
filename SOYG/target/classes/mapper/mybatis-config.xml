@@ -6,6 +6,7 @@
 <configuration>
 	<settings>
 		<setting name="cacheEnabled" value="false" />
+    <!-- DB nullable 값 받아오기위해  -->
 		<setting name="jdbcTypeForNull" value="NULL" />
 	</settings>
 </configuration>
