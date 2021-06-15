@@ -20,6 +20,7 @@ public class MainVO {
 	private String bigcode;
 	private String file_name;
 	private String field_info;
+	private String search;
 
 	public int getClass_code() {
 		return class_code;
@@ -155,5 +156,13 @@ public class MainVO {
 
 	public void setField_name(String field_name) {
 		this.field_name = field_name;
+	}
+
+	public String getSearch() {
+		return search;
+	}
+
+	public void setSearch(String search) {
+		this.search = search;
 	}
 }

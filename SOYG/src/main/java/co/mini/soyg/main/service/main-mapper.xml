@@ -32,8 +32,21 @@
 	select field_code, field_name from category where BIGCODE = 'F' and not field_code is null
 </select>
 
-<!-- 카테고리별 리스트 간판에 무슨 페이지인지 띄워주고 싶다 -->
+<!-- 지역 카테고리별 리스트 간판에 무슨 페이지인지 띄워주고 싶다 -->
 <select id="regionName" resultType="co.mini.soyg.main.vo.MainVO">
 	select loc_name from category where loc_code = #{loc_code}
+</select>
+
+<!-- 분야 카테고리별 리스트 간판에 올려줄 이름 -->
+<select id="fieldsName" resultType="co.mini.soyg.main.vo.MainVO">
+	select field_name from category where field_code = #{field_code}
+</select>
+
+<!-- 검색 기능을 만들자 -->
+<select id="searchClass" resultType="co.mini.soyg.main.vo.MainVO" parameterType="co.mini.soyg.main.vo.MainVO">
+	select * from search
+	where LOC_NAME like '%' || #{search} || '%' 
+	or FIELD_NAME like '%' || #{search} || '%' 
+	or class_name like '%' || #{search} || '%'
 </select>
 </mapper>

@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
 import co.mini.soyg.main.service.MainService;
 import co.mini.soyg.main.vo.MainVO;
@@ -30,7 +29,7 @@ public class MainController {
 	
 	@RequestMapping("/regionGrid.do")
 	public String regionGrid(MainVO vo, Model model) {
-		// 그리드 리스트
+		// 지역별 그리드 리스트
 		System.out.println(vo.getLoc_code());
 		// 리스트 정보
 		model.addAttribute("regionList", dao.regionList(vo));
@@ -49,19 +48,30 @@ public class MainController {
 		model.addAttribute("fieldsList", dao.fieldsList(vo));
 		//카테고리 리스트
 		model.addAttribute("fieldsSelect", dao.fieldsSelect());
-		return ("main/fieldList");
+		//간판에 분야명 달아주자
+		model.addAttribute("fieldsName", dao.fieldsName(vo));
+		return ("main/fieldsList");
 	}
 	
-//	@RequestMapping("/regList.do")
-//	public ModelAndView regionList(MainVO vo, ModelAndView mv, @RequestParam("key") int key) {
-//		// 리스트 뷰 형태별 넘기기
-//		System.out.println("뷰 형태별 넘기기 코드 테스트 : " + vo.getLoc_code());
-//		mv.addObject("regList", dao.regionList(vo));
-//		if(key == 1) {	// 일반 리스트 형태 뷰
-//			mv.setViewName("main/regionList");
-//		} else {	// 그리드 리스트 형태 뷰
-//			mv.setViewName("main/regionGridList");
-//		}
-//		return mv;
-//	}
+	@RequestMapping("/fieldsGrid.do")
+	public String fieldsGrid(MainVO vo, Model model) {
+		// 분야별 그리드 리스트
+		System.out.println(vo.getField_code());
+		//리스트 정보
+		model.addAttribute("fieldsList", dao.fieldsList(vo));
+		//카테고리 리스트
+		model.addAttribute("fieldsSelect", dao.fieldsSelect());
+		//간판에 분야명 달아주자
+		model.addAttribute("fieldsName", dao.fieldsName(vo));
+		return ("main/fieldsGridList");
+	}
+	
+	@RequestMapping("/searchClass.do")
+	public String searchClass(MainVO vo, Model model) {
+		System.out.println(vo.getSearch());
+		//스터디 검색
+		model.addAttribute("searchClass", dao.searchClass(vo));
+		return ("main/searchView");
+	}
+	
 }

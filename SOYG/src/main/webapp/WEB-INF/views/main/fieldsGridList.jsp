@@ -5,7 +5,7 @@
 	<div class="wrapper">
 		<div class="container">
 			<h1 class="fadeInUp">
-				<span></span>지역별 스터디 : ${regionName.loc_name }
+				<span></span>지역별 스터디 : ${fieldsName.field_name }
 			</h1>
 		</div>
 	</div>
@@ -25,14 +25,14 @@
 			</li>
 			<li>
 				<div class="layout_view">
-					<a href="regionGrid.do?loc_code=${regionList[0].loc_code }" class="active"><i class="icon-th"></i></a>
-					<a href="regionList.do?loc_code=${regionList[0].loc_code }"><i class="icon-th-list"></i></a>
+					<a href="fieldsGrid.do?field_code=${fieldsList[0].field_code }" class="active"><i class="icon-th"></i></a>
+					<a href="fieldsList.do?field_code=${fieldsList[0].field_code }"><i class="icon-th-list"></i></a>
 				</div>
 			</li>
 			<li><select name="orderby" class="selectbox" onchange="if(this.value) location.href=(this.value);">
 					<option value="#0">Category</option>
-					<c:forEach items="${regSelect }" var="rs">
-									<option value="regionGrid.do?loc_code=${rs.loc_code }">${rs.loc_name }</option>
+					<c:forEach items="${fieldsSelect }" var="fs">
+									<option value="fieldsGrid.do?field_code=${fs.field_code }">${fs.field_name }</option>
 					</c:forEach>
 			</select></li>
 		</ul>
@@ -43,7 +43,7 @@
 
 <div class="container margin_60_35">
 	<div class="row">
-		<c:forEach items="${regionList }" var="vo">
+		<c:forEach items="${fieldsList }" var="vo">
 		<div class="col-xl-4 col-lg-6 col-md-6">
 			<div class="box_grid wow">
 				<figure class="block-reveal">
