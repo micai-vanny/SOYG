@@ -73,10 +73,7 @@
 				
 				window.alert('삭제했습니다.');
 				
-				console.log('인덱스 : ' + index);
-
 				let user = document.getElementById('userID' + index).value;
-				console.log('보낼 아이디 : ' + user);
 
 				$.ajax({
 					url : 'userDelete.do',
@@ -154,7 +151,6 @@
 			<tbody>
 				<c:forEach var="user" items="${users}" varStatus="status">
 					<tr>
-						<%-- onclick = "userDelete(${status.index}) --%>
 						<td>
 							<a href="userSelect.do?userID=${user.userID }"class="userInfo">${user.userID }</a>
 							<input type="hidden"id="userID${status.index }" value="${user.userID }">

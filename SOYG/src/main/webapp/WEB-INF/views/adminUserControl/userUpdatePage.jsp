@@ -49,15 +49,24 @@
 		let modiPwd = document.getElementsByName('mPwd')[0].value;	// 수정 비번
 		let idenPwd = document.getElementsByName('iPwd')[0].value;	// 확인 비번
 		
-		if(modiPwd != idenPwd){
+		console.log('수정 비번 : ' + modiPwd);
+		console.log('확인 비번 : ' + idenPwd);
+		
+		if(modiPwd === "" && idenPwd === ""){
 			
-			alert('XXXXXXXXXXXXXXX');
+			alert('변경할 비밀번호가 입력되어 있지 않습니다.');
+			frm.mPwd.focus();
+			return;
+			
+		} else if (modiPwd != idenPwd){
+			
+			alert('비밀번호가 일치하지 않습니다.');
 			frm.iPwd.focus();
 			return;
 			
 		} else {
 			
-			alert('O');
+			alert('일치합니다.');
 			frm.pwdCheck.value = "checked";
 		}
 		
@@ -100,7 +109,7 @@
 		} else if(emailWrite != "" && emailSelect == '선택'){
 			
 			alert('이메일 주소를 선택하시오.');
-			frm.mail.focus();
+			frm.email.focus();
 			return;
 			
 		} else {
@@ -273,12 +282,6 @@
 								<input type="text" class="form-control" placeholder="${user.name }">
 							</div>
 						</div>
-						<!-- <div class="col-md-6">
-							<div class="form-group">
-								<label>Last name</label>
-								<input type="text" class="form-control" placeholder="Your last name">
-							</div>
-						</div> -->
 					</div>
 					<!-- /row-->
 					<div class="row">
@@ -350,7 +353,7 @@
 					</div>
 					<div class="form-group">
 						<label>새로운 비밀번호</label>
-						<input class="form-control" type="text" maxlength = "20" name = "mPwd" >
+						<input class="form-control" type="text" maxlength = "20" name = "mPwd">
 					</div>
 					<div class="form-group">
 						<label>새 비밀번호 확인</label>
