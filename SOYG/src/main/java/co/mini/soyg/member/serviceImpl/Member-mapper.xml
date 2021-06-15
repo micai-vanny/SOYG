@@ -18,5 +18,27 @@
 <select id="loginCheck" parameterType="co.mini.soyg.member.vo.MemberVO" resultType="co.mini.soyg.member.vo.MemberVO">
 	SELECT * FROM member where userId = #{userId} and password = #{password}
 </select>
+<!-- 회원정보 -->
+<select id="memberSelect" parameterType="co.mini.soyg.member.vo.MemberVO" resultType="co.mini.soyg.member.vo.MemberVO">
+	SELECT * FROM member WHERE userId = #{userId}
+</select>
+<select id="passwordCheck" parameterType="co.mini.soyg.member.vo.MemberVO" resultType="co.mini.soyg.member.vo.MemberVO">
+	SELECT PASSWORD FROM MEMBER WHERE userId = #{userId} and password = #{password}
+</select>
+<!-- 이메일 수정 -->
+<update id="updateAddress" parameterType="co.mini.soyg.member.vo.MemberVO" >
+	UPDATE MEMBER SET ADDRESS = #{address} WHERE USERID = #{userId}
+</update>
+<!-- 정보 수정 -->
+<update id="updateInfo" parameterType="co.mini.soyg.member.vo.MemberVO" >
+	UPDATE MEMBER SET EMAIL = #{email}, PHONE = #{phone}, BIRTH = #{birth} WHERE USERID = #{userId}
+</update>
+<!-- 비밀번호 수정 -->
+<update id="updatePassword" parameterType="co.mini.soyg.member.vo.MemberVO">
+	UPDATE MEMBER SET PASSWORD = #{password} WHERE USERID = #{userId}
+</update>
+<delete id="deleteMember" parameterType="co.mini.soyg.member.vo.MemberVO">
+	DELETE FROM MEMBER WHERE USERID = #{userId}
+</delete>
 </mapper>
 

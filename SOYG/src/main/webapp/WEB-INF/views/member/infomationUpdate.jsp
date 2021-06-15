@@ -54,34 +54,54 @@ button:hover:before, button:hover:after {
 }
 </style>
 <!--  카카오 ADDRESS api -->
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script
+	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
- 	$(function () { 
-		$('#addressCheck').click(function(){
-			if ($('detailAddress').val() == "") {
-				alert('상세주소를 입력해주세요.');
-				$('#detailAddress').focus();
+	$(function() {
+		$('#passcheck').click(function() {
+			if ($('#pastPassword').val() == "") {
+				alert('현재비밀번호를 입력해주세요.');
+				$('#pastPassword').focus();
+				return;
+			}
+			if ($('#password').val() == "" || $('#password2').val() == "") {
+				alert('변경할 비밀번호를 입력해주세요.');
+				$('#password').focus();
+				return;
+			}
+			if ($('#password2').val() != $('#password').val()) {
+				alert('바꾸실 비밀번호가 다릅니다. 다시한번 확인해주세요.');
+				$('#password').val("");
+				$('#password2').val("");
+				$('#password').focus();
 				return;
 			}
 			$.ajax({
-				url : 'updateAddress.do',
+				url : 'updatePassword.do',
 				data : {
-					postcode : $('#postcode').val(),
-					roadAddress : $('#roadAddress').val(),
-					detailAddress : $('#detailAddress').val(),
-					extraAddress : $('#extraAddress').val()
+					pastPassword : $('#pastPassword').val(),
+					password : $('#password').val(),
 				},
 				type : 'post',
 				success : function(data) {
 					console.log(data);
-					
+					if (data == 1) {
+						location.href = "infomationUpdatepage.do";
+						alert('비밀번호변경 완료!');
+					} else {
+						alert('현재비밀번호가 다릅니다.');
+						$('#password').val("");
+						$('#password2').val("");
+						$('pastPassword').val("");
+					}
+
 				},
 				error : function(err) {
 					console.log(err);
 				}
 			});
 		});
- 	}); 
+	});
 	// 카카오 E-mail API
 	function execDaumPostcode() {
 		new daum.Postcode(
@@ -161,7 +181,7 @@ button:hover:before, button:hover:after {
 						</figure>
 					</div>
 				</div>
-				<form>
+				<form id="updateInfo" action="updateInfo.do" method="post">
 					<div class="step">
 						<h3 class="main_question">
 							<strong style="text-align: left">기본정보변경</strong>
@@ -169,34 +189,34 @@ button:hover:before, button:hover:after {
 
 						<div class="form-group">
 							<input type="text" name="userId" id="userId"
-								class="form-control required" value="${user.userId }" readonly>
+								class="form-control required" value="${info.userId }" readonly>
 						</div>
 						<div class="form-group">
 							<input type="text" name="name" id="name"
-								class="form-control required" value="${user.name }" readonly>
+								class="form-control required" value="${info.name }" readonly>
 						</div>
 						<div class="form-group">
 							<input type="email" name="email" id="email"
-								class="form-control required" value="${user.email }"
+								class="form-control required" value="${info.email }"
 								placeholder="Your Email">
 						</div>
 						<div class="form-group">
 							<input type="text" name="phone" id="phone" class="form-control"
-								value="${user.phone }" placeholder="Your Telephone">
+								value="${info.phone }" placeholder="Your Telephone">
 						</div>
 						<div class="form-group">
 							<input type="text" name="birth" id="birth" class="form-control"
-								value="${user.birth }" placeholder="BirthDay">
+								value="${info.birth }" placeholder="BirthDay">
 						</div>
 						<button type="submit" name="process" class="submit">정보수정하기!</button>
 
 					</div>
 				</form>
 				<hr>
-				<form  id="updateAddress" action="updateAddress.do" method="post">
+				<form id="updateAddress" action="updateAddress.do" method="post">
 					<div class="form-group">
 						<input type="text" class="form-control required"
-							value="${user.address }">
+							value="${info.address }" readonly>
 					</div>
 					<div class="modify-flex">
 						<div class="form-group" style="width: 90%">
@@ -223,7 +243,7 @@ button:hover:before, button:hover:after {
 							class="form-control required" placeholder="상세주소를 입력해주세요">
 					</div>
 					&nbsp; &nbsp; &nbsp;
-					<button type="button" id="addressCheck" class="submit">주소수정하기!</button>
+					<button type="submit" id="addressCheck" class="submit">주소수정하기!</button>
 					<hr>
 				</form>
 				<!-- /step-->
@@ -246,13 +266,16 @@ button:hover:before, button:hover:after {
 						</div>
 					</div>
 					<div id="bottom-wizard">
-						<button type="submit" name="process" class="submit">비밀번호변경!</button>
+						<button type="button" name="passcheck" id="passcheck"
+							class="submit">비밀번호변경!</button>
 						<hr>
 					</div>
 				</form>
 				<!-- /step-->
 			</div>
-
+			<div style="text-align: right; margin-bottom: 25px;" >
+				<a href="memberDeletepage.do"><font size="2px" color="gray">회원탈퇴</font></a>
+			</div>
 
 		</div>
 	</div>

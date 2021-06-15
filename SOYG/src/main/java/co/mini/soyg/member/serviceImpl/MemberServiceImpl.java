@@ -29,6 +29,25 @@ public class MemberServiceImpl implements MemberService {
 			b = true;
 		return b;
 	}
+	//회원수정 >> 주소수정
+	public int updateAddress(MemberVO vo) {
+		return Session.update("updateAddress",vo);
+	}
+	//회원수정 >> 비밀번호 체크
+	public boolean passwordCheck(MemberVO vo) {
+		
+		boolean N = false;
+		MemberVO mvo = Session.selectOne("passwordCheck",vo);
+		
+		if(mvo != null)
+			N = true;
+		
+		return N;
+	}
+	//회원수정 >> 비밀번호 변경
+	public int updatePassword(MemberVO vo) {
+		return Session.update("updatePassword",vo);
+	}
 	
 	@Override
 	public List<MemberVO> selectMemberList() {
@@ -38,8 +57,8 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public MemberVO selectMember(MemberVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return Session.selectOne("memberSelect",vo);
 	}
 
 	@Override
@@ -49,14 +68,13 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public int updateMember(MemberVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		return Session.update("updateInfo",vo);
 	}
 
 	@Override
 	public int deleteMember(MemberVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return Session.delete("deleteMember",vo);
 	}
 
 }

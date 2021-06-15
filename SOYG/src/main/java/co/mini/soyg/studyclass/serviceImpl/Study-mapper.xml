@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.mini.soyg.studyclass.serviceImpl.Study-mapper">
+<!-- 회원별 스터디 조회 -->
+<select id="memberStudy" parameterType="string" resultType="co.mini.soyg.studyclass.vo.StudyVO">
+	SELECT * FROM CLASS WHERE CAPTAIN = #{captain}
+</select>
+
+</mapper>

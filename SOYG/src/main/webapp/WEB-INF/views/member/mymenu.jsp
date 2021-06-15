@@ -14,8 +14,8 @@
 					<div class="profile">
 						<figure><img src="http://via.placeholder.com/150x150/ccc/fff/teacher_2_small.jpg" alt="Teacher" class="rounded-circle"></figure>
 						<ul>
-							<li>Name / BirthDay <span class="float-right">${user.name } ${user.birth }</span> </li>
-							<li>MYPHONE <span class="float-right">${user.phone }</span></li>
+							<li>Name / BirthDay <span class="float-right">${info.name } ${info.birth }</span> </li>
+							<li>MYPHONE <span class="float-right">${info.phone }</span></li>
 							<li>My group <span class="float-right"> 내가 속한 그룹</span></li>
 							<li>Attention <span class="float-right"> 관심 </span></li>
 							<li style="text-align: center"><a href="infomationUpdatepage.do">정보수정하기</a></li> 
@@ -28,8 +28,7 @@
 					<div class="box_teacher">
 						<div class="indent_title_in">
 							<i class="pe-7s-user"></i>
-							<h3>Profile</h3>
-							<p>Mussum ipsum cacilds, vidis litro abertis.</p>
+							<h3>내가 바로 스터디장!</h3>
 						</div>
 						<div class="wrapper_indent">
 							<p>Lorem ipsum dolor sit amet, dicta oportere ad est, ea eos partem neglegentur theophrastus. Esse voluptatum duo ne, expetenda corrumpit no per, at mei nobis lucilius. No eos semper aperiri neglegentur, vis noluisse quaestio no. Vix an nostro inimicus, qui ut animal fabellas reprehendunt. In quando repudiare intellegebat sed, nam suas dicta melius ea.</p>
