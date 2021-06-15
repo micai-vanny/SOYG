@@ -2,35 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="co.mini.soyg.admin.service.admin-map">
 
-<!-- 	 페이징 
-	<select id="adminClassSelect"
-		parameterType="co.mini.soyg.admin.vo.ClassVO"
-		resultType="co.mini.soyg.admin.vo.ClassVO">
-		select class_code,loc_code, field_code, class_name,
-		class_active, class_startchk
-		from
-		(select rownum rn, a.* from
-		(select * from class order by class_code) a) c
-		where c.rn between 1 and 10
-	</select> -->
-
-	<!-- 리스트 카운트 -->
-	<select id="listCount" resultType="int">
-	<![CDATA[
-		select count(class_code)
-			from class
-			where class_code>0
-	]]>
-	</select>
 
 	<select id="adminClassListSelect"
 		resultType="co.mini.soyg.admin.vo.ClassVO">
-		select class_code,loc_code, field_code, class_name,
-		class_active, class_startchk
-		from
-		(select rownum rn, a.* from
-		(select * from class order by class_code) a) c
-		where c.rn between 1 and 10
+		select * from class order by 1
 	</select>
 
 	<select id="adminClassSelect"
@@ -43,22 +18,14 @@
 		parameterType="co.mini.soyg.admin.vo.ClassVO">
 		update class
 		set class_name = #{class_name},
-		start_date =
-		#{start_date},
+		start_date = #{start_date}, 
 		class_info = #{class_info},
-		class_active =
-		#{class_active},
-		class_startchk =
-		#{class_startchk},
-		class_personnel =
-		#{class_personnel},
-		loc_code =
-		#{loc_code},
-		weekdays_chk =
-		#{weekdays_chk},
-		class_time = #{class_time},
+		class_active = #{class_active},
+		class_startchk = #{class_startchk},
+		class_personnel = #{class_personnel},
+		loc_code = #{loc_code},
 		field_code = #{field_code}
-
+		
 		where class_code = #{class_code}
 	</update>
 
