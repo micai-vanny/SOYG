@@ -3,7 +3,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <style>
-.user_list {
+.wrap {
+	margin-top: 20px;
+}
+
+/* .user_list {
 	display: flex;
 	flex-direction: column;
 	align-content: center;
@@ -17,7 +21,7 @@
 
 .user_table {
 	padding: 20px;
-}
+} */
 
 /* .check_button {
 	
@@ -59,8 +63,8 @@
 	window.onload = function() {
 		$("#keyword").keyup(function() {
 			var k = $(this).val();
-			$("#user-table > tbody > tr").hide();
-			var temp = $("#user-table > tbody > tr > td:nth-child(7n+1):contains('"+ k + "')");
+			$("#dataTable > tbody > tr").hide();
+			var temp = $("#dataTable > tbody > tr > td:nth-child(7n+1):contains('"+ k + "')");
 			$(temp).parent().show();
 		});
 	};
@@ -71,7 +75,7 @@
             // 확인 버튼 클릭 시 동작
 			if(confirm("진짜로 삭제합니까?")){
 				
-				window.alert('삭제했습니다.');
+				alert('삭제했습니다.');
 				
 				let user = document.getElementById('userID' + index).value;
 
@@ -122,60 +126,78 @@
 	</div>
 </section>
 
-<ol class="breadcrumb">
-	<li class="breadcrumb-item"><a href="admin.do">관리자 페이지</a></li>
-	<li class="breadcrumb-item active">회원 리스트</li>
-</ol>
 
-<div class="user_list">
+
+<div class="wrap" align="center">
 	<div>
-		<div class="id_select_window">
-			<input type="text" placeholder="검색할 아이디 입력" id="keyword">
+		<div class="content-wrapper">
+			<div class="container-fluid">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="admin.do">관리자 페이지</a></li>
+					<li class="breadcrumb-item active">회원 리스트</li>
+				</ol>
+				<div class="card mb-3">
+					<div class="card-header">
+						<i class="fa fa-table"></i> 유저 조회 창
+					</div>
+					<div class="card-body">
+						<div class="table-responsive">
+							<div id="dataTable_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
+								<div class="row">
+									<div class="col-sm-12 col-md-6">
+										<div id="dataTable_filter" class="dataTables_filter">
+											<label style = "display: flex;">
+												<input type="search" id="keyword" class="form-fontrol form-control-sm" placeholder="검색할 아이디 입력" aria-controls="dataTable">
+											</label>
+										</div>
+									</div>
+									<table id="dataTable" class="table table-bordered">
+										<thead>
+											<tr>
+												<th>아이디</th>
+												<th>비번</th>
+												<th>이름</th>
+												<th>주소</th>
+												<th>이메일</th>
+												<th>성별</th>
+												<th>폰번</th>
+												<th>생일</th>
+												<th>기능</th>
+											</tr>
+										</thead>
+										<tbody>
+											<c:forEach var="user" items="${users}" varStatus="status">
+												<tr>
+													<td>
+														<a href="userSelect.do?userID=${user.userID }" class="userInfo">${user.userID }</a>
+														<input type="hidden" id="userID${status.index }" value="${user.userID }">
+													</td>
+													<td>${user.password }</td>
+													<td>${user.name }</td>
+													<td>${user.address }</td>
+													<td>${user.email }</td>
+													<td>${user.gender }</td>
+													<td>${user.phone }</td>
+													<td>${user.birth }</td>
+													<td><button onclick="userDelete(${status.index})" class="btn_1 gray delete">삭제</button></td>
+												</tr>
+											</c:forEach>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
-	<div class="user_table">
-		<table id="user-table" border="1">
-			<thead>
-				<tr>
-					<th>아이디</th>
-					<th>비번</th>
-					<th>이름</th>
-					<th>주소</th>
-					<th>이메일</th>
-					<th>성별</th>
-					<th>폰번</th>
-					<th>생일</th>
-					<th>기능</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach var="user" items="${users}" varStatus="status">
-					<tr>
-						<td>
-							<a href="userSelect.do?userID=${user.userID }"class="userInfo">${user.userID }</a>
-							<input type="hidden"id="userID${status.index }" value="${user.userID }">
-						</td>
-						<td>${user.password }</td>
-						<td>${user.name }</td>
-						<td>${user.address }</td>
-						<td>${user.email }</td>
-						<td>${user.gender }</td>
-						<td>${user.phone }</td>
-						<td>${user.birth }</td>
-						<td><button onclick = "userDelete(${status.index})">삭제</button></td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
-		<!-- <div class="check_modal">
+</div>
+
+<!-- 모달창 -->
+<!-- <div class="check_modal">
 			<div class="check_modal_content">
 				<h1>삭제한다?</h1>
 				<div><button onclick = "userDelete">삭제한다</button></div>
 			</div>
 		</div> -->
-	</div>
-	<p>페이징 예정</p>
-	<p>
-		<a href="admin.do">관리자 홈</a>
-	</p>
-</div>

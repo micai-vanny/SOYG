@@ -89,7 +89,7 @@ public class MemberController {
 		
 		vo.setAddress(address);
 		
-		dao.updateAddress(vo);
+//		dao.updateAddress(vo); 임시 주석처리 함. 병합 때 무시해도 됨 - jw
 		
 		return "redirect:infomationUpdatepage.do";
 		

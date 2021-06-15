@@ -53,9 +53,9 @@
             <!-- <li>
                 <span><a href="#0">처음으로</a></span>
             </li> -->
-            <li>
+            <!-- <li>
                 <span><a href="admin.do">관리자페이지</a></span>
-            </li>
+            </li> -->
             <li>
                 <span><a href="home.do">Home</a></span>
                 <ul>
@@ -126,9 +126,15 @@
                     <li><a href="icon-pack-4.html">Icon pack 4</a></li>
                 </ul>
             </li>
-            <li>
-                <span><a href="memberJoin.do">회원가입</a></span>
-            </li>
+            
+            <!-- 관리자일 때만 보이게 -->
+            <c:choose>
+            	<c:when test = "${id eq 'admin' }">
+		            <li>
+		               <span><a href="admin.do">관리자페이지</a></span>
+		            </li>            	
+            	</c:when>
+            </c:choose>
         </ul>
     </nav>
     <!-- Search Menu -->
