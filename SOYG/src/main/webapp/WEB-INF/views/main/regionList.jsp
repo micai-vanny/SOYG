@@ -32,7 +32,7 @@
 					</li>
 					<li><!-- 카테고리 pulldown menu 링크 -->
 						<select name="orderby" class="selectbox" onchange="if(this.value) location.href=(this.value);">
-							<option value="category">Category</option>
+							<option value="#0">Category</option>
 							<c:forEach items="${regSelect }" var="rs">
 									<option value="regionList.do?loc_code=${rs.loc_code }">${rs.loc_name }</option>
 							</c:forEach>
@@ -51,7 +51,7 @@
 					<div class="col-lg-5">
 						<figure class="block-reveal">
 							<div class="block-horizzontal"></div>
-							<a href="studySelect.do?class_code=${vo.class_code }"><img src="http://via.placeholder.com/800x533/ccc/fff/course__list_1.jpg" class="img-fluid" alt=""></a>
+							<a href="studySelect.do?class_code=${vo.class_code }"><img src="${pageContext.request.contextPath}/resources/classImage/${vo.class_image }" class="img-fluid" alt=""></a>
 							<div class="preview"><span>Preview course</span></div>
 						</figure>
 					</div>

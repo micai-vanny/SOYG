@@ -6,7 +6,7 @@
 		<section id="hero_in" class="courses">
 			<div class="wrapper">
 				<div class="container">
-					<h1 class="fadeInUp"><span></span>분야별 스터디</h1>
+					<h1 class="fadeInUp"><span></span>분야별 스터디 : ${fieldsName.field_name }</h1>
 				</div>
 			</div>
 		</section>
@@ -26,8 +26,8 @@
 					</li>
 					<li>
 						<div class="layout_view">
-								<a href="#0"><i class="icon-th"></i></a>
-								<a href="#0" class="active"><i class="icon-th-list"></i></a>
+								<a href="fieldsGrid.do?field_code=${fieldsList[0].field_code }"><i class="icon-th"></i></a>
+								<a href="fieldsList.do?field_code=${fieldsList[0].field_code }" class="active"><i class="icon-th-list"></i></a>
 						</div>
 					</li>
 					<li><!-- 카테고리 pulldown menu 링크 -->
@@ -51,7 +51,7 @@
 					<div class="col-lg-5">
 						<figure class="block-reveal">
 							<div class="block-horizzontal"></div>
-							<a href="studySelect.do?class_code=${vo.class_code }"><img src="http://via.placeholder.com/800x533/ccc/fff/course__list_1.jpg" class="img-fluid" alt=""></a>
+							<a href="studySelect.do?class_code=${vo.class_code }"><img src="${pageContext.request.contextPath}/resources/classImage/${vo.class_image }" class="img-fluid" alt=""></a>
 							<div class="preview"><span>Preview course</span></div>
 						</figure>
 					</div>

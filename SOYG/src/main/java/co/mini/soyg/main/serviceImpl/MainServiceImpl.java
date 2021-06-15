@@ -68,4 +68,16 @@ public class MainServiceImpl implements MainService {
 		return sqlSession.selectOne("regionName", vo);
 	}
 
+	@Override
+	public MainVO fieldsName(MainVO vo) {
+		// 분야별 리스트 간판에 뿌려줄 분야명
+		return sqlSession.selectOne("fieldsName", vo);
+	}
+
+	@Override
+	public List<MainVO> searchClass(MainVO vo) {
+		// 검색 기능
+		return sqlSession.selectList("searchClass", vo);
+	}
+
 }

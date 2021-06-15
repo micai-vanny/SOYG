@@ -14,10 +14,10 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                     같은 목표가 있는 사람과 함께할 수 있는 스터디 그룹을
                     검색해보세요!
                 </p>
-                <form>
+                <form id=frm action="searchClass.do" method="post">
                     <div id="custom-search-input">
                         <div class="input-group">
-                            <input type="text" class="search-query" placeholder="ex) 외국어, 자격증, 대구, 서울..." />
+                            <input type="text" name="search" class="search-query" placeholder="ex) 외국어, 자격증, 대구, 서울..." />
                             <input type="submit" class="btn_search" value="Search" />
                         </div>
                     </div>
@@ -97,196 +97,6 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                 </div>
             </div>
             <!-- /item -->
-            <div class="item">
-                <div class="box_grid">
-                    <figure>
-                        <a href="#0" class="wish_bt"></a>
-                        <a href="course-detail.html"
-                            ><img
-                                src="http://via.placeholder.com/800x533/ccc/fff/course__list_2.jpg"
-                                class="img-fluid"
-                                alt=""
-                        /></a>
-                        <div class="price">$45</div>
-                        <div class="preview">
-                            <span>Preview course</span>
-                        </div>
-                    </figure>
-                    <div class="wrapper">
-                        <small>Category</small>
-                        <h3>Persius delenit has cu</h3>
-                        <p>
-                            Id placerat tacimates definitionem sea, prima quidam
-                            vim no. Duo nobis persecuti cu.
-                        </p>
-                        <div class="rating">
-                            <i class="icon_star voted"></i
-                            ><i class="icon_star voted"></i
-                            ><i class="icon_star voted"></i
-                            ><i class="icon_star"></i><i class="icon_star"></i>
-                            <small>(145)</small>
-                        </div>
-                    </div>
-                    <ul>
-                        <li><i class="icon_clock_alt"></i> 1h 30min</li>
-                        <li><i class="icon_like"></i> 890</li>
-                        <li><a href="course-detail.html">Enroll now</a></li>
-                    </ul>
-                </div>
-            </div>
-            <!-- /item -->
-            <div class="item">
-                <div class="box_grid">
-                    <figure>
-                        <a href="#0" class="wish_bt"></a>
-                        <a href="course-detail.html"
-                            ><img
-                                src="http://via.placeholder.com/800x533/ccc/fff/course__list_3.jpg"
-                                class="img-fluid"
-                                alt=""
-                        /></a>
-                        <div class="price">$54</div>
-                        <div class="preview">
-                            <span>Preview course</span>
-                        </div>
-                    </figure>
-                    <div class="wrapper">
-                        <small>Category</small>
-                        <h3>Persius delenit has cu</h3>
-                        <p>
-                            Id placerat tacimates definitionem sea, prima quidam
-                            vim no. Duo nobis persecuti cu.
-                        </p>
-                        <div class="rating">
-                            <i class="icon_star voted"></i
-                            ><i class="icon_star voted"></i
-                            ><i class="icon_star voted"></i
-                            ><i class="icon_star"></i><i class="icon_star"></i>
-                            <small>(145)</small>
-                        </div>
-                    </div>
-                    <ul>
-                        <li><i class="icon_clock_alt"></i> 1h 30min</li>
-                        <li><i class="icon_like"></i> 890</li>
-                        <li><a href="course-detail.html">Enroll now</a></li>
-                    </ul>
-                </div>
-            </div>
-            <!-- /item -->
-            <div class="item">
-                <div class="box_grid">
-                    <figure>
-                        <a href="#0" class="wish_bt"></a>
-                        <a href="course-detail.html"
-                            ><img
-                                src="http://via.placeholder.com/800x533/ccc/fff/course__list_4.jpg"
-                                class="img-fluid"
-                                alt=""
-                        /></a>
-                        <div class="price">$27</div>
-                        <div class="preview">
-                            <span>Preview course</span>
-                        </div>
-                    </figure>
-                    <div class="wrapper">
-                        <small>Category</small>
-                        <h3>Persius delenit has cu</h3>
-                        <p>
-                            Id placerat tacimates definitionem sea, prima quidam
-                            vim no. Duo nobis persecuti cu.
-                        </p>
-                        <div class="rating">
-                            <i class="icon_star voted"></i
-                            ><i class="icon_star voted"></i
-                            ><i class="icon_star voted"></i
-                            ><i class="icon_star"></i><i class="icon_star"></i>
-                            <small>(145)</small>
-                        </div>
-                    </div>
-                    <ul>
-                        <li><i class="icon_clock_alt"></i> 1h 30min</li>
-                        <li><i class="icon_like"></i> 890</li>
-                        <li><a href="course-detail.html">Enroll now</a></li>
-                    </ul>
-                </div>
-            </div>
-            <!-- /item -->
-            <div class="item">
-                <div class="box_grid">
-                    <figure>
-                        <a href="#0" class="wish_bt"></a>
-                        <a href="course-detail.html"
-                            ><img
-                                src="http://via.placeholder.com/800x533/ccc/fff/course__list_5.jpg"
-                                class="img-fluid"
-                                alt=""
-                        /></a>
-                        <div class="price">$35</div>
-                        <div class="preview">
-                            <span>Preview course</span>
-                        </div>
-                    </figure>
-                    <div class="wrapper">
-                        <small>Category</small>
-                        <h3>Persius delenit has cu</h3>
-                        <p>
-                            Id placerat tacimates definitionem sea, prima quidam
-                            vim no. Duo nobis persecuti cu.
-                        </p>
-                        <div class="rating">
-                            <i class="icon_star voted"></i
-                            ><i class="icon_star voted"></i
-                            ><i class="icon_star voted"></i
-                            ><i class="icon_star"></i><i class="icon_star"></i>
-                            <small>(145)</small>
-                        </div>
-                    </div>
-                    <ul>
-                        <li><i class="icon_clock_alt"></i> 1h 30min</li>
-                        <li><i class="icon_like"></i> 890</li>
-                        <li><a href="course-detail.html">Enroll now</a></li>
-                    </ul>
-                </div>
-            </div>
-            <!-- /item -->
-            <div class="item">
-                <div class="box_grid">
-                    <figure>
-                        <a href="" class="wish_bt"></a>
-                        <a href="course-detail.html"
-                            ><img
-                                src="http://via.placeholder.com/800x533/ccc/fff/course__list_6.jpg"
-                                class="img-fluid"
-                                alt=""
-                        /></a>
-                        <div class="price">$54</div>
-                        <div class="preview">
-                            <span>Preview course</span>
-                        </div>
-                    </figure>
-                    <div class="wrapper">
-                        <small>Category</small>
-                        <h3>Persius delenit has cu</h3>
-                        <p>
-                            Id placerat tacimates definitionem sea, prima quidam
-                            vim no. Duo nobis persecuti cu.
-                        </p>
-                        <div class="rating">
-                            <i class="icon_star voted"></i
-                            ><i class="icon_star voted"></i
-                            ><i class="icon_star voted"></i
-                            ><i class="icon_star"></i><i class="icon_star"></i>
-                            <small>(145)</small>
-                        </div>
-                    </div>
-                    <ul>
-                        <li><i class="icon_clock_alt"></i> 1h 30min</li>
-                        <li><i class="icon_like"></i> 890</li>
-                        <li><a href="course-detail.html">Enroll now</a></li>
-                    </ul>
-                </div>
-            </div>
-            <!-- /item -->
         </div>
         <!-- /carousel -->
         <hr />
@@ -307,11 +117,8 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                 <a href="regionList.do?loc_code=${vo.loc_code }" class="grid_item">
                     <figure class="block-reveal">
                         <div class="block-horizzontal"></div>
-                        <img
-                            src="${pageContext.request.contextPath}/resources/mainImage/${vo.file_name }"
-                            class="img-fluid"
-                            alt=""
-                        />
+ 	                    <img src="${pageContext.request.contextPath}/resources/mainImage/${vo.file_name }"
+                            class="img-fluid" alt="" />
                         <div class="info">
                             <small
                                 ><i class="ti-layers"></i>More Study
