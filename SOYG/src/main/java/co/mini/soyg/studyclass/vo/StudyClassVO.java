@@ -2,7 +2,7 @@ package co.mini.soyg.studyclass.vo;
 
 import java.util.Date;
 
-public class StudyVO {
+public class StudyClassVO {
 
 	private int class_code;
 	private String loc_code;

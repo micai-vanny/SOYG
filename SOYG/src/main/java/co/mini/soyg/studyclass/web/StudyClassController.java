@@ -4,17 +4,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import co.mini.soyg.study.service.StudyService;
-import co.mini.soyg.studyclass.serviceImpl.StudyServiceImpl;
+import co.mini.soyg.studyclass.service.StudyClassService;
+import co.mini.soyg.studyclass.serviceImpl.StudyClassServiceImpl;
 
 @Controller
-public class StudyController {
+public class StudyClassController {
 
 	@Autowired
-	private StudyServiceImpl service;
+	private StudyClassServiceImpl service;
 	
 	@Autowired
-	private StudyService dao;
+	private StudyClassService dao;
 	
 //	@RequestMapping("")
 	

@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import co.mini.soyg.member.service.MemberService;
 import co.mini.soyg.member.serviceImpl.MemberServiceImpl;
 import co.mini.soyg.member.vo.MemberVO;
-import co.mini.soyg.studyclass.serviceImpl.StudyServiceImpl;
-import co.mini.soyg.studyclass.vo.StudyVO;
+import co.mini.soyg.studyclass.serviceImpl.StudyClassServiceImpl;
+import co.mini.soyg.studyclass.vo.StudyClassVO;
 
 @Controller
 public class MemberController {
@@ -78,7 +78,7 @@ public class MemberController {
 	public String mymenu(HttpServletRequest request, HttpServletResponse response, MemberVO vo,Model model) {
 
 		HttpSession session = request.getSession();
-		StudyServiceImpl study = new StudyServiceImpl();
+		StudyClassServiceImpl study = new StudyClassServiceImpl();
 		MemberVO mvo = new MemberVO();
 		String userId = (String) session.getAttribute("id");
 		
