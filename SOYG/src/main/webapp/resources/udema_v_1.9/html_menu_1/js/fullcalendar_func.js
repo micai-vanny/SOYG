@@ -29,95 +29,30 @@
 		-----------------------------------------------------------------*/
 		
 		$('#calendar').fullCalendar({
-			
 			header: {
-				left: 'prev,next',
+				left: 'prevYear,prev,next,nextYear',
 				center: 'title',
-				right: 'month,agendaWeek,agendaDay'
+				right: 'today,month,agendaWeek,agendaDay'
 			},
+			locale: "ko",
+			navLinks: true,
+			businessHours: true,
 			editable: true,
 			events: [
 				{
 					title: 'Lesson',
-					start: '2015-07-01'
-				},
-				{
-					title: 'Lesson',
-					start: '2014-07-07',
-					end: '2015-07-10'
-				},
-				{
-					title: 'Exam',
-					start: '2015-07-09T10:30:00'
+					start: '2021-06-01'
 				},
 				{
 					title: 'Meeting',
-					start: '2015-07-12T10:30:00',
-					end: '2015-07-12T12:30:00'
-				},
-				{
-					title: 'Lunch',
-					start: '2015-07-12T12:00:00'
+					start: '2021-06-02T10:30:00',
+					end: '2021-06-03T12:30:00'
 				},
 				{
 					title: 'Click for Google',
 					url: 'http://google.com/',
-					start: '2015-07-28'
+					start: '2021-06-04'
 				},
-				{
-					title: 'Lesson',
-					start: '2015-08-01'
-				},
-				{
-					title: 'Lesson',
-					start: '2015-08-07',
-					end: '2015-08-10'
-				},
-				{
-					title: 'Exam',
-					start: '2015-08-09T10:30:00'
-				},
-				{
-					title: 'Meeting',
-					start: '2015-08-12T10:30:00',
-					end: '2015-08-12T12:30:00'
-				},
-				{
-					title: 'Lunch',
-					start: '2015-08-12T12:00:00'
-				},
-				{
-					title: 'Click for Google',
-					url: 'http://google.com/',
-					start: '2015-08-28'
-				},
-				{
-					title: 'Lesson',
-					start: '2015-09-01'
-				},
-				{
-					title: 'Lesson',
-					start: '2015-09-07',
-					end: '2015-09-10'
-				},
-				{
-					title: 'Exam',
-					start: '2015-09-09T10:30:00'
-				},
-				{
-					title: 'Meeting',
-					start: '2015-09-12T10:30:00',
-					end: '2015-09-12T12:30:00'
-				},
-				{
-					title: 'Lunch',
-					start: '2015-09-12T12:00:00'
-				},
-				{
-					title: 'Click for Google',
-					url: 'http://google.com/',
-					start: '2015-09-28'
-				}
 			],
 			droppable: true, // this allows things to be dropped onto the calendar !!!
 			drop: function(date) { // this function is called when something is dropped

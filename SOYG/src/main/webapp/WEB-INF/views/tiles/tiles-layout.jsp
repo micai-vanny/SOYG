@@ -71,8 +71,7 @@
 	<script src="resources/udema_v_1.9/admin_section/js/admin.js"></script>
 	<!-- SPECIFIC CALENDAR -->
 	<script src="resources/udema_v_1.9/html_menu_1/js/moment.min.js"></script>
-	<script
-		src="resources/udema_v_1.9/html_menu_1/js/jquery-ui.custom.min.js"></script>
+	<script	src="resources/udema_v_1.9/html_menu_1/js/jquery-ui.custom.min.js"></script>
 	<script src="resources/udema_v_1.9/html_menu_1/js/fullcalendar.min.js"></script>
 	<script src="resources/udema_v_1.9/html_menu_1/js/fullcalendar_func.js"></script>
 </body>
