@@ -44,9 +44,20 @@
 
 <!-- 검색 기능을 만들자 -->
 <select id="searchClass" resultType="co.mini.soyg.main.vo.MainVO" parameterType="co.mini.soyg.main.vo.MainVO">
-	select * from search
-	where LOC_NAME like '%' || #{search} || '%' 
-	or FIELD_NAME like '%' || #{search} || '%' 
-	or class_name like '%' || #{search} || '%'
+	select * from class c join loc_info l
+	using (loc_code)
+	join field_info f
+	using (field_code)
+	<trim prefix="where" prefixOverrides="and|or">
+		<if test="loc_name != null">
+			l.loc_name like '%' || #{search} || '%'
+		</if>
+		<if test="field_name != null">
+			or f.field_name like '%' || #{search} || '%'
+		</if>
+		<if test="class_name != null">
+			or c.class_name like '%' || #{search} || '%'
+		</if>
+	</trim>
 </select>
 </mapper>

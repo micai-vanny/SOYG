@@ -17,7 +17,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                 <form id=frm action="searchClass.do" method="post">
                     <div id="custom-search-input">
                         <div class="input-group">
-                            <input type="text" name="search" class="search-query" placeholder="ex) 외국어, 자격증, 대구, 서울..." />
+                            <input type="text" name="search" class="search-query" placeholder="ex) 영어, 자격증, 대구, 서울..." />
                             <input type="submit" class="btn_search" value="Search" />
                         </div>
                     </div>
@@ -54,8 +54,8 @@ uri="http://java.sun.com/jsp/jstl/core" %>
     <div class="container-fluid margin_120_0">
         <div class="main_title_2">
             <span><em></em></span>
-            <h2>Groups by region currently</h2>
-            <p>내가 있는 곳에서 진행되는 스터디들을 만나보세요.</p>
+            <h2>Recently registered groups</h2>
+            <p>최근에 등록된 스터디 그룹을 만나보세요.</p>
         </div>
         <div id="reccomended" class="owl-carousel owl-theme">
             <div class="item">
