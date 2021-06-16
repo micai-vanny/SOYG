@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 
@@ -13,7 +14,7 @@
 		-webkit-appearance: none;
 	}
 	
-	.info_update_window {
+/* 	.info_update_window {
 	    padding-top: 100px;
 	    display: flex;
 	    flex-direction: column;
@@ -26,13 +27,38 @@
 		text-align : center;
 		padding : 20px;
 	}
-	.header { display : none; }
+	
+ 	.header { display : none; }
 	footer { display : none !important; }
 	.modal-backdrop { display: none; }
-	
+
 	.btn_1.medium {
-    float: right;
+	    float: right;
+	}
+*/
+    .row {
+    	display: flex;
+    	flex-wrap : nowrap;
+    }
+    
+    .container-fluid {
+    	display: flex;
+	    align-items: center;
+	    flex-direction: column;
+    }
+    
+	#phoneNumber1, #phoneNumber2 {
+    	margin-top: 11px;
+    }
+    
+    .make-flex div {
+    	display: flex;
+    }
+    
+    .make-flex div input:nth-child(2n) {
+	margin-left: 10px;
 }
+    
 	
 </style>
 
@@ -92,7 +118,7 @@
 			
 		}else if (modiPwd != idenPwd){
 			
-			alert('비밀번호가 같지 않습니다.');
+			alert('비밀번호를 확인해 주세요.');
 			document.getElementById('iPwd').focus();
 			document.getElementById('pwdCheck').value = "unChecked";
 			return;
@@ -195,278 +221,293 @@
 </script>
 
 
-<head>
-	
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="description" content="">
-	<meta name="author" content="Ansonika">
-	<title>UDEMA - Admin dashboard</title>
-	
-	<!-- Favicons-->
-	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-	<link rel="apple-touch-icon" type="image/x-icon" href="img/apple-touch-icon-57x57-precomposed.png">
-	<link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="img/apple-touch-icon-72x72-precomposed.png">
-	<link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="img/apple-touch-icon-114x114-precomposed.png">
-	<link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="img/apple-touch-icon-144x144-precomposed.png">
-	
-	<!-- GOOGLE WEB FONT -->
-	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800" rel="stylesheet">
-	
-	<!-- Bootstrap core CSS-->
-	<link href="/soyg/resources/udema_v_1.9/admin_section/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<!-- Main styles -->
-	<link href="/soyg/resources/udema_v_1.9/admin_section/css/admin.css" rel="stylesheet">
-	<!-- Icon fonts-->
-	<link href="/soyg/resources/udema_v_1.9/admin_section/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	<!-- Plugin styles -->
-	<link href="/soyg/resources/udema_v_1.9/admin_section/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
-	<link href="/soyg/resources/udema_v_1.9/admin_section/vendor/dropzone.css" rel="stylesheet">
-	<!-- Your custom styles -->
-	<link href="/soyg/resources/udema_v_1.9/admin_section/css/custom.css" rel="stylesheet">
-	
-</head>
-
-
-
 <body class="fixed-nav sticky-footer" id="page-top">
-	<!-- Navigation-->
-	<nav class="navbar navbar-expand-lg navbar-dark bg-default fixed-top" id="mainNav">
-	  <a class="navbar-brand" href="home.do"><img src="/soyg/resources/udema_v_1.9/admin_section/img/logo.png" data-retina="true" alt="" width="163" height="36"></a>
-	  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-	  	<span class="navbar-toggler-icon"></span>
-	  </button>
-	  <div class = "collaps navbar-collapse" id = "navbar-Responsive">
-	    <ul class="navbar-nav ml-auto">
-	      <li class="nav-item">
-	      	<a class="nav-link" data-toggle="modal" data-target="#exampleModal">
-				<i class="fa fa-fw fa-sign-out"></i>로그아웃
-			</a>
-	      </li>
-	    </ul>
-	  </div>
-	</nav>
+
+
+	<c:choose>
+		<c:when test = "${id eq 'admin'}">
 	
-	
-	<!-- /Navigation-->
-	<div class="content-wrapper">
-		<div class="container-fluid">
-		<!-- Breadcrumbs-->
-	<ol class="breadcrumb">
-		<li class="breadcrumb-item">
-			<a href="admin.do">관리자 페이지</a>
-		</li>
-		<li class="breadcrumb-item active">회원 정보 수정 페이지</li>
-	</ol>
-      
-		<form id = "frm" action = "userUpdate.do" method = "POST">
-		<!-- 미수정 시 받아갈 값들 -->
-			<input type = "hidden" name = "exID" value = "${user.userID }">
-			<input type = "hidden" name = "exName" value = "${user.name }">
-			<input type = "hidden" name = "exBirth" value = "${user.birth }">
-			<input type = "hidden" name = "exGender" value = "${user.gender }">
-		
-			<div class="box_general padding_bottom">
-				<div class="header_box version_2">
-					<h2><i class="fa fa-user"></i>회원 ${user.userID }의 상세 정보</h2>
+			<!-- Navigation-->
+			<nav class="navbar navbar-expand-lg navbar-dark bg-default fixed-top" id="mainNav">
+				<a class="navbar-brand" href="home.do"><img src="/soyg/resources/udema_v_1.9/admin_section/img/logo.png" data-retina="true" alt="" width="163" height="36"></a>
+				<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+			  	</button>
+				<div class = "collaps navbar-collapse" id = "navbar-Responsive">
+					<ul class="navbar-nav ml-auto">
+			   			<li class="nav-item">
+				      	<a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+							<i class="fa fa-fw fa-sign-out"></i>로그아웃
+						</a>
+			  			</li>
+					</ul>
 				</div>
+			</nav>
+			
+			<!-- /Navigation-->
+			<div class="content-wrapper">
+				<div class="container-fluid">
+					<ol class="breadcrumb" style = "width : 832px; margin-top : 30px;">
+						<li class="breadcrumb-item">
+							<a href="admin.do">관리자 페이지</a>
+						</li>
+						<li class="breadcrumb-item active">회원 정보 수정 페이지</li>
+					</ol>
+		      
+					<form id = "frm" action = "userUpdate.do" method = "POST">
 				
-				<div class="row">
+					<!-- 미수정 시 받아갈 값들 -->
+					<input type = "hidden" name = "exID" value = "${user.userID }">
+					<input type = "hidden" name = "exName" value = "${user.name }">
+					<input type = "hidden" name = "exBirth" value = "${user.birth }">
+					<input type = "hidden" name = "exGender" value = "${user.gender }">
 				
-					<!-- <div class="col-md-4">
-						<div class="form-group">
-						<label>Your photo</label>
-							<form action="/file-upload" class="dropzone"></form>
-					    </div>
-					</div> -->
-				
-					<div class="col-md-8 add_top_30">
-						<div class="row">
-							<div class="col-md-6">
-								<div class="form-group">
-									<label>이름</label>
-									<input type="text" class="form-control" name = "userName" value = "${user.name }" placeholder="${user.name }">
-								</div>
-							</div>
+					<div class="box_general padding_bottom">
+						<div class="header_box version_2">
+							<h2><i class="fa fa-user"></i>회원 ${user.userID }의 상세 정보</h2>
 						</div>
-						<!-- /row-->
+						
 						<div class="row">
-							<div class="col-md-6">
+						
+							<!-- <div class="col-md-4">
 								<div class="form-group">
-									<label>생년월일</label>
-									<input type="text" class="form-control" name = "birth" placeholder="${user.birth }">
+								<label>Your photo</label>
+									<form action="/file-upload" class="dropzone"></form>
+							    </div>
+							</div> -->
+						
+							<div class="col-md-8 add_top_30">
+							
+								<!-- 이름 -->
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<label>이름</label>
+											<input type="text" class="form-control" name = "userName" value = "${user.name }" placeholder="${user.name }">
+										</div>
+									</div>
 								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-									<label>성별</label>
-									<input type="email" class="form-control" name = "gender" placeholder="${user.gender }">
+								
+								<!-- 생년월일 & 성별-->
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<label>생년월일</label>
+											<input type="text" class="form-control" name = "birth" placeholder="${user.birth }">
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label>성별</label>
+											<input type="email" class="form-control" name = "gender" placeholder="${user.gender }">
+										</div>
+									</div>
 								</div>
-							</div>
-						</div>
-						<!-- /row-->
-						<div class="row">
-							<div class="col-md-6">
-								<div class="form-group">
-									<label>주소</label>
-									<!-- <textarea style="height:100px;" class="form-control" placeholder="소개말"></textarea> -->
-									<input type="text" class="form-control" readonly name = "exAddr" value = "${user.address }" placeholder="${user.address }">
-									<p> <br>
-										<input type = "text" id = "postCode" name = "postCode" placeholder = "우편번호">
-										<input class="btn btn-outline-dark mt-auto" type = "button" onclick = "findPostCode()" value = "우편번호 찾기"><br>
-										<input type = "text" id = "roadAddr" name = "roadAddr" placeholder = "도로명 주소">
-										<input type = "text" id = "bunAddr" name = "bunAddr" placeholder = "지번 주소">
-										<span id = "guide" style = "color:#999; display:none"></span>
-										<input type = "text" id = "detailAddr" name = "detailAddr" placeholder = "상세 주소">
-										<input type = "text" id = "extraAddr" name = "extraAddr" placeholder = "참고 항목">
-									</p>
+								
+								<!-- 주소 -->
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<label>주소</label>
+											<!-- <textarea style="height:100px;" class="form-control" placeholder="소개말"></textarea> -->
+											<input type="text" class="form-control" readonly name = "exAddr" value = "${user.address }" placeholder="${user.address }">
+										</div>
+									</div>
 								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-4">
-								<div class="form-group">
-									<label>연락처</label>
-									<!-- <textarea style="height:100px;" class="form-control" placeholder="소개말"></textarea> -->
-									<input type="text" class="form-control" name = "exPhone" value = "${user.phone }" readonly placeholder="${user.phone }">
-									<div class = "row">
-										<div class = "col-md-5">
+								
+								<!-- 변경할 주소 -->
+								<div class = "row">
+									<div class = "col-md-4">
+										<div class = "form-group">
+											<label>변경할 주소</label>
+											<input type = "text" id = "postCode" name = "postCode" placeholder = "우편번호">
+										</div>
+									</div>
+									<div class = "col-md-4" style = "left : 17px; top : 22px;">
+										<div class = "form-group">
+											<label></label>
+											<input class="btn btn-outline-dark mt-auto" type = "button" onclick = "findPostCode()" value = "우편번호 찾기">
+										</div>
+									</div>
+								</div>
+								
+								<!-- 주소 검색 -->
+								<div class = "row">
+									<div class = "col-md-3">
+										<div class = "form-group">
+											<div class="make-flex">
+												<div>
+													<input type = "text" id = "roadAddr" name = "roadAddr" placeholder = "도로명 주소" readonly>
+													<input type = "text" id = "bunAddr" name = "bunAddr" placeholder = "지번 주소" readonly>
+													<span id = "guide" style = "color:#999; display:none"></span>
+												</div>
+												<div>
+													<input type = "text" id = "detailAddr" name = "detailAddr" placeholder = "상세 주소" maxlength="40">
+													<input type = "text" id = "extraAddr" name = "extraAddr" placeholder = "참고 항목" readonly>
+												</div>
+											</div>															
+										</div>
+									</div>
+								</div>
+								
+								<!-- 연락처 -->
+								<div class="row">
+								
+									<div class="col-md-6">
+										<div class="form-group">
+											<label>연락처</label>
+											<!-- <textarea style="height:100px;" class="form-control" placeholder="소개말"></textarea> -->
+											<input type="text" class="form-control" name = "exPhone" value = "${user.phone }" readonly placeholder="${user.phone }">
+										</div>
+									</div>
+									
+									<div class="col-md-3">
+										<div class="form-group">
+											<label>변경할 연락처</label>
 											<select name = "localPhoneNumber" class = "form-control">
 												<option value = "010">010</option>
 												<option value = "053">053</option>
-											</select> -
-											<input type = "number" name = "phoneNumber1" id = "phoneNumber1" class = "form-control" maxlength = "4" placeholder= "숫자 4자리" oninput = "numberLength(this);"> -
+											</select>
+										</div>
+									</div>
+									<div class = "col-md-3">
+										<div class = "form-group">
+											<label></label>
+											<input type = "number" name = "phoneNumber1" id = "phoneNumber1" class = "form-control" maxlength = "4" placeholder= "숫자 4자리" oninput = "numberLength(this);">
+										</div>
+									</div>
+									<div class = "col-md-3">
+										<div class = "form-group">
+											<label></label>
 											<input type = "number" name = "phoneNumber2" id = "phoneNumber2" class = "form-control" maxlength = "4" placeholder = "숫자 4자리" oninput = "numberLength(this);">
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-						<!-- /row-->
 					</div>
-				</div>
-			</div>
-			
-			
-			<!-- /box_general-->
-			<div class="row">
-				<div class="col-md-6">
-					<div class="box_general padding_bottom">
-						<div class="header_box version_2">
-							<h2><i class="fa fa-lock"></i>비밀번호 변경</h2>
-						</div>
-						<div class="form-group">
-							<label>현재 비밀번호</label>
-							<input class="form-control" type="text" placeholder = "${user.password }" readonly name = "exPwd" value = "${user.password }">	<!-- 관리자니까 type을 text로 해도 되지 않을까 -->
-						</div>
-						<div class="form-group">
-							<label>새로운 비밀번호</label>
-							<input class="form-control" type="text" maxlength = "20" id = "mPwd" name = "mPwd">
-						</div>
-						<div class="form-group">
-							<label>새 비밀번호 확인</label>
-							<button type = "button" onclick="checkThePwd()" class="btn_1 gray approve" value = "unChecked" id = "pwdCheck" name = "pwdCheck">
-								<i class="fa fa-fw fa-check-circle-o"></i>일치 여부 확인
-							</button>
-							<input class="form-control" type="text" maxlength = "20" id = "iPwd" name = "iPwd">
-						</div>
-						<!-- <div class = "form-group">
-							<label>비밀 번호 일치 여후 확인</label>
-							<button class="form-control" type = "button" name = "pwdCheck" onclick = "checkThePwd()" value = "unChecked">확인</button>
-						</div> -->
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="box_general padding_bottom">
 					
-						<div class="header_box version_2">
-							<h2><i class="fa fa-envelope"></i>이메일 변경</h2>
-						</div>
-						
-						<div class="form-group">
-							<label>현재 이메일</label>
-							<input class="form-control" name="old_email" id="old_email" value = "${user.email }" readonly placeholder = "${user.email }">
-						</div>
-						
-						<div class = "row">
-							<div class = "col-md-5">
+					
+					<!-- /box_general-->
+					<div class="row">
+					
+						<!-- 비밀번호 박스 -->
+						<div class="col-md-6">
+							<div class="box_general padding_bottom">
+								<div class="header_box version_2">
+									<h2><i class="fa fa-lock"></i>비밀번호 변경</h2>
+								</div>
 								<div class="form-group">
-									<label>새로운 이메일</label>
-									<input class="form-control" name="new_email" id="new_email" type="text" maxlength="30"> @
-									<select name = "localEmail" class = "form-control">
-										<option>선택</option>
-										<option value = "@naver.com">naver.com</option>
-										<option value = "@gmail.com">google.com</option>
-										<option value = "@daum.net">daum.net</option>
-										<option value = "@nate.net">nate.net</option>
-									</select>
+									<label>현재 비밀번호</label>
+									<input class="form-control" type="text" placeholder = "${user.password }" readonly name = "exPwd" value = "${user.password }">
+								</div>
+								<div class="form-group">
+									<label>새로운 비밀번호</label>
+									<input class="form-control" type="text" maxlength = "20" id = "mPwd" name = "mPwd">
+								</div>
+								<div class="form-group">
+									<label>새 비밀번호 확인</label>
+									<button type = "button" onclick="checkThePwd()" class="btn_1 gray approve" value = "unChecked" id = "pwdCheck" name = "pwdCheck">
+										<i class="fa fa-fw fa-check-circle-o"></i>일치 여부 확인
+									</button>
+									<input class="form-control" type="text" maxlength = "20" id = "iPwd" name = "iPwd">
+								</div>
+								<!-- <div class = "form-group">
+									<label>비밀 번호 일치 여후 확인</label>
+									<button class="form-control" type = "button" name = "pwdCheck" onclick = "checkThePwd()" value = "unChecked">확인</button>
+								</div> -->
+							</div>
+						</div>
+						
+						<!-- 이메일 박스 -->
+						<div class="col-md-6">
+							<div class="box_general padding_bottom">
+							
+								<div class="header_box version_2">
+									<h2><i class="fa fa-envelope"></i>이메일 변경</h2>
+								</div>
+								
+								<div class="form-group">
+									<label>현재 이메일</label>
+									<input class="form-control" name="old_email" id="old_email" value = "${user.email }" readonly placeholder = "${user.email }">
+								</div>
+								
+								<div class = "row">
+									<div class = "col-md-6">
+										<div class="form-group">
+											<label>새로운 이메일</label>
+											<input class="form-control" name="new_email" id="new_email" type="text" maxlength="30">
+										</div>
+									</div>
+									<div class = "col-md-6">
+										<div class = "form-group">
+											<label></label>
+											<select name = "localEmail" class = "form-control">
+												<option>이메일 선택</option>
+												<option value = "@naver.com">naver.com</option>
+												<option value = "@gmail.com">gmail.com</option>
+												<option value = "@daum.net">daum.net</option>
+												<option value = "@nate.net">nate.net</option>
+											</select>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
+						
 					</div>
+					
+					</form>
+				
+					<p><button type = "submit" onclick = "submitBtn()" class="btn_1 medium">저장</button></p>
+					
 				</div>
+			  
 			</div>
-			
-		</form>
 		
-		<!-- /row-->
-		<p><button type = "submit" onclick = "submitBtn()" class="btn_1 medium">저장</button></p>
-	  </div>
-	  
-	  <!-- /.container-fluid-->
-   	</div>
-   	
-    <!-- /.container-wrapper-->
-    <footer class="sticky-footer">
-      <div class="container">
-        <div class="text-center">
-          <small>Copyright © UDEMA 2018</small>
-        </div>
-      </div>
-    </footer>
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-      <i class="fa fa-angle-up"></i>
-    </a>
-    <!-- Logout Modal-->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">정말로 로그아웃 하시겠습니까?</h5>
-            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
-          </div>
-          <div class="modal-body">로그아웃 하시려면 '로그아웃'을 클릭해 주십시오.</div>
-          <div class="modal-footer">
-            <a class="btn btn-primary" href="login.html">로그아웃</a>
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
-          </div>
-        </div>
-      </div>
-    </div>
+		
+		    <footer class="sticky-footer">
+		      <div class="container">
+		        <div class="text-center">
+		          <small>Copyright © UDEMA 2018</small>
+		        </div>
+		      </div>
+		    </footer>
+		    
+		    
+		    
+		    <!-- Scroll to Top Button 누르면 정상 작동은 하는데 무한 에러남. 그래서 주석처리했고 script도 다 뺌-->
+		   <!--  <a class="scroll-to-top rounded" href="#page-top">
+		      <i class="fa fa-angle-up"></i>
+		    </a> -->
+		    
+		    
+		    <!-- Logout Modal-->
+		    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		      <div class="modal-dialog" role="document">
+		        <div class="modal-content">
+		          <div class="modal-header">
+		            <h5 class="modal-title" id="exampleModalLabel">정말로 로그아웃 하시겠습니까?</h5>
+		            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+		              <span aria-hidden="true">×</span>
+		            </button>
+		          </div>
+		          <div class="modal-body">로그아웃 하시려면 '로그아웃'을 클릭해 주십시오.</div>
+		          <div class="modal-footer">
+		            <a class="btn btn-primary" href="login.html">로그아웃</a>
+		            <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
+		          </div>
+		        </div>
+		      </div>
+		    </div>
     
     
-    
-	<!-- Bootstrap core JavaScript-->
-	<script src="/soyg/resources/udema_v_1.9/admin_section/vendor/jquery/jquery.min.js"></script>
-	<script src="/soyg/resources/udema_v_1.9/admin_section/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<!-- Core plugin JavaScript-->
-	<script src="/soyg/resources/udema_v_1.9/admin_section/vendor/jquery-easing/jquery.easing.min.js"></script>
-	<!-- Page level plugin JavaScript-->
-	<script src="/soyg/resources/udema_v_1.9/admin_section/vendor/chart.js/Chart.min.js"></script>
-	<script src="/soyg/resources/udema_v_1.9/admin_section/vendor/datatables/jquery.dataTables.js"></script>
-	<script src="/soyg/resources/udema_v_1.9/admin_section/vendor/datatables/dataTables.bootstrap4.js"></script>
-	<script src="/soyg/resources/udema_v_1.9/admin_section/vendor/jquery.selectbox-0.2.js"></script>
-	<script src="/soyg/resources/udema_v_1.9/admin_section/vendor/retina-replace.min.js"></script>
-	<script src="/soyg/resources/udema_v_1.9/admin_section/vendor/jquery.magnific-popup.min.js"></script>
-	<!-- Custom scripts for all pages-->
-	<script src="/soyg/resources/udema_v_1.9/admin_section/js/admin.js"></script>
-	<!-- Custom scripts for this page-->
-	<script src="/soyg/resources/udema_v_1.9/admin_section/vendor/dropzone.min.js"></script>
-	
-	
+   		</c:when>
+		<c:otherwise>
+			<h1 style = "text-align : center;">정상적인 방법으로 접근하시오.</h1>
+		</c:otherwise>
+	</c:choose>
+
+
 </body>
 </html>

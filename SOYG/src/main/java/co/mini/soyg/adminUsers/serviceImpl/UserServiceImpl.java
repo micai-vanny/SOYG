@@ -15,11 +15,11 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	@Override
-	public List<UserVO> userList() {
-		// TODO 전체 조회
-		return sqlSession.selectList("userList");
-	}
+//	@Override
+//	public List<UserVO> userList() {
+//		// TODO 전체 조회
+//		return sqlSession.selectList("userList");
+//	}
 
 	@Override
 	public UserVO userSelect(UserVO vo) {
@@ -45,4 +45,17 @@ public class UserServiceImpl implements UserService {
 		return sqlSession.update("userDelete", vo);
 	}
 
+	@Override
+	public int userCnt() {
+		// 멤버 총 수 확인
+		
+		return sqlSession.selectOne("userCnt");
+	}
+	@Override
+	public List<UserVO> userPaging(UserVO vo){
+		// 조건에 맞는 멤버 조회
+		
+		return sqlSession.selectList("userPaging", vo);
+	}
+	
 }

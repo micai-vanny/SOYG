@@ -16,6 +16,9 @@
     /* flex-direction: row; */
 }
 </style>
+
+
+	
 	<main>
 	<section id="hero_in" class="general">
 		<div class="wrapper">
@@ -26,6 +29,8 @@
 	</section>
 	<!--/hero_in-->
 
+<c:choose>
+	<c:when test = "${id eq 'admin'}">
 		<div align="center"  class="container margin_60_35">
 			<div class="main_title_2">
 				<span><em></em></span>
@@ -41,7 +46,7 @@
 					</a>
 				</div>
 				<div class="col-lg-4 col-md-6">
-					<a class="box_topic" href="userList.do">
+					<a class="box_topic" href="userListPaging.do">
 						<i class="pe-7s-study"></i>
 						<h3>회원관리</h3>
 						<p>회원 조회/수정/삭제</p>
@@ -51,6 +56,12 @@
 			</div>
 			<!--/row-->
 		</div>
+	
+	</c:when>
+	<c:otherwise>
+		<h1 style = "text-align : center;">정상적인 방법으로 접근하시오.</h1>
+	</c:otherwise>
+</c:choose>
 		<!-- /container -->
 		<div class="bg_color_1">
 			<div class="container margin_60_35">
@@ -78,5 +89,3 @@
 		<!-- /bg_color_1 -->
 	</main>
 	<!--/main-->
-	
-	

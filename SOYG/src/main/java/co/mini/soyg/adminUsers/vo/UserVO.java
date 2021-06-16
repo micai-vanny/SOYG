@@ -13,8 +13,29 @@ public class UserVO {
 	private String birth;
 	private String name;
 	
+	private int firstCnt;
+	private int lastCnt;
+	private int totalCnt;
 	//////////////////////////////////////////////////
 	
+	public int getFirstCnt() {
+		return firstCnt;
+	}
+	public void setFirstCnt(int firstCnt) {
+		this.firstCnt = firstCnt;
+	}
+	public int getLastCnt() {
+		return lastCnt;
+	}
+	public void setLastCnt(int lastCnt) {
+		this.lastCnt = lastCnt;
+	}
+	public int getTotalCnt() {
+		return totalCnt;
+	}
+	public void setTotalCnt(int totalCnt) {
+		this.totalCnt = totalCnt;
+	}
 	public String getName() {
 		return name;
 	}
@@ -63,12 +84,13 @@ public class UserVO {
 	public void setBirth(String birth) {
 		this.birth = birth;
 	}
-	
-	
 	@Override
 	public String toString() {
 		return "UserVO [userID=" + userID + ", password=" + password + ", address=" + address + ", email=" + email
-				+ ", gender=" + gender + ", phone=" + phone + ", birth=" + birth + ", name=" + name + "]";
+				+ ", gender=" + gender + ", phone=" + phone + ", birth=" + birth + ", name=" + name + ", firstCnt="
+				+ firstCnt + ", lastCnt=" + lastCnt + ", totalCnt=" + totalCnt + "]";
 	}
+	
+	
 	
 }
