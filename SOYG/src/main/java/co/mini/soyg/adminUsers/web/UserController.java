@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import co.mini.soyg.adminUsers.service.UserService;
 import co.mini.soyg.adminUsers.vo.UserVO;
+import co.mini.soyg.common.Paging;
 
 @Controller
 public class UserController {
@@ -17,13 +18,13 @@ public class UserController {
 	@Autowired
 	private UserService dao;
 	
-	// 회원 전체 조회
-	@RequestMapping("/userList.do")
-	public String userList(Model model) {
-		
-		model.addAttribute("users", dao.userList());
-		return "adminUserControl/userList";
-	}
+//	// 회원 전체 조회
+//	@RequestMapping("/userList.do")
+//	public String userList(Model model) {
+//		
+//		model.addAttribute("users", dao.userList());
+//		return "adminUserControl/userList";
+//	}
 	
 	// 회원 하나 조회
 	@RequestMapping("/userSelect.do")
@@ -122,7 +123,7 @@ public class UserController {
 		
 //		model.addAttribute("users", dao.userList()); 없어도 redirect쓰면 괜찮네
 
-		return "redirect:userList.do";	// redirect:/
+		return "redirect:/userListPaging.do";	// redirect:/
 		
 //		return "adminUserControl/userList"; 주소창 이상한 놈
 //		return "adminUserControl/userUpdatePage"; 못 찾아가는 놈
@@ -148,5 +149,31 @@ public class UserController {
 		}
 		
 		return "adminUserControl/userList";	// 에이잭스 쓰는 순간 이거는 의미 없어진다.
+	}
+	
+	// 페이징버전
+	@RequestMapping("/userListPaging.do")
+	public String userListPaging(Model model, HttpServletRequest request) {
+		
+		String page = request.getParameter("page");
+		
+		if(page == null) page = "1";
+		
+		int getNum = Integer.parseInt(page);
+		
+		UserVO vo = new UserVO();
+		vo.setFirstCnt(1 + (getNum -1) * 10);
+		vo.setLastCnt(getNum * 10);
+		vo.setTotalCnt(dao.userCnt());
+		
+		Paging paging = new Paging();
+		paging.setPageNo(getNum);
+		paging.setPageSize(10);
+		paging.setTotalCount(vo.getTotalCnt());
+		
+		model.addAttribute("users", dao.userPaging(vo));
+		model.addAttribute("paging", paging);
+		
+		return "adminUserControl/userList";
 	}
 }

@@ -59,12 +59,12 @@
 <title>회원 전체 목록</title>
 
 <script>
-	// https://webruden.tistory.com/107
+	// https://webruden.tistory.com/107  ~~> 같은 페이지에서만 찾음 '하나 조회' 다시 작업
 	window.onload = function() {
 		$("#keyword").keyup(function() {
 			var k = $(this).val();
 			$("#dataTable > tbody > tr").hide();
-			var temp = $("#dataTable > tbody > tr > td:nth-child(7n+1):contains('"+ k + "')");
+			var temp = $("#dataTable > tbody > tr > td:nth-child(8n+1):contains('"+ k + "')");
 			$(temp).parent().show();
 		});
 	};
@@ -102,6 +102,11 @@
         }
 		
 	}
+	
+	function goPage(page){
+		
+		location.href = "userListPaging.do?page=" + page;
+	}
 
 	/* $(function() {
 
@@ -126,64 +131,76 @@
 	</div>
 </section>
 
-
-
-<div class="wrap" align="center">
-	<div>
-		<div class="content-wrapper">
-			<div class="container-fluid">
-				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="admin.do">관리자 페이지</a></li>
-					<li class="breadcrumb-item active">회원 리스트</li>
-				</ol>
-				<div class="card mb-3">
-					<div class="card-header">
-						<i class="fa fa-table"></i> 유저 조회 창
-					</div>
-					<div class="card-body">
-						<div class="table-responsive">
-							<div id="dataTable_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
-								<div class="row">
-									<div class="col-sm-12 col-md-6">
-										<div id="dataTable_filter" class="dataTables_filter">
-											<label style = "display: flex;">
-												<input type="search" id="keyword" class="form-fontrol form-control-sm" placeholder="검색할 아이디 입력" aria-controls="dataTable">
-											</label>
+<c:choose>
+	<c:when test = "${id eq 'admin'}">
+		<div class="wrap" align="center">
+			<div>
+				<div class="content-wrapper">
+					<div class="container-fluid">
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item"><a href="admin.do">관리자 페이지</a></li>
+							<li class="breadcrumb-item active">회원 리스트</li>
+						</ol>
+						<div class="card mb-3">
+							<div class="card-header">
+								<i class="fa fa-table"></i> 유저 조회 창
+							</div>
+							<div class="card-body">
+								<div class="table-responsive">
+									<div id="dataTable_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
+										<div class="row">
+											<div class="col-sm-12 col-md-6">
+												<div id="dataTable_filter" class="dataTables_filter">
+													<label style = "display: flex;">
+														<input type="search" id="keyword" class="form-fontrol form-control-sm" placeholder="검색할 아이디 입력" aria-controls="dataTable">
+													</label>
+												</div>
+											</div>
+											<table id="dataTable" class="table table-bordered">
+												<thead>
+													<tr>
+														<th>아이디</th>
+														<th>비밀번호</th>
+														<th>이름</th>
+														<th>주소</th>
+														<th>이메일</th>
+														<th>성별</th>
+														<th>연락처</th>
+														<th>생년월일</th>
+														<th>테이블기능</th>
+													</tr>
+												</thead>
+												<tbody>
+													<c:forEach var="user" items="${users}" varStatus="status">
+														<tr>
+															<td>
+																<a href="userSelect.do?userID=${user.userID }" class="userInfo">${user.userID }</a>
+																<input type="hidden" id="userID${status.index }" value="${user.userID }">
+															</td>
+															<td>${user.password }</td>
+															<td>${user.name }</td>
+															<td>${user.address }</td>
+															<td>${user.email }</td>
+															<td>${user.gender }</td>
+															<td>${user.phone }</td>
+															<td>${user.birth }</td>
+															<td><button onclick="userDelete(${status.index})" class="btn_1 gray delete">삭제</button></td>
+														</tr>
+													</c:forEach>
+												</tbody>
+											</table>
 										</div>
+										<!-- 페이징처리 -->
+									<jsp:include page="../common/paging.jsp" flush="true">
+										<jsp:param name="firstPageNo" value="${paging.firstPageNo}" />
+										<jsp:param name="prevPageNo" value="${paging.prevPageNo}" />
+										<jsp:param name="startPageNo" value="${paging.startPageNo}" />
+										<jsp:param name="pageNo" value="${paging.pageNo}" />
+										<jsp:param name="endPageNo" value="${paging.endPageNo}" />
+										<jsp:param name="nextPageNo" value="${paging.nextPageNo}" />
+										<jsp:param name="finalPageNo" value="${paging.finalPageNo}" />
+									</jsp:include>
 									</div>
-									<table id="dataTable" class="table table-bordered">
-										<thead>
-											<tr>
-												<th>아이디</th>
-												<th>비번</th>
-												<th>이름</th>
-												<th>주소</th>
-												<th>이메일</th>
-												<th>성별</th>
-												<th>폰번</th>
-												<th>생일</th>
-												<th>기능</th>
-											</tr>
-										</thead>
-										<tbody>
-											<c:forEach var="user" items="${users}" varStatus="status">
-												<tr>
-													<td>
-														<a href="userSelect.do?userID=${user.userID }" class="userInfo">${user.userID }</a>
-														<input type="hidden" id="userID${status.index }" value="${user.userID }">
-													</td>
-													<td>${user.password }</td>
-													<td>${user.name }</td>
-													<td>${user.address }</td>
-													<td>${user.email }</td>
-													<td>${user.gender }</td>
-													<td>${user.phone }</td>
-													<td>${user.birth }</td>
-													<td><button onclick="userDelete(${status.index})" class="btn_1 gray delete">삭제</button></td>
-												</tr>
-											</c:forEach>
-										</tbody>
-									</table>
 								</div>
 							</div>
 						</div>
@@ -191,9 +208,11 @@
 				</div>
 			</div>
 		</div>
-	</div>
-</div>
-
+	</c:when>
+	<c:otherwise>
+		<h1 style = "text-align : center;">정상적인 방법으로 접근하시오.</h1>
+	</c:otherwise>
+</c:choose>
 <!-- 모달창 -->
 <!-- <div class="check_modal">
 			<div class="check_modal_content">

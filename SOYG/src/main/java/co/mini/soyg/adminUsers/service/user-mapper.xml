@@ -14,9 +14,6 @@
 		select * from member
 	</select>
 
-	<!-- 회원 전체 조회2 : 탈퇴 회원 제외 전체 -->
-	<!-- 회원 전체 조회3 : 탈되 회원만 조회 -->
-
 	<!-- 회원 하나 조회 -->
 	<select id="userSelect" parameterType="co.mini.soyg.adminUsers.vo.UserVO" resultType="co.mini.soyg.adminUsers.vo.UserVO">
 		select * from member where userID = #{userID}
@@ -41,5 +38,17 @@
 		where userID = #{userID} -->
 		delete from member where userID = #{userID}  
 	</update>
+	
+	<!-- 페이징 --> 
+	<select id = "userPaging" parameterType="co.mini.soyg.adminUsers.vo.UserVO" resultType="co.mini.soyg.adminUsers.vo.UserVO">
+		SELECT * FROM (SELECT ROWNUM RN, A.* FROM (SELECT * FROM member ORDER BY 1 DESC ) A) WHERE RN BETWEEN #{firstCnt} AND #{lastCnt}
+	</select>
+
+
+	<select id = "userCnt" resultType = "int">
+		select count(*) from member
+	</select>
+	
+	
 	
 </mapper>
