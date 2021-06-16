@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<title>Insert title here</title>
+<title>:::SOYG:::열린 스터디 커뮤니티</title>
 <!-- Favicons-->
 <link rel="shortcut icon"
 	href="resources/udema_v_1.9/html_menu_1/img/favicon.ico"

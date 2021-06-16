@@ -14,6 +14,8 @@ public class HomeController {
 	
 	@RequestMapping("/home.do")
 	public String home(Model model) {
+		// 최근 등록된 스터디 모임 리스트
+		model.addAttribute("recentlyClass", dao.recentlyClassList());
 		// 지역별 카테고리
 		model.addAttribute("mainRegionList", dao.mainRegionList());
 		// 분야별 카테고리

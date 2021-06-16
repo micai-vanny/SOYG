@@ -26,8 +26,8 @@
 				<ul class="clearfix">
 					<li>
 						<div class="layout_view">
-								<a href="searchGrid.do?loc_code=${searchClass[0].loc_code }"><i class="icon-th"></i></a>
-								<a href="searchview.do?loc_code=${searchClass[0].loc_code }" class="active"><i class="icon-th-list"></i></a>
+								<a href="searchGrid.do?search=${searchSession }"><i class="icon-th"></i></a>
+								<a href="searchClass.do?search=${searchSession }" class="active"><i class="icon-th-list"></i></a>
 						</div>
 					</li>
 				</ul>
@@ -45,13 +45,13 @@
 								<figure class="block-reveal">
 									<div class="block-horizzontal"></div>
 									<a href="studySelect.do?class_code=${vo.class_code }"><img src="${pageContext.request.contextPath}/resources/classImage/${vo.class_image }" class="img-fluid" alt=""></a>
-									<div class="preview"><span>Preview course</span></div>
+									<div class="preview"><span>스터디 정보 보기</span></div>
 								</figure>
 							</div>
 							<div class="col-lg-7">
 								<div class="wrapper">
 									<a href="#0" class="wish_bt"></a>
-									<small>Study</small>
+									<small>${vo.city }</small>
 									<h3>${vo.class_name }</h3>
 									<p>스터디 모집 정원 : ${vo.class_personnel }<br>
 										<c:choose>

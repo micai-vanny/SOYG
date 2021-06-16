@@ -17,13 +17,7 @@
     </div>
     <!-- /Preload -->
     <div id="logo">
-        <a href="home.do"
-            ><img
-                src="resources/udema_v_1.9/html_menu_1/img/logo.png"
-                width="149"
-                height="42"
-                alt=""
-        /></a>
+        <a href="home.do"><img src="resources/mainImage/SOYG.png" width="149" height="42" alt="" /></a>
     </div>
     <ul id="top_menu">
 		<c:choose>
@@ -58,53 +52,29 @@
             </li> -->
             <li>
                 <span><a href="home.do">Home</a></span>
+            </li>
+            <li>
+                <span><a href="#0">FIELDS</a></span>
                 <ul>
-                    <li><a href="index.html">Home version 1</a></li>
-                    <li><a href="index-2.html">Home version 2</a></li>
-                    <li><a href="index-6.html">Home version 3</a></li>
-                    <li><a href="index-3.html">Home version 4</a></li>
-                    <li><a href="index-4.html">Home version 5</a></li>
-                    <li><a href="index-5.html">With Cookie bar (EU law)</a></li>
+                    <li><a href="fieldsList.do?field_code=lang">언어</a></li>
+                    <li><a href="fieldsList.do?field_code=lic">자격증</a></li>
+                    <li><a href="fieldsList.do?field_code=empr">취업준비</a></li>
+                    <li><a href="fieldsList.do?field_code=hob">취미</a></li>
+                    <li><a href="fieldsList.do?field_code=etc">E.T.C</a></li>
                 </ul>
             </li>
             <li>
-                <span><a href="#0">Courses</a></span>
+                <span><a href="#0">REGION</a></span>
                 <ul>
-                    <li><a href="courses-grid.html">Courses grid</a></li>
-                    <li>
-                        <a href="courses-grid-sidebar.html"
-                            >Courses grid sidebar</a
-                        >
-                    </li>
-                    <li><a href="courses-list.html">Courses list</a></li>
-                    <li>
-                        <a href="courses-list-sidebar.html"
-                            >Courses list sidebar</a
-                        >
-                    </li>
-                    <li><a href="course-detail.html">Course detail</a></li>
-                    <li>
-                        <a href="course-detail-2.html"
-                            >Course detail working form</a
-                        >
-                    </li>
-                    <li><a href="admission.html">Admission wizard</a></li>
-                    <li><a href="teacher-detail.html">Teacher detail</a></li>
-                </ul>
-            </li>
-            <li>
-                <span><a href="#0">Pages</a></span>
-                <ul>
-                    <li><a href="#0">Menu 2</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="studySelect.do">Blog</a></li>
-                    <li><a href="login.html">Login</a></li>
-                    <li><a href="register.html">Register</a></li>
-                    <li><a href="contacts.html">Contacts</a></li>
-                    <li><a href="404.html">404 page</a></li>
-                    <li><a href="calendar.do">Calendar</a></li>
-                    <li><a href="faq.html">Faq</a></li>
-                    <li><a href="help.html">Help</a></li>
+                    <li><a href="regionList.do?loc_code=02">서울경기</a></li>
+                    <li><a href="regionList.do?loc_code=033">강원</a></li>
+                    <li><a href="regionList.do?loc_code=042">대전충북</a></li>
+                    <li><a href="regionList.do?loc_code=041">충남</a></li>
+                    <li><a href="regionList.do?loc_code=063">전북</a></li>
+                    <li><a href="regionList.do?loc_code=062">광주전남</a></li>
+                    <li><a href="regionList.do?loc_code=053">대구경북</a></li>
+                    <li><a href="regionList.do?loc_code=051">부산경남</a></li>
+                    <li><a href="regionList.do?loc_code=064">제주</a></li>
                 </ul>
             </li>
             <li>
@@ -142,8 +112,8 @@
         <span class="search-overlay-close"
             ><span class="closebt"><i class="ti-close"></i></span
         ></span>
-        <form role="search" id="searchform" method="get">
-            <input value="" name="q" type="search" placeholder="Search..." />
+        <form role="search" id="searchform" action="searchClass.do" method="get">
+            <input value="" name="search" type="search" placeholder="Search..." />
             <button type="submit">
                 <i class="icon_search"></i>
             </button>

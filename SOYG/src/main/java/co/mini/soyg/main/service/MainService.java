@@ -8,7 +8,7 @@ public interface MainService {
 	//로그인 시 지역별 스터디 그룹 조회
 	List<MainVO> loginRegionGroupList();
 	//비로그인 시 최근 등록 스터디 그룹 조회
-	List<MainVO> recentlyRegGroupList();
+	List<MainVO> recentlyClassList();
 	
 	// 메인 지역별 카테고리 리스트
 	List<MainVO> mainRegionList();

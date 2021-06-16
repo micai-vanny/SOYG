@@ -50,7 +50,7 @@ uri="http://java.sun.com/jsp/jstl/core" %>
     </div>
     <!-- /features -->
 
-    <!-- 로그인/비로그인 시 노출되는 스터디그룹 div 시작 : 로그인 구현 되면 세션 정보 받아서 C:if -->
+    <!-- 최근 등록된 스터디 5개씩 보여주기 -->
     <div class="container-fluid margin_120_0">
         <div class="main_title_2">
             <span><em></em></span>
@@ -58,28 +58,28 @@ uri="http://java.sun.com/jsp/jstl/core" %>
             <p>최근에 등록된 스터디 그룹을 만나보세요.</p>
         </div>
         <div id="reccomended" class="owl-carousel owl-theme">
+        	<c:forEach items="${recentlyClass }" var="vo" end="5">
             <div class="item">
                 <div class="box_grid">
                     <figure>
-                        <a href="#0" class="wish_bt"></a>
-                        <a href="course-detail.html">
+                        <a href="studySelect.do?class_code=${vo.class_code }">
                             <div class="preview">
-                                <span>Preview course</span>
+                                <span>스터디 정보 보기</span>
                             </div>
                             <img
-                                src="http://via.placeholder.com/800x533/ccc/fff/course__list_1.jpg"
+                                src="${pageContext.request.contextPath}/resources/classImage/${vo.class_image }"
                                 class="img-fluid"
                                 alt=""
                             />
                         </a>
-                        <div class="price">$39</div>
                     </figure>
                     <div class="wrapper">
-                        <small>Category</small>
-                        <h3>Persius delenit has cu</h3>
+                        <small>${vo.city }</small>
+                        <h3>${vo.class_name }</h3>
                         <p>
-                            Id placerat tacimates definitionem sea, prima quidam
-                            vim no. Duo nobis persecuti cu.
+                           스터디 모집 정원 : ${vo.class_personnel }<br>
+                           스터디 책임자 : ${vo.captain }<br>
+                           스터디 분야 : ${vo.field_name }
                         </p>
                         <div class="rating">
                             <i class="icon_star voted"></i
@@ -90,12 +90,22 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                         </div>
                     </div>
                     <ul>
-                        <li><i class="icon_clock_alt"></i> 1h 30min</li>
+                        <li><i class="icon_clock_alt"></i>
+	                        <c:choose>
+								<c:when test="${vo.weekdays_chk eq 'W' }">
+										주중, ${vo.class_time }
+								</c:when>
+								<c:otherwise>
+										주말, ${vo.class_time }
+								</c:otherwise>						
+							</c:choose>
+                        </li>
                         <li><i class="icon_like"></i> 890</li>
-                        <li><a href="course-detail.html">Enroll now</a></li>
+                        <li><a href="studySelect.do?class_code=${vo.class_code }">자세히</a></li>
                     </ul>
                 </div>
             </div>
+            </c:forEach>
             <!-- /item -->
         </div>
         <!-- /carousel -->
