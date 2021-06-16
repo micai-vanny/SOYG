@@ -108,19 +108,24 @@
 							<strong style="float: left">스터디 설명</strong> <a class="btn" href="#ex1"
 								rel="modal:open" style="margin-left: 500px">수정하기</a>
 							<div id="ex1" class="modal">
-								<h3>${classlist.class_name }의정보수정!</h3>
+								<h4>스터디의 정보를 수정할수있어요</h4>
 								<form id="updateStudyInfo" action="" method="post">
 									<div class="step">
 										<div class="form-group" style="flex">
-										<p>스터디명</p>
+										<p style="margin-bottom: 0px; margin-top:20px">스터디이름</p>
 											<input type="text" name="userId" id="userId"
 												class="form-control required" value="${classlist.class_name }">
 										</div>
 										<div class="form-group">
-											<input type="text" name="name" id="name"
-												class="form-control required" value="${classlist.class_info }">
+											<p style="margin-bottom: 0px;">${classlist.class_name }의 소개를 해주세요.</p>
+											<textarea style="width: 440" rows="20" cols="62" id="class_info" name="class_info">${classlist.class_info }</textarea>
+											
 										</div>
 										<div class="form-group">
+										<select name="class_active" id="class_active">
+												<option value="학생">모집하기</option>
+												<option value="회사원" selected="selected">모집완료</option>
+											</select> 
 											<input type="email" name="email" id="email"
 												class="form-control required" value="${classlist.class_active }"
 												placeholder="Your Email">
