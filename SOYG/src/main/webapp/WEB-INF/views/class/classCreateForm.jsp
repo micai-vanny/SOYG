@@ -20,17 +20,19 @@ $(function() {
 	$count = 0;
 	$enCount = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"];
 	
-	$("#addMidCourse").click(function() {
-		console.log($("#accordion_lessons").html());
-		if($count > 8) {
-			alert("더이상 추가할 수 없습니다.");
-		} else {
-			$count += 1;
-			console.log($enCount[$count]);
-			$addHtml = '<div class="card"><div class="card-header" role="tab" id="heading' + $enCount[$count] + '"><h5 class="mb-0"><a data-toggle="collapse" href="#collapse' + $enCount[$count] + '" aria-expanded="true" aria-controls="collapse' + $enCount[$count] + '"><i class="indicator ti-minus"></i><input type="text" name="ex" id="ex"></a></h5></div><div id="collapse' + $enCount[$count] + '" class="collapse show" role="tabpanel" aria-labelledby="heading' + $enCount[$count] + '"><div class="card-body"><h6>학습 1</h6><div class="list_lessons_2"><ul><li>Health Science</li><li>Health and Social Care</li><li>History</li><li>Healthcare Science</li><li>Audiology</li></ul></div></div></div></div><!-- /card -->';
-			$("#accordion_lessons").append($addHtml);	
+	$addCourse = function(course) {
+		console.log(course);
+		if(course == "bigCourse") {
+			if($count > 8) {
+				alert("더이상 추가할 수 없습니다.");
+			} else {
+				$count += 1;
+				console.log($enCount[$count]);
+				$addHtml = '<div class="card"><div class="card-header" role="tab" id="heading' + $enCount[$count] + '"><h5 class="mb-0"><a data-toggle="collapse" href="#collapse' + $enCount[$count] + '" aria-expanded="true" aria-controls="collapse' + $enCount[$count] + '"><i class="indicator ti-minus"></i><input type="text" name="ex" id="ex"></a></h5></div><div id="collapse' + $enCount[$count] + '" class="collapse show" role="tabpanel" aria-labelledby="heading' + $enCount[$count] + '"><div class="card-body"><h6>학습 1</h6><div class="list_lessons_2"><ul><li>Health Science</li><li>Health and Social Care</li><li>History</li><li>Healthcare Science</li><li>Audiology</li></ul></div></div></div></div><!-- /card -->';
+				$("#accordion_lessons").append($addHtml);	
+			}
 		}
-	});
+	};
 })
 </script>
 	
@@ -75,7 +77,7 @@ $(function() {
 							<div class="intro_title mk_flex">
 								<h2>과정</h2>&nbsp;&nbsp;&nbsp;
 								<span>큰과정 추가</span>
-								<button type="button" class="btn btn-primary btnsIze" id="addMidCourse">
+								<button type="button" class="btn btn-primary btnsIze" onclick="$addCourse('bigCourse')">
 									<small>추가</small>
 								</button>
 								<p>
@@ -89,7 +91,7 @@ $(function() {
 											<a data-toggle="collapse" href="#collapseOne"
 												aria-expanded="true" aria-controls="collapseOne">
 												<i class="indicator ti-minus"></i>
-												<input type="text" name="ex" id="ex" />
+												<input type="text" name="bigCourse" id="bigCourse" />
 											</a>
 										</h5>
 									</div>
@@ -97,14 +99,16 @@ $(function() {
 									<div id="collapseOne" class="collapse show" role="tabpanel"
 										aria-labelledby="headingOne">
 										<div class="card-body">
-											<h6>학습 1</h6>
+											<input type="text" name="midCourse" id="midCourse" />
 											<div class="list_lessons_2">
 												<ul>
-													<li>Health Science</li>
-													<li>Health and Social Care</li>
-													<li>History</li>
-													<li>Healthcare Science</li>
-													<li>Audiology</li>
+													<li>
+														<input type="text" name="smallCourse" id="smallCourse" />&nbsp;&nbsp;&nbsp;
+														<span>과정제목 추가</span>
+														<button type="button" class="btn btn-primary btnsIze" onclick="$addCourse('smallCourse')">
+														<small>추가</small>
+														</button>
+													</li>
 												</ul>
 											</div>
 										</div>

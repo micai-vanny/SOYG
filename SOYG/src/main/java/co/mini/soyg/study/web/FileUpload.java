@@ -21,9 +21,10 @@ public class FileUpload extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setCharacterEncoding("UTF-8");
-		String path = "C:/tmp";
+		String path = null;
 		ServletContext sc = this.getServletContext();
 		path = sc.getRealPath("resources/classImage");
+		System.out.println(path);
 
 		MultipartRequest multi = new MultipartRequest( //
 				req, //
@@ -43,7 +44,6 @@ public class FileUpload extends HttpServlet {
 		json.addProperty("fileName", fileN);
 		json.addProperty("uploaded", 1);
 		json.addProperty("url", req.getContextPath() + "/resources/classImage/" + fileN);
-		System.out.println(req.getContextPath() + "/resources/classImage/" + fileN);
 		resp.getWriter().print(json);
 	}
 }
