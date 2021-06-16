@@ -57,16 +57,6 @@
 	using (loc_code)
 	join field_info f
 	using (field_code)
-	<trim prefix="where" prefixOverrides="and|or">
-		<if test="loc_name != null">
-			l.loc_name like '%' || #{search} || '%'
-		</if>
-		<if test="field_name != null">
-			or f.field_name like '%' || #{search} || '%'
-		</if>
-		<if test="class_name != null">
-			or c.class_name like '%' || #{search} || '%'
-		</if>
-	</trim>
+	where c.city like '%' || #{search} || '%' or f.field_name like '%' || #{search} || '%' or c.class_name like '%' || #{search} || '%' or c.captain like '%' || #{search} || '%'
 </select>
 </mapper>
