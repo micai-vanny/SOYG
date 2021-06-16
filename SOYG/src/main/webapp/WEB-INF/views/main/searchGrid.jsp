@@ -5,8 +5,18 @@
 	<div class="wrapper">
 		<div class="container">
 			<h1 class="fadeInUp">
-				<span></span>지역별 스터디 : ${fieldsName.field_name }
+				<span></span>검색 결과
 			</h1>
+			<!-- 검색 -->
+			<form id=frm action="searchClass.do" method="post">
+					<div id="custom-search-input">
+					     <div class="input-group">
+					         <input type="text" name="search" class="search-query" placeholder="ex) 영어, 자격증, 대구, 서울..." />
+					         <input type="submit" class="btn_search" value="Search" />
+				    	 </div>
+					</div>
+			</form>
+			<!-- 검색 끝 -->
 		</div>
 	</div>
 </section>
@@ -16,16 +26,10 @@
 		<ul class="clearfix">
 			<li>
 				<div class="layout_view">
-					<a href="fieldsGrid.do?field_code=${fieldsList[0].field_code }" class="active"><i class="icon-th"></i></a>
-					<a href="fieldsList.do?field_code=${fieldsList[0].field_code }"><i class="icon-th-list"></i></a>
+					<a href="searchGrid.do?search=${searchSession }" class="active"><i class="icon-th"></i></a>
+					<a href="searchClass.do?search=${searchSession }"><i class="icon-th-list"></i></a>
 				</div>
 			</li>
-			<li><select name="orderby" class="selectbox" onchange="if(this.value) location.href=(this.value);">
-					<option value="#0">Category</option>
-					<c:forEach items="${fieldsSelect }" var="fs">
-									<option value="fieldsGrid.do?field_code=${fs.field_code }">${fs.field_name }</option>
-					</c:forEach>
-			</select></li>
 		</ul>
 	</div>
 	<!-- /container -->
@@ -34,7 +38,7 @@
 
 <div class="container margin_60_35">
 	<div class="row">
-		<c:forEach items="${fieldsList }" var="vo">
+		<c:forEach items="${searchClass }" var="vo">
 		<div class="col-xl-4 col-lg-6 col-md-6">
 			<div class="box_grid wow">
 				<figure class="block-reveal">
@@ -77,7 +81,7 @@
 							<c:otherwise>
 									주말, ${vo.class_time }
 							</c:otherwise>						
-								</c:choose>
+						</c:choose>
 					</li>
 					<li><i class="icon_like"></i> 890</li>
 					<li><a href="studySelect.do?class_code=${vo.class_code }">자세히</a></li>

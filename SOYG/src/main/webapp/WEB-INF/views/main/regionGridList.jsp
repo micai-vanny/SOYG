@@ -15,15 +15,6 @@
 	<div class="container">
 		<ul class="clearfix">
 			<li>
-				<div class="switch-field">
-					<input type="radio" id="all" name="listing_filter" value="all"
-						checked> <label for="all">All</label> <input type="radio"
-						id="popular" name="listing_filter" value="popular"> <label
-						for="popular">Popular</label> <input type="radio" id="latest"
-						name="listing_filter" value="latest"> <label for="latest">Latest</label>
-				</div>
-			</li>
-			<li>
 				<div class="layout_view">
 					<a href="regionGrid.do?loc_code=${regionList[0].loc_code }" class="active"><i class="icon-th"></i></a>
 					<a href="regionList.do?loc_code=${regionList[0].loc_code }"><i class="icon-th-list"></i></a>
@@ -53,11 +44,11 @@
 						src="${pageContext.request.contextPath}/resources/classImage/${vo.class_image }"
 						class="img-fluid" alt=""></a>
 					<div class="preview">
-						<span>Preview course</span>
+						<span>스터디 정보 보기</span>
 					</div>
 				</figure>
 				<div class="wrapper">
-					<small>Study</small>
+					<small>${vo.city }</small>
 					<h3>${vo.class_name }</h3>
 					<p>스터디 모집 정원 : ${vo.class_personnel }<br>
 								<c:choose>
@@ -86,7 +77,7 @@
 							<c:otherwise>
 									주말, ${vo.class_time }
 							</c:otherwise>						
-								</c:choose>
+						</c:choose>
 					</li>
 					<li><i class="icon_like"></i> 890</li>
 					<li><a href="studySelect.do?class_code=${vo.class_code }">자세히</a></li>

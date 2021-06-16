@@ -1,5 +1,8 @@
 package co.mini.soyg.main.web;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -67,11 +70,19 @@ public class MainController {
 	}
 	
 	@RequestMapping("/searchClass.do")
-	public String searchClass(MainVO vo, Model model) {
+	public String searchClass(HttpServletRequest request, MainVO vo, Model model) {
+		HttpSession session = request.getSession();
 		System.out.println(vo.getSearch());
-		//스터디 검색
+		//메인에서 스터디 검색
 		model.addAttribute("searchClass", dao.searchClass(vo));
+		session.setAttribute("searchSession", vo.getSearch());
 		return ("main/searchView");
 	}
 	
+	@RequestMapping("/searchGrid.do")
+	public String searchGrid(MainVO vo, Model model) {
+		// 검색결과 그리드 리스트
+		model.addAttribute("searchClass", dao.searchClass(vo));
+		return ("main/searchGrid");
+	}
 }

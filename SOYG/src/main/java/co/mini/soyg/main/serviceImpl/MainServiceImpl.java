@@ -21,9 +21,9 @@ public class MainServiceImpl implements MainService {
 	}
 
 	@Override
-	public List<MainVO> recentlyRegGroupList() {
-		//비로그인 시 최근 등록 스터디 그룹 조회
-		return null;
+	public List<MainVO> recentlyClassList() {
+		//최근 등록 스터디 그룹 조회
+		return sqlSession.selectList("recentlyClass");
 	}
 	
 	@Override
@@ -80,4 +80,5 @@ public class MainServiceImpl implements MainService {
 		return sqlSession.selectList("searchClass", vo);
 	}
 
+	
 }

@@ -15,16 +15,6 @@
 			<div class="container">
 				<ul class="clearfix">
 					<li>
-						<div class="switch-field">
-							<input type="radio" id="all" name="listing_filter" value="all" checked>
-							<label for="all">All</label>
-							<input type="radio" id="popular" name="listing_filter" value="popular">
-							<label for="popular">Popular</label>
-							<input type="radio" id="latest" name="listing_filter" value="latest">
-							<label for="latest">Latest</label>
-						</div>
-					</li>
-					<li>
 						<div class="layout_view">
 								<a href="fieldsGrid.do?field_code=${fieldsList[0].field_code }"><i class="icon-th"></i></a>
 								<a href="fieldsList.do?field_code=${fieldsList[0].field_code }" class="active"><i class="icon-th-list"></i></a>
@@ -32,7 +22,7 @@
 					</li>
 					<li><!-- 카테고리 pulldown menu 링크 -->
 						<select name="orderby" class="selectbox" onchange="if(this.value) location.href=(this.value);">
-							<option value="category">Category</option>
+							<option value="#0">Category</option>
 							<c:forEach items="${fieldsSelect }" var="fs">
 								<option value="fieldsList.do?field_code=${fs.field_code }">${fs.field_name }</option>
 							</c:forEach>
@@ -52,13 +42,13 @@
 						<figure class="block-reveal">
 							<div class="block-horizzontal"></div>
 							<a href="studySelect.do?class_code=${vo.class_code }"><img src="${pageContext.request.contextPath}/resources/classImage/${vo.class_image }" class="img-fluid" alt=""></a>
-							<div class="preview"><span>Preview course</span></div>
+							<div class="preview"><span>스터디 정보 보기</span></div>
 						</figure>
 					</div>
 					<div class="col-lg-7">
 						<div class="wrapper">
 							<a href="#0" class="wish_bt"></a>
-							<small>Study</small>
+							<small>${vo.city }</small>
 							<h3>${vo.class_name }</h3>
 							<p>스터디 모집 정원 : ${vo.class_personnel }<br>
 								<c:choose>

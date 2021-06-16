@@ -21,6 +21,8 @@ public class MainVO {
 	private String file_name;
 	private String field_info;
 	private String search;
+	private String city;
+	private String captain;
 
 	public int getClass_code() {
 		return class_code;
@@ -164,5 +166,21 @@ public class MainVO {
 
 	public void setSearch(String search) {
 		this.search = search;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getCaptain() {
+		return captain;
+	}
+
+	public void setCaptain(String captain) {
+		this.captain = captain;
 	}
 }
