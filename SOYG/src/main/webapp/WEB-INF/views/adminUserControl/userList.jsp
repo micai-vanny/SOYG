@@ -133,6 +133,9 @@
 
 <c:choose>
 	<c:when test = "${id eq 'admin'}">
+	
+		<form action = "userSearch.do">
+		
 		<div class="wrap" align="center">
 			<div>
 				<div class="content-wrapper">
@@ -208,6 +211,9 @@
 				</div>
 			</div>
 		</div>
+		<input type = "text" name = "searchID" placeholder = "">
+		</form>
+		
 	</c:when>
 	<c:otherwise>
 		<h1 style = "text-align : center;">정상적인 방법으로 접근하시오.</h1>

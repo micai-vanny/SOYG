@@ -6,13 +6,17 @@ import co.mini.soyg.adminUsers.vo.UserVO;
 
 public interface UserService {
 
-//	List<UserVO> userList();
+	
+	// 페이징
+	List<UserVO> userPaging(UserVO vo);
+	int userCnt();
+	
+	// CRUD
 	UserVO userSelect(UserVO vo);
 	int userInsert(UserVO vo);
 	int userUpdate(UserVO vo);
 	int userDelete(UserVO vo);
 	
-	// 페이징
-	List<UserVO> userPaging(UserVO vo);
-	int userCnt();
+	// 검색
+	List<UserVO> userSearch(UserVO vo);
 }

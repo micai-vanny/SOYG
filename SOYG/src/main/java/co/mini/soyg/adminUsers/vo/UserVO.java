@@ -13,9 +13,15 @@ public class UserVO {
 	private String birth;
 	private String name;
 	
+	// 페이징을 위해 임의 추가
 	private int firstCnt;
 	private int lastCnt;
 	private int totalCnt;
+	
+	// 검색 기능을 위해 임의 추가
+	private String searchID;
+	private String searchName;
+	
 	//////////////////////////////////////////////////
 	
 	public int getFirstCnt() {
@@ -84,13 +90,26 @@ public class UserVO {
 	public void setBirth(String birth) {
 		this.birth = birth;
 	}
+	public String getSearchID() {
+		return searchID;
+	}
+	public void setSearchID(String searchID) {
+		this.searchID = searchID;
+	}
+	public String getSearchName() {
+		return searchName;
+	}
+	public void setSearchName(String searchName) {
+		this.searchName = searchName;
+	}
+	
+	////////////////////////////////////////////////////
 	@Override
 	public String toString() {
 		return "UserVO [userID=" + userID + ", password=" + password + ", address=" + address + ", email=" + email
 				+ ", gender=" + gender + ", phone=" + phone + ", birth=" + birth + ", name=" + name + ", firstCnt="
-				+ firstCnt + ", lastCnt=" + lastCnt + ", totalCnt=" + totalCnt + "]";
+				+ firstCnt + ", lastCnt=" + lastCnt + ", totalCnt=" + totalCnt + ", searchID=" + searchID
+				+ ", searchName=" + searchName + "]";
 	}
-	
-	
 	
 }
