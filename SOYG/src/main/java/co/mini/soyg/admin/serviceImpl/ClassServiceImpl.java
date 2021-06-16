@@ -41,13 +41,13 @@ public class ClassServiceImpl implements ClassService {
 	//class 목록조회 - 페이징
 	@Override
 	public List<ClassVO> list(Criteria cri) {
-		return sqlSession.selectList("adminClassListSelect",cri);
+		return sqlSession.selectList("listPage",cri);
 	}
 	//class 총 갯수 - 페이징
 	@Override
 	public int listCount() {
 		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.selectOne("listCount");
 	}
 
 }

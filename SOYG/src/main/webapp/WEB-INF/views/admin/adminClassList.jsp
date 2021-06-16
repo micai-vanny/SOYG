@@ -12,7 +12,7 @@
 function select(class_code){
 	location.href = "adminClassSelect.do?class_code=" + class_code;
 	}
-
+//검색기능 - 스터디명
 window.onload = function(){
 	$("#keyword").keyup(function(){
 		var k = $(this).val();
@@ -60,8 +60,8 @@ window.onload = function(){
 										<div class="col-sm-12 col-md-6">
 											<div id="dataTable_filter" class="dataTables_filter">
 												<label> Search: <input type="search" id="keyword"
-													class="form-fontrol form-control-sm" placeholder="스터디명으로 검색"
-													aria-controls="dataTable">
+													class="form-fontrol form-control-sm"
+													placeholder="스터디명으로 검색" aria-controls="dataTable">
 												</label>
 											</div>
 										</div>
@@ -94,27 +94,22 @@ window.onload = function(){
 									</div>
 									<div>
 										<ul>
-											<c:if test="${pageMaker.prev }">
-												<li><a href="list${pageMaker.makeQuery(pageMaker.startPage -1) }">이전</a></li>
+											<c:if test="${pageMaker.prev}">
+												<li><a
+													href="list${pageMaker.makeQuery(pageMaker.startPage - 1)}">이전</a></li>
 											</c:if>
-											<c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="idx">
-												<li><a href="list${pageMaker.makeQuery(idx) }">${idx }</a></li>
+
+											<c:forEach begin="${pageMaker.startPage}"
+												end="${pageMaker.endPage}" var="idx">
+												<li><a href="list${pageMaker.makeQuery(idx)}">${idx}</a></li>
 											</c:forEach>
-											<c:if test="${pageMaker.next && pageMaker.endPage > 0 }">
-												<li><a href="lsit${pageMaker.makeQuery(pageMaker.endPage + 1) }" >다음</a></li>
+
+											<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+												<li><a
+													href="list${pageMaker.makeQuery(pageMaker.endPage + 1)}">다음</a></li>
 											</c:if>
 										</ul>
 									</div>
-									<!-- 페이징처리 -->
-									<jsp:include page="../common/paging.jsp" flush="true">
-										<jsp:param name="firstPageNo" value="${paging.firstPageNo}" />
-										<jsp:param name="prevPageNo" value="${paging.prevPageNo}" />
-										<jsp:param name="startPageNo" value="${paging.startPageNo}" />
-										<jsp:param name="pageNo" value="${paging.pageNo}" />
-										<jsp:param name="endPageNo" value="${paging.endPageNo}" />
-										<jsp:param name="nextPageNo" value="${paging.nextPageNo}" />
-										<jsp:param name="finalPageNo" value="${paging.finalPageNo}" />
-									</jsp:include>
 								</div>
 							</div>
 						</div>

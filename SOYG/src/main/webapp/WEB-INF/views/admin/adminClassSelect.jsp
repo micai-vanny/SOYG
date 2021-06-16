@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="x" uri="http://java.sun.com/jstl/fmt_rt"%>
 <x:formatDate value='${classes.start_date}' pattern='yyyy-MM-dd'
 	var="start_date" />
@@ -45,49 +45,62 @@
 		</div>
 		<div class="list_general">
 			<ul>
-				<li><img class="image"
-					src="<spring:url value='/resources/classImage/${classes.class_image }'/>">
-
-					<h4>${classes.class_name }
-						<i class="pending">${classes.class_startchk }</i>
-					</h4>
+				<h4>${classes.class_name }
+					<i class="pending">${classes.class_startchk }</i>
+				</h4>
+				<li><h6>[이미지]</h6> <img class="image" src="<spring:url value='/resources/classImage/${classes.class_image }'/>">
+				
 					<ul class="course_list">
-						<li><h6>[스터디코드] ${classes.class_code }</h6></li>
-						<li><h6>[스터디명] ${classes.class_name }</h6></li>
-						<li><h6>[분야분류] ${classes.field_code }</h6></li>
-						<li><h6>[지역코드] ${classes.loc_code }</h6></li>
-					</ul>
-					<hr>
-					<ul class="course_list">
-						<li><h6>[시작일]</h6> ${start_date }</li>
-						<li><h6>[주중/주말]</h6>
-							<input type="radio" name="weekdays_chk" value="${classes.weekdays_chk }" <c:if test="${classes.weekdays_chk eq 'W' }" >checked</c:if> >주중
-							<input type="radio" name="weekdays_chk" value="${classes.weekdays_chk }" <c:if test="${classes.weekdays_chk eq 'E' }" >checked</c:if> >주말
-						</li>
-						<li><h6>[스터디 시간] ${classes.class_time }</h6></li>
-						<li><h6>[활성/비활성]</h6> 
-							<input type="radio" name="class_active" value="${classes.class_active }" <c:if test="${classes.class_active eq 'A' }" >checked</c:if> >활성
-							<input type="radio" name="class_active" value="${classes.class_active }" <c:if test="${classes.class_active eq 'I' }" >checked</c:if> >비활성
-						</li>
-						<li><h6>[시작여부]</h6> 
-							<input type="radio" name="class_startchk" value="${classes.class_startchk }" <c:if test="${classes.class_startchk  eq 'R' }" >checked</c:if>>모집중
-							<input type="radio" name="class_startchk" value="${classes.class_startchk }" <c:if test="${classes.class_startchk  eq 'O' }" >checked</c:if>>진행중
-							<input type="radio" name="class_startchk"value="${classes.class_startchk }" <c:if test="${classes.class_startchk  eq 'E' }" >checked</c:if>>모집종료
-						</li>
-						<li><h6>[정원]${classes.class_personnel }</h6></li>
-					</ul>
-					<hr>
-					<h6>[스터디 설명]</h6>
-					<p>${classes.class_info }</p>
-					<ul align="right" class="buttons">
-						<li><a onclick="select(${classes.class_code })"
-							class="btn_1 gray approve"><i
-								class="fa fa-fw fa-check-circle-o"></i> 수정</a></li>
-						<li><a onclick="deleteCheck('${classes.class_code }')"
-							class="btn_1 gray delete"><i
-								class="fa fa-fw fa-times-circle-o"></i> 삭제</a></li>
-					</ul></li>
+					<li><h6>[스터디코드] ${classes.class_code }</h6></li>
+					<li><h6>[스터디명] ${classes.class_name }</h6></li>
+					<li><h6>[분야분류] ${classes.field_code }</h6></li>
+					<li><h6>[지역코드] ${classes.loc_code }</h6></li>
+				</ul>
+				<hr>
+				<ul class="course_list">
+					<li><h6>[시작일]${start_date }</h6></li>
+					<li><h6>[스터디 시간] ${classes.class_time }</h6></li>
+					<li><h6>[정원]${classes.class_personnel }</h6></li>
+					<li><h6>[주중/주말]</h6> <input type="radio" name="weekdays_chk"
+						value="${classes.weekdays_chk }"
+						<c:if test="${classes.weekdays_chk eq 'W' }" >checked</c:if>>주중
+						<input type="radio" name="weekdays_chk"
+						value="${classes.weekdays_chk }"
+						<c:if test="${classes.weekdays_chk eq 'E' }" >checked</c:if>>주말
+					</li>
+					<li><h6>[활성/비활성]</h6> <input type="radio" name="class_active"
+						value="${classes.class_active }"
+						<c:if test="${classes.class_active eq 'A' }" >checked</c:if>>활성
+						<input type="radio" name="class_active"
+						value="${classes.class_active }"
+						<c:if test="${classes.class_active eq 'I' }" >checked</c:if>>비활성
+					</li>
+					<li><h6>[시작여부]</h6> <input type="radio" name="class_startchk"
+						value="${classes.class_startchk }"
+						<c:if test="${classes.class_startchk  eq 'R' }" >checked</c:if>>모집중
+						<input type="radio" name="class_startchk"
+						value="${classes.class_startchk }"
+						<c:if test="${classes.class_startchk  eq 'O' }" >checked</c:if>>진행중
+						<input type="radio" name="class_startchk"
+						value="${classes.class_startchk }"
+						<c:if test="${classes.class_startchk  eq 'E' }" >checked</c:if>>모집종료
+					</li>
+				</ul>
+				<hr>
+				<h6>[스터디 설명]</h6>
+				<p>${classes.class_info }</p>
+				<ul align="right" class="buttons">
+					<li><a onclick="select(${classes.class_code })"
+						class="btn_1 gray approve"><i
+							class="fa fa-fw fa-check-circle-o"></i> 수정</a></li>
+					<li><a onclick="deleteCheck('${classes.class_code }')"
+						class="btn_1 gray delete"><i
+							class="fa fa-fw fa-times-circle-o"></i> 삭제</a></li>
+				</ul>
+				</li>
+				
 
+			
 			</ul>
 		</div>
 	</div>
