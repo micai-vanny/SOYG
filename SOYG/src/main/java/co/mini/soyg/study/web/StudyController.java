@@ -25,4 +25,9 @@ public class StudyController {
 	public String studyVideo() {
 		return "class/classVideo";
 	}
+	
+	@RequestMapping("/classCreateForm.do")
+	public String studyCreate() {
+		return "class/classCreateForm";
+	}
 }

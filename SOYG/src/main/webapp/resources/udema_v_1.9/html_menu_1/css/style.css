@@ -4336,7 +4336,7 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
 }
 #confirm p {
   font-size: 16px !important;
-  font-size: 16px !important/16pxrem;
+  font-size: 16px !important; /* /16pxrem; */
   margin-bottom: 0;
 }
 
@@ -5032,7 +5032,7 @@ ul.list_3 li:before {
   }
   .fc-header-center .fc-header-title h2 {
     font-size: 16px !important;
-    font-size: 16px !important/16pxrem;
+    font-size: 16px !important; /* /16pxrem; */
   }
 }
 /*============================================================================================*/
@@ -5373,7 +5373,7 @@ ul.bullets li:before {
 
 .input__label-content {
   display: block;
-  padding: 1.6em 0;
+  padding: 1.2em 0 1.6em 0.1me;
   width: 100%;
   position: absolute;
 }

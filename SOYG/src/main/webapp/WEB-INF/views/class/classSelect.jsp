@@ -3,9 +3,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<link rel="stylesheet" href="resources/css/classSelectCss.css" />
-<link rel="stylesheet"
-	href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 
 <script>
 	$(function() {
@@ -79,7 +77,7 @@
 		<nav class="secondary_nav sticky_horizontal">
 			<div class="container">
 				<ul class="clearfix">
-					<li><a href="#description" class="active">학습할내용</a></li>
+					<li><a href="#description" class="active">학습의 의의</a></li>
 					<li><a href="#lessons">과정</a></li>
 					<li><a href="#reviews">커뮤니티</a></li>
 				</ul>
@@ -90,7 +88,7 @@
 				<div class="col-lg-8">
 
 					<section id="description">
-						<h2>이 학습의 의의</h2>
+						<h2>학습의 의의</h2>
 						<p>${study.class_Info }</p>
 						<h5>배우게 될 것</h5>
 						<ul class="list_ok">
@@ -448,7 +446,7 @@
 							</span>
 						</div>
 						<a href="studyVideo.do" class="btn_1 full-width">구매하기</a> <a
-							href="#0" class="btn_1 full-width outline"> <i
+							href="classCreateForm.do" class="btn_1 full-width outline"> <i
 							class="icon_heart"></i> 위시리스트에 넣기
 						</a>
 						<div id="list_feat">
