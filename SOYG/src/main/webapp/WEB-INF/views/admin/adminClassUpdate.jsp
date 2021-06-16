@@ -4,6 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <x:formatDate value='${classes.start_date}' pattern='yyyy-MM-dd' var="start_date"/>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="//cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script>
 <style>
 .wrap {
 	margin-inline: 10%;
@@ -13,10 +14,18 @@
 }
 .textarea{
 	width:500px;
-	height: 400px;
+	height: 200px;
 }
 </style>
-
+<script>
+	$(function () {
+		CKEDITOR.replace('imageArea', {
+			filebrowserUploadUrl: '${pageContext.request.contextPath}/fileUpload',
+			height: '500px',
+			width: '70%'
+		});
+	});
+</script>
 <section id="hero_in" class="general">
 	<div class="wrapper">
 		<div class="container">
@@ -30,7 +39,7 @@
 
 <!--class한건 조회-->
 <form name="update" method="post" action="adminClassUpdate.do">
-<input type="hidden" name="class_info" value="${classes.class_info }">
+<input type="hidden" name="imageArea" value="${classes.class_image }">
 <div class="wrap">
 	<ol class="breadcrumb">
 		<li class="breadcrumb-item"><a href="admin.do">관리자페이지</a></li>
@@ -41,11 +50,11 @@
 		<div class="header_box version_2">
 			<h2 class="d-inline-block">Study code - ${classes.class_code}</h2>
 		</div>
+		<h6>[이미지]</h6>
+		<textarea id="imageArea" name="imageArea" rows="300" cols="300">${classes.class_image }</textarea>				
 		<div class="list_general">
 			<ul>
 				<li>
-				<img class="image" src="<spring:url value='/resources/classImage/${classes.class_image }'/>">
-				
 					<h4>${classes.class_name }
 						<i name="class_startchk" class="pending">${classes.class_startchk }</i>
 					</h4>
@@ -79,7 +88,7 @@
 					<h6>스터디 설명</h6>
 					<p><textarea name="class_info" class="textarea">${classes.class_info }</textarea></p>
 					<ul align="right" class="buttons">
-						<li><button onclick="submit" class="btn_1 gray approve"><i
+						<li><button onclick="update()" class="btn_1 gray approve"><i
 								class="fa fa-fw fa-check-circle-o"></i>수정완료</button></li>
 						<li><button  onclick="deleteCheck();" class="btn_1 gray delete"> 삭제</button></li>
 					</ul>
@@ -99,6 +108,14 @@ function deleteCheck(class_code){
 		return false;
 	}
 }
-$(":input:radio[name=name]:checked").val();
+function update(class_code){
+	var value = CKEDITOR.instances['imageArea'].getData();
+	${classes.class_image} = CKEDITOR.instances.imageArea.getData();
+	System.out.println(class_image);
+	
+	update.submit();
+}
 
+
+$(":input:radio[name=name]:checked").val();
 </script>

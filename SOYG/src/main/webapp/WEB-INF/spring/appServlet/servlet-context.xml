@@ -38,4 +38,12 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="co.mini.soyg" />
+
+	<!-- 업로드패스 설정 -->
+	<beans:bean class="java.lang.String" id="uploadPath">
+		<beans:constructor-arg value="D:\git\SOYG\SOYG\src\main\webapp\resources"></beans:constructor-arg>
+	</beans:bean>
+	
+	<!-- 이미지 첨부파일 경로 -->
+	<resources location="/resources/ckUpload/" mapping="/ckUpload/**"></resources>
 </beans:beans>
