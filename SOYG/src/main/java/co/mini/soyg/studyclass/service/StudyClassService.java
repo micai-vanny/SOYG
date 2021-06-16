@@ -6,7 +6,7 @@ import co.mini.soyg.studyclass.vo.StudyClassVO;
 
 public interface StudyClassService {
 
-	List<StudyClassVO> selectStudyList(String userId);
+	List<StudyClassVO> selectStudyList(StudyClassVO vo);
 	StudyClassVO selectStudyClass(StudyClassVO vo);
 	public int insertStudyClass(StudyClassVO vo);
 	public int updateStudyClass(StudyClassVO vo);

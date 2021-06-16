@@ -27,6 +27,9 @@ public class MemberController {
 
 	@Autowired
 	private MemberServiceImpl dao2;
+	
+	@Autowired
+	StudyClassServiceImpl study;
 
 	// 홈 > 멤버조인페이지 이동
 	@RequestMapping("/memberJoin.do")
@@ -75,20 +78,16 @@ public class MemberController {
 
 	// 마이페이지 이동
 	@RequestMapping("/mymenu.do")
-	public String mymenu(HttpServletRequest request, HttpServletResponse response, MemberVO vo,Model model) {
-
+	public String mymenu(HttpServletRequest request, MemberVO vo, Model model) {
 		HttpSession session = request.getSession();
-		StudyClassServiceImpl study = new StudyClassServiceImpl();
-		MemberVO mvo = new MemberVO();
 		String userId = (String) session.getAttribute("id");
-		
+		StudyClassVO svo = new StudyClassVO();
 		vo.setUserId(userId);
-
-		mvo = dao.selectMember(vo);
-		model.addAttribute("class",study.selectStudyList(userId));
+		svo.setCaptain(userId);
 		
-
-		request.setAttribute("info", mvo);
+		vo = dao.selectMember(vo);
+		model.addAttribute("classlist",study.selectStudyList(svo));
+		model.addAttribute("info", vo);
 
 		return "member/mymenu";
 	}

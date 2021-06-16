@@ -16,9 +16,9 @@ public class StudyClassServiceImpl implements StudyClassService {
 	private SqlSession Session;
 	
 	@Override
-	public List<StudyClassVO> selectStudyList(String userId) {
+	public List<StudyClassVO> selectStudyList(StudyClassVO vo) {
 		
-		return Session.selectList("memberStudy");
+		return Session.selectList("studyClassMemberList",vo);
 	}
 
 	@Override
