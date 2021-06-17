@@ -18,13 +18,32 @@ public class UserController {
 	@Autowired
 	private UserService dao;
 	
-//	// 회원 전체 조회
-//	@RequestMapping("/userList.do")
-//	public String userList(Model model) {
-//		
-//		model.addAttribute("users", dao.userList());
-//		return "adminUserControl/userList";
-//	}
+	// 전체 조회 (페이징)
+	@RequestMapping("/userListPaging.do")
+	public String userListPaging(Model model, HttpServletRequest request) {
+		
+		String page = request.getParameter("page");
+		
+		if(page == null) page = "1";
+		
+		int getNum = Integer.parseInt(page);
+		
+		UserVO vo = new UserVO();
+		vo.setFirstCnt(1 + (getNum -1) * 10);
+		vo.setLastCnt(getNum * 10);
+		vo.setTotalCnt(dao.userCnt());
+		
+		Paging paging = new Paging();
+		paging.setPageNo(getNum);
+		paging.setPageSize(10);
+		paging.setTotalCount(vo.getTotalCnt());
+		
+		model.addAttribute("users", dao.userPaging(vo));
+		model.addAttribute("paging", paging);
+		
+		return "adminUserControl/userList";
+	}
+
 	
 	// 회원 하나 조회
 	@RequestMapping("/userSelect.do")
@@ -151,28 +170,10 @@ public class UserController {
 		return "adminUserControl/userList";	// 에이잭스 쓰는 순간 이거는 의미 없어진다.
 	}
 	
-	// 페이징버전
-	@RequestMapping("/userListPaging.do")
-	public String userListPaging(Model model, HttpServletRequest request) {
-		
-		String page = request.getParameter("page");
-		
-		if(page == null) page = "1";
-		
-		int getNum = Integer.parseInt(page);
-		
-		UserVO vo = new UserVO();
-		vo.setFirstCnt(1 + (getNum -1) * 10);
-		vo.setLastCnt(getNum * 10);
-		vo.setTotalCnt(dao.userCnt());
-		
-		Paging paging = new Paging();
-		paging.setPageNo(getNum);
-		paging.setPageSize(10);
-		paging.setTotalCount(vo.getTotalCnt());
-		
-		model.addAttribute("users", dao.userPaging(vo));
-		model.addAttribute("paging", paging);
+	
+	// 회원 검색 기능
+	@RequestMapping("userSearch.do")
+	public String userSearch(HttpServletRequest req, UserVO vo) {
 		
 		return "adminUserControl/userList";
 	}
