@@ -2,19 +2,13 @@ package co.mini.soyg.likeIt.vo;
 
 public class LikeItVO {
 	private String userId;
-	private String class_code;
+	private int class_code;
 	private String like_check;
 	
-	public String getUserId() {
-		return userId;
-	}
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
-	public String getClass_code() {
+	public int getClass_code() {
 		return class_code;
 	}
-	public void setClass_code(String class_code) {
+	public void setClass_code(int class_code) {
 		this.class_code = class_code;
 	}
 	public String getLike_check() {
@@ -23,4 +17,15 @@ public class LikeItVO {
 	public void setLike_check(String like_check) {
 		this.like_check = like_check;
 	}
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+	@Override
+	public String toString() {
+		return "LikeItVO [userId=" + userId + ", class_code=" + class_code + ", like_check=" + like_check + "]";
+	}
+	
 }

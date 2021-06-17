@@ -1,40 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<script>
- function likeItUpdate() {
-	$.ajax({
-		url: '/likeIt/likeItUpdate.do',
-		type: "POST",
-		data: {
-			userId: ${id},
-			class_code: '${vo.class_code}'
-		},
-		success: function() {
-			likeItCount();
-		}
-		error: function(reject) {
-			console.log(reject);
-		}
-	})
-}
-
-// 좋아요 개수 카운트
- function likeItCount() {
-		$.ajax({
-			url: "/likeIt/likeItCount.do",
-         type: "POST",
-         data: {
-             class_code: '${vo.class_code}'
-         },
-         success: function (likeItCount) {
-         	$(".likeit_count").html(likeItCount);
-         },
-		})
- };
-
- likeItCount(); // 처음 시작했을 때 실행되도록 해당 함수 호출
-</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <div id="page">
 	<main>
 		<section id="hero_in" class="courses">
@@ -71,7 +38,7 @@
 		<div class="container margin_60_35">
 			<c:choose>
 				<c:when test="${!empty regionList }">
-					<c:forEach items="${regionList }" var="vo">
+					<c:forEach items="${regionList }" var="vo" varStatus="code">
 						<div class="box_list wow">
 							<div class="row no-gutters">
 								<div class="col-lg-5">
@@ -84,7 +51,7 @@
 								<div class="col-lg-7">
 									<div class="wrapper">
 										<c:if test="${!empty id }">
-											<a href="#0" onclick="likeItUpdate()" class="wish_bt"></a>
+											<a href="javascript:void(0);" id="likeIt" onclick="likeEdit(${vo.class_code});" class="wish_bt"></a>
 										</c:if>
 										<small>${vo.city }</small>
 										<h3>${vo.class_name }</h3>
@@ -114,7 +81,7 @@
 												</c:otherwise>						
 											</c:choose>
 										</li>
-										<li><i class="icon_like"></i><span class="likeit_count"></span></li>
+										<li><i class="icon_like"></i><span class="likeit_count"> </span></li>
 										<li><a href="studySelect.do?class_code=${vo.class_code }">자세히 보기</a></li>
 									</ul>
 								</div>
@@ -136,3 +103,36 @@
 	<!--/main-->
 	</div>
 	<!-- page -->
+<script>
+	// 좋아요 클릭시 실행
+	function likeEdit(c_code) {
+		$.ajax({
+			url: 'likeItEdit.do',
+			type: "POST",
+			data: {
+				id: '${id}',
+				c_code: c_code
+			},
+			success: function() {
+				console.log("Good!");
+				likeItCount(c_code, id);
+			}
+		})
+	};
+	
+	// 좋아요 개수 카운트
+	 function likeItCount(c_code, id) {
+			$.ajax({
+			 url: "likeItCount.do",
+	         type: "POST",
+	         data: {
+	        	 id: 'id',
+	             class_code: c_code
+	         },
+	         success: function (likeItCount) {
+	        	 console.log("실행됐나?");
+	         	$(".likeit_count").html(likeItCount);
+	         }
+		})
+	 };
+</script>

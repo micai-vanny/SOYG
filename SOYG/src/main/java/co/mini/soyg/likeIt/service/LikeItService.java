@@ -8,7 +8,7 @@ public interface LikeItService {
 	// like it 취소
 	int likeItUndo(LikeItVO vo);
 	// like it 여부 확인
-	int likeItCheck(LikeItVO vo);
+	boolean likeItCheck(LikeItVO vo);
 	// like it 개수 카운트
 	LikeItVO likeItCount(LikeItVO vo);
 }
