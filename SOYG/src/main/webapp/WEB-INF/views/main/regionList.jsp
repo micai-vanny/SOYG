@@ -53,9 +53,18 @@
 									<div class="wrapper">
 										<c:if test="${!empty id }">
 										<div style="display:flex; justify-content: flex-end; margin-bottom: -5px">
-											<a href="javascript:void(0);" id="likeIt" onclick="likeEdit(${vo.class_code});">
-												<span style="font-size: 18pt">🤍</span>
-											</a>
+											<c:choose>
+												<c:when test="${likeCount }">
+													<a href="javascript:void(0);" id="likeIt" onclick="likeEdit(${vo.class_code});">
+														<span style="font-size: 18pt">🤍</span>
+													</a>
+												</c:when>
+												<c:otherwise>
+													<a href="javascript:void(0);" id="likeIt" onclick="likeEdit(${vo.class_code});">
+														<span style="font-size: 18pt">❤</span>
+													</a>
+												</c:otherwise>
+											</c:choose>
 										</div>
 										</c:if>
 										<small>${vo.city }</small>
@@ -118,20 +127,22 @@
 				id: '${id}',
 				c_code: c_code
 			},
-			success: function() {
+			async: false,
+			success: function(result) {
 				console.log("Good!");
-				likeItCount(c_code, id);
+				console.log(result);
+				likeItCount(c_code);
 			}
-		})
+		});
 	};
 	
 	// 좋아요 개수 카운트
-	 function likeItCount(c_code, id) {
+	 function likeItCount(c_code) {
 			$.ajax({
 			 url: "likeItCount.do",
 	         type: "POST",
 	         data: {
-	        	 id: 'id',
+	        	 id: '${id}',
 	             class_code: c_code
 	         },
 	         success: function (likeItCount) {

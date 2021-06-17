@@ -23,6 +23,24 @@ public class MainVO {
 	private String search;
 	private String city;
 	private String captain;
+	private String userId;
+	private String like_check;
+
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
+	public String getLike_check() {
+		return like_check;
+	}
+
+	public void setLike_check(String like_check) {
+		this.like_check = like_check;
+	}
 
 	public int getClass_code() {
 		return class_code;

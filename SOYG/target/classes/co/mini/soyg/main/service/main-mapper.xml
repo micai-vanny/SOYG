@@ -59,4 +59,19 @@
 	using (field_code)
 	where c.city like '%' || #{search} || '%' or f.field_name like '%' || #{search} || '%' or c.class_name like '%' || #{search} || '%' or c.captain like '%' || #{search} || '%'
 </select>
+
+<!-- 각 스터디별 좋아요 개수를 가져오자! -->
+<select id="likeCount" resultType="co.mini.soyg.main.vo.MainVO" parameterType="co.mini.soyg.main.vo.MainVO">
+	select count(case when like_check = 'Y' then 1 end) from likeIT where class_code = #{class_code}
+</select>
+
+<!-- 특정 유저가 특정 클래스를 좋아요 한 적 있는가? -->
+<select id="likeItCheck" parameterType="co.mini.soyg.likeIt.vo.LikeItVO" resultType="co.mini.soyg.likeIt.vo.LikeItVO">
+	select * from likeIT where USERID = #{userId} and class_code =#{class_code}
+</select>
+
+<!-- 걍 클래스 코드만 가져오자 세션에 뿌릴꺼임 -->
+<select id="classCd" resultType="co.mini.soyg.main.vo.MainVO">
+	select class_code from class
+</select>
 </mapper>

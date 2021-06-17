@@ -20,12 +20,15 @@ public class MainController {
 	public String regionList(MainVO vo, Model model) {
 		//지역별 스터디 리스트 뷰
 		System.out.println(vo.getLoc_code());
+		System.out.println(vo.getClass_code());
 		// 리스트 정보
 		model.addAttribute("regionList", dao.regionList(vo));
 		// 카테고리 리스트(pull-down menu)
 		model.addAttribute("regSelect", dao.regselect());
 		//간판에 지역 이름 달아주자
 		model.addAttribute("regionName", dao.regionName(vo));
+		// 스터디별 좋아요 개수
+		model.addAttribute("likeCount", dao.likeCount(vo));
 		return ("main/regionList");
 	}
 	

@@ -32,4 +32,10 @@ public interface MainService {
 	
 	// 검색 기능
 	List<MainVO> searchClass(MainVO vo);
+	
+	//각 클래스별 좋아요 개수 불러오기
+	MainVO likeCount(MainVO vo);
+	
+	//클래스 코드만 갖고 온 것
+	List<MainVO> classCd();
 }
