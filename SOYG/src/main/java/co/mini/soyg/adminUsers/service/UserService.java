@@ -19,4 +19,5 @@ public interface UserService {
 	
 	// 검색
 	List<UserVO> userSearch(UserVO vo);
+	int selectedUserCnt();
 }

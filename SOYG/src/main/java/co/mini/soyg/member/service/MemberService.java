@@ -13,4 +13,7 @@ public interface MemberService {
 	public int deleteMember(MemberVO vo);
 	public boolean idCheck(MemberVO vo);
 	
+	// 비밀번호 찾기
+	MemberVO passFinder(MemberVO vo);
+	
 }

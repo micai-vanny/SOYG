@@ -17,7 +17,7 @@
 </script>
 <div id="login_bg">
 
-	<div id="login" style="margin-top: 100;">
+	<div id="login" style="margin-top: 83px;">
 		<aside>
 			<form id="frm" action="memberLogin.do" method="post">
 				<ul style="text-align: center; ">
@@ -40,7 +40,7 @@
 						<label class="input_label"> <span
 							class="input__label-content">비밀번호</span>
 					</label>
-					</span> <small><a href="#0">비밀번호를 잊어먹었니?</a></small>
+					</span> <small><a href="memberPassFinder.do">비밀번호를 잊어먹었니?</a></small>
 				</div>
 				<button type="button" onclick="LoginCheck()" class="btn_1 rounded full-width add_top_60">시작하기!</button>
 				<div class="text-center add_top_10">

@@ -7,53 +7,6 @@
 	margin-top: 20px;
 }
 
-/* .user_list {
-	display: flex;
-	flex-direction: column;
-	align-content: center;
-	flex-wrap: wrap;
-	align-items: center;
-}
-
-.id_select_window {
-	padding: 20px;
-}
-
-.user_table {
-	padding: 20px;
-} */
-
-/* .check_button {
-	
-	cursor: pointer;
-}
-
-.check_modal {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	background: rgba(0, 0, 0, 0.8);
-	top: 0;
-	left: 0;
-	display: none;
-}
-
-.check_modal_content {
-	width: 400px;
-	height: 200px;
-	background: #fff;
-	border-radius: 10px;
-	position: relative;
-	top: 50%;
-	left: 50%;
-	margin-top: -100px;
-	margin-left: -200px;
-	text-align: center;
-	box-sizing: border-box;
-	padding: 74px 0;
-	line-height: 23px;
-	cursor: pointer;
-} */
 </style>
 
 <title>회원 전체 목록</title>
@@ -108,17 +61,6 @@
 		location.href = "userListPaging.do?page=" + page;
 	}
 
-	/* $(function() {
-
-		$(".check_button").click(function() {
-			$(".check_modal").fadeIn();
-		});
-
-		$(".check_modal_content").click(function() {
-			$(".check_modal").fadeOut();
-		});
-
-	}); */
 </script>
 
 <section id="hero_in" class="general">
@@ -133,8 +75,6 @@
 
 <c:choose>
 	<c:when test="${id eq 'admin'}">
-
-		
 
 			<div class="wrap" align="center">
 				<div>
@@ -174,7 +114,7 @@
 														</tr>
 													</thead>
 													<tbody>
-														<c:forEach var="user" items="${users}" varStatus="status">
+														<c:forEach items="${users}" var="user" varStatus="status">
 															<tr>
 																<td>
 																	<a href="userSelect.do?userID=${user.userID }" class="userInfo">${user.userID }</a>
@@ -193,7 +133,7 @@
 													</tbody>
 												</table>
 											</div>
-											<!-- 페이징처리 -->
+											<%-- <!-- 페이징처리 -->
 											<jsp:include page="../common/paging.jsp" flush="true">
 												<jsp:param name="firstPageNo" value="${paging.firstPageNo}" />
 												<jsp:param name="prevPageNo" value="${paging.prevPageNo}" />
@@ -203,6 +143,7 @@
 												<jsp:param name="nextPageNo" value="${paging.nextPageNo}" />
 												<jsp:param name="finalPageNo" value="${paging.finalPageNo}" />
 											</jsp:include>
+											 --%>
 											
 											<form action="userSearch.do">
 												<select id = "searchType" name="searchType" class="form-fontrol form-control-sm">
@@ -213,6 +154,16 @@
 												<input type="submit" value="검색">
 											</form>
 											
+											<%-- <c:choose>
+												<c:when test = "${ '#(searchType).val()' == 'option_id' }">
+													<input name="searchKeyword" placeholder="검색어 입력" class="form-fontrol form-control-sm">
+												</c:when>
+												<c:otherwise>
+													<input name="searchKeyword" placeholder="검색어 입력" class="form-fontrol form-control-sm">
+												</c:otherwise>
+											</c:choose> --%>
+											
+											
 										</div>
 									</div>
 								</div>
@@ -222,17 +173,8 @@
 				</div>
 			</div>
 			
-		
-
 	</c:when>
 	<c:otherwise>
-		<h1 style="text-align: center;">정상적인 방법으로 접근하시오.</h1> <!-- file:///D:/SOYG/SOYG/src/main/webapp/resources/udema_v_1.9/html_menu_2/404.html 띄울 예정 -->
+		<h1 style="text-align: center;">정상적인 방법으로 접근하시오.</h1>
 	</c:otherwise>
 </c:choose>
-<!-- 모달창 -->
-<!-- <div class="check_modal">
-			<div class="check_modal_content">
-				<h1>삭제한다?</h1>
-				<div><button onclick = "userDelete">삭제한다</button></div>
-			</div>
-		</div> -->

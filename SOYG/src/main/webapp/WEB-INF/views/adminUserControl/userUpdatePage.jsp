@@ -56,8 +56,8 @@
     }
     
     .make-flex div input:nth-child(2n) {
-	margin-left: 10px;
-}
+		margin-left: 10px;
+	}
     
 	
 </style>
@@ -269,12 +269,14 @@
 						
 						<div class="row">
 						
-							<!-- <div class="col-md-4">
+							<!-- 
+							<div class="col-md-4">
 								<div class="form-group">
 								<label>Your photo</label>
 									<form action="/file-upload" class="dropzone"></form>
 							    </div>
-							</div> -->
+							</div>
+							 -->
 						
 							<div class="col-md-8 add_top_30">
 							
@@ -345,7 +347,7 @@
 													<input type = "text" id = "detailAddr" name = "detailAddr" placeholder = "상세 주소" maxlength="40">
 													<input type = "text" id = "extraAddr" name = "extraAddr" placeholder = "참고 항목" readonly>
 												</div>
-											</div>															
+											</div>
 										</div>
 									</div>
 								</div>
@@ -397,10 +399,10 @@
 								<div class="header_box version_2">
 									<h2><i class="fa fa-lock"></i>비밀번호 변경</h2>
 								</div>
-								<div class="form-group">
-									<label>현재 비밀번호</label>
-									<input class="form-control" type="text" placeholder = "${user.password }" readonly name = "exPwd" value = "${user.password }">
-								</div>
+								<!-- <div class="form-group">
+									<label>현재 비밀번호</label> -->
+									<input class="form-control" type="hidden" name = "exPwd" value = "${user.password }">
+								<!-- </div> -->
 								<div class="form-group">
 									<label>새로운 비밀번호</label>
 									<input class="form-control" type="text" maxlength = "20" id = "mPwd" name = "mPwd">

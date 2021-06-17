@@ -76,5 +76,11 @@ public class MemberServiceImpl implements MemberService {
 		
 		return Session.delete("deleteMember",vo);
 	}
+	
+	@Override
+	public MemberVO passFinder(MemberVO vo) {
+		// TODO 비밀번호 찾기
+		return Session.selectOne("passFinder", vo);
+	}
 
 }
