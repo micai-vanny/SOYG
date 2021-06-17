@@ -1,5 +1,6 @@
 package co.mini.soyg.admin.web;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -80,4 +81,7 @@ public class AdminController {
 		return "admin/adminClassList";
 
 	}
+	
+	@Resource(name="uploadPath")
+	private String uploadPath;
 }
