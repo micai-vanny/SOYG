@@ -1,7 +1,37 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<style>
+/*
+ * FilePond Custom Styles
+ */
 
+.filepond--drop-label {
+	color: #4c4e53;
+}
+
+.filepond--label-action {
+	text-decoration-color: #babdc0;
+}
+
+.filepond--panel-root {
+	background-color: #edf0f4;
+}
+
+
+/**
+ * Page Styles
+ */
+html {
+	padding: 20vh 0 0;
+}
+
+.filepond--root {
+	width:170px;
+	margin: 0 auto;
+}
+
+</style>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 <script text="javascript/text">
@@ -54,15 +84,76 @@
 					});
 </script>
 <script>
-    $('a[href="#ex1"]').click(function(event) {
-      event.preventDefault();
- 
-      $(this).modal({
-        fadeDuration: 250
-      });
-    });
+function classcheck(classcode) {
+
+	console.log(classcode);
+
+	$.ajax({
+		url : 'updateClass.do',
+		data : {
+			class_code : $('#class_code'+classcode).val(),
+			class_name : $('#class_name'+classcode).val(),
+			class_info : $('#class_info'+classcode).val(),
+			class_time : $('#class_time'+classcode).val(),
+			class_personnel : $('#class_personnel'+classcode).val(),
+			class_startchk : $('#class_startchk'+classcode).val(),					
+		},
+		type : 'post',
+		success : function(data) {
+			alert("수정이완료되었습니다. 페이지를 새로 호출합니다.");
+			location.href = "mymenu.do";
+		},
+		error : function(err) {
+			console.log(err);
+			alert("수정이 실패했습니다. 공백을 채워주시거나 계속되면 관리자에게 문의하십시요.");
+		}
+	});
+}
+/*
+We need to register the required plugins to do image manipulation and previewing.
+*/
+FilePond.registerPlugin(
+	// encodes the file as base64 data
+  FilePondPluginFileEncode,
+	
+	// validates files based on input type
+  FilePondPluginFileValidateType,
+	
+	// corrects mobile image orientation
+  FilePondPluginImageExifOrientation,
+	
+	// previews the image
+  FilePondPluginImagePreview,
+	
+	// crops the image to a certain aspect ratio
+  FilePondPluginImageCrop,
+	
+	// resizes the image to fit a certain size
+  FilePondPluginImageResize,
+	
+	// applies crop and resize information on the client
+  FilePondPluginImageTransform
+);
+
+// Select the file input and use create() to turn it into a pond
+// in this example we pass properties along with the create method
+// we could have also put these on the file input element itself
+FilePond.create(
+	document.querySelector('input'),
+	{
+		labelIdle: `Drag & Drop your picture or <span class="filepond--label-action">Browse</span>`,
+    imagePreviewHeight: 170,
+    imageCropAspectRatio: '1:1',
+    imageResizeTargetWidth: 200,
+    imageResizeTargetHeight: 200,
+    stylePanelLayout: 'compact circle',
+    styleLoadIndicatorPosition: 'center bottom',
+    styleButtonRemoveItemPosition: 'center bottom'
+	}
+);
 </script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 <section id="hero_in" class="general">
 	<div class="wrapper">
 		<div class="container">
@@ -100,51 +191,73 @@
 					<i class="pe-7s-user"></i>
 					<h3>내가 바로 스터디장!</h3>
 				</div>
+				<form>
 				<c:forEach var="classlist" items="${classlist }">
 					<div style="padding-bottom: 50">
 						<div class="wrapper_indent">
 							<h5>${classlist.class_name }</h5>
-
-							<strong style="float: left">스터디 설명</strong> <a class="btn" href="#ex1"
-								rel="modal:open" style="margin-left: 500px">수정하기</a>
-							<div id="ex1" class="modal">
+							<input type="hidden" id="class_code${classlist.class_code }" name="class_code" value="${classlist.class_code }">
+							<strong style="float: left; margin-top: 35px;">스터디 설명</strong> <a class="btn"
+								href="#ex1_${classlist.class_code }" rel="modal:open"
+								style="margin-left: 500px">수정하기</a>
+							<div id="ex1_${classlist.class_code }" class="modal">
+							<h1>${classlist.class_code }</h1>
 								<h4>스터디의 정보를 수정할수있어요</h4>
-								<form id="updateStudyInfo" action="" method="post">
-									<div class="step">
-										<div class="form-group" style="flex">
-										<p style="margin-bottom: 0px; margin-top:20px">스터디이름</p>
-											<input type="text" name="userId" id="userId"
-												class="form-control required" value="${classlist.class_name }">
-										</div>
-										<div class="form-group">
-											<p style="margin-bottom: 0px;">${classlist.class_name }의 소개를 해주세요.</p>
-											<textarea style="width: 440" rows="20" cols="62" id="class_info" name="class_info">${classlist.class_info }</textarea>
-											
-										</div>
-										<div class="form-group">
-										<select name="class_active" id="class_active">
-												<option value="학생">모집하기</option>
-												<option value="회사원" selected="selected">모집완료</option>
-											</select> 
-											<input type="email" name="email" id="email"
-												class="form-control required" value="${classlist.class_active }"
-												placeholder="Your Email">
-										</div>
-										<div class="form-group">
-											<input type="text" name="phone" id="phone"
-												class="form-control" value="${classlist.class_time }"
-												placeholder="Your Telephone">
-										</div>
-										<div class="form-group">
-											<input type="text" name="birth" id="birth"
-												class="form-control" value="${classlist.class_personnel }"
-												placeholder="BirthDay">
-										</div>
-										<button type="submit" name="process" class="submit">정보수정하기!</button>
+								<div class="step">
+									<div class="form-group">
+										<p style="margin-bottom: 0px; margin-top: 20px">스터디이름</p>
+										<input type="text" name="class_name" id="class_name${classlist.class_code }"
+											class="form-control required"
+											value="${classlist.class_name }">
+									</div>
+									<div class="form-group">
+										<p style="margin-bottom: 0px;">${classlist.class_name }의
+											소개를 해주세요.</p>
+										<textarea style="width: 440" rows="20" cols="62"
+											id="class_info${classlist.class_code }" name="class_info">${classlist.class_info }</textarea>
 
 									</div>
-								</form>
-								<a href="#" rel="modal:close">닫기</a>
+									<div class="form-group">
+										<select name="class_startchk" id="class_startchk${classlist.class_code }"
+											class="form-control required">
+											<c:choose>
+												<c:when test="${classlist.class_startchk eq 'R' }">
+													<option value="${classlist.class_startchk }"
+														selected="selected">모집하기</option>
+													<option value="O">진행중</option>
+													<option value="E">모집완료</option>
+												</c:when>
+												<c:when test="${classlist.class_startchk eq 'O' }">
+													<option value="${classlist.class_startchk }"
+														selected="selected">진행중</option>
+													<option value="R">모집하기</option>
+													<option value="E">모집완료</option>
+												</c:when>
+												<c:otherwise>
+													<option value="${classlist.class_startchk }"
+														selected="selected">모집완료</option>
+													<option value="O">진행중</option>
+													<option value="R">모집하기</option>
+												</c:otherwise>
+											</c:choose>
+										</select>
+									</div>
+									<div class="form-group">
+										<p style="margin-bottom: 0px;">활동시간</p>
+										<input type="text" name="class_time" id="class_time${classlist.class_code }"
+											class="form-control" value="${classlist.class_time }"
+											placeholder="활동시간">
+									</div>
+									<div class="form-group">
+										<p style="margin-bottom: 0px;">정원(숫자로만적어주세요.)</p>
+										<input type="text" name="class_personnel" id="class_personnel${classlist.class_code }"
+											class="form-control" value="${classlist.class_personnel }"
+											placeholder="정원">
+									</div>
+								</div>
+								<a href="#"  onclick="classcheck('${classlist.class_code }')">정보수정하기!</a> <a href="#"
+									rel="modal:close" style="margin-left: 300px;">닫기</a>
+
 							</div>
 							<hr>
 							<div class="box">
@@ -158,9 +271,14 @@
 									<ul class="list_3">
 
 										<li><strong>모집 여부</strong> <c:choose>
-												<c:when test="${classlist.class_active eq 'A' }">
+												<c:when test="${classlist.class_startchk eq 'R' }">
 													<p>
 														<font color="red">모집중</font>
+													</p>
+												</c:when>
+												<c:when test="${classlist.class_startchk eq 'O' }">
+													<p>
+														<font color="blue">진행중</font>
 													</p>
 												</c:when>
 												<c:otherwise>
@@ -199,6 +317,7 @@
 					</div>
 					<hr class="styled_2" style="border-color: #b36060;">
 				</c:forEach>
+				</form>
 
 
 				<!--wrapper_indent -->
@@ -291,7 +410,13 @@
 	<!-- /row -->
 </div>
 <!-- /container -->
-<div id="ex1" class="modal">
-	<h1></h1>
-	<a href="#" rel="modal:close">닫기</a>
-</div>
+
+<!--
+The classic file input element we'll enhance to a file pond
+-->
+<input type="file" 
+       class="filepond"
+       name="filepond"
+       accept="image/png, image/jpeg, image/gif"/>
+
+<!-- file upload itself is disabled in this pen -->
