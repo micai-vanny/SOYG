@@ -173,8 +173,21 @@ public class UserController {
 	
 	// 회원 검색 기능
 	@RequestMapping("userSearch.do")
-	public String userSearch(HttpServletRequest req, UserVO vo) {
+	public String userSearch(HttpServletRequest req, UserVO vo, Model model) {
 		
-		return "adminUserControl/userList";
+		String searchType = req.getParameter("searchType");	// 검색 옵션
+		String keyword = req.getParameter("searchKeyword");	// 검색 내용
+		
+		if(searchType.equals("option_id")) {// 검색 옵션 아이디로 선택했을 경우
+			
+			vo.setUserID(keyword);
+		} else {// 검색 옵션을 이름으로 선택했을 경우
+			
+			vo.setName(keyword);
+		}
+		
+		model.addAttribute("users", dao.userSearch(vo));
+		
+		return "adminUserControl/userSelectedList";
 	}
 }
