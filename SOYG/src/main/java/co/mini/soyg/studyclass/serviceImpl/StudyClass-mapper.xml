@@ -6,4 +6,8 @@
 	<select id="studyClassMemberList" parameterType="co.mini.soyg.studyclass.vo.StudyClassVO" resultType="co.mini.soyg.studyclass.vo.StudyClassVO">
 		select * from class where captain = #{captain}
 	</select>
+	
+	<update id="updateClass" parameterType="co.mini.soyg.studyclass.vo.StudyClassVO">
+		UPDATE CLASS SET CLASS_NAME = #{class_name}, CLASS_INFO = #{class_info}, CLASS_STARTCHK = #{class_startchk}, CLASS_PERSONNEL = #{class_personnel}, CLASS_TIME = #{class_time} WHERE CLASS_CODE = #{class_code}
+	</update>
 </mapper>

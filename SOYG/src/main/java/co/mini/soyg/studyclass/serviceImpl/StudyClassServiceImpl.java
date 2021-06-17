@@ -35,8 +35,11 @@ public class StudyClassServiceImpl implements StudyClassService {
 
 	@Override
 	public int updateStudyClass(StudyClassVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		int a = 0;
+
+		a = Session.update("updateClass",vo);
+		
+		return a;
 	}
 
 	@Override
