@@ -59,19 +59,20 @@
 						<i name="class_startchk" class="pending">${classes.class_startchk }</i>
 					</h4>
 					<ul class="course_list">
-						<li><h6>스터디코드</h6><input name="class_code" value="${classes.class_code }"></li>
+						<li><h6>스터디코드</h6><input name="class_code" value="${classes.class_code }" readonly="readonly"></li>
 						<li><h6>스터디명</h6><input name="class_name" value="${classes.class_name }"></li>
 						<li><h6>분야분류</h6><input name="field_code" value="${classes.field_code }"></li>
 						<li><h6>지역코드</h6><input name="loc_code" value="${classes.loc_code }"></li>
 					</ul>
 					<hr>
 					<ul class="course_list">
-						<li><h6>시작일</h6><input name="start_date" value="${start_date}"></li>
+						<li><h6>시작일</h6>
+						<input type="date" name="start_date" value="${start_date}"></li>
 						<li><h6>주중/주말</h6>
 							<input type="radio" name="weekdays_chk" value="${classes.weekdays_chk }" <c:if test="${classes.weekdays_chk eq 'W' }" >checked</c:if> >주중
 							<input type="radio" name="weekdays_chk" value="${classes.weekdays_chk }" <c:if test="${classes.weekdays_chk eq 'E' }" >checked</c:if> >주말
 						</li>
-						<li><h6>스터디 시간</h6><input name="class_time" value="${classes.class_time }"></li>
+						<li><h6>스터디 시간</h6><input type="" name="class_time" value="${classes.class_time }"></li>
 						<li><h6>활성/비활성</h6>
 							<input type="radio" name="class_active" value="${classes.class_active }" <c:if test="${classes.class_active eq 'A' }" >checked</c:if> >활성
 							<input type="radio" name="class_active" value="${classes.class_active }" <c:if test="${classes.class_active eq 'I' }" >checked</c:if> >비활성
