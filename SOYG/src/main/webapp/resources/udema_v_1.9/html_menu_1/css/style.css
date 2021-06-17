@@ -3043,7 +3043,7 @@ a.box_feat h3 {
   transform: translate(-50%, -50%) scale(1.1);
 }
 .box_list .wrapper {
-  padding: 30px 30px 20px 30px;
+  padding: 10px 30px 20px 30px;
   min-height: 245px;
 }
 @media (max-width: 991px) {

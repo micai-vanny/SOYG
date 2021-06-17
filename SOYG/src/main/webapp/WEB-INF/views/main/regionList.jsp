@@ -44,14 +44,19 @@
 								<div class="col-lg-5">
 									<figure class="block-reveal">
 										<div class="block-horizzontal"></div>
-										<a href="studySelect.do?class_code=${vo.class_code }"><img src="${pageContext.request.contextPath}/resources/classImage/${vo.class_image }" class="img-fluid" alt=""></a>
+										<a href="studySelect.do?class_code=${vo.class_code }">
+										<img src="${pageContext.request.contextPath}/resources/classImage/${vo.class_image }" class="img-fluid" alt=""></a>
 										<div class="preview"><span>스터디 정보 보기</span></div>
 									</figure>
 								</div>
 								<div class="col-lg-7">
 									<div class="wrapper">
 										<c:if test="${!empty id }">
-											<a href="javascript:void(0);" id="likeIt" onclick="likeEdit(${vo.class_code});" class="wish_bt"></a>
+										<div style="display:flex; justify-content: flex-end; margin-bottom: -5px">
+											<a href="javascript:void(0);" id="likeIt" onclick="likeEdit(${vo.class_code});">
+												<span style="font-size: 18pt">🤍</span>
+											</a>
+										</div>
 										</c:if>
 										<small>${vo.city }</small>
 										<h3>${vo.class_name }</h3>

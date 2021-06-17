@@ -21,7 +21,7 @@ public class LikeItServiceImpl implements LikeItService {
 	@Override
 	public int likeItUndo(LikeItVO vo) {
 		// 좋아요 취소
-		return sqlSession.delete("likeItDelete", vo);
+		return sqlSession.delete("likeItUndo", vo);
 	}
 
 	@Override
@@ -34,10 +34,12 @@ public class LikeItServiceImpl implements LikeItService {
 	public boolean likeItCheck(LikeItVO vo) {
 		// 좋아요 여부 체크
 		boolean check = false;
-		String c_code = sqlSession.selectOne("likeItCheck", vo);
-		System.out.println("like it check test : " + vo);
 		
-		if(c_code != null) {
+		LikeItVO vo2 = sqlSession.selectOne("likeItCheck", vo);
+		System.out.println("like it check test : " + vo2);
+		
+		
+		if(vo2 != null) {
 			check = true;
 		} else {
 			check = false;
