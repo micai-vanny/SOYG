@@ -3,7 +3,6 @@
 	
 <script src="//cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script>
 <script src="resources/js/classPang.js"></script>
-
 	
 <div class="theia-exception">
 	<main>
@@ -33,7 +32,6 @@
 			</div>
 		</section>
 		<!--/hero_in-->
-
 		<div class="bg_color_1">
 			<nav class="secondary_nav sticky_horizontal">
 				<div class="container">
@@ -46,6 +44,7 @@
 			<div class="container margin_60_35">
 				<div class="row">
 					<div class="col-lg-8">
+	<form action="classInsert.do" method="post" id="textFrm">
 						<section id="description">
 							<!-- /box_highlight -->
 							<h2>학습의 의의</h2>
@@ -102,6 +101,7 @@
 							<!-- /accordion -->
 						</section>
 						<!-- /section -->
+		</form>
 					</div>
 					<!-- /col -->
 
@@ -150,7 +150,7 @@
 								</div>
 								<hr>
 								<div style="position: relative;">
-									<input type="submit" value="만들기" class="btn_1 full-width" id="submit-contact">
+									<button type="button" class="btn_1 full-width" id="submit-contact" onclick="$submitBtn()">만들기</button>
 								</div>
 							</form>
 						</div>
