@@ -246,11 +246,42 @@ public class MemberController {
 	}
 
 	// 비밀번호 찾기
-		@RequestMapping("passFinder.do")
-		public String passFinder(HttpServletRequest req, MemberVO vo, Model model) {
-			
-			
-			
-			return "member/memberNewPassword";
-		}
+	@RequestMapping("passFinder.do")
+	public String passFinder(HttpServletRequest req, MemberVO vo, Model model) {
+
+//		String userID = req.getParameter("userid");
+//		String name = req.getParameter("name");
+//		String birth = req.getParameter("birth");
+		
+		// 전번
+		String localNum = req.getParameter("localPhoneNumber");
+		String frontNum = req.getParameter("phone1");
+		String backNum = req.getParameter("phone2");
+		String fullCell = localNum + "-" + frontNum + "-" + backNum;
+		
+		vo.setPhone(fullCell);
+//		vo.setUserId(userID);
+//		vo.setName(name);
+//		vo.setBirth(birth);
+		
+		model.addAttribute("user", dao.passFinder(vo));
+		
+		return "member/memberNewPassword";
+	}
+	
+	// 비밀번호 재설정
+	@RequestMapping("passRedefine.do")
+	public String passRedefine(HttpServletRequest req, Model model, MemberVO vo) {
+		
+		String userID = req.getParameter("userID");
+		String password = req.getParameter("mPwd");
+		
+		vo.setUserId(userID);
+		vo.setPassword(password);
+		
+		((MemberServiceImpl) dao).updatePassword(vo);
+		
+		return "redirect:home.do";
+	}
+	
 }

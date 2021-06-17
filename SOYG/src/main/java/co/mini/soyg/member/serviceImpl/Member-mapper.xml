@@ -45,7 +45,7 @@
 <!-- 비밀번호 찾기 -->
 <select id="passFinder" parameterType="co.mini.soyg.member.vo.MemberVO" resultType="co.mini.soyg.member.vo.MemberVO">
 	select * from member
-	where userID = #{userID} and password = #{password} and birth = #{birth} and phone = #{phone}
+	where userID = #{userId} and password = #{password} and birth = #{birth} and phone = #{phone}
 </select>
 </mapper>
 
