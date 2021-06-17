@@ -20,20 +20,30 @@ public class LikeItServiceImpl implements LikeItService {
 
 	@Override
 	public int likeItUndo(LikeItVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int likeItCheck(LikeItVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		// 좋아요 취소
+		return sqlSession.delete("likeItDelete", vo);
 	}
 
 	@Override
 	public LikeItVO likeItCount(LikeItVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		// 좋아요 개수 카운트
+		return sqlSession.selectOne("likeItCount",vo);
 	}
+
+	@Override
+	public boolean likeItCheck(LikeItVO vo) {
+		// 좋아요 여부 체크
+		boolean check = false;
+		String c_code = sqlSession.selectOne("likeItCheck", vo);
+		System.out.println("like it check test : " + vo);
+		
+		if(c_code != null) {
+			check = true;
+		} else {
+			check = false;
+		}
+		return check;
+	}
+
 
 }
