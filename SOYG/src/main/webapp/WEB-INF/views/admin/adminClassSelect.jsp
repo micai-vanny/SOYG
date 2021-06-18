@@ -20,7 +20,8 @@
 	margin-bottom: 50px;
 }
 </style>
-
+<c:choose>
+	<c:when test = "${id eq 'admin'}">
 <section id="hero_in" class="general">
 	<div class="wrapper">
 		<div class="container">
@@ -55,6 +56,8 @@
 					<li><h6>[스터디명] ${classes.class_name }</h6></li>
 					<li><h6>[분야분류] ${classes.field_code }</h6></li>
 					<li><h6>[지역코드] ${classes.loc_code }</h6></li>
+					<li><h6>[지역명] ${classes.city }</h6></li>
+					<li><h6>[스터디장] ${classes.captain }</h6></li>
 				</ul>
 				<hr>
 				<ul class="course_list">
@@ -92,7 +95,7 @@
 				<ul align="right" class="buttons">
 					<li><a onclick="select(${classes.class_code })"
 						class="btn_1 gray approve"><i
-							class="fa fa-fw fa-check-circle-o"></i> 수정</a></li>
+							class="fa fa-fw fa-check-circle-o"></i> 수정하기</a></li>
 					<li><a onclick="deleteCheck('${classes.class_code }')"
 						class="btn_1 gray delete"><i
 							class="fa fa-fw fa-times-circle-o"></i> 삭제</a></li>
@@ -105,7 +108,12 @@
 		</div>
 	</div>
 </div>
-
+	</c:when>
+	<c:otherwise>
+		<h1 style = "text-align : center;">정상적인 방법으로 접근하시오.</h1>
+	</c:otherwise>
+</c:choose>
+		
 <script>
 function select(class_code){
 	location.href = "adminClassUpdateView.do?class_code=" + class_code;

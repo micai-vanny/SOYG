@@ -12,6 +12,7 @@
 function select(class_code){
 	location.href = "adminClassSelect.do?class_code=" + class_code;
 	}
+	
 //검색기능 - 스터디명
 window.onload = function(){
 	$("#keyword").keyup(function(){
@@ -22,9 +23,12 @@ window.onload = function(){
 		$(temp).parent().show();
 	});
 };
+function goPage(page){
+	
+	location.href = "adminClassList.do?page=" + page;
+}
 
 </script>
-
 <section id="hero_in" class="general">
 	<div class="wrapper">
 		<div class="container">
@@ -47,97 +51,86 @@ window.onload = function(){
 						<li class="breadcrumb-item"><a href="admin.do">관리자페이지</a></li>
 						<li class="breadcrumb-item active">스터디 리스트</li>
 					</ol>
-					<!-- 테이블 데이터-->
-					<div class="card mb-3">
-						<div class="card-header">
-							<i class="fa fa-table"></i> 스터디 전체 조회
-						</div>
-						<div class="card-body">
-							<div class="table-responsive">
-								<div id="dataTable_wrapper"
-									class="dataTables_wrapper container-fluid dt-bootstrap4">
-									<div class="row">
-										<div class="col-sm-12 col-md-6">
-											<div id="dataTable_filter" class="dataTables_filter">
-												<label> Search: <input type="search" id="keyword"
-													class="form-fontrol form-control-sm"
-													placeholder="스터디명으로 검색" aria-controls="dataTable">
-												</label>
+					<c:choose>
+						<c:when test="${id eq 'admin'}">
+							<!-- 테이블 데이터-->
+							<div class="card mb-3">
+								<div class="card-header">
+									<i class="fa fa-table"></i> 스터디 전체 조회
+								</div>
+								<div class="card-body">
+									<div class="table-responsive">
+										<div id="dataTable_wrapper"
+											class="dataTables_wrapper container-fluid dt-bootstrap4">
+											<div class="row">
+												<div class="col-sm-12 col-md-6">
+													<div id="dataTable_filter" class="dataTables_filter">
+
+													</div>
+													<!-- 검색기능 -->
+													<form action="adminClassSearch.do">
+														<select id="searchType" name="searchType"
+															class="form-fontrol form-control-sm">
+															<option value="option_name">스터디명</option>
+															<option value="option_city">지역명</option>
+															<option value="option_field">분야별</option>
+														</select> <input name="searchKeyword" placeholder="검색어 입력"
+															class="form-fontrol form-control-sm"><input
+															type="submit" value="검색">
+													</form>
+												</div>
+												<table class="table table-bordered" id="dataTable"
+													width="100%" role="grid" aria-describedby="dataTable_info"
+													cellspacing="0">
+													<thead>
+														<tr>
+															<th>스터디 코드</th>
+															<th>지역명</th>
+															<th>분야분류</th>
+															<th>스터디명</th>
+															<th>활성/비활성 여부</th>
+															<th>시작여부</th>
+														</tr>
+													</thead>
+													<tfoot>
+														<c:forEach var="clas" items="${classes }">
+															<tr onclick="select(${clas.class_code })">
+																<td>${clas.class_code }</td>
+																<td>${clas.city }</td>
+																<td>${clas.field_code }</td>
+																<td>${clas.class_name }</td>
+																<td>${clas.class_active }</td>
+																<td>${clas.class_startchk }</td>
+															</tr>
+														</c:forEach>
+													</tfoot>
+												</table>
 											</div>
+											<!-- 페이징처리 -->
+											<jsp:include page="../common/paging.jsp" flush="true">
+												<jsp:param name="firstPageNo" value="${paging.firstPageNo}" />
+												<jsp:param name="prevPageNo" value="${paging.prevPageNo}" />
+												<jsp:param name="startPageNo" value="${paging.startPageNo}" />
+												<jsp:param name="pageNo" value="${paging.pageNo}" />
+												<jsp:param name="endPageNo" value="${paging.endPageNo}" />
+												<jsp:param name="nextPageNo" value="${paging.nextPageNo}" />
+												<jsp:param name="finalPageNo" value="${paging.finalPageNo}" />
+											</jsp:include>
 										</div>
-										<table class="table table-bordered" id="dataTable"
-											width="100%" role="grid" aria-describedby="dataTable_info"
-											cellspacing="0">
-											<thead>
-												<tr>
-													<th>스터디 코드</th>
-													<th>지역 코드</th>
-													<th>분야분류 코드</th>
-													<th>스터디명</th>
-													<th>활성/비활성 여부</th>
-													<th>시작여부</th>
-												</tr>
-											</thead>
-											<tfoot>
-												<c:forEach var="clas" items="${classes }">
-													<tr onclick="select(${clas.class_code })">
-														<td>${clas.class_code }</td>
-														<td>${clas.loc_code }</td>
-														<td>${clas.field_code }</td>
-														<td>${clas.class_name }</td>
-														<td>${clas.class_active }</td>
-														<td>${clas.class_startchk }</td>
-													</tr>
-												</c:forEach>
-											</tfoot>
-										</table>
-									</div>
-									<div>
-										<ul>
-											<c:if test="${pageMaker.prev}">
-												<li><a
-													href="list${pageMaker.makeQuery(pageMaker.startPage - 1)}">이전</a></li>
-											</c:if>
-
-											<c:forEach begin="${pageMaker.startPage}"
-												end="${pageMaker.endPage}" var="idx">
-												<li><a href="list${pageMaker.makeQuery(idx)}">${idx}</a></li>
-											</c:forEach>
-
-											<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-												<li><a
-													href="list${pageMaker.makeQuery(pageMaker.endPage + 1)}">다음</a></li>
-											</c:if>
-										</ul>
 									</div>
 								</div>
+								<!-- /tables-->
 							</div>
-						</div>
-						<!-- /tables-->
-					</div>
-					<!-- /container-fluid-->
+							<!-- /container-fluid-->
 				</div>
 				<!-- /container-wrapper-->
 			</div>
 		</div>
 	</div>
-	</div>
-	</div>
-	<!-- Bootstrap core JavaScript-->
-	<script src="vendor/jquery/jquery.min.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<!-- Core plugin JavaScript-->
-	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-	<!-- Page level plugin JavaScript-->
-	<script src="vendor/chart.js/Chart.min.js"></script>
-	<script src="vendor/datatables/jquery.dataTables.js"></script>
-	<script src="vendor/datatables/dataTables.bootstrap4.js"></script>
-	<script src="vendor/jquery.selectbox-0.2.js"></script>
-	<script src="vendor/retina-replace.min.js"></script>
-	<script src="vendor/jquery.magnific-popup.min.js"></script>
-	<!-- Custom scripts for all pages-->
-	<script src="js/admin.js"></script>
-	<!-- Custom scripts for this page-->
-	<script src="js/admin-datatables.js"></script>
+	</c:when>
+	<c:otherwise>
+		<h1 style="text-align: center;">정상적인 방법으로 접근하시오.</h1>
+	</c:otherwise>
+	</c:choose>
 </body>
 </html>

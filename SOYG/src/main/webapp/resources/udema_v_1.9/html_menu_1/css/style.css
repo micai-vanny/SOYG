@@ -787,8 +787,7 @@ ul#top_menu li a.btn_1:hover {
   background-size: cover;
 }
 #hero_in.general .wrapper {
-  background-color: #372675;
-  background-color: rgba(57, 39, 121, 0.8);
+  background: url(../../../mainImage/adminpage.jpg);
 }
 #hero_in.courses:before {
   background: url(http://via.placeholder.com/1600x1067/ccc/fff/bg_courses.jpg) center center no-repeat;
@@ -4804,7 +4803,7 @@ a.box_topic:hover {
 a.box_topic i {
   font-size: 70px;
   font-size: 4.375rem;
-  color: #392779;
+  color:#333 ;
   margin-bottom: 10px;
   -webkit-border-radius: 50px;
   -moz-border-radius: 50px;
