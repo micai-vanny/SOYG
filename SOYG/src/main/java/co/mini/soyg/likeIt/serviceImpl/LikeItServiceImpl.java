@@ -35,15 +35,13 @@ public class LikeItServiceImpl implements LikeItService {
 		// 좋아요 여부 체크
 		boolean check = false;
 		
-		LikeItVO vo2 = sqlSession.selectOne("likeItCheck", vo);
-		System.out.println("like it check test : " + vo2);
+		vo = sqlSession.selectOne("likeCheck", vo);		
+		System.out.println(vo);
 		
-		
-		if(vo2 != null) {
+		if(vo != null) {
+			// 유저가 좋아요 한 적이 있으면 true로
 			check = true;
-		} else {
-			check = false;
-		}
+		} 
 		return check;
 	}
 

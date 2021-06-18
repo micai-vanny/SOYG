@@ -59,7 +59,6 @@ uri="http://java.sun.com/jsp/jstl/core" %>
         </div>
         <div id="reccomended" class="owl-carousel owl-theme">
         	<c:forEach items="${recentlyClass }" var="vo" end="5">
-        	<input type="hidden" id="code" value="${vo.class_code }">
             <div class="item">
                 <div class="box_grid">
                     <figure>

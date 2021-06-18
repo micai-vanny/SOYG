@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <div id="page">
 	<main>
@@ -53,18 +54,10 @@
 									<div class="wrapper">
 										<c:if test="${!empty id }">
 										<div style="display:flex; justify-content: flex-end; margin-bottom: -5px">
-											<c:choose>
-												<c:when test="${likeCount }">
-													<a href="javascript:void(0);" id="likeIt" onclick="likeEdit(${vo.class_code});">
-														<span style="font-size: 18pt">🤍</span>
-													</a>
-												</c:when>
-												<c:otherwise>
-													<a href="javascript:void(0);" id="likeIt" onclick="likeEdit(${vo.class_code});">
-														<span style="font-size: 18pt">❤</span>
-													</a>
-												</c:otherwise>
-											</c:choose>
+													<a href="javascript:void(0);" id="likeIt">
+						                                 <span style="font-size: 18pt" id="likeIcon">🤍</span>
+						                                 <input type="hidden" class="c_class_code" value="${vo.class_code}">
+						                            </a>
 										</div>
 										</c:if>
 										<small>${vo.city }</small>
@@ -81,6 +74,8 @@
 													모집이 마감된 스터디입니다.
 												</c:otherwise>
 											</c:choose>
+											<br>
+											스터디 책임자 : ${vo.captain }
 										</p>
 										<div class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i> <small>(145)</small></div>
 									</div>
@@ -95,7 +90,9 @@
 												</c:otherwise>						
 											</c:choose>
 										</li>
-										<li><i class="icon_like"></i><span class="likeit_count"> </span></li>
+										<li><i class="icon_like"></i>
+											<span class="likeit_count">${vo.like_check }</span>
+											</li>
 										<li><a href="studySelect.do?class_code=${vo.class_code }">자세히 보기</a></li>
 									</ul>
 								</div>
@@ -119,36 +116,22 @@
 	<!-- page -->
 <script>
 	// 좋아요 클릭시 실행
-	function likeEdit(c_code) {
-		$.ajax({
-			url: 'likeItEdit.do',
-			type: "POST",
-			data: {
-				id: '${id}',
-				c_code: c_code
-			},
-			async: false,
-			success: function(result) {
-				console.log("Good!");
-				console.log(result);
-				likeItCount(c_code);
-			}
-		});
-	};
-	
-	// 좋아요 개수 카운트
-	 function likeItCount(c_code) {
-			$.ajax({
-			 url: "likeItCount.do",
-	         type: "POST",
-	         data: {
-	        	 id: '${id}',
-	             class_code: c_code
-	         },
-	         success: function (likeItCount) {
-	        	 console.log("실행됐나?");
-	         	$(".likeit_count").html(likeItCount);
-	         }
-		})
-	 };
+	$('body').on('click','#likeIt' ,function(){
+            let test = $(this).closest(".col-lg-7").find(".likeit_count");
+            let c_code = $(this).closest(".col-lg-7").find(".c_class_code").val();
+               $.ajax({
+                  url: 'likeItEdit.do',
+                  type: "POST",
+                  data: {
+                     id: '${id}',
+                     c_code: c_code
+                  },
+                  success: function(result) {
+                     console.log("Good!");
+                     console.log(result);
+                     $(test).empty();
+                     $(test).append(result);
+                }
+           });
+      });
 </script>

@@ -4,6 +4,7 @@ public class LikeItVO {
 	private String userId;
 	private int class_code;
 	private char like_check;
+	private int likeCnt;
 	
 	public int getClass_code() {
 		return class_code;
@@ -22,6 +23,12 @@ public class LikeItVO {
 	}
 	public void setUserId(String userId) {
 		this.userId = userId;
+	}
+	public int getLikeCnt() {
+		return likeCnt;
+	}
+	public void setLikeCnt(int likeCnt) {
+		this.likeCnt = likeCnt;
 	}
 	@Override
 	public String toString() {

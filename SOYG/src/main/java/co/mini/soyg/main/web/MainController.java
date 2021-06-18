@@ -17,18 +17,21 @@ public class MainController {
 	private MainService dao;
 	
 	@RequestMapping("/regionList.do")
-	public String regionList(MainVO vo, Model model) {
+	public String regionList(HttpServletRequest request, MainVO vo, Model model) {
+		HttpSession session = request.getSession();
+		
 		//지역별 스터디 리스트 뷰
+		String userId = (String) session.getAttribute("id");
 		System.out.println(vo.getLoc_code());
 		System.out.println(vo.getClass_code());
+		
+		vo.setUserId(userId);
 		// 리스트 정보
 		model.addAttribute("regionList", dao.regionList(vo));
 		// 카테고리 리스트(pull-down menu)
 		model.addAttribute("regSelect", dao.regselect());
 		//간판에 지역 이름 달아주자
 		model.addAttribute("regionName", dao.regionName(vo));
-		// 스터디별 좋아요 개수
-		model.addAttribute("likeCount", dao.likeCount(vo));
 		return ("main/regionList");
 	}
 	
