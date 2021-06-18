@@ -10,7 +10,7 @@
 		// 	이미지 클릭시 해당 이미지 모달
 		$(".imgC").click(function() {
 			$(".modal").show();
-			// 해당 이미지 가겨오기
+			// 해당 이미지 가져오기
 			var imgSrc = $(this).children("img").attr("src");
 			var imgAlt = $(this).children("img").attr("alt");
 			$(".modalBox img").attr("src", imgSrc);

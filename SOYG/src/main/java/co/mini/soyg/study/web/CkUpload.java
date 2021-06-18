@@ -14,8 +14,8 @@ import com.google.gson.JsonObject;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-@WebServlet("/imageUpload")
-public class FileUpload extends HttpServlet {
+@WebServlet("/ckUpload")
+public class CkUpload extends HttpServlet {
 	private final static long serialVersionUID = 1L;
 
 	@Override
@@ -43,5 +43,7 @@ public class FileUpload extends HttpServlet {
 		json.addProperty("fileName", fileN);
 		json.addProperty("uploaded", 1);
 		json.addProperty("url", req.getContextPath() + "/resources/classImage/" + fileN);
+
+		resp.getWriter().print(json);
 	}
 }

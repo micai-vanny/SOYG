@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import co.mini.soyg.study.service.StudyService;
+import co.mini.soyg.study.vo.CategoryVO;
+import co.mini.soyg.study.vo.StudyInsertVO;
 import co.mini.soyg.study.vo.StudyVO;
 
 @Repository
@@ -27,8 +29,11 @@ public class StudyServiceImpl implements StudyService {
 	}
 
 	@Override
-	public int studyInsert(StudyVO vo) {
-		// TODO Auto-generated method stub
+	public int studyInsert(StudyInsertVO vo) {
+		
+		sqlSession.insert("insertClass", vo);
+		sqlSession.insert("insertClassImage", vo);
+		
 		return 0;
 	}
 
@@ -42,5 +47,15 @@ public class StudyServiceImpl implements StudyService {
 	public int studyDelete(StudyVO vo) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public List<CategoryVO> locateList() {
+		return sqlSession.selectList("getLocList");
+	}
+
+	@Override
+	public List<CategoryVO> fieldList() {
+		return sqlSession.selectList("getFieldList");
 	}
 }

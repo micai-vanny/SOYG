@@ -1,21 +1,42 @@
 $(function() {
 	$submitBtn = function() {
-		$("#textFrm").submit();
-		$("#imageForm").submit();
+		let formData = new FormData($("#imageForm")[0]);
+		let class_image = $("#image").val().split("\\");
+		let main_image2 = $("#image2").val().split("\\");
+		let main_image3 = $("#image3").val().split("\\");
+		let main_image4 = $("#image4").val().split("\\");
+		let main_image5 = $("#image5").val().split("\\");
+		
+		
+		$("#class_image").val(class_image[2]);
+		$("#main_image2").val(main_image2[2]);
+		$("#main_image3").val(main_image3[2]);
+		$("#main_image4").val(main_image4[2]);
+		$("#main_image5").val(main_image5[2]);
+		
+		
+		
+		$.ajax({
+			url: "imageUpload",
+			data: formData,
+			type: "post",
+			contentType: false,
+			processData: false,
+			success: function(result) {
+				console.log(result);
+				$("#textFrm").submit();
+			},
+			error: function(err) {
+				console.log(err);
+			}
+		});
 	};
 
-	CKEDITOR.replace('meaning', {
+	CKEDITOR.replace('class_info', {
 		resize_enable: false,
-		filebrowserUploadUrl: 'imageUpload',
+		filebrowserUploadUrl: 'ckUpload',
 		width: "735px",
 		height: "350px",
-	});
-	
-	CKEDITOR.replace('course', {
-		resize_enable: false,
-		filebrowserUploadUrl: 'imageUpload',
-		width: "735px",
-		height: "200px",
 	});
 
 	$count = 0;

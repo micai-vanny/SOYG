@@ -2,6 +2,8 @@ package co.mini.soyg.study.service;
 
 import java.util.List;
 
+import co.mini.soyg.study.vo.CategoryVO;
+import co.mini.soyg.study.vo.StudyInsertVO;
 import co.mini.soyg.study.vo.StudyVO;
 
 public interface StudyService {
@@ -12,11 +14,17 @@ public interface StudyService {
 		StudyVO studySelect(StudyVO vo);
 
 		// 클래스 추가
-		int studyInsert(StudyVO vo);
+		int studyInsert(StudyInsertVO vo);
 
 		// 클래스 수정
 		int studyUpdate(StudyVO vo);
 		
 		// 클래스 삭제
 		int studyDelete(StudyVO vo);
+		
+		// 지역코드 가져오기
+		List<CategoryVO> locateList();
+		
+		// 분류코드 가져오기
+		List<CategoryVO> fieldList();
 }
