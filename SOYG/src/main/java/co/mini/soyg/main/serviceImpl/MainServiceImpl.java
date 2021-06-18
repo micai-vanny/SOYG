@@ -80,5 +80,17 @@ public class MainServiceImpl implements MainService {
 		return sqlSession.selectList("searchClass", vo);
 	}
 
+	@Override
+	public MainVO likeCount(MainVO vo) {
+		// 각 클래스별 좋아요 개수
+		return sqlSession.selectOne("likeCount", vo);
+	}
+
+	@Override
+	public List<MainVO> classCd() {
+		// 클래스 코드만
+		return sqlSession.selectList("classCd");
+	}
+
 	
 }
