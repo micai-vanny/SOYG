@@ -58,7 +58,21 @@ button:hover:before, button:hover:after {
     margin-top : 83px;
 }
 
+	input::-webkit-outer-spin-button,
+	input::-webkit-inner-spin-button {
+		-webkit-appearance: none;
+	}
+
 </style>
+
+<script>
+	function numberLength(e) {
+		if(e.value.length > e.maxLength){
+			e.value = e.value.slice(0, e.maxLength);
+		}
+	}
+</script>
+	
 <div class="width">
 	<div id="form_container" class="clearfix">
 				
@@ -71,15 +85,15 @@ button:hover:before, button:hover:after {
 				</h3>
 
 				<div class="form-group">
-					<input type="text" name="userID" id="userID" class="form-control required" placeholder = "아이디를 입력해 주세요" maxlength = "15">
+					<input type="text" name="userId" class="form-control required" placeholder = "아이디를 입력해 주세요" maxlength = "15" required>
 				</div>
 				
 				<div class="form-group">
-					<input type="text" name="name" id="name" class="form-control required" placeholder = "이름를 입력해 주세요" maxlength = "15">
+					<input type="text" name="name" class="form-control required" placeholder = "이름를 입력해 주세요" maxlength = "15" required>
 				</div>
 				
 				<div class="form-group">
-					<input type="text" name="birth" id="birth" class="form-control" placeholder="생년월일을 입력해 주세요" maxlength = "6">
+					<input type="number" name="birth" class="form-control" placeholder="생년월일을 입력해 주세요 ex) 561231" maxlength = "6" required oninput = "numberLength(this);">
 				</div>
 				
 				<div class="form-group" style = "display: flex; align-items: flex-end;">
@@ -87,11 +101,11 @@ button:hover:before, button:hover:after {
 						<option value = "010">010</option>
 						<option value = "053">053</option>
 					</select> - 
-					<input type="text" name="phone1" class="form-control" placeholder="4자리" maxlength = "4">	-
-					<input type="text" name="phone2" class="form-control" placeholder="4자리" maxlength = "4">
+					<input type="number" name="phone1" class="form-control" placeholder="숫자 4자리" maxlength = "4" required oninput = "numberLength(this);">	-
+					<input type="number" name="phone2" class="form-control" placeholder="숫자 4자리" maxlength = "4" required oninput = "numberLength(this);">
 				</div>
 				
-				<button type="submit" onclick = "submitBtn()">확인!</button>
+				<button type="submit">확인!</button>
 				
 			</div>
 			

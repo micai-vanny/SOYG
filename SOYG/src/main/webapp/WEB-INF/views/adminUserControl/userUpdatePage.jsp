@@ -217,11 +217,17 @@
 		
 		}).open();
 	}
+	
+	
+	// 관리자 이외에 접근 시 에러 페이지로 이동
+	function errorPage(){
+		
+		location.href = "errorPage.do";
+	}
 </script>
 
 
 <body class="fixed-nav sticky-footer" id="page-top">
-
 
 	<c:choose>
 		<c:when test = "${id eq 'admin'}">
@@ -294,13 +300,23 @@
 									<div class="col-md-6">
 										<div class="form-group">
 											<label>생년월일</label>
-											<input type="text" class="form-control" name = "birth" placeholder="${user.birth }">
+											<input type="number" class="form-control" name = "birth" placeholder="${user.birth }" maxlength = "6" oninput = "numberLength(this);">
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
-											<label>성별</label>
-											<input type="email" class="form-control" name = "gender" placeholder="${user.gender }">
+											<label>성별 : ${user.gender }</label>
+											<div>
+												<c:if test= "${user.gender eq 'male' }">
+													<input type = "radio" name = "gender" value = "male" checked>남자
+													<input type = "radio" name = "gender" value = "female">여자
+												</c:if>
+												<c:if test= "${user.gender eq 'female' }">
+													<input type = "radio" name = "gender" value = "male">남자
+													<input type = "radio" name = "gender" value = "female" checked>여자
+												</c:if>
+											</div>
+											<%-- <input type="email" class="form-control" name = "gender" placeholder="${user.gender }"> --%>
 										</div>
 									</div>
 								</div>
@@ -404,14 +420,14 @@
 								<!-- </div> -->
 								<div class="form-group">
 									<label>새로운 비밀번호</label>
-									<input class="form-control" type="text" maxlength = "20" id = "mPwd" name = "mPwd">
+									<input class="form-control" type="password" maxlength = "20" id = "mPwd" name = "mPwd">
 								</div>
 								<div class="form-group">
 									<label>새 비밀번호 확인</label>
 									<button type = "button" onclick="checkThePwd()" class="btn_1 gray approve" value = "unChecked" id = "pwdCheck" name = "pwdCheck">
 										<i class="fa fa-fw fa-check-circle-o"></i>일치 여부 확인
 									</button>
-									<input class="form-control" type="text" maxlength = "20" id = "iPwd" name = "iPwd">
+									<input class="form-control" type="password" maxlength = "20" id = "iPwd" name = "iPwd">
 								</div>
 								<!-- <div class = "form-group">
 									<label>비밀 번호 일치 여후 확인</label>
@@ -502,13 +518,13 @@
 		      </div>
 		    </div>
     
-    
    		</c:when>
+   		
 		<c:otherwise>
-			<h1 style = "text-align : center;">정상적인 방법으로 접근하시오.</h1>
+			<body onload = "errorPage()"></body>
 		</c:otherwise>
+		
 	</c:choose>
-
 
 </body>
 </html>

@@ -56,9 +56,16 @@
 		
 	}
 	
+	// 페이징
 	function goPage(page){
 		
 		location.href = "userListPaging.do?page=" + page;
+	}
+	
+	// 관리자 이외에 접근 시 에러 페이지로 이동
+	function errorPage(){
+		
+		location.href = "errorPage.do";
 	}
 
 </script>
@@ -174,7 +181,9 @@
 			</div>
 			
 	</c:when>
+	
 	<c:otherwise>
-		<h1 style="text-align: center;">정상적인 방법으로 접근하시오.</h1>
+		<body onload = "errorPage()"></body>
 	</c:otherwise>
+	
 </c:choose>

@@ -18,6 +18,14 @@ public class UserController {
 	@Autowired
 	private UserService dao;
 	
+	
+	// 에러 페이지 (비정상적 접근 시)
+	@RequestMapping("errorPage.do")
+	public String errorPage() {
+		
+		return "adminUserControl/errorPage";
+	}
+	
 	// 전체 조회 (페이징)
 	@RequestMapping("/userListPaging.do")
 	public String userListPaging(Model model, HttpServletRequest request) {
@@ -50,7 +58,7 @@ public class UserController {
 	public String userSelect(UserVO vo, Model model, @RequestParam("userID") String userID) {
 		// @requestparam()~~ = httpsrequest ㅇㅇ
 		
-		vo.setUserID(userID);
+//		vo.setUserID(userID);
 		
 		model.addAttribute("user", dao.userSelect(vo));
 				
@@ -154,9 +162,9 @@ public class UserController {
 	public String userDelete(HttpServletRequest req, UserVO vo) {
 		
 		int result = 0;
-		String user = req.getParameter("userID");
+//		String user = req.getParameter("userID");
 		
-		vo.setUserID(user);
+//		vo.setUserID(user);
 		result = dao.userDelete(vo);
 		
 		if (result != 0) {
