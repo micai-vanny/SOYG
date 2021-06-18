@@ -19,6 +19,7 @@
 </style>
 
 <script>
+
 	$(function () {
 		CKEDITOR.replace('imageArea', {
 			filebrowserUploadUrl: '${pageContext.request.contextPath}/fileUpload',
@@ -27,6 +28,8 @@
 		});
 	});
 </script>
+<c:choose>
+	<c:when test = "${id eq 'admin'}">
 <section id="hero_in" class="general">
 	<div class="wrapper">
 		<div class="container">
@@ -39,7 +42,7 @@
 <!--/hero_in-->
 
 <!--class한건 조회-->
-<form name="update" method="post" action="adminClassUpdate.do">
+<form name="frm" method="post" action="adminClassUpdate.do">
 <input type="hidden" name="imageArea" value="${classes.class_image }">
 <div class="wrap">
 	<ol class="breadcrumb">
@@ -61,27 +64,27 @@
 						<i name="class_startchk" class="pending">${classes.class_startchk }</i>
 					</h4>
 					<ul class="course_list">
-						<li><h6>스터디코드</h6><input name="class_code" value="${classes.class_code }"></li>
+						<li><h6>스터디코드</h6><input name="class_code" value="${classes.class_code }" readonly="readonly"></li>
 						<li><h6>스터디명</h6><input name="class_name" value="${classes.class_name }"></li>
 						<li><h6>분야분류</h6><input name="field_code" value="${classes.field_code }"></li>
 						<li><h6>지역코드</h6><input name="loc_code" value="${classes.loc_code }"></li>
 					</ul>
 					<hr>
 					<ul class="course_list">
-						<li><h6>시작일</h6><input name="start_date" value="${start_date}"></li>
+						<li><h6>시작일</h6><input type="date" name="start_date" value="${start_date}"></li>
 						<li><h6>주중/주말</h6>
-							<input type="radio" name="weekdays_chk" value="${classes.weekdays_chk }" <c:if test="${classes.weekdays_chk eq 'W' }" >checked</c:if> >주중
-							<input type="radio" name="weekdays_chk" value="${classes.weekdays_chk }" <c:if test="${classes.weekdays_chk eq 'E' }" >checked</c:if> >주말
+							<input type="radio" ID = "rad" name="weekdays_chk" value="W" <c:if test="${classes.weekdays_chk eq 'W' }" >checked</c:if> >주중
+							<input type="radio" ID = "rad" name="weekdays_chk" value="E" <c:if test="${classes.weekdays_chk eq 'E' }" >checked</c:if> >주말
 						</li>
-						<li><h6>스터디 시간</h6><input name="class_time" value="${classes.class_time }"></li>
+						<li><h6>스터디 시간</h6><input  name="class_time" value="${classes.class_time }"></li>
 						<li><h6>활성/비활성</h6>
-							<input type="radio" name="class_active" value="${classes.class_active }" <c:if test="${classes.class_active eq 'A' }" >checked</c:if> >활성
-							<input type="radio" name="class_active" value="${classes.class_active }" <c:if test="${classes.class_active eq 'I' }" >checked</c:if> >비활성
+							<input type="radio" name="class_active" value="A" <c:if test="${classes.class_active eq 'A' }" >checked</c:if> >활성
+							<input type="radio" name="class_active" value="I" <c:if test="${classes.class_active eq 'I' }" >checked</c:if> >비활성
 						</li>
 						<li><h6>시작여부</h6>
-							<input type="radio" name="class_startchk" value="${classes.class_startchk }" <c:if test="${classes.class_startchk  eq 'R' }" >checked</c:if>>모집중
-							<input type="radio" name="class_startchk" value="${classes.class_startchk }" <c:if test="${classes.class_startchk  eq 'O' }" >checked</c:if>>진행중
-							<input type="radio" name="class_startchk"value="${classes.class_startchk }" <c:if test="${classes.class_startchk  eq 'E' }" >checked</c:if>>모집종료
+							<input type="radio" name="class_startchk" value="R" <c:if test="${classes.class_startchk  eq 'R' }" >checked</c:if>>모집중
+							<input type="radio" name="class_startchk" value="O" <c:if test="${classes.class_startchk  eq 'O' }" >checked</c:if>>진행중
+							<input type="radio" name="class_startchk"value="E" <c:if test="${classes.class_startchk  eq 'E' }" >checked</c:if>>모집종료
 						</li>
 						<li><h6>정원</h6><input name="class_personnel" value="${classes.class_personnel }"></li>
 					</ul>
@@ -89,7 +92,7 @@
 					<h6>스터디 설명</h6>
 					<p><textarea name="class_info" class="textarea">${classes.class_info }</textarea></p>
 					<ul align="right" class="buttons">
-						<li><button onclick="update()" class="btn_1 gray approve"><i
+						<li><button onclick="updateClass()" class="btn_1 gray approve"><i
 								class="fa fa-fw fa-check-circle-o"></i>수정완료</button></li>
 						<li><button  onclick="deleteCheck();" class="btn_1 gray delete"> 삭제</button></li>
 					</ul>
@@ -99,8 +102,31 @@
 	</div>
 </div>
 </form>
+	</c:when>
+	<c:otherwise>
+		<h1 style = "text-align : center;">정상적인 방법으로 접근하시오.</h1>
+	</c:otherwise>
+</c:choose>
+		
 <!-- 수정/삭제 -->
 <script>
+function updateClass(class_code){
+	var week = $('input[name=weekdays_chk]:checked').val();
+	var active = $('input[class_active]').val();
+	var startck = $('input[class_startchk]').val();
+	
+	frm.weekdays_chk.value = week;
+	frm.class_active.value = active;
+	frm.class_startchk.value = startck;
+	
+	
+	var value = CKEDITOR.instances['imageArea'].getData();
+	${classes.class_image} = CKEDITOR.instances.imageArea.getData();
+	System.out.println(class_image);
+	
+	frm.submit();
+}
+
 function deleteCheck(class_code){
 	if(confirm("삭제하시겠습니까?") == true){
 		location.href = "adminClassDelete.do?class_code=" + class_code;
@@ -108,13 +134,7 @@ function deleteCheck(class_code){
 		return false;
 	}
 }
-$(":input:radio[name=name]:checked").val();
-function update(class_code){
-	var value = CKEDITOR.instances['imageArea'].getData();
-	${classes.class_image} = CKEDITOR.instances.imageArea.getData();
-	System.out.println(class_image);
-	
-	update.submit();
-}
-$(":input:radio[name=name]:checked").val();
+
+
+
 </script> 

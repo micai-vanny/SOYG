@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import co.mini.soyg.admin.service.ClassService;
 import co.mini.soyg.admin.vo.ClassVO;
-import co.mini.soyg.admin.vo.Criteria;
 
 @Repository
 public class ClassServiceImpl implements ClassService {
@@ -38,16 +37,22 @@ public class ClassServiceImpl implements ClassService {
 	public int classUpdate(ClassVO vo) {
 		return sqlSession.update("adminClassUpdate", vo);
 	}
-	//class 목록조회 - 페이징
+	// class 리스트 - 페이징
 	@Override
-	public List<ClassVO> list(Criteria cri) {
-		return sqlSession.selectList("listPage",cri);
+	public List<ClassVO> classListPage(ClassVO vo) {
+		return sqlSession.selectList("classListPage", vo);
 	}
-	//class 총 갯수 - 페이징
+	//  class 리스트 - 페이징 카운트(10개)
 	@Override
-	public int listCount() {
-		// TODO Auto-generated method stub
-		return sqlSession.selectOne("listCount");
+	public int classCnt() {
+		return sqlSession.selectOne("classCnt");
 	}
+	// class 검색
+	@Override
+	public List<ClassVO> adminClassSearch(ClassVO vo) {
+		return sqlSession.selectList("adminClassSearch", vo);
+	}
+
+	
 
 }

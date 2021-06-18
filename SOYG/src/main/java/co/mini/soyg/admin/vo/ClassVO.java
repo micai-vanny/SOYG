@@ -18,7 +18,44 @@ public class ClassVO {
 	private String field_code;
 	private String weekdays_chk;
 	private String class_time;
+	private String city;
+	private String captain;
 	
+	//페이징
+	private int firstCnt;
+	private int lastCnt;
+	private int totalCnt;
+	
+	public String getCaptain() {
+		return captain;
+	}
+	public void setCaptain(String captain) {
+		this.captain = captain;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	public int getFirstCnt() {
+		return firstCnt;
+	}
+	public void setFirstCnt(int firstCnt) {
+		this.firstCnt = firstCnt;
+	}
+	public int getLastCnt() {
+		return lastCnt;
+	}
+	public void setLastCnt(int lastCnt) {
+		this.lastCnt = lastCnt;
+	}
+	public int getTotalCnt() {
+		return totalCnt;
+	}
+	public void setTotalCnt(int totalCnt) {
+		this.totalCnt = totalCnt;
+	}
 	public String getWeekdays_chk() {
 		return weekdays_chk;
 	}

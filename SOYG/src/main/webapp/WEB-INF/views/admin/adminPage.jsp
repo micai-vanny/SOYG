@@ -64,36 +64,10 @@
 				</div>
 				<!--/row-->
 			</div>
-
-			<!-- /container -->
-			<div class="bg_color_1">
-				<div class="container margin_60_35">
-					<div class="main_title_3">
-						<span><em></em></span>
-						<h2>Popular articles</h2>
-						<p>Cum doctus civibus efficiantur in imperdiet deterruisset.</p>
-					</div>
-					<div class="list_articles add_bottom_30 clearfix">
-						<ul>
-							<li><a href="#0"><i class="icon_documents_alt"></i>Et dicit vidisse epicurei pri</a></li>
-							<li><a href="#0"><i class="icon_documents_alt"></i>Ad sit virtute rationibus efficiantur</a></li>
-							<li><a href="#0"><i class="icon_documents_alt"></i>Partem vocibus omittam pri ne</a></li>
-							<li><a href="#0"><i class="icon_documents_alt"></i>Case debet appareat duo cu</a></li>
-							<li><a href="#0"><i class="icon_documents_alt"></i>Impedit torquatos quo in</a></li>
-							<li><a href="#0"><i class="icon_documents_alt"></i>Nec omnis alienum no</a></li>
-							<li><a href="#0"><i class="icon_documents_alt"></i>Quo eu soleat facilisi menandri</a></li>
-							<li><a href="#0"><i class="icon_documents_alt"></i>Et dicit vidisse epicurei pri</a></li>
-						</ul>
-					</div>
-					<!-- /list_articles -->
-				</div>
-				<!-- /container -->
-			</div>
-			<!-- /bg_color_1 -->
+			<!--/row-->
 		</main>
 	</c:when>
 	<c:otherwise>
 		<body onload="errorPage()"></body>
 	</c:otherwise>
 </c:choose>
-<!--/main-->
