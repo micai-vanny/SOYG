@@ -113,7 +113,6 @@
 			
 			alert('비밀번호 일치 여부를 확인해 주세요.');
 			document.getElementById('iPwd').focus();
-			console.log(checkPwd);
 			return;
 			
 		}else if (modiPwd != idenPwd){

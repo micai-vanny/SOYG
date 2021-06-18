@@ -62,7 +62,7 @@ button:hover:before, button:hover:after {
 <div class="width">
 	<div id="form_container" class="clearfix">
 				
-		<form id="updateInfo" action="passFinder.do" method="post">
+		<form name = "frm" action="passFinder.do" method="post">
 		
 			<div class="step">
 			
@@ -71,7 +71,7 @@ button:hover:before, button:hover:after {
 				</h3>
 
 				<div class="form-group">
-					<input type="text" name="userId" id="userId" class="form-control required" placeholder = "아이디를 입력해 주세요" maxlength = "15">
+					<input type="text" name="userID" id="userID" class="form-control required" placeholder = "아이디를 입력해 주세요" maxlength = "15">
 				</div>
 				
 				<div class="form-group">
@@ -91,7 +91,7 @@ button:hover:before, button:hover:after {
 					<input type="text" name="phone2" class="form-control" placeholder="4자리" maxlength = "4">
 				</div>
 				
-				<button type="submit" name="process" class="submit">확인!</button>
+				<button type="submit" onclick = "submitBtn()">확인!</button>
 				
 			</div>
 			

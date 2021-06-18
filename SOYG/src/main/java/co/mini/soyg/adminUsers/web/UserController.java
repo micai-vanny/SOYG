@@ -142,7 +142,7 @@ public class UserController {
 		
 //		model.addAttribute("users", dao.userList()); 없어도 redirect쓰면 괜찮네
 
-		return "redirect:/userListPaging.do";	// redirect:/
+		return "redirect:userListPaging.do";	// redirect:/
 		
 //		return "adminUserControl/userList"; 주소창 이상한 놈
 //		return "adminUserControl/userUpdatePage"; 못 찾아가는 놈

@@ -15,11 +15,19 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private SqlSession sqlSession;
 	
-//	@Override
-//	public List<UserVO> userList() {
-//		// TODO 전체 조회
-//		return sqlSession.selectList("userList");
-//	}
+	@Override
+	public int userCnt() {
+		// 멤버 총 수 확인
+		
+		return sqlSession.selectOne("userCnt");
+	}
+	@Override
+	public List<UserVO> userPaging(UserVO vo){
+		// 전체 조회 (페이징)
+		
+		return sqlSession.selectList("userPaging", vo);
+	}
+	
 
 	@Override
 	public UserVO userSelect(UserVO vo) {
@@ -46,16 +54,15 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public int userCnt() {
-		// 멤버 총 수 확인
-		
-		return sqlSession.selectOne("userCnt");
+	public List<UserVO> userSearch(UserVO vo) {
+		// TODO 회원 검색
+		return sqlSession.selectList("userSearch", vo);
 	}
+	
 	@Override
-	public List<UserVO> userPaging(UserVO vo){
-		// 조건에 맞는 멤버 조회
-		
-		return sqlSession.selectList("userPaging", vo);
+	public int selectedUserCnt() {
+		// TODO 조건 맞는 회원 수 확인 ~> 페이징 포기로 안 쓰임
+		return sqlSession.selectOne("selectedUserCnt");
 	}
 	
 }
