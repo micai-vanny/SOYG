@@ -780,7 +780,7 @@ ul#top_menu li a.btn_1:hover {
   border-bottom: 5px solid #FFC107;
 }
 #hero_in.general:before {
-  background: url(http://via.placeholder.com/1600x1067/ccc/fff/bg_general.jpg) center center no-repeat;
+  background: url(../../../mainImage/mymenu.jpg) center center no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -788,7 +788,7 @@ ul#top_menu li a.btn_1:hover {
 }
 #hero_in.general .wrapper {
   background-color: #372675;
-  background-color: rgba(57, 39, 121, 0.8);
+  background-color: rgba(117, 130, 138, 0.5);
 }
 #hero_in.courses:before {
   background: url(http://via.placeholder.com/1600x1067/ccc/fff/bg_courses.jpg) center center no-repeat;
@@ -1365,7 +1365,7 @@ video {
   }
 }
 .hero_single.version_2:before {
-  background: url(http://via.placeholder.com/1600x1067/ccc/fff/home_section_1.jpg) center center no-repeat fixed;
+  background: url(../../../mainImage/loginbenner.jpg) center center no-repeat fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -1373,7 +1373,7 @@ video {
 }
 .hero_single.version_2 .wrapper {
   background-color: #372675;
-  background-color: rgba(57, 39, 121, 0.8);
+  background-color: rgba(146, 146, 78, 0.25);
 }
 .hero_single.version_2 .wrapper h3 {
   font-size: 42px;
@@ -3683,7 +3683,7 @@ section#reviews {
 
 /*-------- 2.5 Login/register/admission--------*/
 #login_bg, #register_bg, #admission_bg {
-  background: url(http://via.placeholder.com/1600x1067/ccc/fff/bg_login.jpg) center center no-repeat fixed;
+  background: url(../../../mainImage/loginbenner2.jpg) center center no-repeat fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

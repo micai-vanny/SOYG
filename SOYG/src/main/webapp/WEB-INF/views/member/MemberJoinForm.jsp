@@ -4,8 +4,18 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <style>
 .blank {
-	margin: auto 0;
-	padding-top: 200px;
+	margin: auto;
+	padding-top: 100px;
+	padding-bottom: 30px;
+	width: 600px;
+	text-align: center;
+}
+.marjin {
+	margin-top: 25px;
+	margin-bottom: 25px;
+}
+.flex {
+	
 }
 </style>
 <script>
@@ -25,7 +35,7 @@
 				type : 'post',
 				success : function(data) {
 					console.log(data);
-					if (data > 0) {
+					if (data == 1) {
 						alert('아이디가 존재합니다. 다른 아이디를 입력하세요.');
 						$('#userId').val("");
 						$('#userId').focus();
@@ -106,6 +116,19 @@
 			frm.detailAddress.focus();
 			return false;
 		}
+		if (frm.roadAddress.value == "") {
+			alert("주소찾기를 눌러 주소를 추가해주세요.");
+			return false;
+		}
+		if(frm.phone.value =="") {
+			alert("전화번호를 입력해주세요.");
+			frm.phone.focus();
+			return false;
+		}
+		if(frm.gender.value=="") {
+			alert("성별 확인 해주세요.");
+			frm.gender.focus();
+		}
 		if (frm.idCheck.value == 'unChecked') {
 			alert("중복체크를 하세요.");
 			frm.memberId.focus();
@@ -185,52 +208,62 @@
 	<form id="frm" action="memberInsert.do" method="post">
 		<div>
 			<div>
-				<p>아이디 :</p>
-				<input type="text" id="userId" name="userId">
+				<input type="text" id="userId" name="userId"
+					class="form-control required" placeholder="사용하실 아이디를 적어주세요.">
 				<button type="button" id="idCheck" value="unChecked">중복체크</button>
 			</div>
 			<div>
-				<p>비밀번호 :</p>
-				<input type="password" id="password" name="password">
+
+				<input type="password" id="password" name="password"
+					class="form-control required" placeholder="비밀번호를 입력해주세요.">
 			</div>
 			<div>
-				<p>비밀번호 확인 :</p>
-				<input type="password" id="password2" name="password2">
+
+				<input type="password" id="password2" name="password2"
+					class="form-control required" placeholder="비밀번호를 다시 입력해주세요.">
 				<button type="button" id="passwordCheck" value="unChecked">비밀번호
 					확인</button>
 			</div>
 			<div>
-				<p>이름 :</p>
-				<input type="text" id="name" name="name">
+
+				<input type="text" id="name" name="name"
+					class="form-control required" placeholder="이름을 입력해주세요.">
 			</div>
 			<div>
-				<p>이메일 :</p>
-				<input type="text" id="email" name="email">
+
+				<input type="email" id="email" name="email"
+					class="form-control required" placeholder="이메일을 입력해주세요.">
 			</div>
 			<div>
-				<p>전화번호 :</p>
-				<input type="text" id="phone" name="phone">
+
+				<input type="tel" id="phone" name="phone"
+					class="form-control required" placeholder="핸드폰번호를 입력해주세요..">
 			</div>
 			<div>
-				<p>생일 :</p>
-				<input type="text" id="birth" name="birth">
+
+				<input type="date" id="birth" name="birth"
+					class="form-control required" placeholder="생년월일을 입력해주세요.">
+			</div>
+			<div class="marjin">
+				남자 <input type="radio" id="gender" name="gender" value="male" style="margin-right: 50px;margin-left: 10px">
+				<input type="radio" id="gender" name="gender" value="female" style="margin-right: 15px;">여자
 			</div>
 			<div>
-				<input type="radio" id="gender" name="gender" value="male">남자
-				<input type="radio" id="gender" name="gender" value="female">여자			</div>
-			<div>
-				<p>주소 :</p>
-				<input type="text" id="postcode" name="postcode" placeholder="우편번호"
-					readonly> <input type="button" onclick="execDaumPostcode()"
-					value="우편번호 찾기"><br> <input type="text"
-					id="roadAddress" name="roadAddress" placeholder="도로명주소" readonly>
-				<span id="guide" style="color: #999; display: none"></span> <input
-					type="text" id="detailAddress" name="detailAddress"
-					placeholder="상세주소"> <input type="text" id="extraAddress"
-					name="extraAddress" placeholder="참고항목" readonly>
+				<input type="button" onclick="execDaumPostcode()" value="우편번호 찾기"
+					class="form-control required"
+					style="color: #8054c5; background-color: #ffd888;"> <input
+					type="text" id="postcode" name="postcode" placeholder="우편번호"
+					readonly class="form-control required"> <input type="text"
+					id="roadAddress" name="roadAddress" placeholder="도로명주소" readonly
+					class="form-control required"> <input type="text"
+					id="extraAddress" name="extraAddress" placeholder="참고항목" readonly
+					class="form-control required"> <input type="text"
+					id="detailAddress" name="detailAddress" placeholder="상세주소"
+					class="form-control required"> <span id="guide"
+					style="color: #999; display: none"></span>
 			</div>
 
-			<div>
+			<div style="margin-top: 50px">
 				<button type="button" onclick="formCheck()">회원가입</button>
 				<button type="button" onclick="location.href='home.do'">홈으로
 				</button>

@@ -18,6 +18,17 @@ public class StudyClassVO {
 	private String class_time;
 	private String captain;
 	private String city;
+	private String userId;
+
+	
+	
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
 
 	public int getClass_code() {
 		return class_code;

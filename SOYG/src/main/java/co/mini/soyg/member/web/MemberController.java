@@ -89,11 +89,14 @@ public class MemberController {
 		HttpSession session = request.getSession();
 		String userId = (String) session.getAttribute("id");
 		StudyClassVO svo = new StudyClassVO();
+		StudyClassVO ssvo = new StudyClassVO();
 		vo.setUserId(userId);
 		svo.setCaptain(userId);
+		ssvo.setUserId(userId);
 		
 		vo = dao.selectMember(vo);
 		model.addAttribute("classlist",study.selectStudyList(svo));
+		model.addAttribute("memberlist",study.classMemberList(ssvo));
 		model.addAttribute("info", vo);
 
 		return "member/mymenu";
@@ -237,11 +240,20 @@ public class MemberController {
 
 	// 회원가입 ID중복체크
 	@RequestMapping("/UserIdCheck.do")
-	public void UserIdCheck(HttpServletResponse response, MemberVO vo) throws IOException {
+	public void UserIdCheck(HttpServletRequest request ,HttpServletResponse response, MemberVO vo) throws IOException {
 
+		String userId = request.getParameter("userId"); 
+
+		vo.setUserId(userId);
+		int cnt=1;
 		boolean b = dao.idCheck(vo);
+		if(b) {
+			cnt=1;
+		} else {
+			cnt=0;
+		}
 
-		response.getWriter().print(b);
+		response.getWriter().print(cnt);
 
 	}
 

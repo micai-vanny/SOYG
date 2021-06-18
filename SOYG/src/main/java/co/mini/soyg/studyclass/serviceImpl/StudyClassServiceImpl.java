@@ -20,6 +20,10 @@ public class StudyClassServiceImpl implements StudyClassService {
 		
 		return Session.selectList("studyClassMemberList",vo);
 	}
+	public List<StudyClassVO> classMemberList(StudyClassVO vo) {
+		
+		return Session.selectList("classMemberList",vo);
+	}
 
 	@Override
 	public StudyClassVO selectStudyClass(StudyClassVO vo) {
