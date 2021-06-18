@@ -9,7 +9,7 @@
 
 <!-- 좋아요 개수 카운트 -->
 <select id="likeItCount" resultType="co.mini.soyg.likeIt.vo.LikeItVO" parameterType="co.mini.soyg.likeIt.vo.LikeItVO">
-	select count(case when like_check = 'Y' then 1 end) from likeIT where class_code = #{class_code}
+	select count(class_code) as likeCnt from likeIT where class_code = #{class_code}
 </select>
 
 <!-- 좋아요 취소 -->
@@ -18,7 +18,7 @@
 </delete>
 
 <!-- 특정 유저가 특정 클래스를 좋아요 한 적 있는가? -->
-<select id="likeItCheck" parameterType="co.mini.soyg.likeIt.vo.LikeItVO" resultType="co.mini.soyg.likeIt.vo.LikeItVO">
+<select id="likeCheck" parameterType="co.mini.soyg.likeIt.vo.LikeItVO" resultType="co.mini.soyg.likeIt.vo.LikeItVO">
 	select * from likeIT where USERID = #{userId} and class_code =#{class_code}
 </select>
 </mapper>
