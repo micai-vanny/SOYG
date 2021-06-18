@@ -174,9 +174,9 @@ FilePond.create(
 						alt="Teacher" class="rounded-circle">
 				</figure>
 				<ul>
-					<li>Name / BirthDay <span class="float-right">${info.name }
-							${info.birth }</span>
+					<li>Name<span class="float-right">${info.name }</span>
 					</li>
+					<li>BirthDay <span class="float-right">${info.birth }</span>
 					<li>MYPHONE <span class="float-right">${info.phone }</span></li>
 					<li style="text-align: center"><a
 						href="infomationUpdatepage.do">정보수정하기</a></li>
@@ -325,83 +325,72 @@ FilePond.create(
 				<div class="indent_title_in">
 					<i class="pe-7s-display1"></i>
 					<h3>내가 가입한 스터디!</h3>
-					<p>내가 모입에 가입한 내역들이에요.</p>
+					<p>내가 모임에 가입한 내역들이에요.</p>
 				</div>
-				<div class="wrapper_indent">
-					<p>Mei ut decore accusam consequat, alii dignissim no usu.
-						Phaedrum intellegat sit ut, no pri mutat eirmod. In eum iriure
-						perpetua adolescens, pri dicunt prodesset et. Vis dicta postulant
-						ad.</p>
-					<div class="table-responsive">
-						<table class="table table-striped add_bottom_30">
-							<thead>
-								<tr>
-									<th>Category</th>
-									<th>Course name</th>
-									<th>Rate</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>Business</td>
-									<td><a href="#">Business Plan</a></td>
-									<td class="rating"><i class="icon-star voted"></i><i
-										class="icon-star voted"></i><i class="icon-star voted"></i><i
-										class="icon-star voted"></i> <i class="icon-star voted"></i></td>
-								</tr>
-								<tr>
-									<td>Business</td>
-									<td><a href="#">Economy pinciples</a></td>
-									<td class="rating"><i class="icon-star voted"></i><i
-										class="icon-star voted"></i><i class="icon-star voted"></i><i
-										class="icon-star"></i> <i class="icon-star"></i></td>
-								</tr>
-								<tr>
-									<td>Business</td>
-									<td><a href="#">Understand diagrams</a></td>
-									<td class="rating"><i class="icon-star voted"></i><i
-										class="icon-star voted"></i><i class="icon-star voted"></i><i
-										class="icon-star voted"></i> <i class="icon-star"></i></td>
-								</tr>
-								<tr>
-									<td>Business</td>
-									<td><a href="#">Marketing strategies</a></td>
-									<td class="rating"><i class="icon-star voted"></i><i
-										class="icon-star voted"></i><i class="icon-star voted"></i><i
-										class="icon-star voted"></i> <i class="icon-star"></i></td>
-								</tr>
-								<tr>
-									<td>Business</td>
-									<td><a href="#">Marketing</a></td>
-									<td class="rating"><i class="icon-star voted"></i><i
-										class="icon-star voted"></i><i class="icon-star voted"></i><i
-										class="icon-star voted"></i> <i class="icon-star voted"></i></td>
-								</tr>
-								<tr>
-									<td>Business</td>
-									<td><a href="#">Business Plan</a></td>
-									<td class="rating"><i class="icon-star voted"></i><i
-										class="icon-star voted"></i><i class="icon-star voted"></i><i
-										class="icon-star"></i> <i class="icon-star"></i></td>
-								</tr>
-								<tr>
-									<td>Business</td>
-									<td><a href="#">Economy pinciples</a></td>
-									<td class="rating"><i class="icon-star voted"></i><i
-										class="icon-star voted"></i><i class="icon-star voted"></i><i
-										class="icon-star voted"></i> <i class="icon-star"></i></td>
-								</tr>
-								<tr>
-									<td>Business</td>
-									<td><a href="#">Understand diagrams</a></td>
-									<td class="rating"><i class="icon-star voted"></i><i
-										class="icon-star voted"></i><i class="icon-star voted"></i><i
-										class="icon-star voted"></i> <i class="icon-star"></i></td>
-								</tr>
-							</tbody>
-						</table>
+				<c:forEach var="memberlist" items="${memberlist }">
+					<div style="padding-bottom: 50">
+						<div class="wrapper_indent">
+							<h5>${memberlist.class_name }</h5>
+							<input type="hidden" id="class_code${memberlist.class_code }" name="class_code" value="${memberlist.class_code }">
+							<strong style="margin-top: 35px;">스터디 설명</strong>
+							<hr>
+							<div class="box">
+								<div class="content">
+									<p>${memberlist.class_info }</p>
+								</div>
+							</div>
+							<hr>
+							<div class="row">
+								<div class="col-md-6">
+									<ul class="list_3">
+
+										<li><strong>모집 여부</strong> <c:choose>
+												<c:when test="${memberlist.class_startchk eq 'R' }">
+													<p>
+														<font color="red">모집중</font>
+													</p>
+												</c:when>
+												<c:when test="${memberlist.class_startchk eq 'O' }">
+													<p>
+														<font color="blue">진행중</font>
+													</p>
+												</c:when>
+												<c:otherwise>
+													<p>
+														<font color="black">모집완료</font>
+													</p>
+												</c:otherwise>
+											</c:choose></li>
+
+										<li><strong>스터디 개설날짜</strong>
+											<p>${memberlist.start_date }</p></li>
+										<li><strong>활동시간</strong>
+											<p>${memberlist.class_time }</p></li>
+									</ul>
+								</div>
+								<div class="col-md-6">
+									<ul class="list_3">
+										<li><strong>활동지역</strong>
+											<p>${memberlist.city }</p></li>
+										<li><strong>주중활동여부</strong> <c:choose>
+
+												<c:when test="${memberlist.weekdays_chk eq 'W' }">
+													<p>주중에도 활동</p>
+												</c:when>
+												<c:otherwise>
+													<p>주말에만 활동</p>
+												</c:otherwise>
+											</c:choose></li>
+										<li><strong>정원</strong>
+											<p>${memberlist.class_personnel}</p></li>
+									</ul>
+								</div>
+							</div>
+							<!-- End row-->
+						</div>
 					</div>
-				</div>
+					<hr class="styled_2" style="border-color: #b36060;">
+				</c:forEach>
 				<!--wrapper_indent -->
 			</div>
 		</div>

@@ -102,6 +102,19 @@ button:hover:before, button:hover:after {
 			});
 		});
 	});
+	function addressCheck() {
+		if (updateAddress.detailAddress.value == "") {
+			alert("상세주소를 입력하세요.");
+			updateAddress.detailAddress.focus();
+			return false;
+		}
+		if (updateAddress.roadAddress.value == "") {
+			alert("주소찾기를 눌러 주소를 추가해주세요.");
+			return false;
+		}
+		updateAddress.submit();
+	}
+	
 	// 카카오 E-mail API
 	function execDaumPostcode() {
 		new daum.Postcode(
@@ -205,7 +218,7 @@ button:hover:before, button:hover:after {
 								value="${info.phone }" placeholder="Your Telephone">
 						</div>
 						<div class="form-group">
-							<input type="text" name="birth" id="birth" class="form-control"
+							<input type="date" name="birth" id="birth" class="form-control"
 								value="${info.birth }" placeholder="BirthDay">
 						</div>
 						<button type="submit" name="process" class="submit">정보수정하기!</button>
@@ -243,7 +256,7 @@ button:hover:before, button:hover:after {
 							class="form-control required" placeholder="상세주소를 입력해주세요">
 					</div>
 					&nbsp; &nbsp; &nbsp;
-					<button type="submit" id="addressCheck" class="submit">주소수정하기!</button>
+					<button type="button" onclick="addressCheck()" class="submit">주소수정하기!</button>
 					<hr>
 				</form>
 				<!-- /step-->
