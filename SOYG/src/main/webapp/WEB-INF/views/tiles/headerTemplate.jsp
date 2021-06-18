@@ -44,12 +44,6 @@
     </a>
     <nav id="menu" class="main-menu">
         <ul>
-            <!-- <li>
-                <span><a href="#0">처음으로</a></span>
-            </li> -->
-            <!-- <li>
-                <span><a href="admin.do">관리자페이지</a></span>
-            </li> -->
             <li>
                 <span><a href="home.do">Home</a></span>
             </li>
@@ -102,6 +96,10 @@
             	<c:when test = "${id eq 'admin' }">
 		            <li>
 		               <span><a href="admin.do">관리자페이지</a></span>
+		               	<ul>
+		               		<li><a href = "adminClassList.do">스터디모임 관리</a></li>
+		               		<li><a href = "userListPaging.do">회원 관리</a></li>
+		               	</ul>
 		            </li>            	
             	</c:when>
             </c:choose>

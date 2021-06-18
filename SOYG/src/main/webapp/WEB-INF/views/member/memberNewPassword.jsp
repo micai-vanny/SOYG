@@ -63,9 +63,6 @@ button:hover:before, button:hover:after {
 <script>
 	function checkThePwd(){
 		
-		let id = document.getElementsByName('userID')[0].value;
-		console.log(id);
-		
 		if(mPwd.value === "" && iPwd.value === ""){
 			
 			alert('변경할 비밀번호가 입력되어 있지 않습니다.');
@@ -82,6 +79,7 @@ button:hover:before, button:hover:after {
 			
 			alert('일치합니다.');
 			pwdCheck.value = "checked";
+			console.log("체크 박스 변경 후 값 : " + pwdCheck.value);
 			
 		}
 		
@@ -91,8 +89,18 @@ button:hover:before, button:hover:after {
 		
 		if(mPwd.value != "" && pwdCheck.value == "unChecked"){
 			
+			console.log('체크 박스 값이 먼데 : ' + pwdCheck.value);
+			console.log('비번이 먼데 : ' + mPwd.value);
+			
 			alert('비밀번호 일치 여부를 확인해 주세요.');
 			iPwd.focus();
+			return;
+			
+		} else if (mPwd.value != iPwd.value) {
+			
+			alert('비밀번호를 확인해 주세요.');
+			iPwd.focus();
+			pwdCheck.value = "unChecked";
 			return;
 			
 		} else if (mPwd.value != iPwd.value && pwdCheck.value == "unChecked"){
@@ -115,7 +123,7 @@ button:hover:before, button:hover:after {
 				
 		<form name = "frm" action="passRedefine.do" method="post">
 		
-			<input type = "hidden" name = "userID" value = "${user.userId }">
+			<input type = "hidden" name = "userId" value = "${user.userId }">
 		
 			<div class="step">
 			
@@ -124,18 +132,18 @@ button:hover:before, button:hover:after {
 				</h3>
 
 				<div class="form-group">
-					<input type="password" name="mPwd" id="mPwd" class="form-control required" placeholder = "새 비밀번호를 입력해 주세요" maxlength = "15">
+					<input type="password" name="mPwd" id="mPwd" class="form-control required" placeholder = "새 비밀번호를 입력해 주세요" maxlength = "15" required>
 				</div>
 				
 				<div class="form-group">
-					<input type="password" id="iPwd" class="form-control required" placeholder = "비밀번호를 확인해 주세요" maxlength = "15">
+					<input type="password" id="iPwd" class="form-control required" placeholder = "비밀번호를 확인해 주세요" maxlength = "15" required>
 				</div>
 				
 				<button type = "button" onclick="checkThePwd()" class="btn_1 gray approve" value = "unChecked" id = "pwdCheck">
 					<i class="fa fa-fw fa-check-circle-o"></i>일치 여부 확인
 				</button>
 				
-				<button type="submit" onclick = "submitBtn()">확인!</button>
+				<button type="button" onclick = "submitBtn()">확인!</button>
 				
 			</div>
 			

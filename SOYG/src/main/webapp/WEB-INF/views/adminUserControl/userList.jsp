@@ -108,7 +108,8 @@
 		location.href = "userListPaging.do?page=" + page;
 	}
 
-	/* $(function() {
+	/* 모달창 실패
+	$(function() {
 
 		$(".check_button").click(function() {
 			$(".check_modal").fadeIn();
@@ -118,7 +119,15 @@
 			$(".check_modal").fadeOut();
 		});
 
-	}); */
+	}); 
+	*/
+	
+	// 관리자 이외에 접근 시 에러 페이지로 이동
+	function errorPage(){
+		
+		location.href = "errorPage.do";
+	}
+	
 </script>
 
 <section id="hero_in" class="general">
@@ -133,8 +142,6 @@
 
 <c:choose>
 	<c:when test="${id eq 'admin'}">
-
-		
 
 			<div class="wrap" align="center">
 				<div>
@@ -221,13 +228,13 @@
 					</div>
 				</div>
 			</div>
-			
-		
 
 	</c:when>
+	
 	<c:otherwise>
-		<h1 style="text-align: center;">정상적인 방법으로 접근하시오.</h1> <!-- file:///D:/SOYG/SOYG/src/main/webapp/resources/udema_v_1.9/html_menu_2/404.html 띄울 예정 -->
+		<body onload = "errorPage()"></body>
 	</c:otherwise>
+	
 </c:choose>
 <!-- 모달창 -->
 <!-- <div class="check_modal">

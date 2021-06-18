@@ -247,9 +247,11 @@ public class MemberController {
 
 	// 비밀번호 찾기
 	@RequestMapping("passFinder.do")
-	public String passFinder(HttpServletRequest req, MemberVO vo, Model model) {
+	public String passFinder(HttpServletRequest req, HttpServletResponse resp, MemberVO vo, Model model) throws IOException {
 
-//		String userID = req.getParameter("userid");
+		MemberVO result = new MemberVO();	// 결과 값 유무
+		
+//		String userID = req.getParameter("userID");
 //		String name = req.getParameter("name");
 //		String birth = req.getParameter("birth");
 		
@@ -264,23 +266,37 @@ public class MemberController {
 //		vo.setName(name);
 //		vo.setBirth(birth);
 		
-		model.addAttribute("user", dao.passFinder(vo));
+		System.out.println("VO에 담긴 값 확인 : " + vo.toString());
+		
+		result = dao.passFinder(vo);
+		
+		System.out.println("쿼리 결과 값 : " + result);
+		
+		if(result == null) {
+			
+			resp.sendRedirect("memberPassFinder.do");
+		} 
+			
+		model.addAttribute("user", result);
 		
 		return "member/memberNewPassword";
+		
 	}
 	
 	// 비밀번호 재설정
 	@RequestMapping("passRedefine.do")
-	public String passRedefine(HttpServletRequest req, Model model, MemberVO vo) {
+	public String passRedefine(HttpServletRequest req, MemberVO vo) {
 		
-		String userID = req.getParameter("userID");
+//		String userID = req.getParameter("userID");
 		String password = req.getParameter("mPwd");
 		
-		vo.setUserId(userID);
+//		vo.setUserId(userID);
 		vo.setPassword(password);
 		
-		((MemberServiceImpl) dao).updatePassword(vo);
+		System.out.println("VO에 담긴 값 확인 : " + vo.toString());
 		
+		dao2.updatePassword(vo);
+
 		return "redirect:home.do";
 	}
 	
