@@ -87,25 +87,32 @@ button:hover:before, button:hover:after {
 	
 	function submitBtn(){
 		
-		if(mPwd.value != "" && pwdCheck.value == "unChecked"){
+		if(mPwd.value === ""){
 			
-			console.log('체크 박스 값이 먼데 : ' + pwdCheck.value);
-			console.log('비번이 먼데 : ' + mPwd.value);
+			alert('변경할 비밀번호를 입력해 주세요!');
+			
+			mPwd.focus();
+			return;
+			
+		} else if(iPwd.value === ""){
+			
+			alert('비밀번호를 한번 더 입력해 주세요!');
+			
+			iPwd.focus();
+			return;
+			
+		} else if(pwdCheck.value == "unChecked"){
 			
 			alert('비밀번호 일치 여부를 확인해 주세요.');
+			
 			iPwd.focus();
 			return;
 			
 		} else if (mPwd.value != iPwd.value) {
 			
-			alert('비밀번호를 확인해 주세요.');
-			iPwd.focus();
+			alert('입력하신 비밀번호가 기존과 다르게 바뀌었습니다. 다시 한번 확인해 주세요.');
+			
 			pwdCheck.value = "unChecked";
-			return;
-			
-		} else if (mPwd.value != iPwd.value && pwdCheck.value == "unChecked"){
-			
-			alert("비밀번호를 한번 더 체크하시오.");
 			iPwd.focus();
 			return;
 			
@@ -132,11 +139,11 @@ button:hover:before, button:hover:after {
 				</h3>
 
 				<div class="form-group">
-					<input type="password" name="mPwd" id="mPwd" class="form-control required" placeholder = "새 비밀번호를 입력해 주세요" maxlength = "15" required>
+					<input type="password" name="mPwd" id="mPwd" class="form-control" placeholder = "새 비밀번호를 입력해 주세요" maxlength = "15">
 				</div>
 				
 				<div class="form-group">
-					<input type="password" id="iPwd" class="form-control required" placeholder = "비밀번호를 확인해 주세요" maxlength = "15" required>
+					<input type="password" id="iPwd" class="form-control" placeholder = "비밀번호를 확인해 주세요" maxlength = "15">
 				</div>
 				
 				<button type = "button" onclick="checkThePwd()" class="btn_1 gray approve" value = "unChecked" id = "pwdCheck">

@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import co.mini.soyg.adminUsers.service.UserService;
 import co.mini.soyg.adminUsers.vo.UserVO;
@@ -55,7 +54,7 @@ public class UserController {
 	
 	// 회원 하나 조회
 	@RequestMapping("/userSelect.do")
-	public String userSelect(UserVO vo, Model model, @RequestParam("userID") String userID) {
+	public String userSelect(UserVO vo, Model model) {
 		// @requestparam()~~ = httpsrequest ㅇㅇ
 		
 //		vo.setUserID(userID);
@@ -77,6 +76,7 @@ public class UserController {
 		
 		String name = req.getParameter("userName");
 		String passwd = req.getParameter("iPwd");
+		String randomPwd = req.getParameter("randomPwd");
 		String birth = req.getParameter("birth");
 		String gender = req.getParameter("gender");
 		
@@ -116,8 +116,12 @@ public class UserController {
 			fullAddr = req.getParameter("exAddr");
 		}
 		
-		if (passwd.equals("")) {
+		if (passwd.equals("") && randomPwd.equals("")) {
+			
 			passwd = req.getParameter("exPwd");
+		} else if (!randomPwd.equals("")) {
+			
+			passwd = randomPwd;
 		}
 		
 		if (birth.equals("")) {
@@ -142,6 +146,7 @@ public class UserController {
 		if (result != 0) {
 			
 			System.out.println("유저 정보 수정 : " + result + "건 완료.");
+			System.out.println(vo.getUserID() + "의 비밀번호 값 : " + vo.getPassword());
 		} else {
 			
 			System.out.println("수정 안 됨.");
@@ -186,7 +191,7 @@ public class UserController {
 		String searchType = req.getParameter("searchType");	// 검색 옵션
 		String keyword = req.getParameter("searchKeyword");	// 검색 내용
 		
-		if(searchType.equals("option_id")) {// 검색 옵션 아이디로 선택했을 경우
+		if(searchType.equals("option_id")) {// 검색 옵션을 아이디로 선택했을 경우
 			
 			vo.setUserID(keyword);
 		} else {// 검색 옵션을 이름으로 선택했을 경우

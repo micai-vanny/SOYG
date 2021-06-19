@@ -14,6 +14,12 @@
 		-webkit-appearance: none;
 	}
 	
+	input[type="date"]::before {content:attr(data-placeholder);width:100%}
+	input[type="date"]:focus::before,
+	input[type ="date"]:valid::before {
+		display: none;
+	}
+	
 /* 	.info_update_window {
 	    padding-top: 100px;
 	    display: flex;
@@ -144,9 +150,35 @@
 			
 			alert('수정됐습니다.\n미입력 정보는 기존값으로 넣어집니다.');	// 안 돼도 됐다고 함.
 			frm.submit();
-			//location.href = 'userList.do';
 			
 		}
+	}
+	
+	function randomPassword(){
+		
+		alert('랜덤 비밀번호 생성!');
+		
+		var newPwd = document.getElementsByName('randomPwd')[0].value;
+		var randomValue = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+							+ "abcdefghijklmnopqrstuvwxyz"
+							+ "0123456789!@#$%^&*()_-+=~`,.";
+		
+		for (i = 1; i <= 8; i++) {
+			
+			randomPoint = Math.round(Math.random() * randomValue.length + 1);
+			Pwdchar = randomValue.charAt(randomPoint);
+			
+			if (i == 1) {
+				
+				newPwd = Pwdchar;
+			} else {
+				
+				newPwd += Pwdchar;
+			}
+		}
+		randomPwd.value = newPwd;
+		alert ('새로이 생성된 비밀번호는 뒤에서 확인 바랍니다.');
+		frm.submit();
 	}
 	
 	// 주소 api ~>> http://postcode.map.daum.net/guide
@@ -256,6 +288,9 @@
 						<li class="breadcrumb-item">
 							<a href="admin.do">관리자 페이지</a>
 						</li>
+						<li class = "breadcrumb-item">
+							<a href = "userListPaging.do">회원 리스트</a>
+						</li>
 						<li class="breadcrumb-item active">회원 정보 수정 페이지</li>
 					</ol>
 		      
@@ -264,7 +299,6 @@
 					<!-- 미수정 시 받아갈 값들 -->
 					<input type = "hidden" name = "exID" value = "${user.userID }">
 					<input type = "hidden" name = "exName" value = "${user.name }">
-					<input type = "hidden" name = "exBirth" value = "${user.birth }">
 					<input type = "hidden" name = "exGender" value = "${user.gender }">
 				
 					<div class="box_general padding_bottom">
@@ -300,9 +334,17 @@
 									<div class="col-md-6">
 										<div class="form-group">
 											<label>생년월일</label>
-											<input type="number" class="form-control" name = "birth" placeholder="${user.birth }" maxlength = "6" oninput = "numberLength(this);">
+											<input type = "text" name = "exBirth" class = "form-control" placeholder="${user.birth }" readonly value = "${user.birth }">
 										</div>
 									</div>
+									<div class = "col-md-6">
+										<div class = "form-group">
+											<label>변경할 생년월일</label>
+											<input type="date" class="form-control" name = "birth" data-placeholder = "우측 아이콘 클릭" required aria-required="ture">
+										</div>
+									</div>
+								</div>
+								<div class = "row">
 									<div class="col-md-6">
 										<div class="form-group">
 											<label>성별 : ${user.gender }</label>
@@ -315,8 +357,13 @@
 													<input type = "radio" name = "gender" value = "male">남자
 													<input type = "radio" name = "gender" value = "female" checked>여자
 												</c:if>
+												<c:if test= "${user.gender ne 'female' && user.gender ne 'male' }">
+													<input type = "radio" name = "gender" value = "male">남자
+													<input type = "radio" name = "gender" value = "female">여자
+													<input type = "hidden" name = "gender" value = "">
+												</c:if>
 											</div>
-											<%-- <input type="email" class="form-control" name = "gender" placeholder="${user.gender }"> --%>
+											<%-- <input type="text" class="form-control" name = "gender" placeholder="${user.gender }"> --%>
 										</div>
 									</div>
 								</div>
@@ -358,6 +405,7 @@
 													<input type = "text" id = "bunAddr" name = "bunAddr" placeholder = "지번 주소" readonly>
 													<span id = "guide" style = "color:#999; display:none"></span>
 												</div>
+												<br>
 												<div>
 													<input type = "text" id = "detailAddr" name = "detailAddr" placeholder = "상세 주소" maxlength="40">
 													<input type = "text" id = "extraAddr" name = "extraAddr" placeholder = "참고 항목" readonly>
@@ -429,10 +477,12 @@
 									</button>
 									<input class="form-control" type="password" maxlength = "20" id = "iPwd" name = "iPwd">
 								</div>
-								<!-- <div class = "form-group">
-									<label>비밀 번호 일치 여후 확인</label>
-									<button class="form-control" type = "button" name = "pwdCheck" onclick = "checkThePwd()" value = "unChecked">확인</button>
-								</div> -->
+								<div class="form-group">
+									<button type = "button" onclick="randomPassword()" class="btn_1 gray approve">
+										<i class="fa fa-fw fa-check-circle-o"></i>귀찮아? 귀찮으면 눌러!
+									</button>
+									<input type = "hidden" name = "randomPwd" id = "randomPwd">
+								</div>
 							</div>
 						</div>
 						
