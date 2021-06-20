@@ -5,9 +5,7 @@ import java.util.List;
 import co.mini.soyg.main.vo.MainVO;
 
 public interface MainService {
-	//로그인 시 지역별 스터디 그룹 조회
-	List<MainVO> loginRegionGroupList();
-	//비로그인 시 최근 등록 스터디 그룹 조회
+	//최근 등록 스터디 그룹 조회
 	List<MainVO> recentlyClassList();
 	
 	// 메인 지역별 카테고리 리스트
@@ -32,5 +30,8 @@ public interface MainService {
 	
 	// 검색 기능
 	List<MainVO> searchClass(MainVO vo);
+	
+	//유저가 좋아요한 클래스들의 정보
+	List<MainVO> likeCheck(MainVO vo);
 	
 }

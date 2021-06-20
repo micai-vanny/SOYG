@@ -22,8 +22,6 @@ public class MainController {
 		
 		//지역별 스터디 리스트 뷰
 		String userId = (String) session.getAttribute("id");
-		System.out.println(vo.getLoc_code());
-		System.out.println(vo.getClass_code());
 		
 		vo.setUserId(userId);
 		// 리스트 정보
@@ -36,9 +34,12 @@ public class MainController {
 	}
 	
 	@RequestMapping("/regionGrid.do")
-	public String regionGrid(MainVO vo, Model model) {
+	public String regionGrid(HttpServletRequest request, MainVO vo, Model model) {
 		// 지역별 그리드 리스트
-		System.out.println(vo.getLoc_code());
+		HttpSession session = request.getSession();
+		String userId = (String) session.getAttribute("id");
+		
+		vo.setUserId(userId);
 		// 리스트 정보
 		model.addAttribute("regionList", dao.regionList(vo));
 		// 카테고리 리스트(pull-down menu)
@@ -49,9 +50,13 @@ public class MainController {
 	}
 	
 	@RequestMapping("/fieldsList.do")
-	public String fieldsList(MainVO vo, Model model) {
+	public String fieldsList(HttpServletRequest request, MainVO vo, Model model) {
 		//분야별 스터디 리스트 뷰
 		System.out.println("분야코드 : "+vo.getField_code());
+		HttpSession session = request.getSession();
+		String userId = (String) session.getAttribute("id");
+		
+		vo.setUserId(userId);
 		// 리스트 정보
 		model.addAttribute("fieldsList", dao.fieldsList(vo));
 		//카테고리 리스트
@@ -62,9 +67,13 @@ public class MainController {
 	}
 	
 	@RequestMapping("/fieldsGrid.do")
-	public String fieldsGrid(MainVO vo, Model model) {
+	public String fieldsGrid(HttpServletRequest request, MainVO vo, Model model) {
 		// 분야별 그리드 리스트
 		System.out.println(vo.getField_code());
+		HttpSession session = request.getSession();
+		String userId = (String) session.getAttribute("id");
+		
+		vo.setUserId(userId);
 		//리스트 정보
 		model.addAttribute("fieldsList", dao.fieldsList(vo));
 		//카테고리 리스트
@@ -78,6 +87,9 @@ public class MainController {
 	public String searchClass(HttpServletRequest request, MainVO vo, Model model) {
 		HttpSession session = request.getSession();
 		System.out.println(vo.getSearch());
+		String userId = (String) session.getAttribute("id");
+		
+		vo.setUserId(userId);
 		//메인에서 스터디 검색
 		model.addAttribute("searchClass", dao.searchClass(vo));
 		session.setAttribute("searchSession", vo.getSearch());
@@ -85,8 +97,12 @@ public class MainController {
 	}
 	
 	@RequestMapping("/searchGrid.do")
-	public String searchGrid(MainVO vo, Model model) {
+	public String searchGrid(HttpServletRequest request, MainVO vo, Model model) {
 		// 검색결과 그리드 리스트
+		HttpSession session = request.getSession();
+		String userId = (String) session.getAttribute("id");
+		
+		vo.setUserId(userId);
 		model.addAttribute("searchClass", dao.searchClass(vo));
 		return ("main/searchGrid");
 	}

@@ -25,6 +25,8 @@ public class MainVO {
 	private String captain;
 	private String userId;
 	private String like_check;
+	private int like_cnt;
+	private int all_cnt;
 
 	public String getUserId() {
 		return userId;
@@ -200,5 +202,21 @@ public class MainVO {
 
 	public void setCaptain(String captain) {
 		this.captain = captain;
+	}
+
+	public int getLike_cnt() {
+		return like_cnt;
+	}
+
+	public void setLike_cnt(int like_cnt) {
+		this.like_cnt = like_cnt;
+	}
+
+	public int getAll_cnt() {
+		return all_cnt;
+	}
+
+	public void setAll_cnt(int all_cnt) {
+		this.all_cnt = all_cnt;
 	}
 }

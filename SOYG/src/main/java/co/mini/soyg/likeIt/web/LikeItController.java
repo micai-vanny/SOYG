@@ -41,14 +41,14 @@ public class LikeItController {
 			model.addAttribute("likeItUpdate", dao.likeItUpdate(vo));
 			lvo = dao.likeItCount(vo);
 			System.out.println(lvo);
-			result = lvo.getLikeCnt();
+			result = 1;
 		} else {
 		// 사용자가 해당 스터디를 좋아요한 적이 있는 경우
 		// 좋아요를 취소하고 좋아요 개수도 감소
 			model.addAttribute("likeItUndo", dao.likeItUndo(vo));
 			lvo = dao.likeItCount(vo);
 			System.out.println(lvo);
-			result = lvo.getLikeCnt();
+			result = 0;
 		}
 		return result;
 	}

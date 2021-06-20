@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%> 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <div id="page">
 	<main>
@@ -53,22 +54,30 @@
 								<div class="col-lg-7">
 									<div class="wrapper">
 										<c:if test="${!empty id }">
-										<div style="display:flex; justify-content: flex-end; margin-bottom: -5px">
+											<div style="display:flex; justify-content: flex-end; margin-bottom: -5px">
 													<a href="javascript:void(0);" id="likeIt">
-						                                 <span style="font-size: 18pt" id="likeIcon">🤍</span>
-						                                 <input type="hidden" class="c_class_code" value="${vo.class_code}">
-						                            </a>
-										</div>
+														<c:choose>
+															<c:when test="${empty vo.like_check }">
+										                          <span style="font-size: 18pt" class="likeIcon">🤍</span>
+										                          <input type="hidden" class="c_class_code" value="${vo.class_code}">
+									                        </c:when>
+									                        <c:otherwise>
+									                              <span style="font-size: 18pt" class="likeIcon">💗</span>
+										                          <input type="hidden" class="c_class_code" value="${vo.class_code}">
+									                        </c:otherwise>
+									                    </c:choose>
+									                </a>
+											</div>
 										</c:if>
 										<small>${vo.city }</small>
 										<h3>${vo.class_name }</h3>
 										<p>스터디 모집 정원 : ${vo.class_personnel }<br>
 											<c:choose>
 												<c:when test="${vo.class_startchk eq 'R' }">
-													스터디원 모집 중!
+													현재 스터디원 모집 중!
 												</c:when>
 												<c:when test="${vo.class_startchk eq 'O' }">
-													스터디 진행 중!
+													현재 스터디 진행 중!
 												</c:when>
 												<c:otherwise>
 													모집이 마감된 스터디입니다.
@@ -76,8 +85,13 @@
 											</c:choose>
 											<br>
 											스터디 책임자 : ${vo.captain }
+											<br>
+											<c:if test="${!empty vo.start_date }">
+											<fmt:formatDate var="startDate" pattern="yyyy-MM-dd" value="${vo.start_date }"/>
+											시작 날짜 : <c:out value="${startDate }" />
+											</c:if>
 										</p>
-										<div class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i> <small>(145)</small></div>
+										<!-- <div class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i> <small>(145)</small></div> -->
 									</div>
 									<ul>
 										<li><i class="icon-clock-4"></i> 
@@ -90,9 +104,9 @@
 												</c:otherwise>						
 											</c:choose>
 										</li>
-										<li><i class="icon_like"></i>
-											<span class="likeit_count">${vo.like_check }</span>
-											</li>
+										<%-- <li><i class="icon_like"></i>
+											<span class="likeit_count">${vo.all_cnt }</span>
+										</li> --%>
 										<li><a href="studySelect.do?class_code=${vo.class_code }">자세히 보기</a></li>
 									</ul>
 								</div>
@@ -119,6 +133,8 @@
 	$('body').on('click','#likeIt' ,function(){
             let test = $(this).closest(".col-lg-7").find(".likeit_count");
             let c_code = $(this).closest(".col-lg-7").find(".c_class_code").val();
+            let icon = $(this).closest(".col-lg-7").find(".likeIcon");
+            console.log(icon);
                $.ajax({
                   url: 'likeItEdit.do',
                   type: "POST",
@@ -129,8 +145,15 @@
                   success: function(result) {
                      console.log("Good!");
                      console.log(result);
-                     $(test).empty();
-                     $(test).append(result);
+                     if(result == 1){
+                    	 $(icon).empty();
+                    	 $(icon).append("💗");
+                    } else  {
+                    	$(icon).empty();
+                    	$(icon).append("🤍");
+                    }
+               /*       $(test).empty();
+                     $(test).append(result); */
                 }
            });
       });

@@ -15,12 +15,6 @@ public class MainServiceImpl implements MainService {
 	private SqlSession sqlSession;
 
 	@Override
-	public List<MainVO> loginRegionGroupList() {
-		//로그인 시 지역별 스터디 그룹 조회
-		return null;
-	}
-
-	@Override
 	public List<MainVO> recentlyClassList() {
 		//최근 등록 스터디 그룹 조회
 		return sqlSession.selectList("recentlyClass");
@@ -78,6 +72,12 @@ public class MainServiceImpl implements MainService {
 	public List<MainVO> searchClass(MainVO vo) {
 		// 검색 기능
 		return sqlSession.selectList("searchClass", vo);
+	}
+
+	@Override
+	public List<MainVO> likeCheck(MainVO vo) {
+		// 특정유저가 좋아요한 클래스 정보
+		return sqlSession.selectList("likeCheck", vo);
 	}
 
 	

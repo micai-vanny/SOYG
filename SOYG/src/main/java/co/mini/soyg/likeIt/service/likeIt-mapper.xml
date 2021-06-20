@@ -21,4 +21,5 @@
 <select id="likeCheck" parameterType="co.mini.soyg.likeIt.vo.LikeItVO" resultType="co.mini.soyg.likeIt.vo.LikeItVO">
 	select * from likeIT where USERID = #{userId} and class_code =#{class_code}
 </select>
+
 </mapper>

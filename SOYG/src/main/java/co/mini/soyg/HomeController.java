@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import co.mini.soyg.main.service.MainService;
+import co.mini.soyg.main.vo.MainVO;
 
 @Controller
 public class HomeController {
@@ -16,8 +17,13 @@ public class HomeController {
 	private MainService dao;
 	
 	@RequestMapping("/home.do")
-	public String home(HttpServletRequest request, Model model) {
+	public String home(HttpServletRequest request, MainVO vo, Model model) {
 		HttpSession session = request.getSession();
+		String userId = (String)session.getAttribute("id");
+		
+		vo.setUserId(userId);
+		System.out.println(vo.getUserId());
+		
 		// 최근 등록된 스터디 모임 리스트
 		model.addAttribute("recentlyClass", dao.recentlyClassList());
 		// 지역별 카테고리

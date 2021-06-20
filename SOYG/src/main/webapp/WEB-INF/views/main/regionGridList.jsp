@@ -1,11 +1,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%> 
 <section id="hero_in" class="courses">
 	<div class="wrapper">
 		<div class="container">
 			<h1 class="fadeInUp">
-				<span></span>Áö¿ªº° ½ºÅÍµğ : ${regionName.loc_name }
+				<span></span>ì§€ì—­ë³„ ìŠ¤í„°ë”” : ${regionName.loc_name }
 			</h1>
 		</div>
 	</div>
@@ -34,58 +35,116 @@
 
 <div class="container margin_60_35">
 	<div class="row">
-		<c:forEach items="${regionList }" var="vo">
-		<div class="col-xl-4 col-lg-6 col-md-6">
-			<div class="box_grid wow">
-				<figure class="block-reveal">
-					<div class="block-horizzontal"></div>
-					<a href="#0" class="wish_bt"></a>
-					<a href="studySelect.do?class_code=${vo.class_code }"><img
-						src="${pageContext.request.contextPath}/resources/classImage/${vo.class_image }"
-						class="img-fluid" alt=""></a>
-					<div class="preview">
-						<span>½ºÅÍµğ Á¤º¸ º¸±â</span>
-					</div>
-				</figure>
-				<div class="wrapper">
-					<small>${vo.city }</small>
-					<h3>${vo.class_name }</h3>
-					<p>½ºÅÍµğ ¸ğÁı Á¤¿ø : ${vo.class_personnel }<br>
+		<c:choose>
+			<c:when test ="${!empty regionList }">
+				<c:forEach items="${regionList }" var="vo">
+				<div class="col-xl-4 col-lg-6 col-md-6">
+					<div class="box_grid wow">
+						<figure class="block-reveal">
+							<div class="block-horizzontal"></div>
+							<a href="studySelect.do?class_code=${vo.class_code }"><img
+								src="${pageContext.request.contextPath}/resources/classImage/${vo.class_image }"
+								class="img-fluid" alt=""></a>
+							<div class="preview">
+								<span>ìŠ¤í„°ë”” ì •ë³´ ë³´ê¸°</span>
+							</div>
+						</figure>
+						<div class="wrapper">
+							<c:if test="${!empty id }">
+									<div style="display:flex; justify-content: flex-end; margin-bottom: -45px">
+											<a href="javascript:void(0);" id="likeIt">
+													<c:choose>
+														<c:when test="${empty vo.like_check }">
+												              <span style="font-size: 18pt" class="likeIcon">ğŸ¤</span>
+												              <input type="hidden" class="c_class_code" value="${vo.class_code}">
+											            </c:when>
+											            <c:otherwise>
+											                  <span style="font-size: 18pt" class="likeIcon">ğŸ’—</span>
+												              <input type="hidden" class="c_class_code" value="${vo.class_code}">
+											            </c:otherwise>
+											        </c:choose>
+											</a>
+									</div>
+							</c:if>
+							<small>${vo.city }</small>
+							<h3>${vo.class_name }</h3>
+							<p>ìŠ¤í„°ë”” ëª¨ì§‘ ì •ì› : ${vo.class_personnel }<br>
+										<c:choose>
+											<c:when test="${vo.class_startchk eq 'R' }">
+												ìŠ¤í„°ë””ì› ëª¨ì§‘ ì¤‘!
+											</c:when>
+											<c:when test="${vo.class_startchk eq 'O' }">
+												ìŠ¤í„°ë”” ì§„í–‰ ì¤‘!
+											</c:when>
+											<c:otherwise>
+												ëª¨ì§‘ì´ ë§ˆê°ëœ ìŠ¤í„°ë””ì…ë‹ˆë‹¤.
+											</c:otherwise>
+										</c:choose>
+										<br>
+										ìŠ¤í„°ë”” ì±…ì„ì : ${vo.captain }
+										<br>
+										<c:if test="${!empty vo.start_date }">
+											<fmt:formatDate var="startDate" pattern="yyyy-MM-dd" value="${vo.start_date }"/>
+											ì‹œì‘ ë‚ ì§œ : <c:out value="${startDate }" />
+										</c:if>
+							</p>
+						</div>
+						<ul>
+							<li><i class="icon_clock_alt"></i>
 								<c:choose>
-									<c:when test="${vo.class_startchk eq 'R' }">
-										½ºÅÍµğ¿ø ¸ğÁı Áß!
-									</c:when>
-									<c:when test="${vo.class_startchk eq 'O' }">
-										½ºÅÍµğ ÁøÇà Áß!
+									<c:when test="${vo.weekdays_chk eq 'W' }">
+											ì£¼ì¤‘, ${vo.class_time }
 									</c:when>
 									<c:otherwise>
-										¸ğÁıÀÌ ¸¶°¨µÈ ½ºÅÍµğÀÔ´Ï´Ù.
-									</c:otherwise>
-								</c:choose></p>
-					<div class="rating">
-						<i class="icon_star voted"></i><i class="icon_star voted"></i><i
-							class="icon_star voted"></i><i class="icon_star"></i><i
-							class="icon_star"></i> <small>(145)</small>
+											ì£¼ë§, ${vo.class_time }
+									</c:otherwise>						
+								</c:choose>
+							</li>
+							<li><a href="studySelect.do?class_code=${vo.class_code }">ìì„¸íˆ</a></li>
+						</ul>
 					</div>
 				</div>
-				<ul>
-					<li><i class="icon_clock_alt"></i>
-						<c:choose>
-							<c:when test="${vo.weekdays_chk eq 'W' }">
-									ÁÖÁß, ${vo.class_time }
-							</c:when>
-							<c:otherwise>
-									ÁÖ¸», ${vo.class_time }
-							</c:otherwise>						
-						</c:choose>
-					</li>
-					<li><i class="icon_like"></i> 890</li>
-					<li><a href="studySelect.do?class_code=${vo.class_code }">ÀÚ¼¼È÷</a></li>
-				</ul>
+			</c:forEach>
+		</c:when>
+		<c:otherwise>
+			<div align="center">
+				<font size=6pt face="sanserif" color="#6A0888"><b>ì•„ì§ ê°œì„¤ëœ ìŠ¤í„°ë”” ëª¨ì„ì´ ì—†ì–´ìš”ğŸ˜…</b></font><br>
+				<font size=4pt face="sanserif"><b>ìŠ¤í„°ë””ë¥¼ ìƒˆë¡œ ê°œì„¤í•´ë³´ì„¸ìš”!</b></font>
 			</div>
-		</div>
-		</c:forEach>
+		</c:otherwise>
+		</c:choose>
 		<!-- /box_grid -->
 	</div>
 	<!-- /row -->
 </div>
+<script>
+	// ì¢‹ì•„ìš” í´ë¦­ì‹œ ì‹¤í–‰
+	$('body').on('click','#likeIt' ,function(){
+            let test = $(this).closest(".wrapper").find(".likeit_count");
+            let c_code = $(this).closest(".wrapper").find(".c_class_code").val();
+            let icon = $(this).closest(".wrapper").find(".likeIcon");
+            console.log(c_code);
+            console.log(icon);
+               $.ajax({
+                  url: 'likeItEdit.do',
+                  type: "POST",
+                  data: {
+                     id: '${id}',
+                     c_code: c_code
+                  },
+                  success: function(result) {
+                     console.log("Good!");
+                     console.log(result);
+                     if(result == 1){
+                    	 $(icon).empty();
+                    	 $(icon).append("ğŸ’—");
+                    } else  {
+                    	$(icon).empty();
+                    	$(icon).append("ğŸ¤");
+                    }
+               /*       $(test).empty();
+                     $(test).append(result); */
+                }
+           });
+      });
+</script>
