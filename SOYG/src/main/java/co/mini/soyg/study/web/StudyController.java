@@ -1,13 +1,18 @@
 package co.mini.soyg.study.web;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import co.mini.soyg.study.service.StudyService;
+import co.mini.soyg.study.vo.CourseVO;
 import co.mini.soyg.study.vo.StudyInsertVO;
 import co.mini.soyg.study.vo.StudyVO;
 
@@ -15,38 +20,70 @@ import co.mini.soyg.study.vo.StudyVO;
 public class StudyController {
 	@Autowired
 	private StudyService dao;
-	
+
 	@RequestMapping("/studySelect.do")
-	public String studySelect(StudyVO vo, Model model) {
+	public String studySelect(Model model, @RequestParam("class_code") int class_code) {
+		// class테이블에서 한건
+		model.addAttribute("study", dao.studySelect(class_code));
+
+		// class_image에서 한건
+		model.addAttribute("image", dao.imageSelect(class_code));
 		
-		model.addAttribute("study", dao.studySelect(vo));
+		// class_course List
+		model.addAttribute("course", dao.courseList(class_code));
 
 		return "class/classSelect";
 	}
-	
+
 	@RequestMapping("/studyVideo.do")
 	public String studyVideo() {
 		return "class/classVideo";
 	}
-	
+
 	@RequestMapping("/classCreateForm.do")
-	public String studyCreate(Model model) {
+	public String studyCreate(Model model, @RequestParam("class_code") int class_code) {
 		model.addAttribute("loc", dao.locateList());
 		model.addAttribute("field", dao.fieldList());
-		
+		model.addAttribute("class_code", class_code);
+
 		return "class/classCreateForm";
 	}
-	
+
 	@RequestMapping("/classInsert.do")
-	public String studyInsert(Model model, StudyInsertVO vo, HttpSession session) {
+	public String studyInsert(Model model, StudyInsertVO svo, HttpSession session,
+			@RequestParam("class_code") int class_code, CourseVO cvo,
+			@RequestParam(value = "big_course", required = true) List<String> big_course,
+			@RequestParam(value = "mid_course", required = true) List<String> mid_course,
+			@RequestParam(value = "small_course", required = true) List<String> small_course) {
 		String userid = (String) session.getAttribute("id");
-		vo.setCaptain(userid);
+		svo.setCaptain(userid);
+
+		for (String str : small_course) {
+			System.out.println(str);
+		}
 		
-		System.out.println(vo);
-		
-		dao.studyInsert(vo);
-		
-		return "redirect:regionList.do?loc_code=" + vo.getLoc_code();
+		// class_course 추가
+		int j = 0;
+
+		for (int i = 0; i < big_course.size(); i++) {
+			cvo.setClass_code(class_code);
+			cvo.setBig_course(big_course.get(i));
+			cvo.setMid_course(mid_course.get(i));
+			while (j < small_course.size()) {
+				if (small_course.get(j).equals("next_course")) {
+					j++;
+					break;
+				}
+				cvo.setSmall_course(small_course.get(j));
+				dao.courseInsert(cvo);
+				j++;
+			}
+		}
+
+		// class 추가
+		// dao.studyInsert(svo);
+
+		return "redirect:regionList.do?loc_code=" + svo.getLoc_code();
 	}
-	
+
 }

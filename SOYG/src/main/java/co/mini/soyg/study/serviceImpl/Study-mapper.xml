@@ -3,12 +3,12 @@
 <mapper namespace="co.mini.soyg.study.serviceImpl.Study-mapper">
 
 	<!-- 클래스 리스트 -->
-	<select id="studyList" resultType="co.mini.soyg.study.vo.StudyVO">
+	<select id="getStudyList" resultType="co.mini.soyg.study.vo.StudyVO">
 		SELECT * FROM class
 	</select>
 
 	<!-- 클래스 하나 정보 -->
-	<select id="studySelect" parameterType="int" resultType="co.mini.soyg.study.vo.StudyVO">
+	<select id="getStudySelect" parameterType="int" resultType="co.mini.soyg.study.vo.StudyVO">
 		SELECT cl.*, ca.field_name FROM class cl, category ca WHERE cl.field_code = ca.field_code AND class_code = #{class_Code}
 	</select> 
 		
@@ -40,5 +40,19 @@
 	<insert id="insertBigCourse" parameterType="string">
 		INSERT INTO class_bigcourse VALUES(#{bigCourse}, #{midCourse})
 	</insert>
+	
+	<!-- class_image 1개 셀렉 -->
+	<select id="getImageSelect" parameterType="int" resultType="co.mini.soyg.study.vo.ImageVO">
+		SELECT * FROM class_image WHERE class_code = #{class_code}
+	</select>
+	
+	<!-- class_course에 값넣기 -->
+	<insert id="addCourseInsert" parameterType="co.mini.soyg.study.vo.CourseVO">
+		INSERT INTO class_course VALUES(#{class_code}, #{big_course}, #{mid_course}, #{small_course})
+	</insert>
+	
+	<select id="getCourseList" parameterType="int" resultType="co.mini.soyg.study.vo.CourseVO">
+		SELECT * FROM class_course WHERE class_code = #{class_code}
+	</select>
 	
 </mapper>

@@ -8,6 +8,8 @@ import org.springframework.stereotype.Repository;
 
 import co.mini.soyg.study.service.StudyService;
 import co.mini.soyg.study.vo.CategoryVO;
+import co.mini.soyg.study.vo.CourseVO;
+import co.mini.soyg.study.vo.ImageVO;
 import co.mini.soyg.study.vo.StudyInsertVO;
 import co.mini.soyg.study.vo.StudyVO;
 
@@ -19,13 +21,13 @@ public class StudyServiceImpl implements StudyService {
 	@Override
 	public List<StudyVO> StudySelectList() {
 
-		return sqlSession.selectList("studyList");
+		return sqlSession.selectList("getStudyList");
 	}
 	
 	@Override
-	public StudyVO studySelect(StudyVO vo) {
+	public StudyVO studySelect(int class_code) {
 
-		return sqlSession.selectOne("studySelect", 1);
+		return sqlSession.selectOne("getStudySelect", class_code);
 	}
 
 	@Override
@@ -57,5 +59,20 @@ public class StudyServiceImpl implements StudyService {
 	@Override
 	public List<CategoryVO> fieldList() {
 		return sqlSession.selectList("getFieldList");
+	}
+
+	@Override
+	public ImageVO imageSelect(int class_code) {
+		return sqlSession.selectOne("getImageSelect", class_code);
+	}
+	
+	@Override
+	public int courseInsert(CourseVO vo) {
+		return sqlSession.insert("addCourseInsert", vo);
+	}
+	
+	@Override
+	public List<CourseVO> courseList(int class_code) {
+		return sqlSession.selectList("getCourseList", class_code);
 	}
 }
