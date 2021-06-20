@@ -14,9 +14,82 @@
 	margin-top: 25px;
 	margin-bottom: 25px;
 }
-.flex {
-	
+
+.myButton {
+	box-shadow: 0px 0px 7px 2px #9fb4f2;
+	background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+	background-color:#7892c2;
+	border-radius:10px;
+	border:2px solid #4e6096;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:14px;
+	padding:10px 22px;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #283966;
 }
+.myButton:hover {
+	background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
+	background-color:#476e9e;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+.myButton2 {
+	box-shadow:inset 0px 0px 7px 2px #9fb4f2;
+	background-color:#d42222;
+	border-radius:10px;
+	border:1px solid #4e6096;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:14px;
+	padding:10px 22px;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #283966;
+	margin-left: 50px;
+}
+.myButton2:hover {
+	background-color:#3b1212;
+}
+.myButton2:active {
+	position:relative;
+	top:1px;
+}
+.myButton3 {
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+	background-color:#ffffff;
+	border-radius:6px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	cursor:pointer;
+	color:#666666;
+	font-family:Arial;
+	font-size:14px;
+	font-weight:bold;
+	padding:6px 17px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+}
+.myButton3:hover {
+	background:linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+	background-color:#f6f6f6;
+}
+.myButton3:active {
+	position:relative;
+	top:1px;
+}
+
+        
+        
+
+        
+        
 </style>
 <script>
 	//아이디 중복체크
@@ -201,47 +274,69 @@
 					}
 				}).open();
 	}
+	//비밀번호 실시간체크
+	$(function(){
+	    $('#password').keyup(function(){
+	      $('#chkNotice').html('');
+	    });
+
+	    $('#password2').keyup(function(){
+
+	        if($('#password').val() != $('#password2').val()){
+	          $('#chkNotice').html('비밀번호 일치하지 않음<br><br>');
+	          $('#chkNotice').attr('color', '#f82a2aa3');
+	        } else{
+	          $('#chkNotice').html('비밀번호 일치함<br><br>');
+	          $('#chkNotice').attr('color', '#199894b3');
+	        }
+
+	    });
+	});
 </script>
 <script
 	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <div class="blank">
+<h1 style="margin-top: 30px; margin-bottom: 30px"> 회원가입을 위한 페이지YE요.</h1>
 	<form id="frm" action="memberInsert.do" method="post">
 		<div>
-			<div>
+			<div style="display: flex;" >
 				<input type="text" id="userId" name="userId"
-					class="form-control required" placeholder="사용하실 아이디를 적어주세요.">
-				<button type="button" id="idCheck" value="unChecked">중복체크</button>
+					class="form-control required" style="width: 500px" placeholder="사용하실 아이디를 적어주세요.">
+				<button class="myButton3" style="margin: auto; " type="button" id="idCheck" value="unChecked">중복체크</button>
 			</div>
 			<div>
 
 				<input type="password" id="password" name="password"
-					class="form-control required" placeholder="비밀번호를 입력해주세요.">
+					class="form-control required" style="width: 500px; margin-top: 50px;" placeholder="비밀번호를 입력해주세요.">
 			</div>
-			<div>
+			<div style="display: flex;">
 
 				<input type="password" id="password2" name="password2"
-					class="form-control required" placeholder="비밀번호를 다시 입력해주세요.">
-				<button type="button" id="passwordCheck" value="unChecked">비밀번호
-					확인</button>
+					class="form-control required" style="width: 500px" placeholder="비밀번호를 다시 입력해주세요.">
+				<button type="button" class="myButton3" id="passwordCheck" style="margin: auto;" value="unChecked">확인하기</button>
+				
+			</div>
+			<div style="text-align: left">
+			<font id="chkNotice" size="2"></font>
 			</div>
 			<div>
 
-				<input type="text" id="name" name="name"
+				<input type="text" id="name" name="name" style="margin-top: 50px;"
 					class="form-control required" placeholder="이름을 입력해주세요.">
 			</div>
 			<div>
 
-				<input type="email" id="email" name="email"
+				<input type="email" id="email" name="email" style="margin-top: 50px;"
 					class="form-control required" placeholder="이메일을 입력해주세요.">
 			</div>
 			<div>
 
-				<input type="tel" id="phone" name="phone"
+				<input type="tel" id="phone" name="phone" style="margin-top: 50px;"
 					class="form-control required" placeholder="핸드폰번호를 입력해주세요..">
 			</div>
 			<div>
 
-				<input type="date" id="birth" name="birth"
+				<input type="date" id="birth" name="birth" style="margin-top: 50px;"
 					class="form-control required" placeholder="생년월일을 입력해주세요.">
 			</div>
 			<div class="marjin">
@@ -264,8 +359,8 @@
 			</div>
 
 			<div style="margin-top: 50px">
-				<button type="button" onclick="formCheck()">회원가입</button>
-				<button type="button" onclick="location.href='home.do'">홈으로
+				<button type="button" class="myButton" onclick="formCheck()">회원가입</button>
+				<button type="button" class="myButton2" onclick="location.href='home.do'">홈으로
 				</button>
 			</div>
 		</div>
