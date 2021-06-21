@@ -18,6 +18,7 @@ public class StudyVO {
 	private String class_Time;
 	private String city;
 	private String captain;
+	private String cDate;
 
 	public int getClass_Code() {
 		return class_Code;
@@ -133,6 +134,14 @@ public class StudyVO {
 
 	public String getCaptain() {
 		return captain;
+	}
+
+	public String getcDate() {
+		return cDate;
+	}
+
+	public void setcDate(String cDate) {
+		this.cDate = cDate;
 	}
 
 	public void setCaptain(String captain) {

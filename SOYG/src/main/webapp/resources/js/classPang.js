@@ -1,5 +1,5 @@
 $(function() {
-	$submitBtn = function() {
+	$submitBtn = function(chk) {
 		let formData = new FormData($("#imageForm")[0]);
 		let class_image = $("#image").val().split("\\");
 		let main_image2 = $("#image2").val().split("\\");
@@ -13,8 +13,6 @@ $(function() {
 		$("#main_image3").val(main_image3[2]);
 		$("#main_image4").val(main_image4[2]);
 		$("#main_image5").val(main_image5[2]);
-		
-		
 		
 		$.ajax({
 			url: "imageUpload",
@@ -31,7 +29,16 @@ $(function() {
 			}
 		});
 	};
-
+	
+	$delBtnFnc = function(code) {
+		if(confirm("정말 삭제하시겠습니까?")) {
+			location.href="studyDelete.do?class_code=" + code;
+		}
+		else {
+			return false;
+		}
+	};
+	
 	CKEDITOR.replace('class_info', {
 		resize_enable: false,
 		filebrowserUploadUrl: 'ckUpload',

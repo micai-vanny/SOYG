@@ -12,21 +12,21 @@
 				<div class="container2">
 				<div style="width: 48.8%; height: 100%;" class="imgC">
 					<!-- 메인이미지 -->
-					<img class="image-set" id="previewImage1">
+					<img class="image-set" id="previewImage1" src="resources/classImage/${study.class_Image }">
 				</div>
 				<div style="width: 48.8%; height: 50%;" class="imgC">
 					<!-- 부가 설명이미지 foreach 4개 -->
 					<div class="container2_inner imgC">
-						<img class="image-set" id="previewImage2">
+						<img class="image-set" id="previewImage2" src="resources/classImage/${image.main_image2 }">
 					</div>
 					<div class="container2_inner imgC">
-						<img class="image-set" id="previewImage3">
+						<img class="image-set" id="previewImage3" src="resources/classImage/${image.main_image3 }">
 					</div>
 					<div class="container2_inner imgC">
-						<img class="image-set" id="previewImage4">
+						<img class="image-set" id="previewImage4" src="resources/classImage/${image.main_image4 }">
 					</div>
 					<div class="container2_inner imgC">
-						<img class="image-set" id="previewImage5">
+						<img class="image-set" id="previewImage5" src="resources/classImage/${image.main_image5 }">
 					</div>
 				</div>
 			</div>
@@ -45,8 +45,10 @@
 			<div class="container margin_60_35">
 				<div class="row">
 					<div class="col-lg-8">
-	<form action="classInsert.do?class_code=${class_code }" method="post" id="textFrm">
-						<h2>클래스 이름 : <input type="text" name="class_name" id="class_name" /></h2>
+					<form action="studyUpdate.do?class_code=${study.class_Code }" method="post" id="textFrm">
+						<h2>클래스 이름 : 
+							<input type="text" name="class_name" id="class_name" value="${study.class_Name }" />
+						</h2>
 						<br>
 						<hr/> 
 						<section id="description">
@@ -54,7 +56,9 @@
 							<h2>학습의 의의</h2>
 							<div>
 							<p>
-								<textarea id="class_info" name="class_info" ></textarea>
+								<textarea id="class_info" name="class_info" >
+									${study.class_Info }
+								</textarea>
 							</p>
 							</div>
 						</section>
@@ -114,7 +118,7 @@
 										<td>
 											<select name="loc_code" id="loc_code">
 												<c:forEach items="${loc }" var="loc">
-													<option value="${loc.loc_code }">${loc.loc_name }</option>
+													<option value="${loc.loc_code }" <c:if test="${study.loc_Code eq loc.loc_code }">selected="selected"</c:if> >${loc.loc_name }</option>
 												</c:forEach>
 											</select>
 										</td>
@@ -122,18 +126,18 @@
 									<tr>
 										<th>시작날짜</th>
 										<td>
-											<input type="date" name="start_date" id="start_date" />
+											<input type="date" name="start_date" id="start_date" value="${study.cDate }" />
 										</td>
 									</tr>
 									<tr>
 										<th>활성화 여부</th>
 										<td>
 											<label>
-												<input type="radio" name="class_active" id="class_active" value="A" checked="checked" />
+												<input type="radio" name="class_active" id="class_active" value="A" <c:if test="${study.class_Active eq 'A'.charAt(0) }">checked="checked"</c:if> />
 												활성화
 											</label>
 											<label>
-												<input type="radio" name="class_active" id="class_active" value="I" />
+												<input type="radio" name="class_active" id="class_active" value="I" <c:if test="${study.class_Active eq 'I'.charAt(0) }">checked="checked"</c:if> />
 												비활성화
 											</label> 
 										</td>
@@ -142,15 +146,15 @@
 										<th>모집 여부</th>
 										<td>
 											<label>
-												<input type="radio" name="class_startchk" id="class_startchk" value="R" checked="checked" />
+												<input type="radio" name="class_startchk" id="class_startchk" value="R" <c:if test="${study.class_StartChk eq 'R'.charAt(0) }">checked="checked"</c:if> />
 												모집 중
 											</label>
 											<label>
-												<input type="radio" name="class_startchk" id="class_startchk" value="O" />
+												<input type="radio" name="class_startchk" id="class_startchk" value="O" <c:if test="${study.class_StartChk eq 'O'.charAt(0) }">checked="checked"</c:if> />
 												진행 중
 											</label>
 											<label>
-												<input type="radio" name="class_startchk" id="class_startchk" value="E" />
+												<input type="radio" name="class_startchk" id="class_startchk" value="E" <c:if test="${study.class_StartChk eq 'E'.charAt(0) }">checked="checked"</c:if> />
 												모집 종료
 											</label> 
 										</td>
@@ -158,7 +162,7 @@
 									<tr>
 										<th>모집 인원</th>
 										<td>
-											<input type="number" name="class_personnel" id="class_personnel" placeholder="모집인원을 숫자로 적어주세요" />
+											<input type="number" name="class_personnel" id="class_personnel" placeholder="모집인원을 숫자로 적어주세요" value="${study.class_Personnel }" />
 										</td>
 									</tr>
 									<tr>
@@ -166,7 +170,7 @@
 										<td>
 											<select name="field_code" id="field_code">
 												<c:forEach items="${field }" var="field">
-													<option value="${field.field_code }">${field.field_name }</option>
+													<option value="${field.field_code }" <c:if test="${study.field_Code eq field.field_code }">selected="selected"</c:if> >${field.field_name }</option>
 												</c:forEach>
 											</select>
 										</td>
@@ -175,11 +179,11 @@
 										<th>주중/주말</th>
 										<td>
 											<label>
-												<input type="radio" name="weekdays_chk" id="weekdays_chk" value="W" checked="checked" />
+												<input type="radio" name="weekdays_chk" id="weekdays_chk" value="W" <c:if test="${study.weekdays_Chk eq 'W'.charAt(0) }">checked="checked"</c:if> />
 												주중
 											</label>
 											<label>
-												<input type="radio" name="weekdays_chk" id="weekdays_chk" value="E" />
+												<input type="radio" name="weekdays_chk" id="weekdays_chk" value="E" <c:if test="${study.weekdays_Chk eq 'E'.charAt(0) }">checked="checked"</c:if> />
 												주말
 											</label> 
 										</td>
@@ -187,7 +191,7 @@
 									<tr>
 										<th>시간</th>
 										<td>
-											<input type="text" name="class_time" id="class_time" placeholder="10:30~22:30" />
+											<input type="text" name="class_time" id="class_time" placeholder="10:30~22:30" value="${study.class_Time }" />
 										</td>
 									</tr>
 									<tr>
@@ -296,11 +300,11 @@
 							<!-- /accordion -->
 						</section>
 						<!-- /section -->
-						<input type="hidden" id="class_image" name="class_image" />
-						<input type="hidden" id="main_image2" name="main_image2" />
-						<input type="hidden" id="main_image3" name="main_image3" />
-						<input type="hidden" id="main_image4" name="main_image4" />
-						<input type="hidden" id="main_image5" name="main_image5" />
+						<input type="hidden" id="class_image" name="class_image" value="${study.class_Image }" />
+						<input type="hidden" id="main_image2" name="main_image2" value="${image.main_image2 }" />
+						<input type="hidden" id="main_image3" name="main_image3" value="${image.main_image3 }" />
+						<input type="hidden" id="main_image4" name="main_image4" value="${image.main_image4 }" />
+						<input type="hidden" id="main_image5" name="main_image5" value="${image.main_image5 }" />
 						</form>
 					</div>
 					<!-- /col -->
@@ -350,7 +354,7 @@
 								</div>
 								<hr>
 								<div style="position: relative;">
-									<button type="button" class="btn_1 full-width" id="submit-contact" onclick="$submitBtn('cre')">만들기</button>
+									<button type="button" class="btn_1 full-width" id="submit-contact" onclick="$submitBtn('up')">수정</button>
 								</div>
 							</form>
 						</div>

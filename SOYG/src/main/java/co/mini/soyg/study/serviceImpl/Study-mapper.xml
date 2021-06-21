@@ -9,7 +9,7 @@
 
 	<!-- 클래스 하나 정보 -->
 	<select id="getStudySelect" parameterType="int" resultType="co.mini.soyg.study.vo.StudyVO">
-		SELECT cl.*, ca.field_name FROM class cl, category ca WHERE cl.field_code = ca.field_code AND class_code = #{class_Code}
+		SELECT cl.*, ca.field_name, TO_CHAR(cl.start_date, 'yyyy-mm-dd') AS cDate FROM class cl, category ca WHERE cl.field_code = ca.field_code AND class_code = #{class_Code}
 	</select> 
 		
 	<!-- 지역 리스트 가져오기 -->
@@ -54,5 +54,10 @@
 	<select id="getCourseList" parameterType="int" resultType="co.mini.soyg.study.vo.CourseVO">
 		SELECT * FROM class_course WHERE class_code = #{class_code}
 	</select>
+	
+	<!-- 클래스 삭제 -->
+	<delete id="deleteStudy" parameterType="int">
+		DELETE * FROM class WHERE class_code = #{class_code}
+	</delete>
 	
 </mapper>

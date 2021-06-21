@@ -38,6 +38,7 @@
 			}
 		});
 	});
+	
 </script>
 
 <main>
@@ -438,17 +439,19 @@
 						<div class="cJDaSl">
 							<div class="ePrSEx">바로수강가능</div>
 						</div>
-						<div class="price">
-							<fmt:formatNumber type="currency" value="30000" />
-							<br /> <span class="original_price"> <em> <fmt:formatNumber
-										type="currency" value="75000" />
-							</em> 60% 할인가격
-							</span>
-						</div>
-						<a href="studyVideo.do" class="btn_1 full-width">구매하기</a> <a
-							href="classCreateForm.do?class_code=${study.class_Code }" class="btn_1 full-width outline"> <i
-							class="icon_heart"></i> 위시리스트에 넣기
+						<a href="studyVideo.do" class="btn_1 full-width outline" style="margin-top: 10px;">신청하기</a>
+						<a href="home.do" class="btn_1 full-width outline">
+							목록
 						</a>
+						<a href="classCreateForm.do?class_code=${study.class_Code }" class="btn_1 full-width">
+							만들기
+						</a>
+						<c:if test="${study.captain eq id }">
+							<a class="btn_1 full-width" onclick="$delBtnFnc('${study.class_Code }')">
+								삭제
+							</a>
+							<a class="btn_1 full-width" href="studyUpdateForm.do?class_code=${study.class_Code }">수정</a>
+						</c:if>
 						<div id="list_feat">
 							<h3>클래스 정보</h3>
 							<ul>

@@ -22,7 +22,7 @@ public interface StudyService {
 		int studyUpdate(StudyVO vo);
 		
 		// 클래스 삭제
-		int studyDelete(StudyVO vo);
+		int studyDelete(int class_code);
 		
 		// 지역코드 가져오기
 		List<CategoryVO> locateList();

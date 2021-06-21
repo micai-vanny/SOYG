@@ -43,5 +43,7 @@ public class FileUpload extends HttpServlet {
 		json.addProperty("fileName", fileN);
 		json.addProperty("uploaded", 1);
 		json.addProperty("url", req.getContextPath() + "/resources/classImage/" + fileN);
+		
+		resp.getWriter().print(json);
 	}
 }

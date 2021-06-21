@@ -46,9 +46,8 @@ public class StudyServiceImpl implements StudyService {
 	}
 
 	@Override
-	public int studyDelete(StudyVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int studyDelete(int class_code) {
+		return sqlSession.delete("deleteStudy", class_code);
 	}
 
 	@Override

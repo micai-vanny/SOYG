@@ -28,7 +28,7 @@ public class StudyController {
 
 		// class_image에서 한건
 		model.addAttribute("image", dao.imageSelect(class_code));
-		
+
 		// class_course List
 		model.addAttribute("course", dao.courseList(class_code));
 
@@ -58,32 +58,62 @@ public class StudyController {
 		String userid = (String) session.getAttribute("id");
 		svo.setCaptain(userid);
 
-		for (String str : small_course) {
-			System.out.println(str);
-		}
-		
 		// class_course 추가
 		int j = 0;
-
-		for (int i = 0; i < big_course.size(); i++) {
-			cvo.setClass_code(class_code);
-			cvo.setBig_course(big_course.get(i));
-			cvo.setMid_course(mid_course.get(i));
-			while (j < small_course.size()) {
-				if (small_course.get(j).equals("next_course")) {
-					j++;
-					break;
-				}
-				cvo.setSmall_course(small_course.get(j));
-				dao.courseInsert(cvo);
-				j++;
-			}
-		}
 
 		// class 추가
 		// dao.studyInsert(svo);
 
+		for (int i = 0; i < big_course.size(); i++) {
+			if (big_course.get(i).isEmpty()) {
+				break;
+			} else {
+				cvo.setClass_code(class_code);
+				cvo.setBig_course(big_course.get(i));
+				cvo.setMid_course(mid_course.get(i));
+				while (j < small_course.size()) {
+					if (small_course.get(j).equals("next_course")) {
+						j++;
+						break;
+					}
+					cvo.setSmall_course(small_course.get(j));
+					dao.courseInsert(cvo);
+					j++;
+				}
+			}
+		}
+
 		return "redirect:regionList.do?loc_code=" + svo.getLoc_code();
+	}
+
+	@RequestMapping("/studyDelete.do")
+	public String studyDelete(@RequestParam("class_code") int class_code) {
+		dao.studyDelete(class_code);
+
+		return "redirect:home.do";
+	}
+
+	// 수정 홈페이지
+	@RequestMapping("/studyUpdateForm.do")
+	public String studyUpdateForm(Model model, @RequestParam("class_code") int class_code) {
+		// class테이블에서 한건
+		model.addAttribute("study", dao.studySelect(class_code));
+
+		// class_image에서 한건
+		model.addAttribute("image", dao.imageSelect(class_code));
+
+		model.addAttribute("loc", dao.locateList());
+		model.addAttribute("field", dao.fieldList());
+
+		return "class/classUpdateForm";
+	}
+	
+	// 수정 기능
+	@RequestMapping("/studyUpdate.do")
+	public String studyUpdate(Model model, @RequestParam("class_code") int class_code, StudyInsertVO svo) {
+		System.out.println(svo);
+		
+		return "redirect:studySelect.do?class_code=" + class_code;
 	}
 
 }
