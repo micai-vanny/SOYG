@@ -45,7 +45,7 @@
 			<div class="container margin_60_35">
 				<div class="row">
 					<div class="col-lg-8">
-	<form action="classInsert.do?class_code=${class_code }" method="post" id="textFrm">
+	<form action="classInsert.do" method="post" id="textFrm">
 						<h2>클래스 이름 : <input type="text" name="class_name" id="class_name" /></h2>
 						<br>
 						<hr/> 

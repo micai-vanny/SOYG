@@ -40,9 +40,8 @@ public class StudyServiceImpl implements StudyService {
 	}
 
 	@Override
-	public int studyUpdate(StudyVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int studyUpdate(StudyInsertVO vo) {
+		return sqlSession.update("updateStudy", vo);
 	}
 
 	@Override

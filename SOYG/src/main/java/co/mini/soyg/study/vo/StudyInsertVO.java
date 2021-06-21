@@ -1,6 +1,7 @@
 package co.mini.soyg.study.vo;
 
 public class StudyInsertVO {
+	private int class_code;
 	private String loc_code;
 	private String class_name;
 	private String start_date;
@@ -18,6 +19,14 @@ public class StudyInsertVO {
 	private String main_image3;
 	private String main_image4;
 	private String main_image5;
+
+	public int getClass_code() {
+		return class_code;
+	}
+
+	public void setClass_code(int class_code) {
+		this.class_code = class_code;
+	}
 
 	public String getLoc_code() {
 		return loc_code;
@@ -165,5 +174,4 @@ public class StudyInsertVO {
 				+ main_image4 + ", main_image5=" + main_image5 + "]";
 	}
 
-	
 }

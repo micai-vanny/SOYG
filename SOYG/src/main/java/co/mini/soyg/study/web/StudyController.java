@@ -1,6 +1,5 @@
 package co.mini.soyg.study.web;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import co.mini.soyg.study.service.StudyService;
 import co.mini.soyg.study.vo.CourseVO;
 import co.mini.soyg.study.vo.StudyInsertVO;
-import co.mini.soyg.study.vo.StudyVO;
 
 @Controller
 public class StudyController {
@@ -41,34 +39,32 @@ public class StudyController {
 	}
 
 	@RequestMapping("/classCreateForm.do")
-	public String studyCreate(Model model, @RequestParam("class_code") int class_code) {
+	public String studyCreate(Model model) {
 		model.addAttribute("loc", dao.locateList());
 		model.addAttribute("field", dao.fieldList());
-		model.addAttribute("class_code", class_code);
 
 		return "class/classCreateForm";
 	}
 
 	@RequestMapping("/classInsert.do")
 	public String studyInsert(Model model, StudyInsertVO svo, HttpSession session,
-			@RequestParam("class_code") int class_code, CourseVO cvo,
+			CourseVO cvo,
 			@RequestParam(value = "big_course", required = true) List<String> big_course,
 			@RequestParam(value = "mid_course", required = true) List<String> mid_course,
 			@RequestParam(value = "small_course", required = true) List<String> small_course) {
 		String userid = (String) session.getAttribute("id");
 		svo.setCaptain(userid);
 
+		//class 추가
+		dao.studyInsert(svo);
+		
 		// class_course 추가
 		int j = 0;
-
-		// class 추가
-		// dao.studyInsert(svo);
 
 		for (int i = 0; i < big_course.size(); i++) {
 			if (big_course.get(i).isEmpty()) {
 				break;
 			} else {
-				cvo.setClass_code(class_code);
 				cvo.setBig_course(big_course.get(i));
 				cvo.setMid_course(mid_course.get(i));
 				while (j < small_course.size()) {
@@ -112,6 +108,8 @@ public class StudyController {
 	@RequestMapping("/studyUpdate.do")
 	public String studyUpdate(Model model, @RequestParam("class_code") int class_code, StudyInsertVO svo) {
 		System.out.println(svo);
+		svo.setClass_code(class_code);
+		dao.studyUpdate(svo);
 		
 		return "redirect:studySelect.do?class_code=" + class_code;
 	}

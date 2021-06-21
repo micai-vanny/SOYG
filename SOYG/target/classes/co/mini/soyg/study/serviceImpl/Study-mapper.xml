@@ -36,11 +36,6 @@
 		VALUES (class_seq.currval, #{main_image2}, #{main_image3}, #{main_image4}, #{main_image5})
 	</insert>
 	
-	<!-- class_bigcourse insert -->
-	<insert id="insertBigCourse" parameterType="string">
-		INSERT INTO class_bigcourse VALUES(#{bigCourse}, #{midCourse})
-	</insert>
-	
 	<!-- class_image 1개 셀렉 -->
 	<select id="getImageSelect" parameterType="int" resultType="co.mini.soyg.study.vo.ImageVO">
 		SELECT * FROM class_image WHERE class_code = #{class_code}
@@ -48,7 +43,7 @@
 	
 	<!-- class_course에 값넣기 -->
 	<insert id="addCourseInsert" parameterType="co.mini.soyg.study.vo.CourseVO">
-		INSERT INTO class_course VALUES(#{class_code}, #{big_course}, #{mid_course}, #{small_course})
+		INSERT INTO class_course VALUES(class_seq.currval, #{big_course}, #{mid_course}, #{small_course})
 	</insert>
 	
 	<select id="getCourseList" parameterType="int" resultType="co.mini.soyg.study.vo.CourseVO">
@@ -59,5 +54,13 @@
 	<delete id="deleteStudy" parameterType="int">
 		DELETE * FROM class WHERE class_code = #{class_code}
 	</delete>
+	
+	<!-- 클래스 수정 -->
+	<update id="updateStudy" parameterType="co.mini.soyg.study.vo.StudyInsertVO">
+		UPDATE class 
+		SET loc_code = #{loc_code}, class_name = #{class_name}, start_date = to_date(#{start_date}, 'yy-mm-dd'), class_info = #{class_info}, class_active = #{class_active}, class_startchk = #{class_startchk}, class_personnel = #{class_personnel}, field_code = #{field_code}, weekdays_chk = #{weekdays_chk}, class_time = #{class_time}, city = #{city} 
+		WHERE class_code = #{class_code}
+	</update>
+	
 	
 </mapper>

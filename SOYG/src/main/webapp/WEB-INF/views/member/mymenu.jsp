@@ -208,8 +208,12 @@ $('body').on('click','#likeIt' ,function(){
 					</li>
 					<li>BirthDay <span class="float-right">${info.birth }</span>
 					<li>MYPHONE <span class="float-right">${info.phone }</span></li>
-					<li style="text-align: center"><a
-						href="infomationUpdatepage.do">정보수정하기</a></li>
+					<li style="text-align: center">
+						<a href="infomationUpdatepage.do">정보수정하기</a>
+					</li>
+					<li style="text-align: center;">
+						<a href="classCreateForm.do">클래스 만들기</a>
+					</li>
 				</ul>
 			</div>
 		</aside>

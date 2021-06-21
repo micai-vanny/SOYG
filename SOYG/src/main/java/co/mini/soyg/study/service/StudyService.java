@@ -19,7 +19,7 @@ public interface StudyService {
 		int studyInsert(StudyInsertVO vo);
 
 		// 클래스 수정
-		int studyUpdate(StudyVO vo);
+		int studyUpdate(StudyInsertVO vo);
 		
 		// 클래스 삭제
 		int studyDelete(int class_code);
