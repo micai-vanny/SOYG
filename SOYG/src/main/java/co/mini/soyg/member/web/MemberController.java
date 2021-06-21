@@ -98,6 +98,7 @@ public class MemberController {
 		model.addAttribute("classlist",study.selectStudyList(svo));
 		model.addAttribute("memberlist",study.classMemberList(ssvo));
 		model.addAttribute("info", vo);
+		model.addAttribute("myLikeList", dao.myLikeList(vo));
 
 		return "member/mymenu";
 	}
@@ -310,6 +311,21 @@ public class MemberController {
 		dao2.updatePassword(vo);
 
 		return "redirect:home.do";
+	}
+	@RequestMapping("/dropClass.do")
+	public String dropClass(HttpServletRequest request,HttpServletResponse response, Model model, MemberVO vo) throws IOException {
+		HttpSession session = request.getSession();
+		
+		String class_code = request.getParameter("class_code");
+		String userId = (String) session.getAttribute("id");
+	
+		vo.setClass_code(Integer.parseInt(class_code));
+		vo.setUserId(userId);
+				
+		int a = dao2.dropClass(vo);
+		
+		response.getWriter().print(a);
+		return null;
 	}
 	
 }
