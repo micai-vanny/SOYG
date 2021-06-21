@@ -792,7 +792,7 @@ ul#top_menu li a.btn_1:hover {
   background: url(../../../mainImage/adminpage.jpg);
 }
 #hero_in.courses:before {
-  background: url(http://via.placeholder.com/1600x1067/ccc/fff/bg_courses.jpg) center center no-repeat;
+  background: url(../../../mainImage/mymenu.jpg) center center no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -800,7 +800,7 @@ ul#top_menu li a.btn_1:hover {
 }
 #hero_in.courses .wrapper {
   background-color: #372675;
-  background-color: rgba(57, 39, 121, 0.8);
+  background-color: rgba(255, 162, 7, 0.26);
 }
 #hero_in.contacts:before {
   background: url(http://via.placeholder.com/1600x1067/ccc/fff/bg_contacts.jpg) center center no-repeat;

@@ -54,18 +54,18 @@
 								<div class="wrapper">
 										<c:if test="${!empty id }">
 											<div style="display:flex; justify-content: flex-end; margin-bottom: -5px">
-															<a href="javascript:void(0);" id="likeIt">
-																<c:choose>
-																	<c:when test="${empty vo.like_check }">
-										                               <span style="font-size: 18pt" class="likeIcon">🤍</span>
-										                               <input type="hidden" class="c_class_code" value="${vo.class_code}">
-									                               </c:when>
-									                               <c:otherwise>
-									                               		<span style="font-size: 18pt" class="likeIcon">💗</span>
-										                               <input type="hidden" class="c_class_code" value="${vo.class_code}">
-									                               </c:otherwise>
-									                            </c:choose>
-									                        </a>
+												<a href="javascript:void(0);" id="likeIt">
+													<c:choose>
+														<c:when test="${empty vo.like_check }">
+										                    <span style="font-size: 18pt" class="likeIcon">🤍</span>
+										                    <input type="hidden" class="c_class_code" value="${vo.class_code}">
+									                    </c:when>
+									                    <c:otherwise>
+									                   		<span style="font-size: 18pt" class="likeIcon">💗</span>
+										                    <input type="hidden" class="c_class_code" value="${vo.class_code}">
+									                    </c:otherwise>
+									                </c:choose>
+									            </a>
 											</div>
 										</c:if>
 										<small>${vo.city }</small>
