@@ -12,6 +12,7 @@ public interface MemberService {
 	public int updateMember(MemberVO vo);
 	public int deleteMember(MemberVO vo);
 	public boolean idCheck(MemberVO vo);
+	List<MemberVO> myLikeList(MemberVO vo);
 	
 	// 비밀번호 찾기
 	MemberVO passFinder(MemberVO vo);

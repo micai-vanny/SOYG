@@ -12,6 +12,13 @@ import co.mini.soyg.member.vo.MemberVO;
 @Repository
 public class MemberServiceImpl implements MemberService {
 
+	
+	@Override
+	public List<MemberVO> myLikeList(MemberVO vo) {
+		// 특정 유저가 좋아요 한 스터디 리스트
+		return Session.selectList("myLikeList", vo);
+	}
+	
 	@Autowired
 	   private SqlSession Session;
 	//loginCheck
@@ -81,6 +88,10 @@ public class MemberServiceImpl implements MemberService {
 	public MemberVO passFinder(MemberVO vo) {
 		// TODO 비밀번호 찾기
 		return Session.selectOne("passFinder", vo);
+	}
+	public int dropClass(MemberVO vo) {
+		
+		return Session.delete("dropClass",vo);
 	}
 
 }
