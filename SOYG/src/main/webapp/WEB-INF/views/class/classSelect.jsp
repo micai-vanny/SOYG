@@ -7,19 +7,6 @@
 
 <script>
 	$(function() {
-		$videoBtnFnc = function(emp) {
-			if(emp == "emp") {
-				alert("로그인이 필요한 기능입니다.");
-				if(confirm("회원가입 페이지로 이동하시겠습니까?")) {
-					location.href="memberJoin.do";
-				} else {
-					return false;
-				}
-			} else if (emp == "nonEmp") {
-				location.href="studyVideo.do";
-			}
-		};
-		
 		// 	이미지 클릭시 해당 이미지 모달
 		$(".imgC").click(function() {
 			$(".modal").show();
