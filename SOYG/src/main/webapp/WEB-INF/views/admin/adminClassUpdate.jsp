@@ -94,7 +94,7 @@
 					<ul align="right" class="buttons">
 						<li><button onclick="updateClass()" class="btn_1 gray approve"><i
 								class="fa fa-fw fa-check-circle-o"></i>수정완료</button></li>
-						<li><button  onclick="deleteCheck();" class="btn_1 gray delete"> 삭제</button></li>
+						<li><button  onclick="deleteCheck('${classes.class_code }')" class="btn_1 gray delete"> 삭제</button></li>
 					</ul>
 				</li>
 			</ul>
@@ -104,12 +104,17 @@
 </form>
 	</c:when>
 	<c:otherwise>
-		<h1 style = "text-align : center;">정상적인 방법으로 접근하시오.</h1>
+		<body onload="errorPage()"></body>
 	</c:otherwise>
 </c:choose>
 		
 <!-- 수정/삭제 -->
 <script>
+// 관리자 이외에 접근 시 에러 페이지로 이동
+function errorPage() {
+
+	location.href = "errorPage.do";
+}
 function updateClass(class_code){
 	var week = $('input[name=weekdays_chk]:checked').val();
 	var active = $('input[class_active]').val();

@@ -12,7 +12,15 @@
 function select(class_code){
 	location.href = "adminClassSelect.do?class_code=" + class_code;
 	}
+function goPage(page){
 	
+	location.href = "adminClassList.do?page=" + page;
+}	
+// 관리자 이외에 접근 시 에러 페이지로 이동
+function errorPage() {
+
+	location.href = "errorPage.do";
+}
 //검색기능 - 스터디명
 window.onload = function(){
 	$("#keyword").keyup(function(){
@@ -23,10 +31,7 @@ window.onload = function(){
 		$(temp).parent().show();
 	});
 };
-function goPage(page){
-	
-	location.href = "adminClassList.do?page=" + page;
-}
+
 
 </script>
 <section id="hero_in" class="general">
@@ -129,7 +134,7 @@ function goPage(page){
 	</div>
 	</c:when>
 	<c:otherwise>
-		<h1 style="text-align: center;">정상적인 방법으로 접근하시오.</h1>
+		<body onload="errorPage()"></body>
 	</c:otherwise>
 	</c:choose>
 </body>
