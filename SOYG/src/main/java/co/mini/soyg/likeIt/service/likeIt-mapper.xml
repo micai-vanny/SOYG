@@ -4,7 +4,7 @@
 
 <!-- 좋아요 클릭 시 likeit table에 정보 등록 -->
 <insert id="likeItUpdate" parameterType="co.mini.soyg.main.vo.MainVO">
-	insert into likeIT values(#{userId}, #{class_code}, 'Y')
+	insert into likeIT(userId, class_code, like_check) values(#{userId}, #{class_code}, 'Y')
 </insert>
 
 <!-- 좋아요 개수 카운트 -->

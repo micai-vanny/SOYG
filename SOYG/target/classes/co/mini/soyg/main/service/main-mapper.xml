@@ -74,10 +74,18 @@
 
 <!-- 검색 기능을 만들자 -->
 <select id="searchClass" resultType="co.mini.soyg.main.vo.MainVO" parameterType="co.mini.soyg.main.vo.MainVO">
-	select * from class c join loc_info l
+	select *
+  	from class c join loc_info l
 	using (loc_code)
 	join field_info f
 	using (field_code)
+	full OUTER join (select c.class_code, i.LIKE_CHECK
+          from class c LEFT OUTER JOIN likeIt i 
+          on c.class_code = i.class_code
+          where i.USERID = #{userId}
+          GROUP BY  c.class_code, c.loc_code, c.class_name, c.start_date, c.class_image, c.class_info, c.class_active, c.class_startchk, c.class_personnel, c.field_code, c.weekdays_chk, c.class_time, c.captain, c.city, i.LIKE_CHECK
+          ) u
+    using (class_code)
 	where c.city like '%' || #{search} || '%' or f.field_name like '%' || #{search} || '%' or c.class_name like '%' || #{search} || '%' or c.captain like '%' || #{search} || '%'
 </select>
 

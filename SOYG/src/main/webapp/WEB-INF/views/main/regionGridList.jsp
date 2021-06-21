@@ -53,40 +53,40 @@
 							<c:if test="${!empty id }">
 									<div style="display:flex; justify-content: flex-end; margin-bottom: -45px">
 											<a href="javascript:void(0);" id="likeIt">
-													<c:choose>
-														<c:when test="${empty vo.like_check }">
-												              <span style="font-size: 18pt" class="likeIcon">🤍</span>
-												              <input type="hidden" class="c_class_code" value="${vo.class_code}">
-											            </c:when>
-											            <c:otherwise>
-											                  <span style="font-size: 18pt" class="likeIcon">💗</span>
-												              <input type="hidden" class="c_class_code" value="${vo.class_code}">
-											            </c:otherwise>
-											        </c:choose>
+												<c:choose>
+													<c:when test="${empty vo.like_check }">
+												        <span style="font-size: 18pt" class="likeIcon">🤍</span>
+												        <input type="hidden" class="c_class_code" value="${vo.class_code}">
+											        </c:when>
+											        <c:otherwise>
+											            <span style="font-size: 18pt" class="likeIcon">💗</span>
+												        <input type="hidden" class="c_class_code" value="${vo.class_code}">
+											        </c:otherwise>
+											    </c:choose>
 											</a>
 									</div>
 							</c:if>
 							<small>${vo.city }</small>
 							<h3>${vo.class_name }</h3>
 							<p>스터디 모집 정원 : ${vo.class_personnel }<br>
-										<c:choose>
-											<c:when test="${vo.class_startchk eq 'R' }">
-												스터디원 모집 중!
-											</c:when>
-											<c:when test="${vo.class_startchk eq 'O' }">
-												스터디 진행 중!
-											</c:when>
-											<c:otherwise>
-												모집이 마감된 스터디입니다.
-											</c:otherwise>
-										</c:choose>
-										<br>
-										스터디 책임자 : ${vo.captain }
-										<br>
-										<c:if test="${!empty vo.start_date }">
-											<fmt:formatDate var="startDate" pattern="yyyy-MM-dd" value="${vo.start_date }"/>
-											시작 날짜 : <c:out value="${startDate }" />
-										</c:if>
+								<c:choose>
+									<c:when test="${vo.class_startchk eq 'R' }">
+										스터디원 모집 중!
+									</c:when>
+									<c:when test="${vo.class_startchk eq 'O' }">
+										스터디 진행 중!
+									</c:when>
+									<c:otherwise>
+										모집이 마감된 스터디입니다.
+									</c:otherwise>
+								</c:choose>
+								<br>
+								스터디 책임자 : ${vo.captain }
+								<br>
+								<c:if test="${!empty vo.start_date }">
+									<fmt:formatDate var="startDate" pattern="yyyy-MM-dd" value="${vo.start_date }"/>
+									시작 날짜 : <c:out value="${startDate }" />
+								</c:if>
 							</p>
 						</div>
 						<ul>
