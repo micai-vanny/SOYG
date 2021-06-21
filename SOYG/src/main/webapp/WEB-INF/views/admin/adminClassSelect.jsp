@@ -110,7 +110,7 @@
 </div>
 	</c:when>
 	<c:otherwise>
-		<h1 style = "text-align : center;">정상적인 방법으로 접근하시오.</h1>
+	<body onload="errorPage()"></body>
 	</c:otherwise>
 </c:choose>
 		
@@ -124,5 +124,10 @@ function deleteCheck(class_code){
 	} else {
 		return false;
 	}
+}
+// 관리자 이외에 접근 시 에러 페이지로 이동
+function errorPage() {
+
+	location.href = "errorPage.do";
 }
 </script>

@@ -104,12 +104,17 @@
 </form>
 	</c:when>
 	<c:otherwise>
-		<h1 style = "text-align : center;">정상적인 방법으로 접근하시오.</h1>
+		<body onload="errorPage()"></body>
 	</c:otherwise>
 </c:choose>
 		
 <!-- 수정/삭제 -->
 <script>
+// 관리자 이외에 접근 시 에러 페이지로 이동
+function errorPage() {
+
+	location.href = "errorPage.do";
+}
 function updateClass(class_code){
 	var week = $('input[name=weekdays_chk]:checked').val();
 	var active = $('input[class_active]').val();
