@@ -62,6 +62,13 @@ button:hover:before, button:hover:after {
 	input::-webkit-inner-spin-button {
 		-webkit-appearance: none;
 	}
+	
+	input[type="date"]::before {content:attr(data-placeholder);width:100%}
+	input[type="date"]:focus::before,
+	input[type ="date"]:valid::before {
+		display: none;
+	}
+	
 
 </style>
 
@@ -93,7 +100,8 @@ button:hover:before, button:hover:after {
 				</div>
 				
 				<div class="form-group">
-					<input type="number" name="birth" class="form-control" placeholder="생년월일을 입력해 주세요 ex) 561231" maxlength = "6" required oninput = "numberLength(this);">
+					<!-- <input type="number" name="birth" class="form-control" placeholder="생년월일을 입력해 주세요 ex) 561231" maxlength = "6" required oninput = "numberLength(this);"> -->
+					<input type = "date" name = "birth" class = "form-control" data-placeholder = "우측 아이콘을 클릭해 생년월일을 골라 주세요." required aria-required="ture">
 				</div>
 				
 				<div class="form-group" style = "display: flex; align-items: flex-end;">
