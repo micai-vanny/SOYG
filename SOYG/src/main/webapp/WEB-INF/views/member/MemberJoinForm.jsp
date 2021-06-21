@@ -274,24 +274,35 @@
 					}
 				}).open();
 	}
-	//비밀번호 실시간체크
-	$(function(){
-	    $('#password').keyup(function(){
-	      $('#chkNotice').html('');
-	    });
+	//비밀번호 실시간 체크
+	$(function() {
+	      $('#password').keyup(function() {
+	         if ($('#password2').val() == "") {
+	            $('#chkNotice').html('');
+	         } else {
+	            if ($('#password2').val() != $('#password').val()) {
+	               $('#chkNotice').html('비밀번호 일치하지 않음<br><br>');
+	               $('#chkNotice').attr('color', '#f82a2aa3');
+	            } else {
+	               $('#chkNotice').html('비밀번호 일치함<br><br>');
+	               $('#chkNotice').attr('color', '#199894b3');
+	            }
+	         }
 
-	    $('#password2').keyup(function(){
+	      });
 
-	        if($('#password').val() != $('#password2').val()){
-	          $('#chkNotice').html('비밀번호 일치하지 않음<br><br>');
-	          $('#chkNotice').attr('color', '#f82a2aa3');
-	        } else{
-	          $('#chkNotice').html('비밀번호 일치함<br><br>');
-	          $('#chkNotice').attr('color', '#199894b3');
-	        }
+	      $('#password2').keyup(function() {
 
-	    });
-	});
+	         if ($('#password').val() != $('#password2').val()) {
+	            $('#chkNotice').html('비밀번호 일치하지 않음<br><br>');
+	            $('#chkNotice').attr('color', '#f82a2aa3');
+	         } else {
+	            $('#chkNotice').html('비밀번호 일치함<br><br>');
+	            $('#chkNotice').attr('color', '#199894b3');
+	         }
+
+	      });
+	   });
 </script>
 <script
 	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
