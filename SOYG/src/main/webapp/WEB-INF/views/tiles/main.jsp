@@ -81,13 +81,6 @@ uri="http://java.sun.com/jsp/jstl/core" %>
                            스터디 책임자 : ${vo.captain }<br>
                            스터디 분야 : ${vo.field_name }
                         </p>
-                        <div class="rating">
-                            <i class="icon_star voted"></i
-                            ><i class="icon_star voted"></i
-                            ><i class="icon_star voted"></i
-                            ><i class="icon_star"></i><i class="icon_star"></i>
-                            <small>(145)</small>
-                        </div>
                     </div>
                     <ul>
                         <li><i class="icon_clock_alt"></i>
@@ -100,7 +93,6 @@ uri="http://java.sun.com/jsp/jstl/core" %>
 								</c:otherwise>						
 							</c:choose>
                         </li>
-                        <li><i class="icon_like"></i> 890</li>
                         <li><a href="studySelect.do?class_code=${vo.class_code }">자세히</a></li>
                     </ul>
                 </div>

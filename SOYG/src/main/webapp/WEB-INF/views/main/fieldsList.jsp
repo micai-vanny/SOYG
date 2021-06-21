@@ -89,7 +89,6 @@
 								시작 날짜 : <c:out value="${startDate }" />
 								</c:if>
 							</p>
-							<div class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i><i class="icon_star"></i> <small>(145)</small></div>
 						</div>
 						<ul>
 							<li><i class="icon-clock-4"></i> 
