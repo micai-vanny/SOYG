@@ -94,7 +94,7 @@
 					<ul align="right" class="buttons">
 						<li><button onclick="updateClass()" class="btn_1 gray approve"><i
 								class="fa fa-fw fa-check-circle-o"></i>수정완료</button></li>
-						<li><button  onclick="deleteCheck();" class="btn_1 gray delete"> 삭제</button></li>
+						<li><button  onclick="deleteCheck('${classes.class_code }')" class="btn_1 gray delete"> 삭제</button></li>
 					</ul>
 				</li>
 			</ul>
