@@ -45,7 +45,7 @@
 			<div class="container margin_60_35">
 				<div class="row">
 					<div class="col-lg-8">
-	<form action="classInsert.do" method="post" id="textFrm">
+	<form action="classInsert.do?class_code=${class_code }" method="post" id="textFrm">
 						<h2>클래스 이름 : <input type="text" name="class_name" id="class_name" /></h2>
 						<br>
 						<hr/> 
@@ -75,14 +75,14 @@
 											<a data-toggle="collapse" href="#collapseOne"
 												aria-expanded="true" aria-controls="collapseOne">
 												<i class="indicator ti-minus"></i>
-												<input type="text" name="bigCourseOne" id="bigCourseOne" />
+												<input type="text" name="big_course" />
 											</a>
 										</h5>
 									</div>
 
 									<div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
 										<div class="card-body">
-											<input type="text" name="midCourseOne" id="midCourseOne" />&nbsp;&nbsp;&nbsp;
+											<input type="text" name="mid_course"/>&nbsp;&nbsp;&nbsp;
 											<span>과정제목 추가</span>
 											<button type="button" class="btn btn-primary btnsIze" onclick="$addCourse('smallCourse')">
 												<small>추가</small>
@@ -90,7 +90,7 @@
 											<div class="list_lessons_2">
 												<ul class="listBodyOne">
 													<li>
-														<input type="text" name="smallCourseOne_1" id="smallCourseOne_1" />
+														<input type="text" name="small_course"/>
 													</li>
 												</ul>
 											</div>

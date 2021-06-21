@@ -14,6 +14,10 @@ public class StudyVO {
 	private int class_Personnel;
 	private String field_Code;
 	private String field_Name;
+	private char weekdays_Chk;
+	private String class_Time;
+	private String city;
+	private String captain;
 
 	public int getClass_Code() {
 		return class_Code;
@@ -101,6 +105,38 @@ public class StudyVO {
 
 	public void setField_Name(String field_Name) {
 		this.field_Name = field_Name;
+	}
+
+	public char getWeekdays_Chk() {
+		return weekdays_Chk;
+	}
+
+	public void setWeekdays_Chk(char weekdays_Chk) {
+		this.weekdays_Chk = weekdays_Chk;
+	}
+
+	public String getClass_Time() {
+		return class_Time;
+	}
+
+	public void setClass_Time(String class_Time) {
+		this.class_Time = class_Time;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getCaptain() {
+		return captain;
+	}
+
+	public void setCaptain(String captain) {
+		this.captain = captain;
 	}
 
 }
