@@ -30,6 +30,19 @@ $(function() {
 		});
 	};
 	
+	$videoBtnFnc = function(emp) {
+			if(emp == "emp") {
+				alert("로그인이 필요한 기능입니다.");
+				if(confirm("회원가입 페이지로 이동하시겠습니까?")) {
+					location.href="memberJoin.do";
+				} else {
+					return false;
+				}
+			} else if (emp == "nonEmp") {
+				location.href="studyVideo.do";
+			}
+		};
+	
 	$delBtnFnc = function(code) {
 		if(confirm("정말 삭제하시겠습니까?")) {
 			location.href="studyDelete.do?class_code=" + code;

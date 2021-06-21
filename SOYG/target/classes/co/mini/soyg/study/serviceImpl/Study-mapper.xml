@@ -52,7 +52,7 @@
 	
 	<!-- 클래스 삭제 -->
 	<delete id="deleteStudy" parameterType="int">
-		DELETE * FROM class WHERE class_code = #{class_code}
+		delete from class where class_code = #{class_code}
 	</delete>
 	
 	<!-- 클래스 수정 -->
