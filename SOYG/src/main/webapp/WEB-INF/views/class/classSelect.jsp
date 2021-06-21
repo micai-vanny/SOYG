@@ -7,6 +7,19 @@
 
 <script>
 	$(function() {
+		$videoBtnFnc = function(emp) {
+			if(emp == "emp") {
+				alert("로그인이 필요한 기능입니다.");
+				if(confirm("회원가입 페이지로 이동하시겠습니까?")) {
+					location.href="memberJoin.do";
+				} else {
+					return false;
+				}
+			} else if (emp == "nonEmp") {
+				location.href="studyVideo.do";
+			}
+		};
+		
 		// 	이미지 클릭시 해당 이미지 모달
 		$(".imgC").click(function() {
 			$(".modal").show();
@@ -91,47 +104,6 @@
 					<section id="description">
 						<h2>학습의 의의</h2>
 						<p>${study.class_Info }</p>
-						<h5>배우게 될 것</h5>
-						<ul class="list_ok">
-							<li>
-								<h6>Suas summo id sed erat erant oporteat</h6>
-								<p>Ut unum diceret eos, mel cu velit principes, ut quo inani
-									dolorem mediocritatem. Mea in justo posidonium necessitatibus.</p>
-							</li>
-							<li>
-								<h6>Illud singulis indoctum ad sed</h6>
-								<p>Ut unum diceret eos, mel cu velit principes, ut quo inani
-									dolorem mediocritatem. Mea in justo posidonium necessitatibus.</p>
-							</li>
-							<li>
-								<h6>Alterum bonorum mentitum an mel</h6>
-								<p>Ut unum diceret eos, mel cu velit principes, ut quo inani
-									dolorem mediocritatem. Mea in justo posidonium necessitatibus.</p>
-							</li>
-						</ul>
-						<hr>
-						<p>Mea appareat omittantur eloquentiam ad, nam ei quas
-							oportere democritum. Prima causae admodum id est, ei timeam
-							inimicus sed. Sit an meis aliquam, cetero inermis vel ut. An sit
-							illum euismod facilisis, tamquam vulputate pertinacia eum at.</p>
-						<div class="row">
-							<div class="col-lg-6">
-								<ul class="bullets">
-									<li>Dolorem mediocritatem</li>
-									<li>Mea appareat</li>
-									<li>Prima causae</li>
-									<li>Singulis indoctum</li>
-								</ul>
-							</div>
-							<div class="col-lg-6">
-								<ul class="bullets">
-									<li>Timeam inimicus</li>
-									<li>Oportere democritum</li>
-									<li>Cetero inermis</li>
-									<li>Pertinacia eum</li>
-								</ul>
-							</div>
-						</div>
 						<!-- /row -->
 					</section>
 					<!-- /section -->
@@ -439,11 +411,16 @@
 						<div class="cJDaSl">
 							<div class="ePrSEx">바로수강가능</div>
 						</div>
-						<a href="studyVideo.do" class="btn_1 full-width outline" style="margin-top: 10px;">신청하기</a>
+						<c:if test="${empty id }">
+							<a onclick="$videoBtnFnc('emp')" class="btn_1 full-width outline" style="margin-top: 10px;">신청하기</a>
+						</c:if>
+						<c:if test="${!empty id }">
+							<a onclick="$videoBtnFnc('nonEmp')" class="btn_1 full-width outline" style="margin-top: 10px;">신청하기</a>
+						</c:if>
 						<a href="home.do" class="btn_1 full-width outline">
 							목록
 						</a>
-						<c:if test="${study.captain eq id || id eq admin}">
+						<c:if test="${study.captain eq id || id eq 'admin'}">
 							<a class="btn_1 full-width" onclick="$delBtnFnc('${study.class_Code }')">
 								삭제
 							</a>
